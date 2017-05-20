@@ -57,10 +57,38 @@
 			 *
 			 * Special styles for displaying the icons and their classes in the docs.
 			 */
-			.drawingImages{
-				width: 100%;
-				height: auto;
-			}
+				.main-box{
+					padding-bottom: 5px;
+				}
+				@media (max-width: 1366px) {
+					.main-box{
+						width: 100%
+					}
+				}
+				.form-divider{
+					margin-right: 10px;
+				}
+				.drawingImages{
+					width: auto;
+					height: 100%;
+					margin-top: 15px;
+					margin-bottom: 15px;
+				}
+				.dateselect-filter-input{
+					/*padding-left: 5px;*/
+				}
+				.page-counter{
+					margin-left: -27px; 
+					margin-right: 15px;
+				}
+				@media (max-width: 768px) {
+				.drawingImages{
+					width: 200px;
+					height: 200px;
+				}
+				
+			}					
+			
 			
 		</style>
 	</head>
@@ -505,7 +533,7 @@
 				<section id="widget-grid" class="">
 							
 					<!-- row -->
-						<article class="col-xs-12 col-sm-6 col-md-6 col-lg-10">
+						<article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
 
 								<!-- Widget ID (each widget will need unique ID)-->
 								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
@@ -538,76 +566,284 @@
 										<!-- end widget edit box -->
 										
 										<!-- widget content -->
-										<div class="widget-body padding-10" >
-											<div class="col-lg-12 bordered row" style="display: flex; justify-content: center">
-												<div class="col-lg-3 picture">
-													<img class="drawingImages" src="drawings/1.png">
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group smart-form col-lg-6">
-														<label class="label">File input</label>
-														<div class="input input-file">
-															<span class="button">Get Number</span><input type="text">
+										<div class="widget-body">
+
+										<!-- foreach for each page frome here -->
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">1</span>
+															<img class="drawingImages" src="drawings/1.png">
 														</div>
-														<label class="label">File input</label>
-														<div class="input input-file">
-															<span class="button">Get Title</span><input type="text">
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
 														</div>
-														<label class="input">Date</label>
-														<div class="input input-file">
-															<input id="dateselect_filter" type="text" class="datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
-														</div>
-														<label class="input">Discipline</label>
-														<div class="input input-file">
-															<input type="text" required style="padding-left: 5px;" />
-														</div>
-														<br>
 													</div>
 												</div>
-											</div>
-											<div class="col-lg-12 bordered row" style="display: flex; justify-content: center">
-												<div class="col-lg-3 picture">
-													<img class="drawingImages" src="drawings/1.png">
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group smart-form col-lg-6">
-														<label class="label">File input</label>
-														<div class="input input-file">
-															<span class="button">Get Number</span><input type="text">
+										<!-- foreach ends here -->
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">2</span>
+															<img class="drawingImages" src="drawings/1.png">
 														</div>
-														<label class="label">File input</label>
-														<div class="input input-file">
-															<span class="button">Get Title</span><input type="text">
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
 														</div>
-														<label class="input">Date</label>
-														<div class="input input-file">
-															<input id="dateselect_filter" type="text" class="datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
-														</div>
-														<label class="input">Discipline</label>
-														<div class="input input-file">
-															<input type="text" required style="padding-left: 5px;" />
-														</div>
-														<br>
 													</div>
 												</div>
-											</div>
-											<footer class="pull-right padding-10">
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">3</span>
+															<img class="drawingImages" src="drawings/1.png">
+														</div>
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">4</span>
+															<img class="drawingImages" src="drawings/1.png">
+														</div>
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">5</span>
+															<img class="drawingImages" src="drawings/1.png">
+														</div>
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">6</span>
+															<img class="drawingImages" src="drawings/1.png">
+														</div>
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">7</span>
+															<img class="drawingImages" src="drawings/1.png">
+														</div>
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 main-box">
+													<div class="col-lg-12 bordered form-divider">
+														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+															&times;
+														</button>
+														<div class="col-lg-6 picture">
+															<span class="label pull-left bg-color-darken page-counter" style="">8</span>
+															<img class="drawingImages" src="drawings/1.png">
+														</div>
+														<div class="col-lg-6">
+															<div class="form-group smart-form">
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+																</div>
+																<label class="label">File input</label>
+																<div class="input input-file">
+																	<span class="button">Get Title</span><input type="text">
+																</div>
+																<label class="input">Date</label>
+																<div class="input input-file">
+																	<input id="dateselect_filter" class="dateselect-filter-input" type="text" class="datepicker" data-dateformat="mm/dd/yy">
+																</div>
+																<label class="input">Discipline</label>
+																<div class="input input-file">
+																	<input type="text" required />
+																</div>
+																<br>
+															</div>
+														</div>
+													</div>
+												</div>
+											
+											<div class="modal-footer col-lg-12 pull-right padding-10">
 												<button type="button" class="btn btn-default" onclick="window.history.back();">
 													Save page and proceed
 												</button>
 												<button type="submit" class="btn btn-primary">
 													Save
 												</button>
-											</footer>
+											</div>
 
 										</div>
 											
 									</div>
 
 								</div>
+								<br><br>
 							</article>
 
-					
 				</section>
 
 				</div>
@@ -660,7 +896,39 @@
 
 			</div>
 			<!-- END MAIN CONTENT -->
-
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 30px; margin-left: -12%;">
+				<div class="modal-dialog " >
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">Drawing Number</h4>
+						</div>
+						
+								<div class="modal-body txt-center" style="display: flex; justify-content: center; align-items: center;">
+									<form class="smart-form" style="align-items: center;">
+									<div class="row padding-10">
+										<div class="col-lg-4">
+											<img src="drawings/1.png">
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<label class="checkbox">
+											<input type="checkbox" name="checkbox" checked="checked">
+											<i></i>Apply to all succeeding pages</label>
+										
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-dismiss="modal"  >
+										Apply Area
+									</button>
+									</form>
+								</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
 		</div>
 		<!-- END MAIN PANEL -->
 
