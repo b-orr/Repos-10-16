@@ -58,7 +58,7 @@
 											<div class="widget-body">
 					
 												<ul class="bs-glyphicons">
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li style="display: flex; flex-direction: column;">
 															<h4 class="glyphicon-class " style="font-weight: bold;">Contract Documents</h4>
 															<div style="display: flex; justify-content: space-around;align-items: center; padding: 0 50px;">
@@ -72,7 +72,7 @@
 															</div>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li style="display: flex; flex-direction: column;">
 															<h4 class="glyphicon-class " style="font-weight: bold;">Falsework</h4>
 															<div style="display: flex; justify-content: space-around;align-items: center; padding: 0 50px;">
@@ -86,7 +86,7 @@
 															</div>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 													<li style="display: flex; flex-direction: column;">
 															<h4 class="glyphicon-class " style="font-weight: bold;">Inspections</h4>
 															<div style="display: flex; justify-content: space-around;align-items: center; padding: 0 50px;">
@@ -100,7 +100,7 @@
 															</div>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li style="display: flex; flex-direction: column;">
 															<h4 class="glyphicon-class " style="font-weight: bold;">Outlines</h4>
 															<div style="display: flex; justify-content: space-around;align-items: center; padding: 0 50px;">
@@ -114,7 +114,7 @@
 															</div>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li style="display: flex; flex-direction: column;">
 															<h4 class="glyphicon-class " style="font-weight: bold;">Reshores</h4>
 															<div style="display: flex; justify-content: space-around;align-items: center; padding: 0 50px;">
@@ -128,7 +128,7 @@
 															</div>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li style="display: flex; flex-direction: column;">
 															<h4 class="glyphicon-class " style="font-weight: bold;">Test</h4>
 															<div style="display: flex; justify-content: space-around;align-items: center; padding: 0 50px;">

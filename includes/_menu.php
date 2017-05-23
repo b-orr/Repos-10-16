@@ -58,7 +58,7 @@
 						<a href=""><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Safety Docs</span></a>
 					</li>
 					<li class="active">
-						<a href="firstLayout.html"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Drawings</span></a>
+						<a href="firstLayout.php"><i class="fa fa-lg fa-fw fa-pencil"></i> <span class="menu-item-parent">Drawings</span></a>
 					</li>
 					<li>
 						<a href=""><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Photos</span></a>

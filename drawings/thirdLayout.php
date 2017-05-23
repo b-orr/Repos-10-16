@@ -58,38 +58,38 @@
 											<div class="widget-body">
 					
 												<ul class="bs-glyphicons">
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li> 
 															<span class="glyphicon glyphicon-folder-close"></span>
 															<span class="glyphicon-class li-inside-text">Contract Documents</span>
 															
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li>
 															<span class="glyphicon glyphicon-folder-close"></span>
 															<span class="glyphicon-class li-inside-text">Falsework</span>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li>
 															<span class="glyphicon glyphicon-folder-close"></span>
 															<span class="glyphicon-class li-inside-text">Inspections</span>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li>
 															<span class="glyphicon glyphicon-folder-close"></span>
 															<span class="glyphicon-class li-inside-text">Outlines</span>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li>
 															<span class="glyphicon glyphicon-folder-close"></span>
 															<span class="glyphicon-class li-inside-text">Reshores</span>
 														</li>
 													</a>
-													<a href="drawingList.html" class="txt-color-darken">
+													<a href="drawingList.php" class="txt-color-darken">
 														<li>
 															<span class="glyphicon glyphicon-folder-close"></span>
 															<span class="glyphicon-class li-inside-text">Reshores</span>

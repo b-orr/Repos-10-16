@@ -96,28 +96,28 @@
 														<td>CD Set</td>
 														<td>0</td>
 														<td>04/10/2017</td>
-														<td><a href="viewDrawing.html"><i class="fa fa-pencil"></i></a></td>
+														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
 													</tr>
 													<tr>
 														<td>A002 - Sheet Index</td>
 														<td>Addendum #1</td>
 														<td>1</td>
 														<td>05/10/2017</td>
-														<td><a href="viewDrawing.html"><i class="fa fa-pencil"></i></a></td>
+														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
 													</tr>
 													<tr>
 														<td>A010 - Project Details</td>
 														<td>CD Set</td>
 														<td>0</td>
 														<td>04/10/2017</td>
-														<td><a href="viewDrawing.html"><i class="fa fa-pencil"></i></a></td>
+														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
 													</tr>
 													<tr>
 														<td>A011 - Code Information</td>
 														<td>Addendum #2</td>
 														<td>2</td>
 														<td>05/15/2017</td>
-														<td><a href="viewDrawing.html"><i class="fa fa-pencil"></i></a></td>
+														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -179,7 +179,7 @@
 													Addendum #1<span class="txt-color-green"></span>
 
 													<span class="txt-color-green"><i class="fa fa-check"></i></span>
-													<a class="btn btn-danger btn-xs pull-right" href="processDrawing.html" style="margin: 0;">Process Now</a>
+													<a class="btn btn-danger btn-xs pull-right" href="processDrawing.php" style="margin: 0;">Process Now</a>
 											</div>
 											<div class="padding-10 bordered">
 												<p>
@@ -258,21 +258,21 @@
 													<td>CD Set</td>
 													<td>0</td>
 													<td>04/10/2017</td>
-													<td><a href="viewDrawing.html"><i class="fa fa-pencil"></i></a></td>
+													<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
 												</tr>
 												<tr>
 													<td>S002 - General Notes</td>
 													<td>Addendum #1</td>
 													<td>1</td>
 													<td>05/10/2017</td>
-													<td><a href="viewDrawing.html"><i class="fa fa-pencil"></i></a></td>
+													<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
 												</tr>
 												<tr>
 													<td>S003 - Foundation Details</td>
 													<td>CD Set</td>
 													<td>0</td>
 													<td>04/10/2017</td>
-													<td><a href="viewDrawing.html"><i class="fa fa-pencil"></i></a></td>
+													<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
 												</tr>
 											</tbody>
 										</table>
