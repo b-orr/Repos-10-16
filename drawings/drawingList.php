@@ -174,7 +174,7 @@
 													
 												</div>
 												
-											</div>
+											</div><br>
 											<div class="padding-10 bordered">
 													Addendum #1<span class="txt-color-green"></span>
 
@@ -337,120 +337,6 @@
 						</div><!-- /.modal-dialog -->
 					</div><!-- /.modal -->
 
-					<!-- end widget grid -->
-				<div class="modal fade " id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg" >
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									&times;
-								</button>
-								<h4 class="modal-title" id="myModalLabel">Drawing Upload Info</h4>
-							</div>
-							
-									<div class="modal-body">
-										<form class="smart-form">
-										<div class="row padding-10 bordered">
-											<div class="col-lg-4">
-												<img src="drawings/1.png">
-											</div>
-											<div class="col-lg-6">
-												<div class="form-group smart-form ">
-														<label class="label">File input</label>
-														<div class="input input-file">
-															<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
-														</div>
-														<label class="label">Get Title</label>
-														<div class="input input-file">
-															<span class="button">Get Title</span><input type="text">
-														</div>
-														<label class="input">Date</label>
-														<div class="input input-file">
-															<input id="dateselect_filter" type="text" class="datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
-														</div>
-														<label class="input">Discipline</label>
-														<div class="input input-file">
-															<input type="text" required style="padding-left: 5px;" />
-														</div>
-														<br>
-													</div>
-											</div>
-
-										</div>
-										<div class="row padding-10 bordered">
-											<div class="col-lg-4">
-												<img src="drawings/1.png">
-											</div>
-											<div class="col-lg-6">
-												<div class="form-group smart-form ">
-														<label class="label">File input</label>
-														<div class="input input-file">
-															<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
-														</div>
-														<label class="label">Get Title</label>
-														<div class="input input-file">
-															<span class="button">Get Title</span><input type="text">
-														</div>
-														<label class="input">Date</label>
-														<div class="input input-file">
-															<input id="dateselect_filter" type="text" class="datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
-														</div>
-														<label class="input">Discipline</label>
-														<div class="input input-file">
-															<input type="text" required style="padding-left: 5px;" />
-														</div>
-														<br>
-													</div>
-											</div>
-											
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">
-											Cancel
-										</button>
-										<button type="button" class="btn btn-primary">
-											Upload
-										</button>
-									</div>
-								</form>
-							</div><!-- /.modal-content -->
-						</div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->
-
-					<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 30px; margin-left: -12%;">
-					<div class="modal-dialog " >
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									&times;
-								</button>
-								<h4 class="modal-title" id="myModalLabel">Drawing Number</h4>
-							</div>
-							
-									<div class="modal-body txt-center" style="display: flex; justify-content: center; align-items: center;">
-										<form class="smart-form" style="align-items: center;">
-										<div class="row padding-10">
-											<div class="col-lg-4">
-												<img src="drawings/1.png">
-											</div>
-										</div>
-										<div class="col-lg-12">
-											<label class="checkbox">
-												<input type="checkbox" name="checkbox" checked="checked">
-												<i></i>Apply to all succeeding pages</label>
-											
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-primary" data-dismiss="modal"  >
-											Apply Area
-										</button>
-									</div>
-								</form>
-							</div><!-- /.modal-content -->
-						</div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->
 			</div>
 			<!-- END MAIN CONTENT -->
 

@@ -7,6 +7,15 @@
 
 <?php include '../includes/_menu.php'; ?>
 
+<style type="text/css">
+	
+@media (max-width: 1550px){
+	.drawingImages{
+		width: 100%;
+	}
+}
+	
+</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
@@ -23,18 +32,6 @@
 				<ol class="breadcrumb">
 					<li>Home</li><li>Projects</li><li>1001 Broadway</li><li>Drawings</li><li>Contract Documents</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
@@ -81,7 +78,7 @@
 										<!-- widget content -->
 										<div class="widget-body">
 
-										<!-- foreach for each page frome here -->
+										<!-- foreach for each page from here -->
 												<div class="col-lg-6 main-box">
 													<div class="col-lg-12 bordered form-divider">
 														<button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
