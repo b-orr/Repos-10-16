@@ -175,30 +175,6 @@
 												</div>
 												
 											</div><br>
-											<div class="padding-10 bordered">
-													Addendum #1<span class="txt-color-green"></span>
-
-													<span class="txt-color-green"><i class="fa fa-check"></i></span>
-													<a class="btn btn-danger btn-xs pull-right" href="processDrawing.php" style="margin: 0;">Process Now</a>
-											</div>
-											<div class="padding-10 bordered">
-												<p>
-													Addendum #2 is uploading 
-													<span class="txt-color-green pull-right"><i class="fa fa-upload"></i></span>
-												</p>
-												<div class="progress progress-xs progress-striped active">
-													<div class="progress-bar bg-color-greenLight" role="progressbar" style="width: 75%"></div>
-												</div>
-											</div>
-											<div class="padding-10 bordered">
-												<p>
-													Addendum #3 is uploading 
-													<span class="txt-color-green pull-right"><i class="fa fa-upload"></i></span>
-												</p>
-												<div class="progress progress-xs progress-striped active">
-													<div class="progress-bar bg-color-greenLight" role="progressbar" style="width: 15%"></div>
-												</div>
-											</div>
 										</div>
 										</div>
 										<!-- end widget content -->
@@ -328,7 +304,7 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">
 											Cancel
 										</button>
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
 											Upload
 										</button>
 									</div>
@@ -432,7 +408,46 @@
 				s.parentNode.insertBefore(ga, s);
 			})();
 
-		
+
+
+			// upload append here
+			var uploadedFilesCount = 0;
+			$('#pdfUpload').on('click', function() {
+				uploadedFilesCount++;
+
+				var htmlstr = '<div class="padding-10 bordered" id="uploadedFile-'+uploadedFilesCount+'">';
+				htmlstr += 	'<p>';
+				htmlstr += 		'Addendum #'+uploadedFilesCount+' is uploading ';
+				htmlstr += 		'<span class="txt-color-green pull-right"><i class="fa fa-upload"></i></span>';
+				htmlstr += 	'</p>';
+				htmlstr += 	'<div class="progress progress-xs progress-striped active">';
+				htmlstr += 		'<div id="bar-'+uploadedFilesCount+'" class="progress-bar bg-color-greenLight" role="progressbar"></div>';
+				htmlstr += 	'</div>';
+				htmlstr += '</div>';
+
+				var htmlstrDone = 'Addendum #'+uploadedFilesCount+'<span class="txt-color-green"></span>';
+
+				htmlstrDone += '<span class="txt-color-green"><i class="fa fa-check"></i></span>';
+				htmlstrDone += '<a class="btn btn-danger btn-xs pull-right" href="processDrawing.php" style="margin: 0;">Process Now</a>';
+
+				$('.widget-body-toolbar').append(htmlstr);
+
+				var timeleft = 99;
+				var downloadTimer = setInterval(function(){
+				var pbpercent = 100 - timeleft-- + '%';
+
+
+				  $("#bar-"+uploadedFilesCount).width(pbpercent);
+				  if(timeleft <= 0){
+				  	clearInterval(downloadTimer);
+				  	$('#uploadedFile-'+uploadedFilesCount).empty();
+				  	$('#uploadedFile-'+uploadedFilesCount).append(htmlstrDone);
+				  }
+				},60);
+			});
+			// upload append ends here
+
+			
 			/*
 			 * Smart Notifications
 			 */
@@ -655,7 +670,6 @@
 			});			
 
 		
-		}
 
 		</script>
 

@@ -175,7 +175,7 @@
 										<div class="row">
 											<div class="widget-body">
 					
-												<ul class="bs-glyphicons">
+												<ul class="bs-glyphicons" id="folderList">
 													<a href="drawingList.php" class="txt-color-darken">
 														<li class="folder-li" style="">
 															<h4 class="glyphicon-class " style="">Contract Documents</h4>
@@ -310,8 +310,8 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">
 											Cancel
 										</button>
-										<button type="button" class="btn btn-primary">
-											Upload
+										<button type="button" id="createFolder" class="btn btn-primary" data-dismiss="modal">
+											Create
 										</button>
 									</div>
 								</form>
@@ -398,7 +398,29 @@
 				s.parentNode.insertBefore(ga, s);
 			})();
 
-		
+			
+			//create new folder append here
+			$('#createFolder').on('click', function() {
+				var htmlstr = '<a href="drawingList.php" class="txt-color-darken">';
+				htmlstr += 	'<li class="folder-li" style="">';
+				htmlstr += 		'<h4 class="glyphicon-class " style="">New Folder</h4>';
+				htmlstr += 		'<div class="folder-data" style="">';
+				htmlstr += 			'<span class="glyphicon glyphicon-folder-close"></span>';
+				htmlstr += 			'<div>';
+				htmlstr += 				'<p class="folder-info" style="">Drawings:<span class="drawings-number"> 0</span></p>';
+				htmlstr += 				'<p class="folder-last-change" style="">Last change:<br>N/A';
+				htmlstr += 			'<br>';
+				htmlstr += 			'<small><i></i></small></p>';
+				htmlstr += 			'</div>';												
+				htmlstr += 		'</div>';
+				htmlstr += 	'</li>';
+				htmlstr += '</a>';
+
+				$('#folderList').append(htmlstr);	
+			});
+			
+			//create new folder ends here
+
 			/*
 			 * Smart Notifications
 			 */
@@ -618,10 +640,7 @@
 				});
 		
 				e.preventDefault();
-			});			
-
-		
-		})
+			});		
 
 		</script>
 
