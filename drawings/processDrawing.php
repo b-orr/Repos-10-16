@@ -336,8 +336,8 @@
 														</div>
 													</div>
 												</div>
-											
 											<div class="modal-footer col-lg-12 pull-right padding-10">
+												
 												<button type="button" class="btn btn-default" onclick="window.history.back();">
 													Save page and proceed
 												</button>

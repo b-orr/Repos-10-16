@@ -1,11 +1,11 @@
-<?php include '../includes/_header.php'; ?>
+<?php include '../includes/_header3.php'; ?>
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu.php'; ?>
+<?php include '../includes/_menu3.php'; ?>
 	<style type="text/css">
 			.bs-glyphicons {
 				padding-left: 0;
@@ -170,7 +170,7 @@
 									<div class="jarviswidget jarviswidget-color-darken" id="wid-id-22" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
 										<header>
 										<span class="widget-icon"> <i class="fa fa-comments"></i> </span>
-											<h2>All Folders (option 1)</h2>
+											<h2>All Folders</h2>
 										</header>
 										<div class="row">
 											<div class="widget-body">
@@ -183,9 +183,9 @@
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
 																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>Zlatko Bogoevski
+																	<p class="folder-last-change" style="">Last change:<br>Bruce Orr
 																<br>
-																<small><i>May 6, 2017</i></small></p>
+																<small><i>May 5, 2017</i></small></p>
 																</div>													
 															</div>
 														</li>
@@ -196,10 +196,10 @@
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>Zlatko Bogoevski
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 13</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Amy Bunn
 																<br>
-																<small><i>May 6, 2017</i></small></p>
+																<small><i>May 13, 2017</i></small></p>
 																</div>													
 															</div>
 														</li>
@@ -210,10 +210,10 @@
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>Zlatko Bogoevski
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 8</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Bruce Orr
 																<br>
-																<small><i>May 6, 2017</i></small></p>
+																<small><i>May 2, 2017</i></small></p>
 																</div>													
 															</div>
 														</li>
@@ -224,8 +224,8 @@
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>Zlatko Bogoevski
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 6</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Mikeal Kanouff
 																<br>
 																<small><i>May 6, 2017</i></small></p>
 																</div>													
@@ -238,7 +238,7 @@
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 3</span></p>
 																	<p class="folder-last-change" style="">Last change:<br>Zlatko Bogoevski
 																<br>
 																<small><i>May 6, 2017</i></small></p>
@@ -253,7 +253,7 @@
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
 																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>Zlatko Bogoevski
+																	<p class="folder-last-change" style="">Last change:<br>Gjele Gjorgjiev
 																<br>
 																<small><i>May 6, 2017</i></small></p>
 																</div>													

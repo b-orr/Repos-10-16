@@ -175,6 +175,13 @@
 												</div>
 												
 											</div><br>
+											<div class="padding-10 bordered" id="uploadedFile-'+uploadedFilesCount+'">
+												<p>
+													Addendum #1<span class="txt-color-green"></span>
+													<span class="txt-color-green"><i class="fa fa-check"></i></span>
+													<a class="btn btn-danger btn-xs pull-right" href="processDrawing.php" style="margin: 0;">Process Now</a>
+												</p>
+											</div>
 										</div>
 										</div>
 										<!-- end widget content -->
@@ -411,7 +418,7 @@
 
 
 			// upload append here
-			var uploadedFilesCount = 0;
+			var uploadedFilesCount = 1;
 			$('#pdfUpload').on('click', function() {
 				uploadedFilesCount++;
 

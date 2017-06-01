@@ -6,7 +6,125 @@
 		<!-- END NAVIGATION -->
 
 <?php include '../includes/_menu.php'; ?>
+	<style type="text/css">
+			.bs-glyphicons {
+				padding-left: 0;
+				padding-bottom: 1px;
+				margin-bottom: 20px;
+				list-style: none;
+				overflow: hidden;
+			}
+			.bs-glyphicons li {
+				float: left;
+				width: 25%;
+				height: 150px;
+				padding: 10px;
+				margin: 0 -1px -1px 0;
+				font-size: 17px;
+				line-height: 1.4;
+				text-align: center;
+				border: 1px solid #ddd;
+			}
 
+			.bs-glyphicons .glyphicon {
+				margin-top: 5px;
+				margin-bottom: 10px;
+				font-size: 75px;
+			}
+			.bs-glyphicons .glyphicon-class {
+				display: block;
+				text-align: center;
+			}
+			.bs-glyphicons li:hover {
+				background-color: rgba(86,61,124,.1);
+			}
+		
+			.bs-glyphicon {
+				padding-left: 0;
+				padding-bottom: 1px;
+				margin-bottom: 20px;
+				list-style: none;
+				overflow: hidden;
+				columns: 2;
+				-webkit-columns: 2;
+			    -moz-columns: 2;
+			}
+			.bs-glyphicon li {
+				float: left;
+				width: 100%;
+				height: 50px;
+				margin: 0 -1px -1px 0;
+				font-size: 17px;
+				line-height: 1.4;
+				text-align: center;
+				border: 1px solid #ddd;
+				display: block;
+			}
+			.bs-glyphicon li :hover{
+				background-color: lightblue;
+			}
+			.bs-glyphicon .glyphicon {
+				margin-top: 5px;
+				margin-bottom: 10px;
+				font-size: 35px;
+			}
+
+			.li-inside {
+				padding-left: 30%;
+				text-align: left;
+			}
+			.li-inside-text{
+				padding-bottom: 30%;
+			}
+			.folder-li{
+				display: flex; 
+				flex-direction: column;
+			}
+			.glyphicon-class{
+				font-weight: bold;
+			}
+			.folder-data{
+				display: flex;
+			 	justify-content: space-around;
+			 	align-items: center; 
+			 	padding: 0 50px;
+			}
+			.folder-info{
+				font-size: 15px;
+			}
+			.folder-last-change{
+				font-size: 11px;
+			}
+		@media (max-width: 1150px){
+			.bs-glyphicons li {
+				width: 33%;
+			}
+
+		}
+		@media (max-width: 710px){
+			.bs-glyphicons li {
+				width: 50%;
+			}
+
+		}
+		@media (max-width: 489px){
+			.bs-glyphicons li {
+				width: 100%;
+			}
+		}
+		@media (max-width: 1366px) {
+			.folder-data{
+			 	padding: 0 25px;
+			}
+			.folder-info{
+				font-size: 12px;
+			}
+			.folder-last-change{
+				font-size: 10px;
+			}
+		}
+
+	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
@@ -57,49 +175,97 @@
 										<div class="row">
 											<div class="widget-body">
 					
-												<ul class="bs-glyphicons">
+												<ul class="bs-glyphicons" id="folderList">
 													<a href="drawingList.php" class="txt-color-darken">
-														<li> 
-															<span class="glyphicon glyphicon-folder-close"></span>
-															<span class="glyphicon-class li-inside-text">Contract Documents</span>
-															
+														<li class="folder-li" style="">
+															<h4 class="glyphicon-class " style="">Contract Documents</h4>
+															<div class="folder-data" style="">
+																<span class="glyphicon glyphicon-folder-close"></span>
+																<div>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Bruce Orr
+																<br>
+																<small><i>May 5, 2017</i></small></p>
+																</div>													
+															</div>
 														</li>
 													</a>
 													<a href="drawingList.php" class="txt-color-darken">
-														<li>
-															<span class="glyphicon glyphicon-folder-close"></span>
-															<span class="glyphicon-class li-inside-text">Falsework</span>
+														<li class="folder-li" style="">
+															<h4 class="glyphicon-class " style="">Falsework</h4>
+															<div class="folder-data" style="">
+																<span class="glyphicon glyphicon-folder-close"></span>
+																<div>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 13</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Amy Bunn
+																<br>
+																<small><i>May 13, 2017</i></small></p>
+																</div>													
+															</div>
 														</li>
 													</a>
 													<a href="drawingList.php" class="txt-color-darken">
-														<li>
-															<span class="glyphicon glyphicon-folder-close"></span>
-															<span class="glyphicon-class li-inside-text">Inspections</span>
+														<li class="folder-li" style="">
+															<h4 class="glyphicon-class " style="">Inspections</h4>
+															<div class="folder-data" style="">
+																<span class="glyphicon glyphicon-folder-close"></span>
+																<div>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 9</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Bruce Orr
+																<br>
+																<small><i>May 2, 2017</i></small></p>
+																</div>													
+															</div>
 														</li>
 													</a>
 													<a href="drawingList.php" class="txt-color-darken">
-														<li>
-															<span class="glyphicon glyphicon-folder-close"></span>
-															<span class="glyphicon-class li-inside-text">Outlines</span>
+														<li class="folder-li" style="">
+															<h4 class="glyphicon-class " style="">Outlines</h4>
+															<div class="folder-data" style="">
+																<span class="glyphicon glyphicon-folder-close"></span>
+																<div>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 3</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Mikeal Kanouff
+																<br>
+																<small><i>May 6, 2017</i></small></p>
+																</div>													
+															</div>
 														</li>
 													</a>
 													<a href="drawingList.php" class="txt-color-darken">
-														<li>
-															<span class="glyphicon glyphicon-folder-close"></span>
-															<span class="glyphicon-class li-inside-text">Reshores</span>
+														<li class="folder-li" style="">
+															<h4 class="glyphicon-class " style="">Reshore</h4>
+															<div class="folder-data" style="">
+																<span class="glyphicon glyphicon-folder-close"></span>
+																<div>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 7</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Zlatko Bogoevski
+																<br>
+																<small><i>May 6, 2017</i></small></p>
+																</div>													
+															</div>
 														</li>
 													</a>
 													<a href="drawingList.php" class="txt-color-darken">
-														<li>
-															<span class="glyphicon glyphicon-folder-close"></span>
-															<span class="glyphicon-class li-inside-text">Reshores</span>
+														<li class="folder-li" style="">
+															<h4 class="glyphicon-class " style="">Test Folder</h4>
+															<div class="folder-data" style="">
+																<span class="glyphicon glyphicon-folder-close"></span>
+																<div>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 6</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>Gjele Gjorgjiev
+																<br>
+																<small><i>May 6, 2017</i></small></p>
+																</div>													
+															</div>
 														</li>
 													</a>
+
 												</ul>
 					
 											</div>
 											
-										<button type="button" class="btn btn-default btn-lg btn-block">
+											<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default btn-lg btn-block">
 												Create new folder
 											</button>
 											<br>
@@ -110,148 +276,48 @@
 							</div>
 						</div>
 				
-					<!-- row -->
-					<div class="row">
-							<div class="col-sm-12">
-								<article class="col-lg-12">
-									<div class="jarviswidget jarviswidget-color-darken" id="wid-id-22" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
-										<header>
-										<span class="widget-icon"> <i class="fa fa-comments"></i> </span>
-											<h2>All Folders</h2>
-										</header>
-											<div class="row">
-												<div class="widget-body">
-													<div class="col-lg-12 no-padding">
-														<a class="btn btn-default" href="javascript:void(0);"><i class="fa fa-folder"></i> Add New</a>
-													</div>
-													<br><br>
-													<table class="table table-striped table-forum">
-														<thead>
-															<tr>
-																<th colspan="2">Drawings</th>
-																<th class="text-center hidden-xs hidden-sm" style="width: 100px;">Drawings#</th>
-																
-																<th class="hidden-xs hidden-sm" style="width: 200px;">Last Change</th>
-															</tr>
-														</thead>
-														<tbody>
-														
-														<!-- TR -->
-														<tr>
-															<td class="text-center" style="width: 40px;"><i class="fa fa-folder fa-2x text-muted"></i></td>
-															<td>
-																<h4><a href="">
-																	Contract Documents
-																	</a>
-																<h4>
-															</td>
-															<td class="text-center hidden-xs hidden-sm">
-																<a href="javascript:void(0);">15</a>
-															</td>
-															
-															<td class="hidden-xs hidden-sm">by 
-																<a href="javascript:void(0);">Bruce Orr</a>
-																<br>
-																<small><i>May 15, 2017</i></small>
-															</td>
-														</tr>
-														<tr>
-															<td class="text-center" style="width: 40px;"><i class="fa fa-folder fa-2x text-muted"></i></td>
-															<td>
-																<h4><a href="">
-																	False Work
-																	</a>
-																	
-																</h4>
-															</td>
-															<td class="text-center hidden-xs hidden-sm">
-																<a href="javascript:void(0);">2</a>
-															</td>
-															
-															<td class="hidden-xs hidden-sm">by 
-																<a href="javascript:void(0);">Shelly Mereness</a>
-																<br>
-																<small><i>May 18, 2017</i></small>
-															</td>
-														</tr>
-														<tr>
-															<td class="text-center" style="width: 40px;"><i class="fa fa-folder fa-2x text-muted"></i></td>
-															<td>
-																<h4><a href="">
-																	Inspections
-																	</a>
-																	
-																</h4>
-															</td>
-															<td class="text-center hidden-xs hidden-sm">
-																<a href="javascript:void(0);">7</a>
-															</td>
-															
-															<td class="hidden-xs hidden-sm">by 
-																<a href="javascript:void(0);">Amy Bunn</a>
-																<br>
-																<small><i>April 7, 2017</i></small>
-															</td>
-														</tr>
-														<!-- end TR -->
-														
-														<!-- TR -->
-														<tr>
-															<td class="text-center" style="width: 40px;"><i class="fa fa-folder fa-2x text-muted"></i></td>
-															<td>
-																<h4><a href="">
-																	Outlines
-																	</a>
-																</h4>
-															</td>
-															<td class="text-center hidden-xs hidden-sm">
-																<a href="javascript:void(0);">1</a>
-															</td>
-															
-															<td class="hidden-xs hidden-sm">by 
-																<a href="javascript:void(0);">Mikeal Kanouff</a>
-																<br>
-																<small><i>May 5, 2017</i></small>
-															</td>
-														</tr>
-														<!-- end TR -->
-														
-														<!-- TR -->
-														<tr>
-															<td class="text-center" style="width: 40px;"><i class="fa fa-folder fa-2x text-muted"></i></td>
-															<td>
-																<h4><a href="">
-																	Reshore
-																</a>
-																	
-																</h4>
-															</td>
-															<td class="text-center hidden-xs hidden-sm">
-																<a href="javascript:void(0);">9</a>
-															</td>
-															
-															<td class="hidden-xs hidden-sm">by 
-																<a href="javascript:void(0);">Zlatko Bogoevski</a>
-																<br>
-																<small><i>May 6, 2017</i></small>
-															</td>
-														</tr>
-														<!-- end TR -->
-														
-													</tbody>
-												</table>
-											</div>
-										</div>
-									</div>
-								</article>
-								
-							</div>
-						</div>
-				
 				
 				</section>
 				<!-- end widget grid -->
-				
+					<!-- end widget grid -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Create New Folder</h4>
+							</div>
+							
+									<div class="modal-body">
+										<form class="smart-form">
+										<div class="row"  style="display: flex; justify-content: center;">
+											<div class="col-md-10">
+												<div class="form-group">
+													<label class="input">Name</label>
+													<input type="text" class="form-control" name="folderName" required style="padding-left: 5px;" />
+												</div><br>
+												<div class="form-group">
+													<label class="input">Description</label>
+													<input type="text" class="form-control" name="folderDesc" required style="padding-left: 5px;" />
+												</div>
+												</section>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">
+											Cancel
+										</button>
+										<button type="button" id="createFolder" class="btn btn-primary" data-dismiss="modal">
+											Create
+										</button>
+									</div>
+								</form>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
 
 			</div>
 			<!-- END MAIN CONTENT -->
@@ -259,7 +325,8 @@
 		</div>
 		<!-- END MAIN PANEL -->
 
-	<?php include '../includes/_footer.php'; ?>		
+		<?php include '../includes/_footer.php'; ?>
+		
 
 		<script type="text/javascript">
 		
@@ -331,7 +398,29 @@
 				s.parentNode.insertBefore(ga, s);
 			})();
 
-		
+			
+			//create new folder append here
+			$('#createFolder').on('click', function() {
+				var htmlstr = '<a href="drawingList.php" class="txt-color-darken">';
+				htmlstr += 	'<li class="folder-li" style="">';
+				htmlstr += 		'<h4 class="glyphicon-class " style="">New Folder</h4>';
+				htmlstr += 		'<div class="folder-data" style="">';
+				htmlstr += 			'<span class="glyphicon glyphicon-folder-close"></span>';
+				htmlstr += 			'<div>';
+				htmlstr += 				'<p class="folder-info" style="">Drawings:<span class="drawings-number"> 0</span></p>';
+				htmlstr += 				'<p class="folder-last-change" style="">Last change:<br>N/A';
+				htmlstr += 			'<br>';
+				htmlstr += 			'<small><i></i></small></p>';
+				htmlstr += 			'</div>';												
+				htmlstr += 		'</div>';
+				htmlstr += 	'</li>';
+				htmlstr += '</a>';
+
+				$('#folderList').append(htmlstr);	
+			});
+			
+			//create new folder ends here
+
 			/*
 			 * Smart Notifications
 			 */
@@ -551,10 +640,7 @@
 				});
 		
 				e.preventDefault();
-			});			
-
-		
-		})
+			});		
 
 		</script>
 

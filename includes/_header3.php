@@ -191,7 +191,6 @@
 
 				<!-- Note: The activity badge color changes when clicked and resets the number to 0
 				Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
-				
 
 				<!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
 				<div class="ajax-dropdown">
@@ -232,7 +231,35 @@
 				</div>
 				<!-- END AJAX-DROPDOWN -->
 			</div>
+			<div class="project-context hidden-xs">
 
+				<span class="label">Site Area:</span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown">Projects <i class="fa fa-angle-down"></i></span>
+
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);">Admin</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Projects</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Equipment</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Contacts</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Estimating</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Resources</a>
+					</li>
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
 			<!-- projects dropdown -->
 			<div class="project-context hidden-xs">
 
@@ -378,8 +405,6 @@
 				</div>
 				<!-- end voice command -->
 
-				<!-- multiple lang dropdown : find all flags in the flags page -->
-				
 				<!-- end multiple lang -->
 
 			</div>

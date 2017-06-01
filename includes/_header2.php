@@ -191,7 +191,6 @@
 
 				<!-- Note: The activity badge color changes when clicked and resets the number to 0
 				Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
-				
 
 				<!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
 				<div class="ajax-dropdown">
@@ -234,6 +233,20 @@
 			</div>
 
 			<!-- projects dropdown -->
+			<div class="project-context hidden-xs">
+
+				<span class="label">User:</span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown">John Doe <i class="fa fa-angle-down"></i></span>
+
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);">Logout</a>
+					</li>
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
 			<div class="project-context hidden-xs">
 
 				<span class="label">Projects:</span>
@@ -287,7 +300,7 @@
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li>
-								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Seasdasdtting</a>
 							</li>
 							<li class="divider"></li>
 							<li>
@@ -295,7 +308,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortasdasdcut</a>
 							</li>
 							<li class="divider"></li>
 							<li>
