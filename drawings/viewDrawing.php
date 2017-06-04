@@ -6,8 +6,16 @@
 		<!-- END NAVIGATION -->
 
 <?php include '../includes/_menu.php'; ?>
-
+		<style type="text/css">
+			.iv-container {
+				width: 100%;
+			}
+			.iv-large-image {
+				width: 100%;
+			}
+		</style>
 		<!-- MAIN PANEL -->
+			<link href="../assets/css/imageviewer.css"  rel="stylesheet" type="text/css" />
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
@@ -112,8 +120,9 @@
 													</div>
 												</div>
 											</header>
-
-											<img src="drawings/2.png" style="width: 100%; height: auto; "></img>
+											<div id="image-gallery" class="cf" style="width: 100%; height: auto; ">
+												<img id="panImage" src="drawings/2.png" style="width: 100%; height: auto; "></img>
+											</div>
 
 										</div>
 										<!-- end widget content -->
@@ -301,6 +310,7 @@
 
 		<?php include '../includes/_footer.php'; ?>
 		
+		<script src="../assets/js/plugin/imageviewer/imageviewer.js"></script>
 		<script type="text/javascript">
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
@@ -308,6 +318,9 @@
 		$(document).ready(function() {
 			
 			pageSetUp();
+
+			$('#panImage').ImageViewer();
+
 			$('#dt_basic').dataTable({
 					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
 						"t"+
