@@ -10,6 +10,7 @@
 			
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/your_style.css">
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/font-awesome.min.css">
@@ -17,7 +18,7 @@
 		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/smartadmin-production-plugins.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/smartadmin-production.min.css">
-		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/smartadmin-skins.min.css">
+		<!-- <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/smartadmin-skins.min.css"> -->
 
 		<!-- SmartAdmin RTL Support -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/smartadmin-rtl.min.css"> 
@@ -26,8 +27,7 @@
 		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
 		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
 
-		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-		<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/demo.min.css">
+
 
 		<!-- FAVICONS -->
 		<link rel="shortcut icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
@@ -179,10 +179,10 @@
 		* 'fixed-page-footer' - Fixes footer
 		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
 	-->
-	<body class="">
+	<body class="desktop-detected voice-command-active service-not-allowed pace-done smart-style-3">
 
 		<!-- HEADER -->
-		<header id="header">
+		<header id="header" class="">
 			<div id="logo-group">
 
 				<!-- PLACE YOUR LOGO HERE -->
@@ -232,12 +232,40 @@
 				</div>
 				<!-- END AJAX-DROPDOWN -->
 			</div>
+			<div class="project-context hidden-xs">
 
+				<span class="label">Site Area</span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Projects <i class="fa fa-angle-down"></i> </strong></span>
+
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);">Admin</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Projects</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Equipment</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Contacts</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Estimating</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Resources</a>
+					</li>
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
 			<!-- projects dropdown -->
 			<div class="project-context hidden-xs">
 
 				<span class="label">Projects:</span>
-				<span class="project-selector dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Recent projects <i class="fa fa-angle-down"></i> </strong></span>
 
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
@@ -271,7 +299,26 @@
 
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
-				
+				<div class="project-context hidden-xs">
+
+					<span class="label">Area:</span>
+					<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Washington office <i class="fa fa-angle-down"></i> </strong></span>
+
+					<!-- Suggestion: populate this list with fetch and push technique -->
+					<ul class="dropdown-menu">
+						<li>
+							<a href="javascript:void(0);">Colorado Office</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">Hawaii Office</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">Texas Office</a>
+						</li>
+					</ul>
+					<!-- end dropdown-menu-->
+
+				</div>
 				<!-- collapse menu button -->
 				<div id="hide-menu" class="btn-header pull-right">
 					<span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
@@ -320,38 +367,6 @@
 					<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
 				</div>
 				<!-- end search mobile button -->
-
-				<!-- input: search field -->
-				<form action="search.html" class="header-search pull-right">
-					<input id="search-fld"  type="text" name="param" placeholder="Find reports and more" data-autocomplete='[
-					"ActionScript",
-					"AppleScript",
-					"Asp",
-					"BASIC",
-					"C",
-					"C++",
-					"Clojure",
-					"COBOL",
-					"ColdFusion",
-					"Erlang",
-					"Fortran",
-					"Groovy",
-					"Haskell",
-					"Java",
-					"JavaScript",
-					"Lisp",
-					"Perl",
-					"PHP",
-					"Python",
-					"Ruby",
-					"Scala",
-					"Scheme"]'>
-					<button type="submit">
-						<i class="fa fa-search"></i>
-					</button>
-					<a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-				</form>
-				<!-- end input: search field -->
 
 				<!-- fullscreen button -->
 				<div id="fullscreen" class="btn-header transparent pull-right">

@@ -126,8 +126,6 @@
 
 		<![endif]-->
 
-		<!-- Demo purpose only -->
-		<script src="../assets/js/demo.min.js"></script>
 
 		<!-- MAIN APP JS FILE -->
 		<script src="../assets/js/app.min.js"></script>
