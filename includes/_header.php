@@ -232,7 +232,7 @@
 				</div>
 				<!-- END AJAX-DROPDOWN -->
 			</div>
-			<div class="project-context hidden-xs">
+			<div class="project-context hidden-xs col-lg-1">
 
 				<span class="label">Site Area</span>
 				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Projects <i class="fa fa-angle-down"></i> </strong></span>

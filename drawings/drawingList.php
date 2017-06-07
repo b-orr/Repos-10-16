@@ -6,7 +6,14 @@
 		<!-- END NAVIGATION -->
 
 <?php include '../includes/_menu.php'; ?>
-
+		<style type="text/css">
+			.font-lg {
+				font-size: 100% !important;
+			}
+			#dropzone {
+				min-height: 15px !important;
+			}
+		</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
@@ -285,7 +292,6 @@
 							</div>
 							
 									<div class="modal-body">
-										<form class="smart-form">
 										<div class="row"  style="display: flex; justify-content: center;">
 											<div class="col-md-6">
 												<div class="form-group">
@@ -299,9 +305,7 @@
 												<section>
 												<div class="form-group">
 													<label class="input">File input</label>
-													<div class="input input-file" style="margin-right: -7px;">
-														<span class="button"><input type="file" id="file" name="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text">
-													</div>
+													<form action="upload.php" class="dropzone" id="mydropzone"></form>
 												</div>
 												</section>
 											</div>
@@ -315,7 +319,6 @@
 											Upload
 										</button>
 									</div>
-								</form>
 							</div><!-- /.modal-content -->
 						</div><!-- /.modal-dialog -->
 					</div><!-- /.modal -->
@@ -328,6 +331,7 @@
 
 		<?php include '../includes/_footer.php'; ?>
 
+		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
 		<script type="text/javascript">
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
@@ -335,6 +339,14 @@
 		$(document).ready(function() {
 			
 			pageSetUp();
+			Dropzone.autoDiscover = false;
+			$("#mydropzone").dropzone({
+				//url: "/file/post",
+				addRemoveLinks : true,
+				maxFilesize: 0.5,
+				dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
+				dictResponseError: 'Error uploading file!'
+			});
 			$('#dt_basic').dataTable({
 					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
 						"t"+
