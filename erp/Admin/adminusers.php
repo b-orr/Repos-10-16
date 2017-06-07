@@ -40,20 +40,14 @@
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
-				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<a class="btn btn-default btn-primary" href="javascript:void(0);"><i class="fa fa-plus"></i> Add Users</a>
-					</div>
-				</div>
-				<br>
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
 				
 					<!-- row -->
-					<div class="row">
+					<div class="row no-margin">
 				
 						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-togglebutton="false">
@@ -475,10 +469,30 @@
 				};
 	
 				$('.table').dataTable({
-					
+					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+						"t"+
+						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+					"autoWidth" : true,
+			        "oLanguage": {
+					    "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+					},
+					"preDrawCallback" : function() {
+						// Initialize the responsive datatables helper once.
+						if (!responsiveHelper_dt_basic) {
+							responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+						}
+					},
+					"rowCallback" : function(nRow) {
+						responsiveHelper_dt_basic.createExpandIcon(nRow);
+					},
+					"drawCallback" : function(oSettings) {
+						responsiveHelper_dt_basic.respond();
+					}
 				});
 	
 			/* END BASIC */
+			$('#dt_basic_filter label').append('<a class="btn btn-default btn-primary" href="javascript:void(0);"><i class="fa fa-plus"></i> Add Users</a>');
+	
 			
 			/* COLUMN FILTER  */
 		    var otable = $('#datatable_fixed_column').DataTable({

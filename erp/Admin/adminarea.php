@@ -39,21 +39,14 @@
 			<!-- END RIBBON -->
 
 			<!-- MAIN CONTENT -->
-			<div id="content">
-				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<a class="btn btn-default btn-primary" href="javascript:void(0);" data-toggle="modal" data-target="#areaModal"><i class="fa fa-plus"></i> Add Area</a>
-					</div>
-				</div>
-				<br>
-				<!-- widget grid -->
+			<div id="content">				<!-- widget grid -->
 				<section id="widget-grid" class="">
 				
 					<!-- row -->
-					<div class="row">
+					<div class="row no-margin">
 				
 						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-togglebutton="false">
@@ -88,7 +81,7 @@
 				
 									<!-- widget content -->
 									<div class="widget-body no-padding">
-				
+										
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
@@ -183,7 +176,11 @@
 		<!-- END MAIN PANEL -->
 		<?php include '../includes/_footer.php'; ?>
 		<!-- END PAGE FOOTER -->
-
+		<script src="../../assets/js/plugin/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../assets/js/plugin/datatables/dataTables.colVis.min.js"></script>
+		<script src="../../assets/js/plugin/datatables/dataTables.tableTools.min.js"></script>
+		<script src="../../assets/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+		<script src="../../assets/js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
 		<script>
 			
 		$(document).ready(function() {
@@ -218,11 +215,29 @@
 				};
 	
 				$('.table').dataTable({
-					
+					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+						"t"+
+						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+					"autoWidth" : true,
+			        "oLanguage": {
+					    "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+					},
+					"preDrawCallback" : function() {
+						// Initialize the responsive datatables helper once.
+						if (!responsiveHelper_dt_basic) {
+							responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+						}
+					},
+					"rowCallback" : function(nRow) {
+						responsiveHelper_dt_basic.createExpandIcon(nRow);
+					},
+					"drawCallback" : function(oSettings) {
+						responsiveHelper_dt_basic.respond();
+					}
 				});
 	
 			/* END BASIC */
-			
+			$('#dt_basic_filter label').append('<button class="btn btn-primary" data-toggle="modal" data-target="#areaModal">Add New:</button>');
 			/* COLUMN FILTER  */
 		    var otable = $('#datatable_fixed_column').DataTable({
 		    	//"bFilter": false,
@@ -269,7 +284,7 @@
 	    
 			/* COLUMN SHOW - HIDE */
 			$('#datatable_col_reorder').dataTable({
-				"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
+				"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-xs-3 asdasdasd'r><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
 						"t"+
 						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
 				"autoWidth" : true,
