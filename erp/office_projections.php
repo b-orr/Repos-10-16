@@ -34,16 +34,21 @@
 		text-align: center;
 	    height: 40px;
 	    table-layout: fixed;
-	    font-size: 10px;
+	    font-size: 8px;
 	}
 
 	.button_cicrcle {
-		border: 1px solid red;
-		border-radius: 10px;
+		
+		
 		color:black;
 		background-color: white;
 	}
 
+
+
+	
+
+	
 	
 
 </style>
@@ -121,6 +126,7 @@
 								data-widget-sortable="false"
 				
 								-->
+								
 								<header>
 								<div class="btn-group" style="margin-bottom: 13px;">
 											<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -151,8 +157,17 @@
 											</ul>
 										</div>
 								</header>
+
+								
 				
-								<h2 style="position:relative;left:30px;">Superintendent Resource Projection</h2>
+								<h2 style="position:relative;left:30px;">Office Projections</h2>
+
+								
+									<button class="btn btn-warning" style="margin-left:50px;" id="pm" >PM</button>&nbsp;&nbsp;&nbsp;
+									<button class="btn btn-warning" style="margin-left:30px;" id="pe" >PE</button>&nbsp;&nbsp;&nbsp;
+								
+
+								<div style="height:20px;"></div>
 
 								<!-- added buttons -->
 								<br>
@@ -205,11 +220,12 @@
 													<table id="dt_basic" class="table" width="100%">
 													<thead>			                
 															<tr>
-																<th  style="width:10px !important;"></th>
-																<th style="text-align:center;"><br>Date Avaiable</th>
-																<th style="text-align:center;"><br></th>
-																<th style="text-align:center;"><br>Job# / Raiting</th>
-																
+																<th style="width:10px !important;"></th>
+																<th style="text-align:center;width:50px;"><br>Date Avaiable</th>
+																<th style="text-align:center;width:60px !important;"><br></th>
+																<th style="text-align:center;width:150px !important;"><br>Job# / Raiting</th>
+																<th style="width:40px !important;"></th>
+																<th style="width:15px !important;"></th>
 															</tr>
 													</thead>
 													<tbody>
@@ -219,33 +235,34 @@
 															$num = 1;
 															while ($count <= 20 ) { ?>
 																<tr>
-																	<td style="width:10px !important;"><button class="button btn btn-warning btn-xs" data_id="<?php echo $num;?>"><span class="inner_<?php echo$num;?>"><b>+</b></span><span class="hide inner_<?php echo$num;?>"><b>-</b></span></button></td>
-																	<td>Apr 2018</td>
-																	<td>Adan Molina</td>
-																	<td></td>
+																	<td style="width:10px !important;"><button class="button btn btn-warning btn-xs" data_id="<?php echo $num;?>"><span style="font-size:12px !important;" class="inner_<?php echo$num;?>"><b>+</b></span><span style="font-size:12px !important;" class="hide inner_<?php echo$num;?>"><b>-</b></span></button></td>
+																	<td style="width:50px !important;">Apr 2018</td>
+																	<td style="width:60px !important;">Adan Molina</td>
+																	<td style="width:150px !important;"></td>
+																	<td style="width:40px !important;"></td>
+																	<td style="width:15px !important;"></td>
 																</tr>
 																
 																	<tr id="row_<?php echo $num;?>">
 																		<tr class="hide inner_<?php echo $num;?>">
-																			<td></td>
-																			<td></td>
-																			<td>TESTPROJECT-LINE27-A</td>
-																			<td>4</td>
+																			<td style="width:10px !important;" ></td>
+																			<td style="width:50px !important;" ></td>
+																			<td style="width:60px !important;" >PM</td>
+																			<td style="width:150px !important;">TESTPROJECT</td>
+																			<td style="width:40px !important;" >Formwork</td>
+																			<td style="width:15px !important;" >4</td>
 																		</tr>
 
 																		<tr class="hide inner_<?php echo $num;?>">
-																			<td></td>
-																			<td></td>
-																			<td>TESTPROJECT-LINE20-B</td>
-																			<td>4</td>
+																			<td style="width:10px !important;"></td>
+																			<td style="width:50px !important;"></td>
+																			<td style="width:60px !important;">PM</td>
+																			<td style="width:150px !important;">TESTPROJECT - test</td>
+																			<td style="width:40px !important;">Formwork</td>
+																			<td style="width:15px !important;">4</td>
 																		</tr>
 
-																		<tr class="hide inner_<?php echo $num;?>">
-																			<td></td>
-																			<td></td>
-																			<td>TESTPROJECT-LINE15-C</td>
-																			<td>4</td>
-																		</tr>
+																		
 																	</tr>
 																<?php $num = $num + 1 ?>
 															
@@ -257,14 +274,72 @@
 													</table>
 												</div>
 
+												<div class="widget-body col-lg-5 table-2 hide" id="table-2" style="position:relative;top:5px;">
 												
+													<table id="dt_basic" class="table" width="100%">
+													<thead>			                
+															<tr>
+																<th  style="width:10px !important;"></th>
+																<th style="text-align:center;"><br>Date Avaiable</th>
+																<th style="text-align:center;"><br></th>
+																<th style="text-align:center;"><br>Job# / Raiting</th>
+																<th></th>
+																<th></th>
+																
+															</tr>
+													</thead>
+													<tbody>
+
+															<?php 
+															$count = 1;
+															$num = 1;
+															while ($count <= 20 ) { ?>
+																<tr>
+																	<td style="width:10px !important; width:10px !important;"><button class="button btn btn-warning btn-xs" data_id="<?php echo $num;?>"><span style="font-size:12px !important;" class="inner_<?php echo$num;?>"><b>+</b></span><span style="font-size:12px !important;" class="hide inner_<?php echo$num;?>"><b>-</b></span></button></td>
+																	<td style="width:50px !important;" >Apr 2018</td>
+																	<td style="width:60px !important;" >WesC Cloud</td>
+																	<td style="width:150px !important;"></td>
+																	<td style="width:40px !important;" ></td>
+																	<td style="width:15px !important;" ></td>
+																</tr>
+																
+																	<tr id="row_<?php echo $num;?>">
+																		<tr class="hide inner_<?php echo $num;?>">
+																			<td style="width:10px !important;" ></td>
+																			<td style="width:50px !important;" ></td>
+																			<td style="width:60px !important;" >PE</td>
+																			<td style="width:150px !important;">TESTPROJECT - test 1</td>
+																			<td style="width:40px !important;" >Formwork</td>
+																			<td style="width:15px !important;" >4</td>
+																		</tr>
+
+																		<tr class="hide inner_<?php echo $num;?>">
+																			<td style="width:10px !important;" ></td>
+																			<td style="width:50px !important;" ></td>
+																			<td style="width:60px !important;" >PE</td>
+																			<td style="width:150px !important;">Test project 2-s</td>
+																			<td style="width:40px !important;" >Formwork</td>
+																			<td style="width:15px !important;" >5</td>
+																		</tr>
+
+																		
+																	</tr>
+																<?php $num = $num + 1 ?>
+															
+															<?php
+															$count = $count + 1;
+															 } ?>	
+													</tbody>
+												
+													</table>
+												</div>									
 											
 												
 												
 												<div class="widget-body col-lg-7">
 												
 												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%" style="position:relative;top:5px;">
-																										<thead>			                
+														<thead>			                
 																<tr>
 																	<th>2017 <br> Jun</th>
 																	<th>July</th>
@@ -292,17 +367,17 @@
 																$num = 1;
 																while ($count <= 20 ) { ?>
 																	<tr>
-																		<td style="background-color:gray;" class='noclass'></td>
 																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
+																		<td style="color:black;background-color:gray;font-size:16px;"><b>50%</b></td>
 																		<td style="background-color:gray;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -312,64 +387,46 @@
 
 																			<tr id="row_<?php echo $num;?>">
 																				<tr class="hide inner_<?php echo $num;?>">
-																					<td class="hide inner_<?php echo $num;?>">4</td>
-																					<td class="hide inner_<?php echo $num;?>">2</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>">5</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
 																				</tr>
 
 																				<tr class="hide inner_<?php echo $num;?>">
-																					<td class="hide inner_<?php echo $num;?>">4</td>
-																					<td class="hide inner_<?php echo $num;?>">2</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>">5</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
+																					<td class="hide inner_rows inner_<?php echo $num;?>"></td>
 																				</tr>
 
-																				<tr class="hide inner_<?php echo $num;?>">
-																					<td class="hide inner_<?php echo $num;?>">4</td>
-																					<td class="hide inner_<?php echo $num;?>">2</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>">5</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																				</tr>
+																				
 																			</tr>
 																		
 																	</tr>
@@ -388,8 +445,8 @@
 										</div>	<!-- end row-->
 										<br><hr><br><br>
 
-										<h2 style="position:relative;left:30px;"><b>Unassigned Active Superintendents<b></h2>
-										<h2 style="position:relative;left:200px;color:red;">Duane Wiley | Nirneeta Gupchup |</h2>
+										<h2 style="position:relative;left:30px;"><b>Unassigned Office Resources<b></h2>
+										<h2 style="position:relative;left:200px;color:red;">Kris Runung | Ryan Truxal | Whit Lacount | Nirneeta Gupchup |</h2>
 
 										<br><hr><br><br>
 
@@ -477,17 +534,17 @@
 
 																while ($count <= 5 ) { ?>
 																	<tr>
-																		<td>5</td>
-																		<td>10</td>
-																		<td>15</td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
-																		<td>10</td>
 																		<td></td>
-																		<td>5</td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -502,34 +559,14 @@
 																		<td></td>
 																		<td></td>
 																		<td></td>
-																		<td>25</td>
-																		<td></td>
-																		<td></td>
-																		<td>10</td>
-																		<td></td>
-																		<td>40</td>
-																		<td></td>
-																		<td>40</td>
-																		<td></td>
-																		<td>20</td>
-																		<td></td>
-																		<td></td>
-																	</tr>
-
-																	<tr>
-																		<td>5</td>
-																		<td>20</td>
-																		<td>40</td>
-																		<td></td>
-																		<td></td>
-																		<td>10</td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
-																		<td>15</td>
+																		<td></td>
+																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -537,17 +574,37 @@
 																	</tr>
 
 																	<tr>
-																		<td>5</td>
 																		<td></td>
 																		<td></td>
-																		<td>20</td>
-																		<td>20</td>
 																		<td></td>
-																		<td>20</td>
 																		<td></td>
-																		<td>10</td>
 																		<td></td>
-																		<td>20</td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																	</tr>
+
+																	<tr>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -611,16 +668,23 @@
 				
 				$('.inner_' + id).toggleClass('hide');
 			});
+			
 
 			$('#expand_all').on('click', function() {
 				
 				$('.button').click();
+			});
+			
+			
+			$('#pm').on('click', function() {
+				$('.table-2').addClass('hide');
+				$('.table-1').removeClass('hide');
+			});
+
+			$('#pe').on('click', function() {
+				$('.table-1').addClass('hide');
+				$('.table-2').removeClass('hide');
 			})
-			
-
-
-			
-				
 
 			
 			
