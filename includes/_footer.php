@@ -146,3 +146,6 @@
 		<script src="../assets/js/plugin/datatables/dataTables.tableTools.min.js"></script>
 		<script src="../assets/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 		<script src="../assets/js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+
+		<script src="../assets/js/plugin/moment/moment.min.js"></script>
+		<script src="../assets/js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
