@@ -1,11 +1,11 @@
-<?php include '../includes/_header.php'; ?>
+<?php include 'includes/_header.php'; ?>
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu.php'; ?>
+<?php include 'includes/_menu_list.php'; ?>
 		<!-- MAIN PANEL -->
 
 		<!-- MAIN PANEL -->
@@ -141,7 +141,7 @@
 														<tbody>
 																<tr>
 																	<td>1</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -151,7 +151,7 @@
 																</tr>																
 																<tr>
 																	<td>2</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -161,7 +161,7 @@
 																</tr>
 																<tr>
 																	<td>3</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -171,7 +171,7 @@
 																</tr>
 																<tr>
 																	<td>4</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -181,7 +181,7 @@
 																</tr>
 																<tr>
 																	<td>5</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -191,7 +191,7 @@
 																</tr>
 																<tr>
 																	<td>6</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -201,7 +201,7 @@
 																</tr>
 																<tr>
 																	<td>7</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -211,7 +211,7 @@
 																</tr>
 																<tr>
 																	<td>8</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -221,7 +221,7 @@
 																</tr>
 																<tr>
 																	<td>9</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -231,7 +231,7 @@
 																</tr>
 																<tr>
 																	<td>10</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -241,7 +241,7 @@
 																</tr>
 																<tr>
 																	<td>11</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -251,7 +251,7 @@
 																</tr>
 																<tr>
 																	<td>12</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -261,7 +261,7 @@
 																</tr>
 																<tr>
 																	<td>13</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -271,7 +271,7 @@
 																</tr>
 																<tr>
 																	<td>14</td>
-																	<td><a href="#">Ramble Hotel<a></td>
+																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
 																	<td>Denver Co</td>
 																	<td>Sprung Construction</td>
 																	<td>A.Tekt</td>
@@ -380,7 +380,7 @@
 
 		</div>
 		<!-- END MAIN PANEL -->
-		<?php include '../includes/_footer.php'; ?>
+		<?php include 'includes/_footer.php'; ?>
 		<script>
 			
 		$(document).ready(function() {

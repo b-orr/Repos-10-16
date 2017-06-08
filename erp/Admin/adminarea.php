@@ -20,7 +20,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Admin</li><li>Area</li>
+					<li>Admin</li><li>Regions</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -65,7 +65,7 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Areas</h2>
+									<h2>Regions</h2>
 				
 								</header>
 				
@@ -85,7 +85,7 @@
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone">Area</th>
+													<th data-hide="phone">Regions</th>
 													<th data-hide="phone,tablet" style="width: 60px;">Action</th>	
 												</tr>
 											</thead>

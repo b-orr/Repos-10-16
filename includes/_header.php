@@ -240,16 +240,16 @@
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);">Admin</a>
+						<a href="../erp/Admin/adminarea.php">Admin</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);">Projects</a>
+						<a href="../projectlist.php">Projects</a>
 					</li>
 					<li>
 						<a href="javascript:void(0);">Equipment</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);">Contacts</a>
+						<a href="../erp/Contacts/contactslist.php">Contacts</a>
 					</li>
 					<li>
 						<a href="javascript:void(0);">Estimating</a>
