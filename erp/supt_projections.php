@@ -264,7 +264,7 @@
 												<div class="widget-body col-lg-7">
 												
 												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%" style="position:relative;top:5px;">
-																										<thead>			                
+														<thead>			                
 																<tr>
 																	<th>2017 <br> Jun</th>
 																	<th>July</th>
