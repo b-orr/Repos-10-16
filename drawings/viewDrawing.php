@@ -115,6 +115,12 @@
 															04/05/2017
 															</label>
 													</section>
+													<section class="col col-2">
+															<label class="label">Discipline</label>
+															<label class="strong">
+															Architectural
+															</label>
+													</section>
 													<div class="col-xs-12 col-sm-6 col-md-7 col col-2" style="padding-left: 2px;">
 														<a class="btn btn-success btn-lg" href="javascript:void(0);">Edit</a>
 													</div>
