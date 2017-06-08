@@ -235,12 +235,12 @@
 			<div class="project-context hidden-xs col-lg-1">
 
 				<span class="label">Site Area</span>
-				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Admin <i class="fa fa-angle-down"></i> </strong></span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Contacts <i class="fa fa-angle-down"></i> </strong></span>
 
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);">Admin</a>
+						<a href="../Admin/adminarea.php">Admin</a>
 					</li>
 					<li>
 						<a href="../../projectlist.php">Projects</a>
@@ -249,7 +249,7 @@
 						<a href="javascript:void(0);">Equipment</a>
 					</li>
 					<li>
-						<a href="../Contacts/contactslist.php">Contacts</a>
+						<a href="contactslist.php">Contacts</a>
 					</li>
 					<li>
 						<a href="javascript:void(0);">Estimating</a>

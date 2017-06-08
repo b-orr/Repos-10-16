@@ -1,11 +1,11 @@
-<?php include '../includes/_header.php'; ?>
+<?php include 'includes/_header.php'; ?>
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu.php'; ?>
+<?php include 'includes/_menu.php'; ?>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
@@ -698,7 +698,7 @@
 
 		</div>
 		<!-- END MAIN PANEL -->
-		<?php include '../includes/_footer.php'; ?>
+		<?php include 'includes/_footer.php'; ?>
 		<!-- END PAGE FOOTER -->
 
 		<script>
