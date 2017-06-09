@@ -448,7 +448,10 @@
 										<h2 style="position:relative;left:30px;"><b>Unassigned Office Resources<b></h2>
 										<h2 style="position:relative;left:200px;color:red;">Kris Runung | Ryan Truxal | Whit Lacount | Nirneeta Gupchup |</h2>
 
+
 										<br><hr><br><br>
+
+										<h3 style="position:relative;left:30px;"><b>Unassigned Projects<b></h3>
 
 										<div class="row"> <!-- second type of tables -->
 											
@@ -661,6 +664,9 @@
 			
 		$(document).ready(function() {
 
+			$('#expand_all').on('click', function() {
+				$('.button').click();
+			});
 
 
 			$('.button').on('click', function() {
@@ -670,10 +676,6 @@
 			});
 			
 
-			$('#expand_all').on('click', function() {
-				
-				$('.button').click();
-			});
 			
 			
 			$('#pm').on('click', function() {
