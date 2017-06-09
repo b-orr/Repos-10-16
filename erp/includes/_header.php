@@ -259,7 +259,7 @@
 						<a href="javascript:void(0);">Estimating</a>
 					</li>
 					<li>
-						<a href="../crew_projections.php">Resources</a>
+						<a href="../Projections/crew_projections.php">Resources</a>
 					</li>
 				</ul>
 				<!-- end dropdown-menu-->
