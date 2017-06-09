@@ -367,7 +367,7 @@
 																$num = 1;
 																while ($count <= 20 ) { ?>
 																	<tr>
-																		<td style="background-color:gray;"></td>
+																		<td style="color:black;background-color:gray;"></td>
 																		<td style="color:black;background-color:gray;font-size:16px;"><b>50%</b></td>
 																		<td style="background-color:gray;"></td>
 																		<td></td>
@@ -448,7 +448,10 @@
 										<h2 style="position:relative;left:30px;"><b>Unassigned Office Resources<b></h2>
 										<h2 style="position:relative;left:200px;color:red;">Kris Runung | Ryan Truxal | Whit Lacount | Nirneeta Gupchup |</h2>
 
+
 										<br><hr><br><br>
+
+										<h3 style="position:relative;left:30px;"><b>Unassigned Projects<b></h3>
 
 										<div class="row"> <!-- second type of tables -->
 											
@@ -534,33 +537,13 @@
 
 																while ($count <= 5 ) { ?>
 																	<tr>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																	</tr>
-
-																	<tr>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
+																		<td style="background-image: url('../erp/includes/start_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -574,11 +557,31 @@
 																	</tr>
 
 																	<tr>
+																		<td style="background-image: url('../erp/includes/start_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
+																		<td></td>
+																	</tr>
+
+																	<tr>
+																		<td style="background-image: url('../erp/includes/start_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -661,6 +664,9 @@
 			
 		$(document).ready(function() {
 
+			$('#expand_all').on('click', function() {
+				$('.button').click();
+			});
 
 
 			$('.button').on('click', function() {
@@ -670,10 +676,6 @@
 			});
 			
 
-			$('#expand_all').on('click', function() {
-				
-				$('.button').click();
-			});
 			
 			
 			$('#pm').on('click', function() {

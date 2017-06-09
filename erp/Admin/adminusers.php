@@ -10,7 +10,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon">
+			<div id="ribbon" style="background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -20,7 +20,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Admin</li><li>Users</li>
+					<li style="color: #4d4d4d;">Admin</li><li style="color: #4d4d4d;">Users</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -89,10 +89,8 @@
 													<th data-hide="phone">Title</th>
 													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>First Name</th>
 													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Last Name</th>
-													<th data-hide="phone,tablet">E-Mail</th>
 													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>User Name</th>
-													<th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Phone</th>
-													<th data-hide="phone">Initials</th>
+													<th data-hide="phone"><i class="text-muted hidden-md hidden-sm hidden-xs"></i>Access Type</th>
 													<th data-hide="phone,tablet">Action</th>	
 												</tr>
 											</thead>
@@ -101,30 +99,24 @@
 													<td>Project Engineer</td>
 													<td>John</td>
 													<td>Doe</td>
-													<td>jdoe@email.com</td>
 													<td>JohnDoe</td>
-													<td>555-555-5555</td>
-													<td>JD</td>
+													<td>Area Leader</td>
 													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
 												</tr>
 												<tr>
 													<td>Project Coordinator</td>
 													<td>Lilly</td>
 													<td>Smith</td>
-													<td>lillysmith@email.com</td>
 													<td>LillyS</td>
-													<td>222-333-4444</td>
-													<td>LS</td>
+													<td>Corporate Access</td>
 													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
 												</tr>
 												<tr>
 													<td>Superintendent</td>
 													<td>James</td>
 													<td>Bishop</td>
-													<td>jamesbishop@email.com</td>
 													<td>JamesB</td>
-													<td>123-456-7890</td>
-													<td>JB</td>
+													<td>Superintendent</td>
 													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
 												</tr>
 											</tbody>
@@ -147,20 +139,20 @@
 					<!-- end row -->
 				
 				</section>
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h4 class="modal-title" id="myModalLabel">Add Company</h4>
+								<h4 class="modal-title" id="myModalLabel">User Details</h4>
 							</div>
 							<div class="modal-body">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<h4>Company name: <sup>*</sup></h4>
+											<h4>Title: <sup>*</sup></h4>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -172,138 +164,179 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<h4>Company type: <sup>*</sup></h4>
+											<h4>First Name: <sup>*</sup></h4>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<ul class="checkbox"> 
-												  <li>
-												  	<input type="checkbox" id="cb1" value="Owner" /><label for="cb1">Owner</label>
-												  </li> 
-												  <li>
-												  	<input type="checkbox" id="cb2" value="Architect" /><label for="cb2">Architect</label>
-												  </li> 
-												  <li>
-												 	<input type="checkbox" id="cb3" value="Structural/Engineer" /><label for="cb3">Structural/Engineer</label>
-												  </li> 
-												  <li>
-												  	<input type="checkbox" id="cb4" value="General Contractor/Client" /><label for="cb4">General Contractor/Client</label>
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb5" value="SubContractor" /><label for="cb5">SubContractor</label>
-												  </li>
-											</ul> 
+											<input type="text" class="form-control" required />
 										</div>
 									</div>
 								</div>
-								<br>
-								<br>
-								<br>
-							<div class="row">
+								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<h4>Locations:</h4>
+											<h4>Last Name: <sup>*</sup></h4>
 										</div>
 									</div>
 									<div class="col-md-6">
-										<a class="btn btn-default btn-primary" href="javascript:void(0);"><i class="fa fa-plus"></i> Add new location</a>
+										<div class="form-group">
+											<input type="text" class="form-control" required />
+										</div>
 									</div>
-								
+								</div>
+							<hr>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<h4>Add area: <sup>*</sup></h4>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group" style="border-style: groove; border-width: 2px;">
+										<ul class="checkbox"> 
+											<li>
+												<input type="checkbox" id="cb1" value="Colorado" /><label for="cb1">Colorado Office</label>
+											</li> 
+											<li>
+												<input type="checkbox" id="cb2" value="Washington" /><label for="cb2">Washington Office</label>
+											</li> 
+											<li>
+												<input type="checkbox" id="cb3" value="Hawaii" /><label for="cb3">Hawaii Office</label>
+											</li> 
+											<li>
+												 <input type="checkbox" id="cb4" value="South Texas" /><label for="cb4">South Texas Office</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb5" value="Northern CA" /><label for="cb5">Northern CA Office</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb6" value="Southern CA" /><label for="cb6">Southern CA Office</label>
+											</li>
+										</ul> 
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<h4>Add Group: <sup>*</sup></h4>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group" style="border-style: groove; border-width: 2px;">
+										<ul class="checkbox"> 
+											<li>
+												<input type="checkbox" id="cb7" value="Admin" /><label for="cb7">Admin</label>
+											</li> 
+											<li>
+												<input type="checkbox" id="cb8" value="Area Leader" /><label for="cb8">Area Leader</label>
+											</li> 
+											<li>
+												<input type="checkbox" id="cb9" value="Corporate Access" /><label for="cb9">Corporate Access</label>
+											</li> 
+											<li>
+												 <input type="checkbox" id="cb10" value="Entire Site Read Only" /><label for="cb10">Entire Site Read Only</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb11" value="Estimator" /><label for="cb11">Estimator</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb12" value="PM/PE" /><label for="cb12">PM/PE</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb13" value="Pre-Con Manager" /><label for="cb13">Pre-Con Manager</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb14" value="Read Only" /><label for="cb14">Read Only</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb15" value="Superintendent" /><label for="cb15">Superintendent</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb16" value="Test Group" /><label for="cb16">Test Group</label>
+											</li>
+										</ul> 
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<h4>Add role: <sup>*</sup></h4>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group" style="border-style: groove; border-width: 2px;">
+										<ul class="checkbox"> 
+											<li>
+												<input type="checkbox" id="cb17" value="Project Manager" /><label for="cb17">Project Manager</label>
+											</li> 
+											<li>
+												<input type="checkbox" id="cb18" value="OP Manager" /><label for="cb18">OP Manager</label>
+											</li> 
+											<li>
+												<input type="checkbox" id="cb19" value="Engineer" /><label for="cb19">Engineer</label>
+											</li> 
+											<li>
+												 <input type="checkbox" id="cb20" value="Estimator" /><label for="cb20">Estimator</label>
+											</li>
+											<li>
+												<input type="checkbox" id="cb21" value="Superintendent" /><label for="cb21">Superintendent</label>
+											</li>
+										</ul> 
+									</div>
+								</div>
 							</div>
 							<hr>
 							<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Location Name: <sup>*</sup></h4>
-										</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<h4>User Name: <sup>*</sup></h4>
 									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" required />
 									</div>
+								</div>
 							</div>
 							<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Phone:</h4>
-										</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<h4>E-mail: <sup>*</sup></h4>
 									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" required />
 									</div>
+								</div>
 							</div>
 							<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Address:</h4>
-										</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<h4>Password:</h4>
 									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" required />
 									</div>
+								</div>
 							</div>
+							<hr>
 							<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>City, State:</h4>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<select class="form-control" id="category">
-												<option>CO</option>
-												<option>WA</option>
-												<option>HW</option>
-												<option>N.CA</option>
-												<option>NV</option>
-												<option>S.CA</option>
-												<option>OR</option>
-												<option>TX</option>
-												<option>CA</option>
-											</select>
-										</div>
-									</div>
-							</div>
-							<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Add area: <sup>*</sup></h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<ul class="checkbox"> 
-												  <li>
-												  	<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10">Colorado</label>
-												  </li> 
-												  <li>
-												  	<input type="checkbox" id="cb11" value="Washington" /><label for="cb11">Washington</label>
-												  </li> 
-												  <li>
-												 	<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12">Hawaii</label>
-												  </li> 
-												  <li>
-												  	<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13">South Texas</label>
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"></label>Northern CA
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"></label>Southern CA
-												  </li>
-											</ul> 
-										</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<ul class="checkbox"> 
+											<li>
+												<input type="checkbox" id="cb22" value="Active/InActive" /><h5>Active/InActive</h5>
+											</li> 
+											<li>
+												<input type="checkbox" id="cb23" value="Apply User" /><h5>Apply User</h5>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -312,116 +345,7 @@
 									Cancel
 								</button>
 								<button type="button" class="btn btn-primary">
-									Add Company
-								</button>
-							</div>
-						</div><!-- /.modal-content -->
-					</div><!-- /.modal-dialog -->
-				</div>
-				<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									&times;
-								</button>
-								<h4 class="modal-title" id="myModalLabel">Add a new person</h4>
-							</div>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>First name: <sup>*</sup></h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Last name: <sup>*</sup></h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Phone:</h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>E-mail:</h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
-									</div>
-								</div>
-								<br>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Contact type: <sup>*</sup></h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<ul class="checkbox"> 
-												  <li>
-												  	<input type="checkbox" id="cb6" value="Preconstruction Contact" /><label for="cb6">Preconstruction Contact</label>
-												  </li> 
-												  <li>
-												  	<input type="checkbox" id="cb7" value="Project contact" /><label for="cb7">Project contact</label>
-												  </li> 
-												  <li>
-												 	<input type="checkbox" id="cb8" value="Engineering Contact" /><label for="cb8">Engineering Contact</label>
-												  </li> 
-												  <li>
-												  	<input type="checkbox" id="cb9" value="Other" /><label for="cb9">Other</label>
-												  </li> 
-											</ul> 
-										</div>
-									</div>
-								</div>
-								<br>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4> Company association: <sup>*</sup></h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">
-									Cancel
-								</button>
-								<button type="button" class="btn btn-primary">
-									Add Person
+									Add User
 								</button>
 							</div>
 						</div><!-- /.modal-content -->
@@ -491,7 +415,7 @@
 				});
 	
 			/* END BASIC */
-			$('#dt_basic_filter label').append('<a class="btn btn-default btn-primary" href="javascript:void(0);"><i class="fa fa-plus"></i> Add Users</a>');
+			$('#dt_basic_filter label').append('<a class="btn btn-default btn-primary" data-toggle="modal" data-target="#userModal""><i class="fa fa-plus"></i> Add Users</a>');
 	
 			
 			/* COLUMN FILTER  */

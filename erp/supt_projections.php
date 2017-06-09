@@ -156,6 +156,7 @@
 
 								<!-- added buttons -->
 								<br>
+								<!-- remove select rating
 								<div class="">
 									<span style="position:relative;left:30px;font-size:18px;">Select Rating</span>
 									<div class="row">
@@ -176,9 +177,9 @@
 										
 										
 									</div>
-									<div style="position:relative;height:20px;width:auto;"></div> <!-- spacer 20px;-->
+									<div style="position:relative;height:20px;width:auto;"></div> spacer 20px
 								</div>
-								
+								remove selec rating -->
 								<!-- added buttons -->
 
 								<!-- widget div-->

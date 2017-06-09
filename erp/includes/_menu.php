@@ -16,7 +16,7 @@
 						<a href="admincategory.php"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Categories</span></a>
 					</li>
 					<li>
-						<a href="admingroup.php"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Groups</span></a>
+						<a href="admingroup.php"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">User Groups</span></a>
 					</li>
 					<li>
 						<a href="adminusers.php"><i class="fa fa-lg fa-fw fa-pencil" style="color: #404040;"></i> <span class="menu-item-parent">Users</span></a>
