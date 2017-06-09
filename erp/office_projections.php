@@ -61,7 +61,13 @@
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu.php'; ?>
+<?php $one = '';
+	  $two = '';
+	  $three = 'active'; 
+
+?>
+
+<?php include '/includes/_menu_projections.php'; ?>
 		<!-- MAIN PANEL -->
 
 		<!-- MAIN PANEL -->
@@ -512,22 +518,22 @@
 												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 																										<thead>			                
 																<tr>
-																	<th style="width:50px !important;">2017 <br> Jun</th>
-																	<th style="width:50px !important;">July</th>
-																	<th style="width:50px !important;">Aug</th>
-																	<th style="width:50px !important;">Sep</th>
-																	<th style="width:50px !important;">Oct</th>
-																	<th style="width:50px !important;">Nov</th>
-																	<th style="width:50px !important;">Dec</th>
-																	<th style="width:50px !important;">2018 <br> Jan</th>
-																	<th style="width:50px !important;">Feb</th>
-																	<th style="width:50px !important;">Mar</th>
-																	<th style="width:50px !important;">Apr</th>
-																	<th style="width:50px !important;">May</th>
-																	<th style="width:50px !important;">Jun</th>
-																	<th style="width:50px !important;">July</th>
-																	<th style="width:50px !important;">Aug</th>
-																	<th style="width:50px !important;">Sep</th>
+																	<th style="">2017 <br> Jun</th>
+																	<th style="">July</th>
+																	<th style="">Aug</th>
+																	<th style="">Sep</th>
+																	<th style="">Oct</th>
+																	<th style="">Nov</th>
+																	<th style="">Dec</th>
+																	<th style="">2018 <br> Jan</th>
+																	<th style="">Feb</th>
+																	<th style="">Mar</th>
+																	<th style="">Apr</th>
+																	<th style="">May</th>
+																	<th style="">Jun</th>
+																	<th style="">July</th>
+																	<th style="">Aug</th>
+																	<th style="">Sep</th>
 																	<th>Oct</th>
 																	
 																</tr>
@@ -538,13 +544,13 @@
 
 																while ($count <= 5 ) { ?>
 																	<tr>
-																		<td style="width:50px !important;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
+																		<td style="background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -558,17 +564,17 @@
 																	</tr>
 
 																	<tr>
-																		<td style="width:50px !important;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
+																		<td style="background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -578,11 +584,11 @@
 																	</tr>
 
 																	<tr>
-																		<td style="width:50px !important;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="width:50px !important;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
+																		<td style="background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -687,7 +693,9 @@
 			$('#pe').on('click', function() {
 				$('.table-1').addClass('hide');
 				$('.table-2').removeClass('hide');
-			})
+			});
+
+
 
 			
 			

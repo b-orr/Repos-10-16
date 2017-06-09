@@ -43,12 +43,19 @@
 
 <?php include '../includes/_header.php'; ?>
 
+<?php $one = 'active';
+	  $two = '';
+	  $three = ''; 
+
+?>
+
+
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu.php'; ?>
+<?php include '/includes/_menu_projections.php'; ?>
 		<!-- MAIN PANEL -->
 
 		<!-- MAIN PANEL -->
@@ -673,7 +680,7 @@
 			})
 
 			
-
+			
 			
 
 			
