@@ -284,27 +284,27 @@
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<div class="modal-header">
+							<div class="modal-header" style="background-color: #404040;">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h4 class="modal-title" id="myModalLabel">Drawing Upload Info</h4>
+								<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Drawing Upload Info</h4>
 							</div>
 							
 									<div class="modal-body">
 										<div class="row"  style="display: flex; justify-content: center;">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="input">Release Description</label>
+													<label class="input" style="font-weight: bold;">Release Description</label>
 													<input type="text" class="form-control" required style="padding-left: 5px;" />
 												</div>
 												<div class="form-group">
-													<label class="input">Release Date</label>
+													<label class="input" style="font-weight: bold;">Release Date</label>
 													<input id="dateselect_filter" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
 												</div>
 												<section>
 												<div class="form-group">
-													<label class="input">File input</label>
+													<label class="input" style="font-weight: bold;">File input</label><small class="font-xs"> (Click below to open File Explorer)</small>
 													<form action="upload.php" class="dropzone" id="mydropzone"></form>
 												</div>
 												</section>
