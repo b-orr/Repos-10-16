@@ -169,10 +169,15 @@
 				
 								<h2 style="position:relative;left:30px;">Office Projections</h2>
 
-								
+									<form action="" style="position:relative;left:30px;">
+										  <input type="radio" name="gender" value="" id="pm" checked="checked">PM
+										  <input type="radio" name="gender" value="" id="pe" >PE
+										  										  
+									</form>
+									<!--									
 									<button class="btn btn-warning" style="margin-left:50px;" id="pm" >PM</button>&nbsp;&nbsp;&nbsp;
 									<button class="btn btn-warning" style="margin-left:30px;" id="pe" >PE</button>&nbsp;&nbsp;&nbsp;
-								
+									-->
 
 								<div style="height:20px;"></div>
 
