@@ -10,7 +10,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon">
+			<div id="ribbon" style="background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -20,7 +20,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Admin</li><li>Group</li>
+					<li style="color: #4d4d4d;">Admin</li><li style="color: #4d4d4d;">User Groups</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -40,17 +40,17 @@
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
+
+				
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
 				
 					<!-- row -->
 					<div class="row no-margin">
-				
-						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+					<article class="col-sm-12 col-md-12 col-lg-6">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-togglebutton="false">
+							<div class="jarviswidget jarviswidget-color-blueDark"  id="wid-id-1"  data-widget-fullscreenbutton="false" data-widget-deletebutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
@@ -66,7 +66,8 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Groups</h2>
+									<h2>Groups </h2>
+				
 								</header>
 				
 								<!-- widget div-->
@@ -82,57 +83,18 @@
 									<!-- widget content -->
 									<div class="widget-body no-padding">
 				
-										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
-											<thead>			                
-												<tr>
-													<th data-hide="phone">Group Name</th>
-													<th data-hide="phone,tablet" style="width: 60px;">Action</th>	
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Admin</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Area Leaders</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Corporate Access</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Entire Site Read Only</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Estimator</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>PM\PE</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Pre-Con Manager</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Read Only</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Superintendent</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-												<tr>
-													<td>Test Group</td>
-													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
-												</tr>
-											</tbody>
-										</table>
-
+										<form class="smart-form">
+											<fieldset>
+												<section>
+													<label class="select select-multiple">
+														<select multiple="">
+															<option value="1">Engineering Group</option>
+															<option value="2">Project Manager</option>
+														</select>
+													</label>
+												</section>
+											</fieldset>
+										</form>
 									</div>
 									<!-- end widget content -->
 				
@@ -143,122 +105,249 @@
 							<!-- end widget -->
 				
 						</article>
-						<!-- WIDGET END -->
+						<!-- NEW WIDGET START -->
+						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
+							<!-- Widget ID (each widget will need unique ID)-->
+							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-colorbutton="false"  data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false">
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+
+								-->
+								<header>
+									<h2>Site Permission Preview </h2>
+									<h2 class="pull-right" style="width: 7%;">Full</h2>
+									<h2 class="pull-right" style="width: 7%;">Edit</h2>
+									<h2 class="pull-right" style="width: 7%;">View</h2>
+									<h2 class="pull-right" style="width: 7%;">None</h2>
+				
+								</header>
+
+								<!-- widget div-->
+								<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div class="widget-body">
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											<tbody>
+												<tr>
+													<td>Admin</td>
+													<td id="switch-1" style="width: 8%;">
+														<span class="onoffswitch">
+															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1">
+															<label class="onoffswitch-label" for="myonoffswitch1"> 
+													<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+													<span class="onoffswitch-switch"></span> </label> 
+													</span></td>
+													</tr>
+											</tbody>
+										</table>
+										<br>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											<tbody>
+												<tr>
+													<td>Estimating Area</td>
+													<td id="switch-1" style="width: 8%;">
+														<span class="onoffswitch">
+															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2">
+															<label class="onoffswitch-label" for="myonoffswitch2"> 
+													<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+													<span class="onoffswitch-switch"></span> </label> 
+													</span></td>
+													</tr>
+											</tbody>
+										</table>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											
+											<tbody>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Projects Bidding</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="pro_bid"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="pro_bid"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="pro_bid"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="pro_bid"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Archived Projects</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="arc_pro"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="arc_pro"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="arc_pro"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="arc_pro"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Pronovos</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="pronov"></td>
+														<td style="background-color: #f2f2f2;"></td>
+														<td style="background-color: #f2f2f2;"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="pronov"></td>
+													</tr>
+											</tbody>
+										</table>
+										<br>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											<tbody>
+												<tr>
+													<td>Resource Area</td>
+													<td id="switch-1" style="width: 8%;">
+														<span class="onoffswitch">
+															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3">
+															<label class="onoffswitch-label" for="myonoffswitch3"> 
+													<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+													<span class="onoffswitch-switch"></span> </label> 
+													</span></td>
+													</tr>
+											</tbody>
+										</table>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											
+											<tbody>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Crew Resource Sheet</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="c_res_sheet"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="c_res_sheet"></td>
+														<td style="background-color: #f2f2f2; width: 8%"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="c_res_sheet"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Superintendent Resource Sheet</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="sup_res_sheet"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="sup_res_sheet"></td>
+														<td style="background-color: #f2f2f2; width: 8%"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="sup_res_sheet"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Office Resource Sheet</td>
+														<td class="center_radio" style="width: 8%"><input type="radio" name="o_res_sheet"></td>
+														<td class="center_radio" style="width: 8%"><input type="radio" name="o_res_sheet"></td>
+														<td style="background-color: #f2f2f2; width: 8%"></td>
+														<td class="center_radio" style="width: 8%"><input type="radio" name="o_res_sheet"></td>
+													</tr>
+											</tbody>
+										</table>
+										<br>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											<tbody>
+												<tr>
+													<td>Contacts Area</td>
+													<td id="switch-1" style="width: 8%">
+														<span class="onoffswitch">
+															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch4">
+															<label class="onoffswitch-label" for="myonoffswitch4"> 
+													<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+													<span class="onoffswitch-switch"></span> </label> 
+													</span></td>
+													</tr>
+											</tbody>
+										</table>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											
+											<tbody>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Directory</td>
+														<td style="width: 8%;background-color: #f2f2f2; "></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="directory"></td>
+														<td style="width: 8%;background-color: #f2f2f2; "></td>
+													</tr>
+											</tbody>
+										</table>
+										<br>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											<tbody>
+												<tr>
+													<td>Equipment Area</td>
+													<td id="switch-1" style="width: 8%;">
+														<span class="onoffswitch">
+															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5">
+															<label class="onoffswitch-label" for="myonoffswitch5"> 
+													<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+													<span class="onoffswitch-switch"></span> </label> 
+													</span></td>
+													</tr>
+											</tbody>
+										</table>
+										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
+											
+											<tbody>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Equipment Overview</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_ovw"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Inventory</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="inventory"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="inventory"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="inventory"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="inventory"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Equipment Management</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_mng"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_mng"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_mng"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="equp_mng"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Forecasting</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="forecast"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="forecast"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="forecast"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="forecast"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Rental Overview</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="rent_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="rent_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="rent_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="rent_ovw"></td>
+													</tr>
+													<tr>
+														<td>&nbsp;&nbsp;&nbsp;Allocation Overview</td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="alloc_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="alloc_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="alloc_ovw"></td>
+														<td class="center_radio" style="width: 8%;"><input type="radio" name="alloc_ovw"></td>
+													</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- end widget content -->
+
+								</div>
+								<!-- end widget div -->
+
+							</div>
+							<!-- end widget -->
+
+						</article>
+						<!-- WIDGET END -->
+				
+					</div>
+				
 					<!-- end row -->
 				
 					<!-- end row -->
 				
 				</section>
-				<div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									&times;
-								</button>
-								<h4 class="modal-title" id="myModalLabel">Group</h4>
-							</div>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Group name: <sup>*</sup></h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control" required />
-										</div>
-									</div>
-								</div>
-								<br>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<h4>Access Level: <sup>*</sup></h4>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group" style="border-style: groove; border-width: 2px;">
-											<ul class="checkbox"> 
-												  <li>
-												  	<input type="checkbox" id="cb1" value="Estimating" />Estimating
-												  		<ul>
-												  			<li>
-												  			<input type="checkbox" id="cb2" value="Project Bidding" />Project Bidding
-												  			<ul>
-												  				<li>
-												  					<input type="checkbox" id="cb4" value="New Project" />New Project
-												  				</li>
-												  				<li>
-												  					<input type="checkbox" id="cb5" value="Edit Info" />Edit Info
-												  				</li>
-												  				<li>
-												  					<input type="checkbox" id="cb6" value="Enter Bid Results" />Enter Bid Results
-												  				</li>
-												  			</ul>
-												  			<li>
-												  				<input type="checkbox" id="cb6" value="URL" />URL
-												  			</li>
-												  			</li>
-												  		</ul>
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb7" value="Resources" />Resources
-												  	<ul>
-												  		<li>
-												  			<input type="checkbox" id="cb8" value="Resource Projections" />Resource Projections
-												  		</li>
-												  	</ul>
-												  </li>
-												  
-												  <li>
-												  	<input type="checkbox" id="cb9" value="Division" />Division
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb10" value="Category" />Category
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb11" value="Group" />Group
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb12" value="Users" />Users
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb13" value="Contact" />Contact
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb14" value="Projects" />Projects
-												  	<ul>
-												  		<li>
-												  		<input type="checkbox" id="cb15" value="Past Projects" />Past Projects
-												  		</li>
-												  	</ul>
-												  </li>
-												  
-												  <li>
-												  	<input type="checkbox" id="cb16" value="Award" />Award
-												  </li>
-												  <li>
-												  	<input type="checkbox" id="cb17" value="Delete" />Delete
-												  </li>
-											</ul> 
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">
-									Cancel
-								</button>
-								<button type="button" class="btn btn-primary">
-									Save
-								</button>
-							</div>
-						</div><!-- /.modal-content -->
-					</div><!-- /.modal-dialog -->
-				</div>
+
 			</div>
 			<!-- END MAIN CONTENT -->
 
