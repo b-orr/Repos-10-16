@@ -41,7 +41,7 @@
 
 </style>
 
-<?php include '/includes/_header.php'; ?>
+<?php include 'includes/_header.php'; ?>
 
 <?php $one = 'active';
 	  $two = '';
@@ -55,7 +55,7 @@
 		
 		<!-- END NAVIGATION -->
 
-<?php include '/includes/_menu.php'; ?>
+<?php include 'includes/_menu.php'; ?>
 		<!-- MAIN PANEL -->
 
 		<!-- MAIN PANEL -->
@@ -643,17 +643,17 @@
 
 		</div>
 		<!-- END MAIN PANEL -->
-		<?php include '../includes/_footer.php'; ?>
+		<?php include 'includes/_footer.php'; ?>
 		
 	
 		<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
-		<script src="../assets/js/plugin/flot/jquery.flot.cust.min.js"></script>
-		<script src="../assets/js/plugin/flot/jquery.flot.resize.min.js"></script>
-		<script src="../assets/js/plugin/flot/jquery.flot.fillbetween.min.js"></script>
-		<script src="../assets/js/plugin/flot/jquery.flot.orderBar.min.js"></script>
-		<script src="../assets/js/plugin/flot/jquery.flot.pie.min.js"></script>
-		<script src="../assets/js/plugin/flot/jquery.flot.time.min.js"></script>
-		<script src="../assets/js/plugin/flot/jquery.flot.tooltip.min.js"></script>
+		<script src="../../assets/js/plugin/flot/jquery.flot.cust.min.js"></script>
+		<script src="../../assets/js/plugin/flot/jquery.flot.resize.min.js"></script>
+		<script src="../../assets/js/plugin/flot/jquery.flot.fillbetween.min.js"></script>
+		<script src="../../assets/js/plugin/flot/jquery.flot.orderBar.min.js"></script>
+		<script src="../../assets/js/plugin/flot/jquery.flot.pie.min.js"></script>
+		<script src="../../assets/js/plugin/flot/jquery.flot.time.min.js"></script>
+		<script src="../../assets/js/plugin/flot/jquery.flot.tooltip.min.js"></script>
 
 		<script>
 			

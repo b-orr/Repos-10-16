@@ -246,7 +246,7 @@
 						<a href="../../projectlist.php">Projects</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);">Equipment</a>
+						<a href="../../equipment/eqoverview.php">Equipment</a>
 					</li>
 					<li>
 						<a href="contactslist.php">Contacts</a>

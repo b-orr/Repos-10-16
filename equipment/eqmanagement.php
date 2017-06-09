@@ -31,7 +31,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Equipment</li><li style="color: black;">Inventory</li>
+					<li style="color: black;">Equipment</li><li style="color: black;">Equipment List</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -104,37 +104,8 @@
 												<div class="widget-body col-lg-10 table-1" id="table-1" style="margin-top: 3px;">
 													<div class="row bordered" style="margin-left: 0px; margin-right: 0px; background-color: #404040; color: white;">
 														<div class="col-lg-4" style="display: flex; align-items: center;">
-															<div class="col-lg-4">
-																<h5>Location</h5>
-															</div>
-															<div class="col-lg-7">
-																<select class="form-control">
-																	<option>WA Yard</option>
-																	<option>NY Yard</option>
-																	<option>TX Yard</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-lg-4" style="display: flex; align-items: center;">
-															<div class="col-lg-3">
-																<h5>Status</h5>
-															</div>
-															<div class="col-lg-8">
-																<select class="form-control">
-																	<option>Active</option>
-																	<option>Damaged</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-lg-4" style="display: flex; align-items: center;">
-															<div class="col-lg-3">
-																<h5>Owner</h5>
-															</div>
-															<div class="col-lg-8">
-																<select class="form-control">
-																	<option>McClone</option>
-																</select>
-															</div>
+															<button class="btn btn-primary" style="margin: 5px 5px;" onclick="expand();">Expand All</button>
+															<button class="btn btn-primary" style="margin: 5px 5px;" onclick="collapse();">Collapse All</button>
 														</div>
 													</div>
 													<table id="dt_basic" class="table table-bordered" width="100%">
@@ -177,7 +148,7 @@
 																$count1 = 1;
 																$num1 = 1;
 																while ($count1 <= 3 ) { ?>
-																	<tr class="hide first-child-<?php echo $num; ?> fchild">
+																	<tr class="hide f-children first-child-<?php echo $num; ?> fchild">
 																		<td style="width:10px !important; padding-left: 20px;">
 																			<button class="button btn btn-warning btn-xs" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
 																				<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>">
@@ -199,7 +170,7 @@
 																$count2 = 1;
 																$num2 = 1;
 																while ($count2 <= 6 ) { ?>
-																	<tr class="hide second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
+																	<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
 																		<td style="width:10px !important; padding-left: 40px;">
 																			Main Beams 3' 9''
 																		</td>
@@ -236,8 +207,14 @@
 															<input type="text" class="form-control" placeholder="Quick search">	
 														</div>
 														<br>
-														<div class="row col-lg-12" style="margin: 0px;">
-															<button class="btn btn-primary form-control" data-target="#myModal2" data-toggle="modal">Add Inventory</button>
+														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
+															<button class="btn btn-primary form-control" data-target="#categoryModal" data-toggle="modal">New Category</button>
+														</div>
+														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
+															<button class="btn btn-primary form-control" data-target="#subCategoryModal" data-toggle="modal">New Sub Category</button>
+														</div>
+														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
+															<button class="btn btn-primary form-control" data-target="#addEquipmentModal" data-toggle="modal">Add Equipment Type</button>
 														</div>
 													</div>
 												</div>
@@ -362,137 +339,254 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
-			<div class="modal fade" id="myModal2" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
+			
+			<div class="modal fade" id="categoryModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header" style="background-color: #404040;">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 								&times;
 							</button>
-							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Inventory</h4>
+							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Category</h4>
 						</div>
-						<div class="modal-body">
-							<div>
-								<strong>
-									<h6>Select Tool</h6>
-								</strong>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Classification</label>
-										<select class="form-control">
-										</select>
+						<form id="newCategory">
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="input" style="font-weight: bold;">Category Name</label>
+											<input type="text" class="form-control">
+										</div>
+										
 									</div>
-									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Category</label>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
+									<div class="col-lg-2"></div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="input" style="font-weight: bold;">Allocation UOM</label>
+											<input type="text" class="form-control">
+										</div>
+										
 									</div>
-									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Equipment Name</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
 								</div>
 							</div>
-							<div>
-								<strong>
-									<h6>Select Tool</h6>
-								</strong>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Reason</label>
-										<select class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Owner</label>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Manager</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Assigned to</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-							</div>
-							<div>
-								<strong>
-									<h6>Select Tool</h6>
-								</strong>
-							</div>
-							<div class="row">
-								<div class="col-md-2">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Quantity</label>
-										<input type="text" class="form-control" required style="padding-left: 5px;" />
-									</div>
-									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Purchased from</label>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Purchase Price</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-lg-2">
-									
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">McClone ID #</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-							</div><br>
-							
-						</div>
+						</form>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">
+								Save
+							</button>
+							<button type="button" class="btn btn-primary" id="saveandadd">
+								Save and add new category
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+			<div class="modal fade" id="subCategoryModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header" style="background-color: #404040;">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Category</h4>
+						</div>
+						<form id="newCategory">
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="input" style="font-weight: bold;">Category</label>
+											<select class="form-control">
+												<!-- foreach categories -->
+											</select>
+										</div>
+										
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="input" style="font-weight: bold;">Sub-Category</label>
+											<input type="text" class="form-control">
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">
 								Save
 							</button>
 						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+			<div class="modal fade" id="addEquipmentModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<form class="form-horizontal">
+							<div class="modal-header" style="background-color: #404040;">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Equipment Type</h4>
+							</div>
+
+							<div class="modal-body">
+								<div>
+									<strong>
+										<legend>Select storage location & name</legend>
+									</strong>
+								</div>
+								<div class="row">
+									<div class="row col-lg-7">
+										<div class="col-md-6">
+											<div class="form-group">
+												<div class="col-md-12">
+													<label class="input" style="font-weight: bold;">Classification</label>
+													<select class="form-control">
+													</select>
+												</div>
+											</div>
+											
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<div class="col-md-12">
+													<label class="input" style="font-weight: bold;">Category</label>
+													<select class="form-control">
+													</select>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+									
+									<div class="col-md-5">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label class="input" style="font-weight: bold;">Equipment Name</label><br>
+													<select class="form-control">
+													</select>
+												</div>
+										</div>
+										
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<fieldset>
+											<legend>Equipment Data</legend>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Manufacturer</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Model Number</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">UPC Number</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Weight</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Items per Unit</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Notes</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Item Type</label>
+												<div class="col-md-8">
+													<label class="radio radio-inline">
+															
+															<input type="radio" class="radiobox" name="itemType">
+															<span>Unique</span> 
+															
+														</label>
+													<label class="radio radio-inline">
+															
+															<input type="radio" class="radiobox" name="itemType">
+															<span>General</span> 
+															
+														</label>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+									<div class="col-lg-6">
+										<fieldset>
+											<legend>Options</legend>
+											<div class="form-group">
+												<div class="col-md-10" style="margin: -10px 0px 0px 10px;">
+													<div class="checkbox">
+														<label>
+														  <input type="checkbox" class="checkbox style-0">
+														  <span>Track as Forecasted Item</span>
+														</label>
+													</div>
+			
+													<div class="checkbox">
+														<label>
+														  <input type="checkbox" class="checkbox style-0" >
+														  <span>Track as Allocated Item</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+											<br>
+												<label class="col-md-4 control-label" style="margin-top: 15px;">Allocated Qty Calc</label>
+												<div class="col-md-3">
+													<small>Item multiplier</small>
+													<input class="form-control" type="text">
+												</div>
+												<label class="col-md-1" style="margin-top: 20px;">SF</label>
+											</div>
+											<input type="submit" class="btn btn-primary hidden" id="pdfUpload" />
+
+											</form>
+											<section>
+												<div class="form-group">
+													<label class="input" style="font-weight: bold;">Upload Picture</label><small class="font-xs"> (Click below to open File Explorer)</small><br>
+													<div class="col-lg-12">
+														<form action="upload.php" class="dropzone" id="mydropzone"></form>
+													</div>
+												</div>
+											</section>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Cancel
+								</button>
+								<label for="pdfUpload" class="btn btn-primary" data-dismiss="modal">Save</label>
+							</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
@@ -502,25 +596,35 @@
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
-		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-	
-
-		<!-- IMPORTANT: APP CONFIG -->
-		<!--[if IE 8]>
-
-		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-		<![endif]-->
-
-
-
 		<?php include '../includes/_footer.php'; ?>
-		<script type="text/javascript">
 
+		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
+
+		<script type="text/javascript">
+			function expand() {
+				$('.s-children').removeClass('hide');
+				$('.f-children').removeClass('hide');
+			}
+			function collapse() {
+				$('.s-children').addClass('hide');
+				$('.f-children').addClass('hide');
+			}
 			$(document).ready(function() {
 			
+
 			pageSetUp();
-			
+			Dropzone.autoDiscover = false;
+			$("#mydropzone").dropzone({
+				//url: "/file/post",
+				addRemoveLinks : true,
+				maxFilesize: 0.5,
+				dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
+				dictResponseError: 'Error uploading file!'
+			});
+
+			$('#saveandadd').on('click', function() {
+				$('#newCategory')[0].reset();
+			});
 			$('.button').on('click', function() {
 				var id = $(this).attr('data_id');
 
@@ -631,4 +735,4 @@
 
 	</body>
 
-</html>
+</html>_
