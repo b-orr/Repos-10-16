@@ -442,7 +442,7 @@
 										</div>
 									</div>
 									<div class="col-md-6">
-										<div class="form-group">
+										<div class="form-group" style="border-style: groove; border-width: 2px;">
 											<ul class="checkbox"> 
 												  <li>
 												  	<input type="checkbox" id="cb1" value="Owner" /><label for="cb1">Owner</label>
@@ -548,7 +548,7 @@
 										</div>
 									</div>
 									<div class="col-md-6">
-										<div class="form-group">
+										<div class="form-group" style="border-style: groove; border-width: 2px;">
 											<ul class="checkbox"> 
 												  <li>
 												  	<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10">Colorado</label>
@@ -651,7 +651,7 @@
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<ul class="checkbox"> 
+											<ul class="checkbox" style="border-style: groove; border-width: 2px;"> 
 												  <li>
 												  	<input type="checkbox" id="cb6" value="Preconstruction Contact" /><label for="cb6">Preconstruction Contact</label>
 												  </li> 
