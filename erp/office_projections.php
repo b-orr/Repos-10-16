@@ -33,6 +33,7 @@
 	table, th, td {
 		text-align: center;
 	    height: 40px;
+	    width: 50px;
 	    table-layout: fixed;
 	    font-size: 10px;
 	}
