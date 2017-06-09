@@ -512,22 +512,22 @@
 												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 																										<thead>			                
 																<tr>
-																	<th style="width:50px;">2017 <br> Jun</th>
-																	<th style="width:50px;">July</th>
-																	<th style="width:50px;">Aug</th>
-																	<th style="width:50px;">Sep</th>
-																	<th style="width:50px;">Oct</th>
-																	<th style="width:50px;">Nov</th>
-																	<th style="width:50px;">Dec</th>
-																	<th style="width:50px;">2018 <br> Jan</th>
-																	<th style="width:50px;">Feb</th>
-																	<th style="width:50px;">Mar</th>
-																	<th style="width:50px;">Apr</th>
-																	<th style="width:50px;">May</th>
-																	<th style="width:50px;">Jun</th>
-																	<th style="width:50px;">July</th>
-																	<th style="width:50px;">Aug</th>
-																	<th style="width:50px;">Sep</th>
+																	<th style="width:50px !important;">2017 <br> Jun</th>
+																	<th style="width:50px !important;">July</th>
+																	<th style="width:50px !important;">Aug</th>
+																	<th style="width:50px !important;">Sep</th>
+																	<th style="width:50px !important;">Oct</th>
+																	<th style="width:50px !important;">Nov</th>
+																	<th style="width:50px !important;">Dec</th>
+																	<th style="width:50px !important;">2018 <br> Jan</th>
+																	<th style="width:50px !important;">Feb</th>
+																	<th style="width:50px !important;">Mar</th>
+																	<th style="width:50px !important;">Apr</th>
+																	<th style="width:50px !important;">May</th>
+																	<th style="width:50px !important;">Jun</th>
+																	<th style="width:50px !important;">July</th>
+																	<th style="width:50px !important;">Aug</th>
+																	<th style="width:50px !important;">Sep</th>
 																	<th>Oct</th>
 																	
 																</tr>
@@ -538,13 +538,13 @@
 
 																while ($count <= 5 ) { ?>
 																	<tr>
-																		<td style="max-width:50px;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -558,17 +558,17 @@
 																	</tr>
 
 																	<tr>
-																		<td style="max-width:50px;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -578,11 +578,11 @@
 																	</tr>
 
 																	<tr>
-																		<td style="max-width:50px;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
-																		<td style="max-width:50px;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="width:50px !important;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
