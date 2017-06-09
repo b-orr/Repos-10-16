@@ -57,7 +57,11 @@
 			 *
 			 * Special styles for displaying the icons and their classes in the docs.
 			 */
-		
+			
+			.center_radio{
+				text-align: center;
+			}
+	
 			.bs-glyphicons {
 				padding-left: 0;
 				padding-bottom: 1px;
