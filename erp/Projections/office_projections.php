@@ -54,7 +54,7 @@
 
 </style>
 
-<?php include '../includes/_header.php'; ?>
+<?php include '/includes/_header.php'; ?>
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
@@ -67,7 +67,7 @@
 
 ?>
 
-<?php include '/includes/_menu_projections.php'; ?>
+<?php include '/includes/_menu.php'; ?>
 		<!-- MAIN PANEL -->
 
 		<!-- MAIN PANEL -->
@@ -544,13 +544,13 @@
 
 																while ($count <= 5 ) { ?>
 																	<tr>
-																		<td style="background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/start_line.png');background-repeat:no-repeat;background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -564,17 +564,17 @@
 																	</tr>
 
 																	<tr>
-																		<td style="background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/start_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -584,11 +584,11 @@
 																	</tr>
 
 																	<tr>
-																		<td style="background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
-																		<td style="background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/start_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/middle_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
+																		<td style="background-image: url('includes/end_line.png');background-repeat:no-repeat; background-size:100% 100%;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>

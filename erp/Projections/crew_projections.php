@@ -37,31 +37,25 @@
 	    font-size: 10px;
 	}
 
-	.button_cicrcle {
-		border: 1px solid red;
-		border-radius: 10px;
-		color:black;
-		background-color: white;
-	}
-
 	
 
 </style>
 
-<?php include '../includes/_header.php'; ?>
+<?php include '/includes/_header.php'; ?>
+
+<?php $one = 'active';
+	  $two = '';
+	  $three = ''; 
+
+?>
+
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
 		<!-- END NAVIGATION -->
 
-<?php $one = '';
-	  $two = 'active';
-	  $three = ''; 
-
-?>
-
-<?php include '/includes/_menu_projections.php'; ?>
+<?php include '/includes/_menu.php'; ?>
 		<!-- MAIN PANEL -->
 
 		<!-- MAIN PANEL -->
@@ -132,9 +126,6 @@
 											<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 												Colorado Office <span class="caret"></span>
 											</button>
-											<button class="btn btn-warning dropdown-toggle" id="expand_all" style="margin-left:30px;">
-												Expand / Colapse
-											</button>
 											<ul class="dropdown-menu">
 												<li>
 													<a href="javascript:void(0);">Colorado Office</a>
@@ -158,11 +149,10 @@
 										</div>
 								</header>
 				
-								<h2 style="position:relative;left:30px;">Superintendent Resource Projection</h2>
+								<h2 style="position:relative;left:30px;">Area Crew Projections</h2>
 
 								<!-- added buttons -->
 								<br>
-								<!-- remove select rating
 								<div class="">
 									<span style="position:relative;left:30px;font-size:18px;">Select Rating</span>
 									<div class="row">
@@ -180,12 +170,23 @@
 											<button class="btn btn-warning" style = "position:relative;left:50px;">View</button>
 										</div>
 
+										<form action="">
+										  <input type="radio" name="gender" value="" id="team" checked="checked"> Project Team
+										  <input type="radio" name="gender" value="" id="financials" > Financials
+										  <input type="radio" name="gender" value="" id="notes"> Notes
+										</form>
+										<!-- <div class="col-lg-4" style="position:relative;left:-80px;">
+											<button class="btn btn-warning" id="team" >Project Team</button>&nbsp;&nbsp;&nbsp;
+											<button class="btn btn-warning" id="financials" >Financials</button>&nbsp;&nbsp;&nbsp;
+											<button class="btn btn-warning" id="notes" >Notes</button>&nbsp;&nbsp;&nbsp;
 										
+											
+										</div> -->
 										
 									</div>
-									<div style="position:relative;height:20px;width:auto;"></div> spacer 20px
+									<div style="position:relative;height:20px;width:auto;"></div> <!-- spacer 20px;-->
 								</div>
-								remove selec rating -->
+								
 								<!-- added buttons -->
 
 								<!-- widget div-->
@@ -212,50 +213,53 @@
 													<table id="dt_basic" class="table" width="100%">
 													<thead>			                
 															<tr>
-																<th  style="width:10px !important;"></th>
-																<th style="text-align:center;"><br>Date Avaiable</th>
-																<th style="text-align:center;"><br></th>
-																<th style="text-align:center;"><br>Job# / Raiting</th>
-																
+																<th style="text-align:center;width:30px;"><br>Job #</th>
+																<th style="text-align:center;"><br>Job Name</th>
+																<th style="text-align:center;width:55px;"><br>PM</th>
+																<th style="text-align:center;width:55px;"><br>PE</th>
+																<th style="text-align:center;width:55px;"><br>FDPE</th>
+																<th style="text-align:center;width:55px;"><br>Supt</th>
 															</tr>
 													</thead>
 													<tbody>
 
 															<?php 
 															$count = 1;
-															$num = 1;
-															while ($count <= 20 ) { ?>
+
+															while ($count <= 25 ) { ?>
 																<tr>
-																	<td style="width:10px !important;"><button class="button btn btn-warning btn-xs" data_id="<?php echo $num;?>"><span class="inner_<?php echo$num;?>"><b>+</b></span><span class="hide inner_<?php echo$num;?>"><b>-</b></span></button></td>
-																	<td>Apr 2018</td>
-																	<td>Adan Molina</td>
-																	<td></td>
+																	<td style="width:30px;">984</td>
+																	<td>2400 S University</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">B.Charvat</option>
+																			<option value="">C.Foster</option>
+																			<option value="">C.Moes</option>
+																		</select>
+																	</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">B.Charvat</option>
+																			<option value="">C.Foster</option>
+																			<option value="">C.Moes</option>
+																		</select>
+																	</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">R.Clark</option>
+																			<option value="">J.Thao</option>
+																			<option value="">K.Barric</option>
+																		</select>
+																	</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">B.Charvat</option>
+																			<option value="">C.Foster</option>
+																			<option value="">C.Moes</option>
+																		</select>
+																	</td>
 																</tr>
 																
-																	<tr id="row_<?php echo $num;?>">
-																		<tr class="hide inner_<?php echo $num;?>">
-																			<td></td>
-																			<td></td>
-																			<td>TESTPROJECT-LINE27-A</td>
-																			<td>4</td>
-																		</tr>
-
-																		<tr class="hide inner_<?php echo $num;?>">
-																			<td></td>
-																			<td></td>
-																			<td>TESTPROJECT-LINE20-B</td>
-																			<td>4</td>
-																		</tr>
-
-																		<tr class="hide inner_<?php echo $num;?>">
-																			<td></td>
-																			<td></td>
-																			<td>TESTPROJECT-LINE15-C</td>
-																			<td>4</td>
-																		</tr>
-																	</tr>
-																<?php $num = $num + 1 ?>
-															
 															<?php
 															$count = $count + 1;
 															 } ?>	
@@ -264,14 +268,75 @@
 													</table>
 												</div>
 
+												<div class="widget-body col-lg-5 hide table-2" id="table-2">
 												
-											
+													<table id="dt_basic" class="table table-striped table-hover" width="100%">
+													<thead>			                
+															<tr>
+																<th style="text-align:center;"><br>Job #</th>
+																<th style="text-align:center;"><br>Job Name</th>
+																<th style="text-align:center;"><br>Contract Amt</th>
+																<th style="text-align:center;"><br>Gross Profit</th>
+																<th style="text-align:center;"><br>M/U %</th>
+															</tr>
+													</thead>
+													<tbody>
+
+															<?php 
+															$count = 1;
+
+															while ($count <= 25 ) { ?>
+																<tr>
+																	<td>984</td>
+																	<td>2400 S University</td>
+																	<td>$8,900,000</td>
+																	<td>$1,450,000</td>
+																	<td>19.5%</td>
+																</tr>
+																
+															<?php
+															$count = $count + 1;
+															 } ?>	
+													</tbody>
+												
+													</table>
+												</div>
+
+												<div class="widget-body col-lg-5 hide table-3" id="table-3">
+												
+													<table id="dt_basic" class="table table-striped table-hover" width="100%">
+													<thead>			                
+															<tr>
+																<th style="text-align:center; width:30px;"><br>Job #</th>
+																<th style="text-align:center;"><br>Job Name</th>
+																<th style="text-align:center;"><br>Notes</th>
+															</tr>
+													</thead>
+													<tbody>
+
+															<?php 
+															$count = 1;
+
+															while ($count <= 25 ) { ?>
+																<tr>
+																	<td style="width:30px;">984</td>
+																	<td>2400 S University</td>
+																	<td><input type="text" name="note"></td>
+																</tr>
+																
+															<?php
+															$count = $count + 1;
+															 } ?>	
+													</tbody>
+												
+													</table>
+												</div>
 												
 												
 												<div class="widget-body col-lg-7">
 												
-												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%" style="position:relative;top:5px;">
-														<thead>			                
+												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+																										<thead>			                
 																<tr>
 																	<th>2017 <br> Jun</th>
 																	<th>July</th>
@@ -288,101 +353,35 @@
 																	<th>Jun</th>
 																	<th>July</th>
 																	<th>Aug</th>
-																	<th>Sep</th>
-																	<th>Oct</th>
+																	
 																	
 																</tr>
 														</thead>
 														<tbody>
 																<?php 
 																$count = 1;
-																$num = 1;
-																while ($count <= 20 ) { ?>
+
+																while ($count <=25 ) { ?>
 																	<tr>
-																		<td style="background-color:gray;" class='noclass'></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
-																		<td style="background-color:gray;"></td>
+																		<td>5</td>
+																		<td>10</td>
+																		<td>15</td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
+																		<td>10</td>
 																		<td></td>
-
-																			<tr id="row_<?php echo $num;?>">
-																				<tr class="hide inner_<?php echo $num;?>">
-																					<td class="hide inner_<?php echo $num;?>">4</td>
-																					<td class="hide inner_<?php echo $num;?>">2</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>">5</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																				</tr>
-
-																				<tr class="hide inner_<?php echo $num;?>">
-																					<td class="hide inner_<?php echo $num;?>">4</td>
-																					<td class="hide inner_<?php echo $num;?>">2</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>">5</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																				</tr>
-
-																				<tr class="hide inner_<?php echo $num;?>">
-																					<td class="hide inner_<?php echo $num;?>">4</td>
-																					<td class="hide inner_<?php echo $num;?>">2</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>">5</td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																					<td class="hide inner_<?php echo $num;?>"></td>
-																				</tr>
-																			</tr>
+																		<td>5</td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		
 																		
 																	</tr>
 																	
-																	
-																	<?php $num = $num + 1 ?>
 																<?php
 																$count = $count + 1;
 																 } ?>	
@@ -394,13 +393,8 @@
 											
 										</div>	<!-- end row-->
 										<br><hr><br><br>
-
-										<h2 style="position:relative;left:30px;"><b>Unassigned Active Superintendents<b></h2>
-										<h2 style="position:relative;left:200px;color:red;">Duane Wiley | Nirneeta Gupchup |</h2>
-
-										<br><hr><br><br>
-
-										<div class="row"> <!-- second type of tables -->
+										<!-- removed
+										<div class="row"> second type of tables 
 											
 												<div class="widget-body col-lg-5 table-1" id="table-1">
 												
@@ -409,7 +403,9 @@
 															<tr>
 																<th style="text-align:center;"><br>Start Date</th>
 																<th style="text-align:center;"><br>Job Name</th>
-																<th style="text-align:center;"><br>Raiting</th>
+																<th style="text-align:center;"><br>PM</th>
+																<th style="text-align:center;"><br>PE</th>
+																<th style="text-align:center;"><br>Supt</th>
 															</tr>
 													</thead>
 													<tbody>
@@ -417,29 +413,31 @@
 															<?php 
 															$count = 1;
 
-															while ($count <= 5 ) { ?>
+															while ($count <= 25 ) { ?>
 																<tr>
-																	<td>May 2017</td>
-																	<td>test 29+1</td>
-																	<td></td>
-																</tr>
-
-																<tr>
-																	<td>Jun 2017</td>
-																	<td>test 29+1-s1</td>
-																	<td></td>
-																</tr>
-
-																<tr>
-																	<td>Oct 2017</td>
-																	<td>test 29+1-s2</td>
-																	<td></td>
-																</tr>
-
-																<tr>
-																	<td>May 2017</td>
-																	<td>test 29+1-s3</td>
-																	<td></td>
+																	<td>21/5/2017</td>
+																	<td>2400 S University</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">B.Charvat</option>
+																			<option value="">C.Foster</option>
+																			<option value="">C.Moes</option>
+																		</select>
+																	</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">B.Charvat</option>
+																			<option value="">C.Foster</option>
+																			<option value="">C.Moes</option>
+																		</select>
+																	</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">B.Charvat</option>
+																			<option value="">C.Foster</option>
+																			<option value="">C.Moes</option>
+																		</select>
+																	</td>
 																</tr>
 																
 															<?php
@@ -450,9 +448,71 @@
 													</table>
 												</div>
 
+												<div class="widget-body col-lg-5 hide table-2" id="table-2">
 												
+													<table id="dt_basic" class="table table-striped table-hover" width="100%">
+													<thead>			                
+															<tr>
+																<th style="text-align:center;"><br>Start Date</th>
+																<th style="text-align:center;"><br>Job Name</th>
+																<th style="text-align:center;"><br>Contract Amt</th>
+																<th style="text-align:center;"><br>Gross Profit</th>
+																<th style="text-align:center;"><br>M/U %</th>
+															</tr>
+													</thead>
+													<tbody>
 
-																							
+															<?php 
+															//$count = 1;
+
+															//while ($count <= 100 ) { ?>
+																<tr>
+																	<td>21/5/2017</td>
+																	<td>2400 S University</td>
+																	<td>$8,900,000</td>
+																	<td>$1,450,000</td>
+																	<td>19.5%</td>
+																</tr>
+																
+															<?php
+															//$count = $count + 1;
+															// } ?>	
+													</tbody>
+												
+													</table>
+												</div>
+
+												<div class="widget-body col-lg-5 hide table-3" id="table-3">
+												
+													<table id="dt_basic" class="table table-striped table-hover" width="100%">
+													<thead>			                
+															<tr>
+																<th style="text-align:center;"><br>Start Date</th>
+																<th style="text-align:center;"><br>Job Name</th>
+																<th style="text-align:center;"><br>Notes</th>
+															</tr>
+													</thead>
+													<tbody>
+
+															<?php 
+															//$count = 1;
+
+														//	while ($count <= 100 ) { ?>
+																<tr>
+																	<td>21/5/2017</td>
+																	<td>2400 S University</td>
+																	<td><input type="text" name="note"></td>
+																</tr>
+																
+															<?php
+														//	$count = $count + 1;
+														//	 } ?>	
+													</tbody>
+												
+													</table>
+												</div>
+												
+												
 												<div class="widget-body col-lg-7">
 												
 												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
@@ -480,9 +540,9 @@
 														</thead>
 														<tbody>
 																<?php 
-																$count = 1;
+															//	$count = 1;
 
-																while ($count <= 5 ) { ?>
+															//	while ($count <=25 ) { ?>
 																	<tr>
 																		<td>5</td>
 																		<td>10</td>
@@ -501,79 +561,67 @@
 																		<td></td>
 																		<td></td>
 																		<td></td>
-																	</tr>
-
-																	<tr>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td>25</td>
-																		<td></td>
-																		<td></td>
-																		<td>10</td>
-																		<td></td>
-																		<td>40</td>
-																		<td></td>
-																		<td>40</td>
-																		<td></td>
-																		<td>20</td>
-																		<td></td>
-																		<td></td>
-																	</tr>
-
-																	<tr>
-																		<td>5</td>
-																		<td>20</td>
-																		<td>40</td>
-																		<td></td>
-																		<td></td>
-																		<td>10</td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td>15</td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																	</tr>
-
-																	<tr>
-																		<td>5</td>
-																		<td></td>
-																		<td></td>
-																		<td>20</td>
-																		<td>20</td>
-																		<td></td>
-																		<td>20</td>
-																		<td></td>
-																		<td>10</td>
-																		<td></td>
-																		<td>20</td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
+																		
 																	</tr>
 																	
 																<?php
-																$count = $count + 1;
-																 } ?>	
+															//	$count = $count + 1;
+															//	 } ?>	
 														</tbody>
 														
 												</table>
 												</div>
 												
 											
-										</div>	<!-- end row-->	
-	
+										</div>	 end row-->	
+										<!-- graphicon removed
+										<div class="row"> 
+											 Widget ID (each widget will need unique ID) comment
+							<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false">
+								comment start
+								widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+
+								comment end
+								<header>
+									<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+									<h2>Sin Chart</h2>
+
+								</header>
+
+								<!-- widget div-->
+								<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div class="widget-body no-padding">
+									<!-- removed graphicon
+ 										<div id="sin-chart" class="chart has-legend"></div>
+									-->
+									</div>
+									<!-- end widget content -->
+
+								</div>
+								<!-- end widget div -->
+
+							</div>
+							<!-- end widget -->
+										</div>	
 									</div>
 								</div>
 				
@@ -613,18 +661,27 @@
 
 
 
-			$('.button').on('click', function() {
-				var id = $(this).attr('data_id');
-				
-				$('.inner_' + id).toggleClass('hide');
+			$('#team').on('click', function() {
+				$('.table-2').addClass('hide');
+				$('.table-3').addClass('hide');
+				$('.table-1').removeClass('hide');
 			});
 
-			$('#expand_all').on('click', function() {
-				
-				$('.button').click();
+			$('#financials').on('click', function() {
+				$('.table-1').addClass('hide');
+				$('.table-3').addClass('hide');
+				$('.table-2').removeClass('hide');
 			})
-			
 
+			$('#notes').on('click', function() {
+				$('.table-1').addClass('hide');
+				$('.table-2').addClass('hide');
+				$('.table-3').removeClass('hide');
+			})
+
+			
+			
+			
 
 			
 				
