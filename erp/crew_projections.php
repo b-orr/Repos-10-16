@@ -163,13 +163,18 @@
 											<button class="btn btn-warning" style = "position:relative;left:50px;">View</button>
 										</div>
 
-										<div class="col-lg-4" style="position:relative;left:-80px;">
+										<form action="">
+										  <input type="radio" name="gender" value="" id="team" checked="checked"> Project Team
+										  <input type="radio" name="gender" value="" id="financials" > Financials
+										  <input type="radio" name="gender" value="" id="notes"> Notes
+										</form>
+										<!-- <div class="col-lg-4" style="position:relative;left:-80px;">
 											<button class="btn btn-warning" id="team" >Project Team</button>&nbsp;&nbsp;&nbsp;
 											<button class="btn btn-warning" id="financials" >Financials</button>&nbsp;&nbsp;&nbsp;
 											<button class="btn btn-warning" id="notes" >Notes</button>&nbsp;&nbsp;&nbsp;
-
+										
 											
-										</div>
+										</div> -->
 										
 									</div>
 									<div style="position:relative;height:20px;width:auto;"></div> <!-- spacer 20px;-->
@@ -649,9 +654,6 @@
 
 
 
-
-			
-
 			$('#team').on('click', function() {
 				$('.table-2').addClass('hide');
 				$('.table-3').addClass('hide');
@@ -670,6 +672,9 @@
 				$('.table-3').removeClass('hide');
 			})
 
+			
+
+			
 
 			
 				
