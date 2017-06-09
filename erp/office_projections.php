@@ -367,7 +367,7 @@
 																$num = 1;
 																while ($count <= 20 ) { ?>
 																	<tr>
-																		<td style="background-color:gray;"></td>
+																		<td style="color:black;background-color:gray;"></td>
 																		<td style="color:black;background-color:gray;font-size:16px;"><b>50%</b></td>
 																		<td style="background-color:gray;"></td>
 																		<td></td>
@@ -537,33 +537,13 @@
 
 																while ($count <= 5 ) { ?>
 																	<tr>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																	</tr>
-
-																	<tr>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
+																		<td style="background-image: url('../erp/includes/start_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -577,11 +557,31 @@
 																	</tr>
 
 																	<tr>
+																		<td style="background-image: url('../erp/includes/start_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
+																		<td></td>
+																	</tr>
+
+																	<tr>
+																		<td style="background-image: url('../erp/includes/start_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/middle_line.png');"></td>
+																		<td style="background-image: url('../erp/includes/end_line.png');"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>

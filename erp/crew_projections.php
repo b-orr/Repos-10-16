@@ -201,11 +201,12 @@
 													<table id="dt_basic" class="table" width="100%">
 													<thead>			                
 															<tr>
-																<th style="text-align:center;"><br>Job #</th>
+																<th style="text-align:center;width:30px;"><br>Job #</th>
 																<th style="text-align:center;"><br>Job Name</th>
-																<th style="text-align:center;"><br>PM</th>
-																<th style="text-align:center;"><br>PE</th>
-																<th style="text-align:center;"><br>Supt</th>
+																<th style="text-align:center;width:55px;"><br>PM</th>
+																<th style="text-align:center;width:55px;"><br>PE</th>
+																<th style="text-align:center;width:55px;"><br>FDPE</th>
+																<th style="text-align:center;width:55px;"><br>Supt</th>
 															</tr>
 													</thead>
 													<tbody>
@@ -215,7 +216,7 @@
 
 															while ($count <= 25 ) { ?>
 																<tr>
-																	<td>984</td>
+																	<td style="width:30px;">984</td>
 																	<td>2400 S University</td>
 																	<td>
 																		<select name="" id="">
@@ -229,6 +230,13 @@
 																			<option value="">B.Charvat</option>
 																			<option value="">C.Foster</option>
 																			<option value="">C.Moes</option>
+																		</select>
+																	</td>
+																	<td>
+																		<select name="" id="">
+																			<option value="">R.Clark</option>
+																			<option value="">J.Thao</option>
+																			<option value="">K.Barric</option>
 																		</select>
 																	</td>
 																	<td>
@@ -287,7 +295,7 @@
 													<table id="dt_basic" class="table table-striped table-hover" width="100%">
 													<thead>			                
 															<tr>
-																<th style="text-align:center;"><br>Job #</th>
+																<th style="text-align:center; width:30px;"><br>Job #</th>
 																<th style="text-align:center;"><br>Job Name</th>
 																<th style="text-align:center;"><br>Notes</th>
 															</tr>
@@ -299,7 +307,7 @@
 
 															while ($count <= 25 ) { ?>
 																<tr>
-																	<td>984</td>
+																	<td style="width:30px;">984</td>
 																	<td>2400 S University</td>
 																	<td><input type="text" name="note"></td>
 																</tr>
@@ -333,8 +341,7 @@
 																	<th>Jun</th>
 																	<th>July</th>
 																	<th>Aug</th>
-																	<th>Sep</th>
-																	<th>Oct</th>
+																	
 																	
 																</tr>
 														</thead>
@@ -359,8 +366,7 @@
 																		<td></td>
 																		<td></td>
 																		<td></td>
-																		<td></td>
-																		<td></td>
+																		
 																		
 																	</tr>
 																	
@@ -375,8 +381,8 @@
 											
 										</div>	<!-- end row-->
 										<br><hr><br><br>
-
-										<div class="row"> <!-- second type of tables -->
+										<!-- removed
+										<div class="row"> second type of tables 
 											
 												<div class="widget-body col-lg-5 table-1" id="table-1">
 												
@@ -445,9 +451,9 @@
 													<tbody>
 
 															<?php 
-															$count = 1;
+															//$count = 1;
 
-															while ($count <= 100 ) { ?>
+															//while ($count <= 100 ) { ?>
 																<tr>
 																	<td>21/5/2017</td>
 																	<td>2400 S University</td>
@@ -457,8 +463,8 @@
 																</tr>
 																
 															<?php
-															$count = $count + 1;
-															 } ?>	
+															//$count = $count + 1;
+															// } ?>	
 													</tbody>
 												
 													</table>
@@ -477,9 +483,9 @@
 													<tbody>
 
 															<?php 
-															$count = 1;
+															//$count = 1;
 
-															while ($count <= 100 ) { ?>
+														//	while ($count <= 100 ) { ?>
 																<tr>
 																	<td>21/5/2017</td>
 																	<td>2400 S University</td>
@@ -487,8 +493,8 @@
 																</tr>
 																
 															<?php
-															$count = $count + 1;
-															 } ?>	
+														//	$count = $count + 1;
+														//	 } ?>	
 													</tbody>
 												
 													</table>
@@ -522,9 +528,9 @@
 														</thead>
 														<tbody>
 																<?php 
-																$count = 1;
+															//	$count = 1;
 
-																while ($count <=25 ) { ?>
+															//	while ($count <=25 ) { ?>
 																	<tr>
 																		<td>5</td>
 																		<td>10</td>
@@ -547,20 +553,21 @@
 																	</tr>
 																	
 																<?php
-																$count = $count + 1;
-																 } ?>	
+															//	$count = $count + 1;
+															//	 } ?>	
 														</tbody>
 														
 												</table>
 												</div>
 												
 											
-										</div>	<!-- end row-->	
-
-										<div class="row"> <!-- graphicon -->
-											<!-- Widget ID (each widget will need unique ID)-->
+										</div>	 end row-->	
+										<!-- graphicon removed
+										<div class="row"> 
+											 Widget ID (each widget will need unique ID) comment
 							<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false">
-								<!-- widget options:
+								comment start
+								widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
 								data-widget-colorbutton="false"
@@ -572,7 +579,7 @@
 								data-widget-collapsed="true"
 								data-widget-sortable="false"
 
-								-->
+								comment end
 								<header>
 									<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
 									<h2>Sin Chart</h2>
@@ -591,9 +598,9 @@
 
 									<!-- widget content -->
 									<div class="widget-body no-padding">
-
-										<div id="sin-chart" class="chart has-legend"></div>
-
+									<!-- removed graphicon
+ 										<div id="sin-chart" class="chart has-legend"></div>
+									-->
 									</div>
 									<!-- end widget content -->
 
