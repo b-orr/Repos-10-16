@@ -34,7 +34,7 @@
 		text-align: center;
 	    height: 40px;
 	    table-layout: fixed;
-	    font-size: 8px;
+	    font-size: 10px;
 	}
 
 	.button_cicrcle {
@@ -537,13 +537,13 @@
 
 																while ($count <= 5 ) { ?>
 																	<tr>
-																		<td style="max-width:100%;background-image: url('../erp/includes/start_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/end_line.png');"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -557,17 +557,17 @@
 																	</tr>
 
 																	<tr>
-																		<td style="max-width:100%;background-image: url('../erp/includes/start_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/end_line.png');"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
@@ -577,11 +577,11 @@
 																	</tr>
 
 																	<tr>
-																		<td style="max-width:100%;background-image: url('../erp/includes/start_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');"></td>
-																		<td style="max-width:100%;background-image: url('../erp/includes/end_line.png');"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/start_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/middle_line.png');background-repeat:no-repeat;"></td>
+																		<td style="max-width:100%;background-image: url('../erp/includes/end_line.png');background-repeat:no-repeat;"></td>
 																		<td></td>
 																		<td></td>
 																		<td></td>
