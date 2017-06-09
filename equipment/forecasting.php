@@ -16,6 +16,20 @@
 			background-color: #e6e6e6;
 			font-weight: bold;
 		}
+		.rotate {
+		  /* FF3.5+ */
+		  -moz-transform: rotate(-90.0deg);
+		  /* Opera 10.5 */
+		  -o-transform: rotate(-90.0deg);
+		  /* Saf3.1+, Chrome */
+		  -webkit-transform: rotate(-90.0deg);
+		  /* IE6,IE7 */
+		  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.083);
+		  /* IE8 */
+		  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
+		  /* Standard */
+		  transform: rotate(-90.0deg);
+		}
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -31,7 +45,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Equipment</li><li style="color: black;">Equipment List</li>
+					<li style="color: black;">Equipment</li><li style="color: black;">Forecasting</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -52,188 +66,170 @@
 			
 
 			<!-- MAIN CONTENT -->
-			<div id="content">
+			<div id="content" style="padding-left: 0px;">
 				<!-- end row -->
-				<section id="widget-grid">
+				<section id="widget-grid" style="padding-left: 0px;">
 				
 					<!-- row -->
-					<div class="row">
-				
-						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							
-							<!-- end widget -->
-								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+					<div class="row col-lg-12" style="padding-left: 0px;">
+					<div class="col-lg-10" style="padding-left: 4px;">
+						<article class="col-lg-12" style="margin-left: 10px;">
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
 								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+									
+									data-widget-colorbutton="false"	
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true" 
+									data-widget-sortable="false"
+									
 								-->
-								
-								
-								<!-- added buttons -->
+								<header>
+									<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
+									<h2>Required needs list </h2>			
+									
+								</header>
 
 								<!-- widget div-->
-
-
 								<div>
-				
+									
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
-				
 									</div>
 									<!-- end widget edit box -->
-				
+									
 									<!-- widget content -->
 									<div class="widget-body">
-									
-										
-											
-										<div class="row">
-												<div class="widget-body col-lg-10 table-1" id="table-1" style="margin-top: 3px;">
-													<div class="row bordered" style="margin-left: 0px; margin-right: 0px; background-color: #404040; color: white;">
-														<div class="col-lg-4" style="display: flex; align-items: center;">
-															<button class="btn btn-primary" style="margin: 5px 5px;" onclick="expand();">Expand All</button>
-															<button class="btn btn-primary" style="margin: 5px 5px;" onclick="collapse();">Collapse All</button>
-														</div>
-													</div>
-													<table id="dt_basic" class="table table-bordered" width="100%">
-													<thead>			                
-															<tr>
-																<th style="width: 20%;">Descriptions</th>
-																<th>Owned</th>
-																<th>Rented</th>
-																<th>Total</th>
-																<th style="width: 40%;">Notes</th>
-																<th style="width: 3%;">Edit</th>
-															</tr>
-													</thead>
-													<tbody>
-
-													<?php 
-															$count = 1;
-															$num = 1;
-															while ($count <= 8 ) { ?>
-																<tr class="main-parent" data_id="<?php echo $num; ?>">
-																	<td style="width:10px !important;">
-																		<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
-																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																				<b>+</b>
-																			</span>
-																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																				<b>-</b>
-																			</span>
-																		</button> 
-																		<span class="description-name">HV</span>
-																	</td>
-
-																	<td style="width:50px !important;"></td>
-																	<td style="width:60px !important;"></td>
-																	<td style="width:50px !important;"></td>
-																	<td style="width:40px !important;"></td>
-																	<td style="width:15px !important;"></td>
-																</tr>
-													<?php 
-																$count1 = 1;
-																$num1 = 1;
-																while ($count1 <= 3 ) { ?>
-																	<tr class="hide f-children first-child-<?php echo $num; ?> fchild">
-																		<td style="width:10px !important; padding-left: 20px;">
-																			<button class="button btn btn-warning btn-xs" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>">
-																					<b>+</b>
-																				</span>
-																				<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>">
-																					<b>-</b>
-																				</span>
-																			</button> 
-																		<span class="description-name">Main Beams</span>
-																		</td>
-																		<td style="width:50px !important;" ></td>
-																		<td style="width:60px !important;" ></td>
-																		<td style="width:40px !important;" ></td>
-																		<td style="width:15px !important;" ></td>
-																		<td style="width:15px !important;"></td>
-																	</tr>
-													<?php 
-																$count2 = 1;
-																$num2 = 1;
-																while ($count2 <= 6 ) { ?>
-																	<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
-																		<td style="width:10px !important; padding-left: 40px;">
-																			Main Beams 3' 9''
-																		</td>
-																		<td style="width:60px !important;" ></td>
-																		<td style="width:15px !important;"></td>
-																		<td style="width:40px !important;" ></td>
-																		<td style="width:15px !important;" ></td>
-																		<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
-																	</tr>
-
-																<?php $count2++; } ?>
-															
-
-																<?php $count1++;
-																	$num1++; } ?>
-
-															<?php
-															$num++;
-															$count = $count + 1;
-															 } ?>	
-													</tbody>
-												
-													</table>
-												</div>
-
-											<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
-												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">	
-													<header>
-														<h2 class="font-md">Actions</h2>
-													</header>	
-			
-													<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
-														<div class="col-lg-12">
-															<input type="text" class="form-control" placeholder="Quick search">	
-														</div>
-														<br>
-														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-															<button class="btn btn-primary form-control" data-target="#categoryModal" data-toggle="modal">New Category</button>
-														</div>
-														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-															<button class="btn btn-primary form-control" data-target="#subCategoryModal" data-toggle="modal">New Sub Category</button>
-														</div>
-														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-															<button class="btn btn-primary form-control" data-target="#addEquipmentModal" data-toggle="modal">Add Equipment Type</button>
-														</div>
-													</div>
-												</div>
-											</article>
-										</div>
-
-	
+										<table class="table table-bordered">
+											<thead>
+												<th colspan="3" style="text-align: right; height: 55px;"></th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
+											</thead>
+											<thead>
+												<th colspan="3" style="text-align: right">Current Inventory:</th>
+												<th>556</th>
+												<th>1263</th>
+												<th>73</th>
+												<th>15</th>
+												<th>36</th>
+												<th>3272</th>
+												<th>456</th>
+												<th>289</th>
+												<th>4261</th>
+												<th>344</th>
+												<th>206</th>
+												<th>385</th>
+											</thead>
+											<thead>
+												<th style="width:100px;">Project</th>
+												<th style="width:100px;">Use</th>
+												<th style="width:100px;">Date</th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</thead>
+											<tbody>
+											<?php for($i = 1; $i<=10; $i++){ ?>
+												<tr>
+													<td>Block25</td>
+													<td>L1</td>
+													<td style="padding: 5px 1px 5px 5px;">06-01-2017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+													<td>017</td>
+												</tr>
+												<?php } ?>
+											</tbody>
+										</table>
 									</div>
-								</div>
-				
-							</div>
 									<!-- end widget content -->
-				
+									
 								</div>
+								<!-- end widget div -->
+								
+							</div>
 						</article>
-						<!-- WIDGET END -->
+					</div>
+						<!-- NEW WIDGET START -->
+					<div class="col-lg-2">
+						
+						<article style="margin-left: 10px; width: 100%;">
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
+								<!-- widget options:
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+									
+									data-widget-colorbutton="false"	
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true" 
+									data-widget-sortable="false"
+									
+								-->
+								<header>
+									<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
+									<h2>Actions </h2>			
+									
+								</header>
 
-					<!-- end row -->
-				
+								<!-- widget div-->
+								<div>
+									
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+									</div>
+									<!-- end widget edit box -->
+									
+									<!-- widget content -->
+									<div class="widget-body">
+									</div>
+									<!-- end widget content -->
+									
+								</div>
+								<!-- end widget div -->
+								
+							</div>
+						</article>
+					</div>
+					</div>
+
 					<!-- end row -->
 				
 				</section>
@@ -601,48 +597,12 @@
 		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
 
 		<script type="text/javascript">
-			function expand() {
-				$('.s-children').removeClass('hide');
-				$('.f-children').removeClass('hide');
-			}
-			function collapse() {
-				$('.s-children').addClass('hide');
-				$('.f-children').addClass('hide');
-			}
+			
 			$(document).ready(function() {
 			
 
 			pageSetUp();
-			Dropzone.autoDiscover = false;
-			$("#mydropzone").dropzone({
-				//url: "/file/post",
-				addRemoveLinks : true,
-				maxFilesize: 0.5,
-				dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
-				dictResponseError: 'Error uploading file!'
-			});
-
-			$('#saveandadd').on('click', function() {
-				$('#newCategory')[0].reset();
-			});
-			$('.button').on('click', function() {
-				var id = $(this).attr('data_id');
-
-				var level = $(this).attr('data_level');
-
-				if(level == 1){
-					$('.first-child-'+id).toggleClass('hide');
-					$('.second-child-'+id).addClass('hide');
-				}
-				else if(level == 2){
-					var id2 = $(this).attr('parent_data_id');
-					$('.second-child-'+id2+'-'+id).toggleClass('hide');
-				}
-				else{
-				}
-				$('.inner_' + id).toggleClass('hide');
-			});
-			
+		
 
 			    "use strict";
 			

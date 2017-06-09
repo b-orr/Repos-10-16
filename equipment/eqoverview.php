@@ -5,7 +5,7 @@
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu.php'; ?>
+<?php include '../includes/_menu_eq.php'; ?>
 		<!-- MAIN PANEL -->
 	
 		<!-- MAIN PANEL -->
