@@ -244,7 +244,7 @@
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);">Admin</a>
+						<a href="../Admin/adminarea.php">Admin</a>
 					</li>
 					<li>
 						<a href="../../../projectlist.php">Projects</a>
