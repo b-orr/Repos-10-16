@@ -233,7 +233,7 @@
 													<thead>			                
 															<tr>
 																<th style="width:10px !important;"></th>
-																<th style="text-align:center;width:50px;"><br>Date Avaiable</th>
+																<th style="text-align:center;width:50px;">Date Avaiable</th>
 																<th style="text-align:center;width:60px !important;"><br></th>
 																<th style="text-align:center;width:150px !important;"><br>Job# / Raiting</th>
 																<th style="width:40px !important;"></th>
