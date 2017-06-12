@@ -1,4 +1,4 @@
-<?php include '../includes/_header.php'; ?>
+<?php include '../includes/_header_eq.php'; ?>
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->

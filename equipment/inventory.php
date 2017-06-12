@@ -1,4 +1,4 @@
-<?php include '../includes/_header.php'; ?>
+<?php include '../includes/_header_eq.php'; ?>
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
@@ -65,7 +65,7 @@
 							<!-- Widget ID (each widget will need unique ID)-->
 							
 							<!-- end widget -->
-								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false"  data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
@@ -153,7 +153,7 @@
 													<?php 
 															$count = 1;
 															$num = 1;
-															while ($count <= 8 ) { ?>
+															while ($count <= 3 ) { ?>
 																<tr class="main-parent" data_id="<?php echo $num; ?>">
 																	<td style="width:10px !important;">
 																		<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
@@ -226,7 +226,7 @@
 												</div>
 
 											<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
-												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">	
+												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">	
 													<header>
 														<h2 class="font-md">Actions</h2>
 													</header>	
