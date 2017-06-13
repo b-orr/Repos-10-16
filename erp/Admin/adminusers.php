@@ -415,7 +415,7 @@
 				});
 	
 			/* END BASIC */
-			$('#dt_basic_filter label').append('<a class="btn btn-default btn-primary" data-toggle="modal" data-target="#userModal""><i class="fa fa-plus"></i> Add Users</a>');
+			$('#dt_basic_filter label').append('<a class="btn btn-default btn-primary" data-toggle="modal"><i class="fa fa-plus"></i> Add Users</a>');
 	
 			
 			/* COLUMN FILTER  */

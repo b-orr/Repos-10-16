@@ -12,7 +12,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon">
+			<div id="ribbon" style="background-color: white;">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -21,7 +21,7 @@
 				</span>
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Project List</li>
+					<li style="color: black;">Home</li><li style="color: black;">Project List</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -40,341 +40,70 @@
 			<!-- END RIBBON -->
 
 			<!-- MAIN CONTENT -->
-			<div id="content">
+			<div id="content" >
 
-				
-				<!-- widget grid -->
-				<section id="widget-grid" class="">
-				
-					<!-- row -->
-					<div class="row">
-				
-						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							
-							<!-- end widget -->
-								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+				<div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
 								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+									
+									data-widget-colorbutton="false"	
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true" 
+									data-widget-sortable="false"
+									
 								-->
 								<header>
-								<div class="btn-group" style="margin-bottom: 13px;">
-											<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-												Colorado Office <span class="caret"></span>
-											</button>
-											<ul class="dropdown-menu">
-												<li>
-													<a href="javascript:void(0);">Colorado Office</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);">Hawaii Office</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);">Northern CA Office</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);">South Texas Office</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);">Southern CA Office</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);">Washington Office</a>
-												</li>
-											</ul>
-										</div>
+									<span class="widget-icon"> <i class="fa fa-arrows-v"></i> </span>
+									<h2 class="font-md">Project List</h2>				
+									
 								</header>
-				
+
 								<!-- widget div-->
 								<div>
-				
+									
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
-				
+
 									</div>
 									<!-- end widget edit box -->
-				
+									
 									<!-- widget content -->
 									<div class="widget-body">
-									
-										<div class="tabs-left">
-											<ul class="nav nav-tabs tabs-left" id="demo-pill-nav">
-												<li class="active">
-													<a href="#tab-r1" data-toggle="tab"><span class="badge bg-color-blue txt-color-white">14</span>&nbsp;Current&nbsp;&nbsp; &nbsp; &nbsp;</a>
-												</li>
-												<li>
-													<a href="#tab-r2" data-toggle="tab"><span class="badge bg-color-blueDark txt-color-white">5</span>&nbsp;Archive &nbsp;&nbsp;&nbsp;&nbsp;</a>
-												</li>
-											</ul>
-											<div class="tab-content">
-												<div class="tab-pane active col-lg-11" id="tab-r1">
-												<div class="widget-body no-padding">
-												<br>
-													<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
-
-													<thead>			                
-															<tr>
-																<th data-hide="phone">ID</th>
-																
-																<th>Project Name</th>
-																<th data-hide="phone,tablet"><i class="fa fa-fw fa-map-marker txt-color-blue hidden-md hidden-sm hidden-xs"></i> Project Location</th>
-																<th>Client</th>
-																<th>Supt</th>
-																<th>PM</th>
-																<th>PE</th>
-																<th>Est</th>
-															</tr>
-														</thead>
-														<tbody>
-																<tr>
-																	<td>1</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>																
-																<tr>
-																	<td>2</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>3</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>4</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>5</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>6</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>7</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>8</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>9</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>10</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>11</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>12</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>13</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>14</td>
-																	<td><a href="drawings/layout1.php">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-														</tbody>
-													</table>
-													</div>
-												</div>
-												<div class="tab-pane col-lg-11" id="tab-r2">
-												<div class="widget-body no-padding">
-												<br>
-												<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
-
-														<thead>			                
-															<tr>
-																<th data-hide="phone">ID</th>
-																<th>Project Name</th>
-																<th data-hide="phone,tablet"><i class="fa fa-fw fa-map-marker txt-color-blue hidden-md hidden-sm hidden-xs"></i> Project Location</th>
-																<th>Client</th>
-																<th>Supt</th>
-																<th>PM</th>
-																<th>PE</th>
-																<th>Est</th>
-															</tr>
-														</thead>
-														<tbody>
-															
-																<tr>
-																	<td>1</td>
-																	<td><a href="#">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>2</td>
-																	<td><a href="#">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>3</td>
-																	<td><a href="#">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>4</td>
-																	<td><a href="#">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																<tr>
-																	<td>5</td>
-																	<td><a href="#">Ramble Hotel<a></td>
-																	<td>Denver Co</td>
-																	<td>Sprung Construction</td>
-																	<td>A.Tekt</td>
-																	<td>L.Mason</td>
-																	<td>D.Jones</td>
-																	<td>S.Manon</td>
-																</tr>
-																
-														</tbody>
-													</table>
-													</div>
-												</div>
-													</div>
-												</div>
-											</div>
-										</div>
-				
+										<table class="table" id="table1">
+											<thead>
+												<th>Job #</th>
+												<th>Project Name</th>
+												<th>Client</th>
+												<th>Address</th>
+												<th>City</th>
+												<th>State</th>
+												<th>ZIP</th>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Ramble Hotel</td>
+													<td>Sprung Construction</td>
+													<td>Test Address</td>
+													<td>City</td>
+													<td>GA</td>
+													<td>12345</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 									<!-- end widget content -->
-				
+									
 								</div>
-						</article>
-						<!-- WIDGET END -->
-
-					<!-- end row -->
+								<!-- end widget div -->
+								
+							</div>
 				
-					<!-- end row -->
-				
-				</section>
-
 			</div>
 			<!-- END MAIN CONTENT -->
 
@@ -415,7 +144,8 @@
 				};
 	
 				$('.table').dataTable({
-					
+					"paging": false,
+					 "searching": false
 				});
 	
 			/* END BASIC */
@@ -432,6 +162,7 @@
 						"t"+
 						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
 				"autoWidth" : true,
+				"paging": false,
 				"oLanguage": {
 					"sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
 				},

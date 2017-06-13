@@ -21,7 +21,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon" style="background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);">
+			<div id="ribbon" style="background-color: white;">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -124,7 +124,7 @@
 													<?php 
 															$count = 1;
 															$num = 1;
-															while ($count <= 8 ) { ?>
+															while ($count <= 4 ) { ?>
 																<tr class="main-parent" data_id="<?php echo $num; ?>">
 																	<td style="width:10px !important;">
 																		<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
@@ -197,7 +197,7 @@
 												</div>
 
 											<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
-												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">	
+												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">	
 													<header>
 														<h2 class="font-md">Actions</h2>
 													</header>	
