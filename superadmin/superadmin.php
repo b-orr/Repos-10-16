@@ -6,125 +6,7 @@
 		<!-- END NAVIGATION -->
 
 <?php include '../includes/_menu.php'; ?>
-	<style type="text/css">
-			.bs-glyphicons {
-				padding-left: 0;
-				padding-bottom: 1px;
-				margin-bottom: 20px;
-				list-style: none;
-				overflow: hidden;
-			}
-			.bs-glyphicons li {
-				float: left;
-				width: 25%;
-				height: 150px;
-				padding: 10px;
-				margin: 0 -1px -1px 0;
-				font-size: 17px;
-				line-height: 1.4;
-				text-align: center;
-				border: 1px solid #ddd;
-			}
 
-			.bs-glyphicons .glyphicon {
-				margin-top: 5px;
-				margin-bottom: 10px;
-				font-size: 75px;
-			}
-			.bs-glyphicons .glyphicon-class {
-				display: block;
-				text-align: center;
-			}
-			.bs-glyphicons li:hover {
-				background-color: rgba(86,61,124,.1);
-			}
-		
-			.bs-glyphicon {
-				padding-left: 0;
-				padding-bottom: 1px;
-				margin-bottom: 20px;
-				list-style: none;
-				overflow: hidden;
-				columns: 2;
-				-webkit-columns: 2;
-			    -moz-columns: 2;
-			}
-			.bs-glyphicon li {
-				float: left;
-				width: 100%;
-				height: 50px;
-				margin: 0 -1px -1px 0;
-				font-size: 17px;
-				line-height: 1.4;
-				text-align: center;
-				border: 1px solid #ddd;
-				display: block;
-			}
-			.bs-glyphicon li :hover{
-				background-color: lightblue;
-			}
-			.bs-glyphicon .glyphicon {
-				margin-top: 5px;
-				margin-bottom: 10px;
-				font-size: 35px;
-			}
-
-			.li-inside {
-				padding-left: 30%;
-				text-align: left;
-			}
-			.li-inside-text{
-				padding-bottom: 30%;
-			}
-			.folder-li{
-				display: flex; 
-				flex-direction: column;
-			}
-			.glyphicon-class{
-				font-weight: bold;
-			}
-			.folder-data{
-				display: flex;
-			 	justify-content: space-around;
-			 	align-items: center; 
-			 	padding: 0 50px;
-			}
-			.folder-info{
-				font-size: 15px;
-			}
-			.folder-last-change{
-				font-size: 11px;
-			}
-		@media (max-width: 1150px){
-			.bs-glyphicons li {
-				width: 33%;
-			}
-
-		}
-		@media (max-width: 710px){
-			.bs-glyphicons li {
-				width: 50%;
-			}
-
-		}
-		@media (max-width: 489px){
-			.bs-glyphicons li {
-				width: 100%;
-			}
-		}
-		@media (max-width: 1366px) {
-			.folder-data{
-			 	padding: 0 25px;
-			}
-			.folder-info{
-				font-size: 12px;
-			}
-			.folder-last-change{
-				font-size: 10px;
-			}
-		}
-
-	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
@@ -139,7 +21,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Projects</li><li>1001 Broadway</li><li>Drawings</li>
+					<li>Home</li><li>Companies list</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -174,7 +56,48 @@
 										</header>
 										<div class="row">
 											<div class="widget-body">
-					
+												<table class="table table-bordered table-striped">
+													<thead>
+														<th>#</th>
+														<th>Company Name</th>
+														<th>Address</th>
+														<th>City</th>
+														<th>State</th>
+														<th>ZIP</th>
+														<th>Admin e-mail</th>
+													</thead>
+													<tbody>
+														<!-- foreach -->
+															<tr>
+																<td>1</td>
+																<td>McClone</td>
+																<td>Test Address</td>
+																<td>A City</td>
+																<td>GA</td>
+																<td>12345</td>
+																<td>admin@mcclone.com</td>
+															</tr>
+															<tr>
+																<td>2</td>
+																<td>Test Company</td>
+																<td>Test Address</td>
+																<td>A City</td>
+																<td>GA</td>
+																<td>12345</td>
+																<td>admin@test.com</td>
+															</tr>
+															<tr>
+																<td>3</td>
+																<td>Another Company</td>
+																<td>Test Address</td>
+																<td>A City</td>
+																<td>GA</td>
+																<td>12345</td>
+																<td>admin@testtwo.com</td>
+															</tr>
+														<!-- end foreach-->
+													</tbody>
+												</table>
 					
 											</div>
 											<br>
@@ -189,7 +112,7 @@
 										</header>
 										<div class="row">
 											<div class="widget-body">
-												<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success">
+												<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-block">
 													Add new company
 												</button>
 											</div>

@@ -12,7 +12,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon" style="background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);">
+			<div id="ribbon" style="background-color: white;">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -62,7 +62,7 @@
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
 							
 							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget" id="wid-id-0">
+							<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false"" id="wid-id-0">
 								<!-- widget options:
 									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 									
@@ -76,9 +76,9 @@
 									data-widget-sortable="false"
 									
 								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-comments"></i> </span>
-									<h2>Current Project Notifications</h2>				
+								<header style=" background-color: #404040;">
+									<span class="widget-icon"> <i class="fa fa-comments" style="color: white;"></i> </span>
+									<h2 style="color: white;">Notifications</h2>				
 									
 								</header>
 				
@@ -104,58 +104,68 @@
 													<th>Unreviewed Forecasts</th>
 													<th data-hide="phone,tablet">Outstanding Reconciliations</th>
 													<th data-hide="phone,tablet">Scheduled</th>
+													<th data-hide="phone,tablet">Equipment Scheduled</th>
 													<th data-hide="phone,tablet">PM</th>
 													<th data-hide="phone">Supt</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr align="center">
+												<tr>
 													<td>111</td>
 													<td>Washington Yard</td>
 													<td>
-													<a href> From 1001 - 05/09/17</a>
-													<br>
-													<a href> From 1007 - 05/10/17</a>
-													<br>
-													<a href> From 1025 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block"> From 1001 - 05/09/17</a>
+													<a href class="btn btn-success btn-xs btn-block"> From 1007 - 05/10/17</a>
+													<a href class="btn btn-success btn-xs btn-block"> From 1025 - 05/12/17</a>
 													</td>
 													<td></td>
 													<td></td>
 													<td>
-													<a href>To 1025 - 05/12/17</a>
-													<br>
-													<a href>TO 1025 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+													</td>
+													<td>
+													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
 													</td>
 													<td>M. Danielson</td>
 													<td>A. Gomez</td>
 												</tr>
-												<tr align="center">
+												<tr>
 													<td>1007</td>
 													<td>UW Life Sciences Building</td>
 													<td></td>
 													<td>
-													<a href>Needed at 1007 - 05/12/17</a>
-													<br>
-													<a href>Needed at 1007 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block">Needed at 1007 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block">Needed at 1007 - 05/12/17</a>
 													</td>
 													<td></td>
 													<td></td>
+													<td>
+													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+													</td>
 													<td>D. Dockter</td>
 													<td>A. Gomez</td>
 												</tr>
-												<tr align="center">
+												<tr>
 													<td>1021</td>
 													<td>Second and University</td>
 													<td></td>
 													<td></td>
-													<td><a href>From at 111 - 05/12/17</a></td>
+													<td><a href class="btn btn-success btn-xs btn-block">From at 111 - 05/12/17</a></td>
 													<td></td>
+													<td>
+													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+													</td>
 													<td>M. Danielson</td>
 													<td>J. Bueler</td>
 												</tr>
-												<tr align="center">
+												<tr>
 													<td>1028</td>
 													<td>Block 25 East</td>
+													<td></td>
 													<td></td>
 													<td></td>
 													<td></td>
@@ -163,35 +173,37 @@
 													<td>R. Owens</td>
 													<td>C. Rodriques</td>
 												</tr>
-												<tr align="center">
+												<tr>
 													<td>1036</td>
 													<td>E-320 Parking Garage</td>
 													<td>
-													<a href> From 111 - 05/11/17</a>
+													<a href class="btn btn-success btn-xs btn-block"> From 111 - 05/11/17</a>
 													</td>
 													<td></td>
 													<td></td>
 													<td>
-													<a href>From at 111 - 05/13/17</a>
-													<br>
-													<a href>From at 111 - 05/15/17</a>
+													<a href class="btn btn-success btn-xs btn-block">From at 111 - 05/13/17</a>
+													<a href class="btn btn-success btn-xs btn-block">From at 111 - 05/15/17</a>
+													<td></td>
 													</td>
 													<td>M. Danielson</td>
 													<td>C. Town</td>
 												</tr>
-												<tr align="center">
+												<tr>
 													<td>1037</td>
 													<td>Expedia P2 Garage Expansion</td>
 													<td></td>
-													<td><a href>Needed at 1037 - 05/12/17</a></td>
+													<td><a href class="btn btn-success btn-xs btn-block">Needed at 1037 - 05/12/17</a></td>
+													<td></td>
 													<td></td>
 													<td></td>
 													<td>D. Dockter</td>
 													<td>J. Bueler</td>
 												</tr>
-												<tr align="center">
+												<tr>
 													<td>1038</td>
 													<td>Block 57 West</td>
+													<td></td>
 													<td></td>
 													<td></td>
 													<td></td>
@@ -235,15 +247,6 @@
 				
 					<!-- row -->
 				
-					<div class="row">
-				
-						<!-- a blank row to get started -->
-						<div class="col-sm-12">
-							<!-- your contents here -->
-						</div>
-							
-					</div>
-				
 					<!-- end row -->
 				
 				</section>
@@ -261,6 +264,75 @@
 				
 				<div class="row">
 				
+					
+					<div class="col-sm-12 col-md-12 col-lg-9">
+				
+						<!-- new widget -->
+						<div class="jarviswidget jarviswidget-color-blueDark">
+				
+							<!-- widget options:
+							usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+							data-widget-colorbutton="false"
+							data-widget-editbutton="false"
+							data-widget-togglebutton="false"
+							data-widget-deletebutton="false"
+							data-widget-fullscreenbutton="false"
+							data-widget-custombutton="false"
+							data-widget-collapsed="true"
+							data-widget-sortable="false"
+				
+							-->
+							<header>
+								<span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
+								<h2> Yard Calendar </h2>
+								<div class="widget-toolbar">
+									<!-- add: non-hidden - to disable auto hide -->
+									<div class="btn-group">
+										<button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
+											Showing <i class="fa fa-caret-down"></i>
+										</button>
+										<ul class="dropdown-menu js-status-update pull-right">
+											<li>
+												<a href="javascript:void(0);" id="mt">Month</a>
+											</li>
+											<li>
+												<a href="javascript:void(0);" id="ag">Agenda</a>
+											</li>
+											<li>
+												<a href="javascript:void(0);" id="td">Today</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</header>
+				
+							<!-- widget div-->
+							<div>
+				
+								<div class="widget-body no-padding">
+									<!-- content goes here -->
+									<div class="widget-body-toolbar">
+				
+										<div id="calendar-buttons">
+				
+											<div class="btn-group">
+												<a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
+												<a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+											</div>
+										</div>
+									</div>
+									<div id="calendar"></div>
+				
+									<!-- end content -->
+								</div>
+				
+							</div>
+							<!-- end widget div -->
+						</div>
+						<!-- end widget -->
+				
+					</div>
 					<div class="col-sm-12 col-md-12 col-lg-3">
 						<!-- new widget -->
 						<div class="jarviswidget jarviswidget-color-blueDark">
@@ -383,75 +455,6 @@
 				
 						</div>
 					</div>
-					<div class="col-sm-12 col-md-12 col-lg-9">
-				
-						<!-- new widget -->
-						<div class="jarviswidget jarviswidget-color-blueDark">
-				
-							<!-- widget options:
-							usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-							data-widget-colorbutton="false"
-							data-widget-editbutton="false"
-							data-widget-togglebutton="false"
-							data-widget-deletebutton="false"
-							data-widget-fullscreenbutton="false"
-							data-widget-custombutton="false"
-							data-widget-collapsed="true"
-							data-widget-sortable="false"
-				
-							-->
-							<header>
-								<span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
-								<h2> Yard Calendar </h2>
-								<div class="widget-toolbar">
-									<!-- add: non-hidden - to disable auto hide -->
-									<div class="btn-group">
-										<button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
-											Showing <i class="fa fa-caret-down"></i>
-										</button>
-										<ul class="dropdown-menu js-status-update pull-right">
-											<li>
-												<a href="javascript:void(0);" id="mt">Month</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);" id="ag">Agenda</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);" id="td">Today</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</header>
-				
-							<!-- widget div-->
-							<div>
-				
-								<div class="widget-body no-padding">
-									<!-- content goes here -->
-									<div class="widget-body-toolbar">
-				
-										<div id="calendar-buttons">
-				
-											<div class="btn-group">
-												<a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
-												<a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
-											</div>
-										</div>
-									</div>
-									<div id="calendar"></div>
-				
-									<!-- end content -->
-								</div>
-				
-							</div>
-							<!-- end widget div -->
-						</div>
-						<!-- end widget -->
-				
-					</div>
-				
 				</div>
 				
 				<!-- end row -->
