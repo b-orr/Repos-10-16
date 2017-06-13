@@ -22,6 +22,9 @@
 						<a href="../equipment/forecasting.php"><i class="fa fa-lg fa-fw fa-pencil" style="color: #404040;"></i> <span class="menu-item-parent">Forecasting</span></a>
 					</li>
 					<li>
+						<a href="../equipment/truckinglog.php"><i class="fa fa-lg fa-fw fa-pencil" style="color: #404040;"></i> <span class="menu-item-parent">Trucking Log</span></a>
+					</li>
+					<li>
 						<a href=""><i class="fa fa-lg fa-fw fa-pencil" style="color: #404040;"></i> <span class="menu-item-parent">Rental</span></a>
 					</li>
 					<li>
