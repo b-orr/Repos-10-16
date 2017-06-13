@@ -115,23 +115,36 @@
 															</div>
 														</div>
 														<div class="row">
-															<div class="col-lg-12" style="text-align:center">
-																<input type="text">&nbsp;&nbsp;to&nbsp;&nbsp;<input type="text">
+														<div class="col-lg-1"></div>
+															<div class="col-lg-4">
+																<input type="text" class="form-control">
 															</div>
+															<div class="col-lg-2" style="text-align:center;font-size:20px;">
+																To
+															</div>
+															<div class="col-lg-4">
+																<input type="text" class="form-control">
+															</div>
+															<div class="col-lg-1"></div>
 														</div>
 														<div class="row">
 															<h1> </h1><br><br>
 														</div>
 														<div class="row">
-															<div class="col-lg-9" style="display:inline">
-																<span style="font-size:18px;"><b>Category</b></span>&nbsp;
-																<select name="category" id="" style="width:160px;">
+														<div class="col-lg-1"></div>
+															<div class="col-lg-4">
+																<span style="font-size:18px;"><b>Category</b></span>
+															</div>
+															<div class="col-lg-6">
+																<select class="form-control" name="category" id="" style="width:160px;">
 																	<option value="">HV</option>
 																	<option value="">HV1</option>
 																	<option value="">HV2</option>
 																</select>
 															</div>
+															<div class="col-lg-1"></div>
 														</div>
+														
 													</th>
 													<th style="width:50px;font-size: 8px;color:blue">From 330-WA Yard Nov 14, 16   </th>
 													<th style="width:50px;font-size: 8px;color:blue">From 330-WA Yard Dec 1, 16   </th>
@@ -354,28 +367,44 @@
 									<div class="widget-body">
 									<!-- body in action section start-->
 										<div class="row" style="text-align:center">
-											<div class="col-lg-12">
-												<p>Choose Date Range</p>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-12" style="text-align:center">
-												<input type="text">&nbsp;&nbsp;to&nbsp;&nbsp;<input type="text">
-											</div>
-										</div>
-										<div class="row">
-											<br><br>
-										</div>
-										<div class="row">
-											<div class="col-lg-12" style="text-align:center;">
-												<span style="font-size:20px;"><b>Category</b></span>
-												<select name="category" id="" style="width:92%;">
-													<option value="">HV</option>
-													<option value="">HV1</option>
-													<option value="">HV2</option>
-												</select>
-											</div>
-										</div>
+															<div class="col-lg-12">
+																<p>Choose Date Range</p>
+															</div>
+														</div>
+														<div class="row">
+														
+															<div class="col-lg-5">
+																<input type="text" class="form-control">
+															</div>
+															<div class="col-lg-2" style="text-align:center;font-size:20px;">
+																To
+															</div>
+															<div class="col-lg-5">
+																<input type="text" class="form-control">
+															</div>
+															
+														</div>
+														<div class="row">
+															<h1> </h1><br><br>
+														</div>
+														<div class="row">
+															<div class="col-lg-12" style="text-align:center">
+																<span style="font-size:18px;"><b>Category</b></span>
+															</div>
+														</div>
+														<div class="row">
+														
+															<div class="col-lg-12">
+																<select class="form-control" name="category" id="">
+																	<option value="">HV</option>
+																	<option value="">HV1</option>
+																	<option value="">HV2</option>
+																</select>
+															</div>
+														
+														</div>
+													
+														</div>
 									<!-- body in action section start-->
 									</div>
 									<!-- end widget content -->
