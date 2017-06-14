@@ -230,6 +230,11 @@
 																<option>McClone</option>
 															</select>
 														</div>
+														<legend style="margin-bottom: 3px;"></legend>
+														<div class="col-lg-12">
+															<label><b>Equipment Search</b></label>
+															<input type="text" name="searchEquipment" class="form-control">
+														</div>
 													</div>
 												</div>
 											</article>
