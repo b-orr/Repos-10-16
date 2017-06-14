@@ -18,7 +18,7 @@
 					<li>
 						<a href=""><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Safety Docs</span></a>
 					</li>
-					<li class="active">
+					<li>
 						<a href="layout1.php"><i class="fa fa-lg fa-fw fa-pencil" style="color: #404040;"></i> <span class="menu-item-parent">Drawings</span></a>
 					</li>
 					<li>
