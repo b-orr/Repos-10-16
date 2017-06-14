@@ -9,19 +9,22 @@
 		<!-- MAIN PANEL -->
 	<style type="text/css">
 		.main-parent{
-			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
+			background-color: #c0c0c0;
 			font-weight: bolder;
 		}
 		.fchild{
 			background-color: #e6e6e6;
 			font-weight: bold;
 		}
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+			padding: 2px 10px;
+		}
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon" style="background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);">
+			<div id="ribbon" style="background-color: white;">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -104,47 +107,18 @@
 												<div class="widget-body col-lg-10 table-1" id="table-1" style="margin-top: 3px;">
 													<div class="row bordered" style="margin-left: 0px; margin-right: 0px; background-color: #404040; color: white;">
 														<div class="col-lg-4" style="display: flex; align-items: center;">
-															<div class="col-lg-4">
-																<h5>Location</h5>
-															</div>
-															<div class="col-lg-7">
-																<select class="form-control">
-																	<option>WA Yard</option>
-																	<option>NY Yard</option>
-																	<option>TX Yard</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-lg-4" style="display: flex; align-items: center;">
-															<div class="col-lg-3">
-																<h5>Status</h5>
-															</div>
-															<div class="col-lg-8">
-																<select class="form-control">
-																	<option>Active</option>
-																	<option>Damaged</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-lg-4" style="display: flex; align-items: center;">
-															<div class="col-lg-3">
-																<h5>Owner</h5>
-															</div>
-															<div class="col-lg-8">
-																<select class="form-control">
-																	<option>McClone</option>
-																</select>
-															</div>
+																<h5><b>Inventory List</b></h5>
 														</div>
 													</div>
 													<table id="dt_basic" class="table table-bordered" width="100%">
 													<thead>			                
 															<tr>
-																<th style="width: 20%;">Descriptions</th>
+																<th style="width: 40%;">Descriptions</th>
 																<th>Owned</th>
 																<th>Rented</th>
 																<th>Total</th>
-																<th style="width: 40%;">Notes</th>
+																<th>Units</th>
+																<th style="width: 30%;">Notes</th>
 																<th style="width: 3%;">Edit</th>
 															</tr>
 													</thead>
@@ -156,18 +130,15 @@
 															while ($count <= 3 ) { ?>
 																<tr class="main-parent" data_id="<?php echo $num; ?>">
 																	<td style="width:10px !important;">
-																		<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
-																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																				<b>+</b>
-																			</span>
-																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																				<b>-</b>
-																			</span>
+																		<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
+																			<i class="fa fa-plus level_1_<?php echo$num; ?>"></i>
+																			<i class="fa fa-minus hide level_1_<?php echo$num; ?>"></i>
 																		</button> 
 																		<span class="description-name">HV</span>
 																	</td>
 
 																	<td style="width:50px !important;"></td>
+																	<td style="width:60px !important;"></td>
 																	<td style="width:60px !important;"></td>
 																	<td style="width:50px !important;"></td>
 																	<td style="width:40px !important;"></td>
@@ -179,18 +150,15 @@
 																while ($count1 <= 3 ) { ?>
 																	<tr class="hide first-child-<?php echo $num; ?> fchild">
 																		<td style="width:10px !important; padding-left: 20px;">
-																			<button class="button btn btn-warning btn-xs" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>">
-																					<b>+</b>
-																				</span>
-																				<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>">
-																					<b>-</b>
-																				</span>
+																			<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																				<i class="fa fa-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
+																				<i class="fa fa-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
 																			</button> 
 																		<span class="description-name">Main Beams</span>
 																		</td>
 																		<td style="width:50px !important;" ></td>
 																		<td style="width:60px !important;" ></td>
+																		<td style="width:40px !important;" ></td>
 																		<td style="width:40px !important;" ></td>
 																		<td style="width:15px !important;" ></td>
 																		<td style="width:15px !important;"></td>
@@ -204,6 +172,7 @@
 																			Main Beams 3' 9''
 																		</td>
 																		<td style="width:60px !important;" ></td>
+																		<td style="width:15px !important;"></td>
 																		<td style="width:15px !important;"></td>
 																		<td style="width:40px !important;" ></td>
 																		<td style="width:15px !important;" ></td>
@@ -238,6 +207,28 @@
 														<br>
 														<div class="row col-lg-12" style="margin: 0px;">
 															<button class="btn btn-primary form-control" data-target="#myModal2" data-toggle="modal">Add Inventory</button>
+														</div>
+														<h5>Equipment Filters</h5>
+														<div class="col-lg-12">
+															<label><b>Location</b></label>
+															<select class="form-control">
+																<option>WA Yard</option>
+																<option>NY Yard</option>
+																<option>TX Yard</option>
+															</select>
+														</div>
+														<div class="col-lg-12">
+															<label><b>Status</b></label>
+															<select class="form-control">
+																<option>Active</option>
+																<option>Damaged</option>
+															</select>
+														</div>
+														<div class="col-lg-12">
+															<label><b>Owner</b></label>
+															<select class="form-control">
+																<option>McClone</option>
+															</select>
 														</div>
 													</div>
 												</div>
@@ -528,11 +519,25 @@
 
 				if(level == 1){
 					$('.first-child-'+id).toggleClass('hide');
+					$('.level_1_'+id).toggleClass('hide');
+					if($('.level_1_'+id).first().hasClass('hide')){
+						$('.level_1_'+id).parent().removeClass('btn-success').addClass('btn-warning');
+					}
+					else{
+						$('.level_1_'+id).parent().removeClass('btn-warning').addClass('btn-success');
+					}
 					$('.second-child-'+id).addClass('hide');
 				}
 				else if(level == 2){
 					var id2 = $(this).attr('parent_data_id');
 					$('.second-child-'+id2+'-'+id).toggleClass('hide');
+					$('.level_2_'+id2+'_'+id).toggleClass('hide');
+					if($('.level_2_'+id2+'_'+id).first().hasClass('hide')){
+						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-success').addClass('btn-warning');
+					}
+					else{
+						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-warning').addClass('btn-success');
+					}
 				}
 				else{
 				}

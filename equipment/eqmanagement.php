@@ -391,7 +391,7 @@
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 								&times;
 							</button>
-							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Category</h4>
+							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Sub-Category</h4>
 						</div>
 						<form id="newCategory">
 							<div class="modal-body">
