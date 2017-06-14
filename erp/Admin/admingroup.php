@@ -47,7 +47,7 @@
 				
 					<!-- row -->
 					<div class="row no-margin">
-					<article class="col-sm-12 col-md-12 col-lg-6">
+					<article class="col-sm-10 col-md-10 col-lg-6">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-blueDark"  id="wid-id-1"  data-widget-fullscreenbutton="false" data-widget-deletebutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
@@ -105,8 +105,26 @@
 							<!-- end widget -->
 				
 						</article>
+						<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2 pull-right">
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">	
+								<header>
+									<h2 class="font-md">Actions</h2>
+								</header>	
+			
+								<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
+														
+									<div class="row col-lg-12" style="margin: 0px;">
+										<button class="btn btn-success form-control" data-target="#groupModal" data-toggle="modal">NEW GROUP</button>
+									</div>
+									<br>
+									<div class="row col-lg-12" style="margin: 0px;">
+										<button class="btn btn-success form-control" disabled="disabled">EDIT GROUP</button>
+									</div>
+								</div>
+							</div>
+						</article>
 						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<article class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-colorbutton="false"  data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false">
@@ -338,8 +356,10 @@
 							<!-- end widget -->
 
 						</article>
+
+
 						<!-- WIDGET END -->
-				
+						
 					</div>
 				
 					<!-- end row -->

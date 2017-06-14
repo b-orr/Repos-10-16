@@ -47,7 +47,7 @@
 					<div class="row no-margin">
 				
 						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+						<article class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-togglebutton="false">
@@ -87,9 +87,9 @@
 											<thead>			                
 												<tr>
 													<th data-hide="phone">Title</th>
-													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>First Name</th>
-													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Last Name</th>
-													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>User Name</th>
+													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>First Name</th>
+													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Last Name</th>
+													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>User Name</th>
 													<th data-hide="phone"><i class="text-muted hidden-md hidden-sm hidden-xs"></i>Access Type</th>
 													<th data-hide="phone,tablet">Action</th>	
 												</tr>
@@ -133,7 +133,20 @@
 				
 						</article>
 						<!-- WIDGET END -->
-
+						<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">	
+								<header>
+									<h2 class="font-md">Actions</h2>
+								</header>	
+			
+								<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
+														
+									<div class="row col-lg-12" style="margin: 0px;">
+										<button class="btn btn-success form-control" data-target="#userModal" data-toggle="modal">Add User</button>
+									</div>
+								</div>
+							</div>
+						</article>
 					<!-- end row -->
 				
 					<!-- end row -->
@@ -142,17 +155,17 @@
 				<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							<div class="modal-header txt-color-white" style="background-color: #313131;">
+								<button type="button" class="close txt-color-white" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h4 class="modal-title" id="myModalLabel">User Details</h4>
+								<h3 class="modal-title" id="myModalLabel">USER DETAILS</h3>
 							</div>
 							<div class="modal-body">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<h4>Title: <sup>*</sup></h4>
+											<h4>Title: <b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -164,7 +177,7 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<h4>First Name: <sup>*</sup></h4>
+											<h4>First Name: <b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -176,7 +189,7 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<h4>Last Name: <sup>*</sup></h4>
+											<h4>Last Name: <b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -189,7 +202,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<h4>Add area: <sup>*</sup></h4>
+										<h4>Add area: <b><sup style="color: #FF0000;">*</sup></b></h4>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -220,7 +233,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<h4>Add Group: <sup>*</sup></h4>
+										<h4>Add Group: <b><sup style="color: #FF0000;">*</sup></b></h4>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -263,7 +276,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<h4>Add role: <sup>*</sup></h4>
+										<h4>Add role: <b><sup style="color: #FF0000;">*</sup></b></h4>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -292,7 +305,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<h4>User Name: <sup>*</sup></h4>
+										<h4>User Name: <b><sup style="color: #FF0000;">*</sup></b></h4>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -304,7 +317,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<h4>E-mail: <sup>*</sup></h4>
+										<h4>E-mail: <b><sup style="color: #FF0000;">*</sup></b></h4>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -344,7 +357,7 @@
 								<button type="button" class="btn btn-default" data-dismiss="modal">
 									Cancel
 								</button>
-								<button type="button" class="btn btn-primary">
+								<button type="button" class="btn btn-success">
 									Add User
 								</button>
 							</div>
@@ -415,7 +428,7 @@
 				});
 	
 			/* END BASIC */
-			$('#dt_basic_filter label').append('<a class="btn btn-default btn-primary" data-toggle="modal"><i class="fa fa-plus"></i> Add Users</a>');
+			
 	
 			
 			/* COLUMN FILTER  */

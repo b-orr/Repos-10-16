@@ -295,6 +295,36 @@
 				<!-- end dropdown-menu-->
 
 			</div>
+			<div class="pull-right">
+				<div class="project-context hidden-xs col-lg-1">
+
+				<span class="label">Area</span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Washington <i class="fa fa-angle-down"></i> </strong></span>
+
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);">Washington Office</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Colorado Office</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Hawaii Office</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Northern CA Office</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">South Texas Office</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Southern CA Office</a>
+					</li>
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
 			<!-- end projects dropdown -->
 
 			<!-- pulled right: nav area -->
