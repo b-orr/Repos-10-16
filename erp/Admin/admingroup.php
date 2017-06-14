@@ -118,7 +118,7 @@
 									</div>
 									<br>
 									<div class="row col-lg-12" style="margin: 0px;">
-										<button class="btn btn-success form-control" data-target="#groupModal" data-toggle="modal">EDIT GROUP</button>
+										<button class="btn btn-success form-control" disabled="disabled">EDIT GROUP</button>
 									</div>
 								</div>
 							</div>
