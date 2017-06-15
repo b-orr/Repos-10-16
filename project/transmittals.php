@@ -12,7 +12,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon">
+			<div id="ribbon" style="background-color: white;">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -21,7 +21,7 @@
 				</span>
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Project Bidding</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Transmittal</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -88,21 +88,21 @@
 				
 									<!-- widget content -->
 									<div class="widget-body">
-				
+									
 										<div class="panel-group smart-accordion-default" id="accordion">
 											<div class="panel panel-default">
 												<div class="panel-heading">
 													<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed"> <i class="fa fa-lg fa-angle-down pull-right"></i> <i class="fa fa-lg fa-angle-up pull-right"></i> DRAFT TRANSMITTALS </a></h4>
 												</div>
-												<div id="collapseOne" class="panel-collapse collapse">
-													<table class="table table-bordered table-condensed">
+												<div id="collapseOne" class="panel-collapse collapse in">
+													<table class="table table-bordered table-striped">
 															<thead>
 																<tr>
-																	<th style="width: 10%;">Number</th>
+																	<th>Number</th>
 																	<th>Title</th>
-																	<th style="width: 12%;">Date Initiated</th>
+																	<th>Date Initiated</th>
 																	<th>To</th>
-																	<th style="width: 10%;">Action</th>
+																	<th>Action</th>
 																</tr>
 															</thead>
 															<tbody>
@@ -154,7 +154,7 @@
 												</div>
 												<div id="collapseTwo" class="panel-collapse collapse">
 													<div class="panel-body no-padding">
-														<table class="table table-bordered table-condensed">
+														<table class="table table-bordered table-striped" style="width: 100%;">
 															<thead>
 																<tr>
 																	<th style="width: 10%;">Number</th>
@@ -220,7 +220,53 @@
 
 						</article>
 						<!-- WIDGET END -->
+						<article class="col-xs-10 col-sm-10 col-md-10 col-lg-2">
 
+							<!-- Widget ID (each widget will need unique ID)-->
+							
+				
+							<!-- Widget ID (each widget will need unique ID)-->
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-9" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+								-->
+								<header>
+									<span class="widget-icon"> <i class="fa fa-comments"></i> </span>
+									<h2>Actions </h2>
+				
+								</header>
+				
+								<!-- widget div-->
+								<div>
+				
+									<!-- widget content -->
+									<div class="widget-body">
+										<div class="col-lg-12">
+											<button class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal">New Transmittal</button>
+										</div>
+									</div>
+									<!-- end widget content -->
+				
+								</div>
+								<!-- end widget div -->
+				
+							</div>
+							<!-- end widget -->
+				
+						
+							<!-- end widget -->
+
+						</article>
 					</div>
 
 					<!-- end row -->
@@ -235,6 +281,55 @@
 			<!-- END MAIN CONTENT -->
 
 		</div>
+
+		<!-- modals -->
+
+			<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header" style="background-color: #404040;">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Select Transmittal Type</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<span class="smart-form">
+											<label class="checkbox">
+											<b>Blank Transmittal</b>
+											<input type="checkbox" name="checkbox" checked="checked">
+											<i></i></label>
+										</span>
+									</div>
+									
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="input" style="font-weight: bold;">Transmittal Template</label><br>
+										<select type="text" class="form-control" required style="padding-left: 5px;">
+										</select>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">
+								Continue
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div>
+		<!-- endmodals -->
 
 		<!-- END MAIN PANEL -->
 		<?php include '../includes/_footer.php'; ?>

@@ -104,7 +104,7 @@
 													<th>Unreviewed Forecasts</th>
 													<th data-hide="phone,tablet">Outstanding Reconciliations</th>
 													<th data-hide="phone,tablet">Scheduled</th>
-													<th data-hide="phone,tablet">Equipment Scheduled</th>
+													<th data-hide="phone,tablet">Equipment Requests</th>
 													<th data-hide="phone,tablet">PM</th>
 													<th data-hide="phone">Supt</th>
 												</tr>
@@ -114,19 +114,19 @@
 													<td>111</td>
 													<td>Washington Yard</td>
 													<td>
-													<a href class="btn btn-success btn-xs btn-block"> From 1001 - 05/09/17</a>
-													<a href class="btn btn-success btn-xs btn-block"> From 1007 - 05/10/17</a>
-													<a href class="btn btn-success btn-xs btn-block"> From 1025 - 05/12/17</a>
+														<a href="../project/approvetruck.php" class="btn btn-success btn-xs btn-block"> From 1001 - 05/09/17</a>
+														<a href="../project/approvetruck.php" class="btn btn-success btn-xs btn-block"> From 1007 - 05/10/17</a>
+														<a href="../project/approvetruck.php" class="btn btn-success btn-xs btn-block"> From 1025 - 05/12/17</a>
 													</td>
 													<td></td>
 													<td></td>
 													<td>
-													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
-													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+														<a href="../project/newtransfer.php" class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+														<a href="../project/newtransfer.php" class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
 													</td>
 													<td>
-													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
-													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+														<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+														<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
 													</td>
 													<td>M. Danielson</td>
 													<td>A. Gomez</td>

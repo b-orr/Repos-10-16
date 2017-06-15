@@ -219,7 +219,7 @@
 									
 									<!-- widget content -->
 									<div class="widget-body col-lg-12" style="padding-left: 0px;">
-									<button class="btn btn-success col-lg-12" style="padding-left: 9px;">Add Requirement</button><br><br><br>
+									<a href="newrequirement.php" class="btn btn-success col-lg-12" style="padding-left: 9px;">Add Requirement</a><br><br><br>
 									<label>Category</label>
 									<select class="form-control">
 										<option>HV</option>

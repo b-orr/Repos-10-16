@@ -25,13 +25,13 @@
 						<a href=""><i class="fa fa-lg fa-fw fa-picture-o" style="color: #404040;"></i> <span class="menu-item-parent">Photos</span></a>
 					</li>
 					<li>
-						<a href=""><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">RFI's</span></a>
+						<a href="../project/rfis.php"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">RFI's</span></a>
 					</li>
 					<li>
-						<a href=""><i class="fa fa-lg fa-fw fa-suitcase" style="color: #404040;"></i> <span class="menu-item-parent">Submittals</span></a>
+						<a href="../project/submittals.php"><i class="fa fa-lg fa-fw fa-suitcase" style="color: #404040;"></i> <span class="menu-item-parent">Submittals</span></a>
 					</li>
 					<li>
-						<a href=""><i class="fa fa-lg fa-fw fa-upload" style="color: #404040;"></i> <span class="menu-item-parent">Transmittals</span></a>
+						<a href="../project/transmittals.php"><i class="fa fa-lg fa-fw fa-upload" style="color: #404040;"></i> <span class="menu-item-parent">Transmittals</span></a>
 					</li>
 					<li class="main-parent">
 						<a href="#" title="Dashboard" class="highlight"><i class="fa fa-lg fa-fw fa-home" style="color: #404040;"></i> <span class="menu-item-parent needHiddenParent">Equipment</span></a>

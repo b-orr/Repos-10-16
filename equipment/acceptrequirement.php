@@ -392,7 +392,7 @@
 										<!-- widget content -->
 										<div class="widget-body">
 											<div>
-												<button class="btn btn-success btn-block actionBtns">Save</button>
+												<button class="btn btn-success btn-block actionBtns">Accept</button>
 												<button class="btn btn-success btn-block actionBtns">Cancel</button>
 											</div>
 										</div>
