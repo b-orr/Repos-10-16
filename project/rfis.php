@@ -410,9 +410,9 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal">
+							<a href="newrfi.php" type="button" class="btn btn-primary" >
 								Continue
-							</button>
+							</a>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->

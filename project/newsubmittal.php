@@ -7,7 +7,11 @@
 
 <?php include '../includes/_menu.php'; ?>
 		<!-- MAIN PANEL -->
-
+		<style type="text/css">
+			.control-label {
+				padding-top: 4px;
+			}
+		</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
@@ -21,7 +25,7 @@
 				</span>
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Transmittal</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Submittal</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -83,8 +87,8 @@
 											<fieldset>
 												<div class="row">
 													<section class="col col-3">
-														<label class="input">
-															Transmittal #
+														<label class="control-label">
+															MCC Submittal #
 														</label>
 													</section>
 													<section class="col col-3">
@@ -93,7 +97,7 @@
 														</label>
 													</section>
 													<section class="col col-3">
-														<label class="input">
+														<label class="control-label">
 															Revision #
 														</label>
 													</section>
@@ -104,7 +108,32 @@
 												</div>
 												<div class="row">
 													<section class="col col-3">
+														<label class="control-label">
+															Client Submittal #
+														</label>
+													</section>
+													<section class="col col-3">
 														<label class="input">
+															<input type="text">
+														</label>
+													</section>
+													<section class="col col-3">
+														<label class="control-label">
+															Submittal Package
+														</label>
+													</section>
+													<section class="col col-3">
+														<label class="input">
+															<select class="form-control">
+																<option></option>
+																<option></option>
+																<option></option>
+															</select>
+														</label>
+												</div>
+												<div class="row">
+													<section class="col col-3">
+														<label class="control-label">
 															Draft
 														</label>
 													</section>
@@ -112,7 +141,7 @@
 															<input type="checkbox" id="draft" value="drft">
 													</section>
 													<section class="col col-3">
-														<label class="input">
+														<label class="control-label">
 															Private
 														</label>
 													</section>
@@ -123,8 +152,8 @@
 				
 												<div class="row">
 													<section class="col col-3">
-														<label class="input">
-															Title
+														<label class="control-label">
+															Submittal Title
 														</label>
 													</section>
 													<section class="col col-9">
@@ -136,17 +165,17 @@
 				
 												<div class="row">
 													<section class="col col-3">
-														<label class="input">
-															Transmittal Type
+														<label class="control-label">
+															Submittal Type
 														</label>
 													</section>
 													<section class="col col-3">
 														<div class="form-group">
 															<select class="form-control" id="transmtype">
-																<option> </option>
-																<option> </option>
-																<option> </option>
-																<option> </option>
+																<option></option>
+																<option></option>
+																<option></option>
+																<option></option>
 															</select>
 														</div>
 													</section>
@@ -156,41 +185,21 @@
 											<fieldset>
 												<div class="row">
 													<section class="col col-3">
-														<label class="input">
-															To
+														<label class="control-label">
+															Submittal Author / Creator
 														</label>
 													</section>
 													<section class="col col-3">
 														<div class="form-group">
-															<select class="form-control" id="todropdown">
-																<option> </option>
-																<option> </option>
-																<option> </option>
-																<option> </option>
-															</select>
-														</div>
-													</section>
-													<section class="col col-3">
-														<label class="input">
-															Distribution
-														</label>
-													</section>
-													<section class="col col-3">
-														<div class="form-group">
-															<select class="form-control" id="dist">
-																<option> </option>
-																<option> </option>
-																<option> </option>
-																<option> </option>
-															</select>
+															<input type="text" name="submitAuthor" class="form-control">
 														</div>
 													</section>
 												</div>
 				
 												<div class="row">
 													<section class="col col-3">
-														<label class="input">
-															Internal Author / Creator
+														<label class="control-label">
+															CC
 														</label>
 													</section>
 													<section class="col col-3">
@@ -199,32 +208,87 @@
 														</label>
 													</section>
 													<section class="col col-3">
+														<label class="control-label">
+															Client Contact
+														</label>
+													</section>
+													<section class="col col-3">
 														<label class="input">
+															<input type="text">
+														</label>
+													</section>
+												</div>
+											</fieldset>
+
+											<fieldset>
+				
+												<div class="row">
+													<section class="col col-3">
+														<label class="control-label">
+															Reference Spec Section
+														</label>
+													</section>
+													<section class="col col-3">
+														<label class="input">
+															<input type="text">
+														</label>
+													</section>
+													<section class="col col-3">
+														<label class="control-label">
+															Response Requested (days)
+														</label>
+													</section>
+													<section class="col col-3">
+														<label class="input">
+															<input type="text">
+														</label>
+													</section>
+												</div>
+
+												<div class="row">
+													<section class="col col-3">
+														<label class="control-label">
 															Date Written
 														</label>
 													</section>
 													<section class="col col-3">
+														<div class="form-group">
+															<input type="text" name="submitAuthor" class="form-control">
+														</div>
+													</section>
+												</div>
+
+												<div class="row">
+													<section class="col col-3">
+														<label class="control-label">
+															Date Due
+														</label>
+													</section>
+													<section class="col col-3">
 														<label class="input">
 															<input type="text">
 														</label>
 													</section>
-												</div>
-				
-												<div class="row">
 													<section class="col col-3">
-														<label class="input">
-															Submitted for
+														<label class="control-label">
+															Overdue Notifications
 														</label>
 													</section>
 													<section class="col col-3">
-														<div class="form-group">
-															<select class="form-control" id="dist">
-																<option> </option>
-																<option> </option>
-																<option> </option>
-																<option> </option>
-															</select>
-														</div>
+															<input type="checkbox" id="ovrdue">
+													</section>
+												</div>
+											</fieldset>
+
+											<fieldset>
+												<div class="row">
+													<section class="col col-3">
+														<label class="control-label">
+															Subcontractor Submittal
+														</label>
+													</section>
+													<section class="col col-3">
+															<input type="checkbox" name="submitAuthor">
 													</section>
 												</div>
 											</fieldset>
@@ -232,7 +296,7 @@
 											<fieldset>
 												<div class="row">
 													<section class="col col-6">
-														<label class="input">
+														<label class="control-label">
 															Transmittal Summary
 														</label>
 													</section>
@@ -245,9 +309,14 @@
 													</section>
 												</div>
 												<div class="row">
-													<section class="col col-3">
-														<label class="input">
+													<section class="col col-5">
+														<label class="control-label">
 															Attachments
+														</label>
+													</section>
+													<section class="col col-5">
+														<label class="control-label">
+															Response
 														</label>
 													</section>
 												</div>
@@ -258,7 +327,14 @@
 															Attach a file
 														</button>
 													</div>
+													<div class="col col-5">
+														<button type="button btn-primary" class="btn btn-primary btn-lg">
+															<i class="fa fa-cloud-upload"></i>
+															Attach a file
+														</button>
+													</div>
 												</div>
+
 											</fieldset>
 											<br>
 											<footer>
@@ -267,6 +343,9 @@
 												</button>
 												<button type="button" class="btn btn-default">
 													Back
+												</button>
+												<button type="button" class="btn btn-default">
+													Cancel
 												</button>
 											</footer>
 										</form>
