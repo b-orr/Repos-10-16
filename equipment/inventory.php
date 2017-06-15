@@ -340,8 +340,8 @@
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Qty to Change</label><br>
-										1253
+										<label class="input" style="font-weight: bold;">Qty to Change</label>
+										<input type="text" name="qtyToChange" class="form-control">
 									</div>
 									
 								</div>

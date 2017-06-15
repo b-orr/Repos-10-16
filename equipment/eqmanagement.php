@@ -471,8 +471,7 @@
 										<div class="form-group">
 											<div class="col-md-12">
 												<label class="input" style="font-weight: bold;">Equipment Name</label><br>
-													<select class="form-control">
-													</select>
+													<input type="text" name="eqName" class="form-control">
 												</div>
 										</div>
 										

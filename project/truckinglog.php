@@ -5,7 +5,7 @@
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu_eq.php'; ?>
+<?php include '../includes/_menu.php'; ?>
 		<!-- MAIN PANEL -->
 	<style type="text/css">
 		.main-parent{
@@ -35,7 +35,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon" style="background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);">
+			<div id="ribbon" style="background-color: white;">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -45,7 +45,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Equipment</li><li style="color: black;">Trucking Log</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Trucking Log</li>
 				</ol>
 				<!-- end breadcrumb -->
 

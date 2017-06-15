@@ -1,11 +1,11 @@
-<?php include '../includes/_header_eq.php'; ?>
+<?php include '../includes/_header.php'; ?>
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu_eq.php'; ?>
+<?php include '../includes/_menu.php'; ?>
 		<!-- MAIN PANEL -->
 	<style type="text/css">
 		.main-parent{
@@ -15,6 +15,9 @@
 		.fchild{
 			background-color: #e6e6e6;
 			font-weight: bold;
+		}
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+			padding: 2px ;
 		}
 	</style>
 		<!-- MAIN PANEL -->
@@ -31,7 +34,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Equipment</li><li style="color: black;">Rental</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Rental</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -60,12 +63,12 @@
 					<div class="row" style="padding-right: 0px;">
 				
 						<!-- NEW WIDGET START -->
-						<div class="col-lg-10">
+						<div class="col-lg-12">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
 							
 							<!-- end widget -->
-								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false"  data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false"  data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
@@ -86,133 +89,207 @@
 								<!-- widget div-->
 									<header class="no-margin no-padding">
 										<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-										<h2>Rented Equipment Overview </h2>
+										<h2>Rented Equipment </h2>
 					
 									</header>
 
-								<div>
+									<div>
 													<!-- widget content -->
-									<div class="widget-body" style="padding-right: 1%;">
-									
+										<div class="widget-body" style="padding-right: 1%;">
 										
 											
-										<div class="row">
-												<div class="widget-body table-1" id="table-1" style="margin-top: 3px;">
-													<table id="dt_basic" class="table table-bordered" width="100%">
-													<thead>			                
-															<tr>
-																<th>No.</th>
-																<th style="width: 50%;"><span>Project</span> <span class="pull-right">Descriptions</span></th>
-																<th>MCC ID No</th>
-																<th>Qty</th>
-																<th>Rental Rate</th>
-																<th>Rental $ Total</th>
-															</tr>
-													</thead>
-													<tbody>
-
-													<?php 
-															$count = 1;
-															$num = 1;
-															while ($count <= 3 ) { ?>
-																<tr class="main-parent" data_id="<?php echo $num; ?>">
-																	<td style="width:10px !important;">
-																		<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
-																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																				<b>+</b>
-																			</span>
-																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																				<b>-</b>
-																			</span>
-																		</button> 
-																		<span>1007</span>
-																	</td>
-																	<td><span class="description-name">1001 Broadway</span></td>
-																	<td style="width:50px !important;"></td>
-																	<td style="width:60px !important;"></td>
-																	<td style="width:50px !important;"></td>
-																	<td style="width:15px !important;"></td>
+												
+											<div class="row">
+													<div class="widget-body table-1" id="table-1" style="margin-top: 3px;">
+														<table id="dt_basic" class="table table-bordered" width="100%">
+														<thead>			                
+																<tr>
+																	<th>No.</th>
+																	<th style="width: 50%;"><span>Project</span> <span class="pull-right">Descriptions</span></th>
+																	<th>MCC ID No</th>
+																	<th>Qty</th>
+																	<th>Rental Rate</th>
+																	<th>Rental $ Total</th>
 																</tr>
-													<?php 
-																$count1 = 1;
-																$num1 = 1;
-																while ($count1 <= 3 ) { ?>
-																	<tr class="hide first-child-<?php echo $num; ?> fchild">
-																		<td></td>
-																		<td style="width:10px !important; padding-left: 20px;">
-																			<button class="button btn btn-warning btn-xs" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>">
+														</thead>
+														<tbody>
+
+														<?php 
+																$count = 1;
+																$num = 1;
+																while ($count <= 1 ) { ?>
+																	<tr class="main-parent" data_id="<?php echo $num; ?>">
+																		<td style="width:10px !important;">
+																			<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
+																				<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
 																					<b>+</b>
 																				</span>
-																				<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>">
+																				<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
 																					<b>-</b>
 																				</span>
 																			</button> 
-																		<span class="description-name">MMC-1028</span>
-																		<span class="pull-right" style="font-size: smaller;">WA LiftTruck - Due 4/28</span>
+																			<span>1007</span>
 																		</td>
-																		<td style="width:50px !important;" ></td>
-																		<td style="width:60px !important;" ></td>
-																		<td style="width:15px !important;"><span class="pull-right">TOTAL</span></td>
-																		<td style="width:15px !important;">$1,500.00</td>
+																		<td><span class="description-name">1001 Broadway</span></td>
+																		<td style="width:50px !important;"></td>
+																		<td style="width:60px !important;"></td>
+																		<td style="width:50px !important;"></td>
+																		<td style="width:15px !important;"></td>
 																	</tr>
-													<?php 
-																$count2 = 1;
-																$num2 = 1;
-																while ($count2 <= 2 ) { ?>
-																	<tr class="hide second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
-																		<td></td>
-																		<td style="width:10px !important; padding-left: 40px;">
-																			1923 JLG Scissor Lift
-																		</td>
-																		<td style="width:60px !important;" ></td>
-																		<td style="width:15px !important;">1</td>
-																		<td style="width:15px !important;" >$750.00</td>
-																		<td style="width:15px !important;">$750.00</td>
-																	</tr>
+														<?php 
+																	$count1 = 1;
+																	$num1 = 1;
+																	while ($count1 <= 3 ) { ?>
+																		<tr class="first-child-<?php echo $num; ?> fchild">
+																			<td></td>
+																			<td style="width:10px !important; padding-left: 20px;">
+																				<button class="button btn btn-warning btn-xs" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																					<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>">
+																						<b>+</b>
+																					</span>
+																					<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>">
+																						<b>-</b>
+																					</span>
+																				</button> 
+																			<span class="description-name">MMC-1028</span>
+																			<span class="pull-right" style="font-size: smaller;">WA LiftTruck - Due 4/28</span>
+																			</td>
+																			<td style="width:50px !important;" ></td>
+																			<td style="width:60px !important;" ></td>
+																			<td style="width:15px !important;"><span class="pull-right">TOTAL</span></td>
+																			<td style="width:15px !important;">$1,500.00</td>
+																		</tr>
+														<?php 
+																	$count2 = 1;
+																	$num2 = 1;
+																	while ($count2 <= 2 ) { ?>
+																		<tr class="second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
+																			<td></td>
+																			<td style="width:10px !important; padding-left: 40px;">
+																				1923 JLG Scissor Lift
+																			</td>
+																			<td style="width:60px !important;" ></td>
+																			<td style="width:15px !important;">1</td>
+																			<td style="width:15px !important;" >$750.00</td>
+																			<td style="width:15px !important;">$750.00</td>
+																		</tr>
 
-																<?php $count2++; } ?>
-															
+																	<?php $count2++; } ?>
+																
 
-																<?php $count1++;
-																	$num1++; } ?>
+																	<?php $count1++;
+																		$num1++; } ?>
 
-															<?php
-															$num++;
-															$count = $count + 1;
-															 } ?>	
-													</tbody>
-												
-													</table>
-												</div>
+																<?php
+																$num++;
+																$count = $count + 1;
+																 } ?>	
+														</tbody>
+													
+														</table>
+													</div>
 
-										
+											
+											</div>
+
+		
 										</div>
-
-	
 									</div>
-								</div>
 				
 							</div>
 									<!-- end widget content -->
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false"  data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+								-->
+								
+								
+								<!-- added buttons -->
+
+								<!-- widget div-->
+									<header class="no-margin no-padding">
+										<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+										<h2>Allocated Equipment </h2>
+					
+									</header>
+
+									<div>
+													<!-- widget content -->
+										<div class="widget-body" style="padding-right: 1%;">
+										
+											
+												
+											<div class="row">
+													<div class="widget-body table-1" id="table-1" style="margin-top: 3px;">
+														<table id="dt_basic" class="table table-bordered" width="100%">
+									<thead>			                
+											<tr>
+												<th style="width: 10%;">No.</th>
+												<th style="width: 25%;"><span>Project</span></th>
+												<th>Descriptions</th>
+												<th style="width: 5%;">Qty</th>
+											</tr>
+									</thead>
+									<tbody>
+
+									<?php 
+											$count = 1;
+											$num = 1;
+											while ($count <= 1 ) { ?>
+												<tr class="main-parent" data_id="<?php echo $num; ?>">
+													<td style="width:10px !important;">
+														<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
+															<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
+																<b>+</b>
+															</span>
+															<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
+																<b>-</b>
+															</span>
+														</button> 
+														<span>1007</span>
+													</td>
+													<td><span class="description-name">1001 Broadway</span></td>
+													<td style="width:50px !important;"></td>
+													<td style="width:60px !important;"></td>																</tr>
+												<?php 
+												$count1 = 1;
+												$num1 = 1;
+												while ($count1 <= 3 ) { ?>
+													<tr class="first-child-<?php echo $num; ?> fchild">
+														<td></td>
+														<td style="width:10px !important; padding-left: 20px;">
+														</td>
+														<td style="width:15px !important;">HV / Aluma</td>
+														<td style="width:15px !important;">SF</td>
+													</tr>
+										<?php $count1++;
+											$num1++; }
+											$num++;
+											$count = $count + 1; }?>
+									</tbody>
+								</table>		
+													</div>
+
+											
+											</div>
+
+		
+										</div>
+									</div>
+				
+							</div>
 						</div>
 						<!-- WIDGET END -->
-						<div class="col-lg-2" style="padding-left: 0px;">
-												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">	
-													<header>
-														<h2 class="font-md">Actions</h2>
-													</header>	
-			
-													<div class="widget-body">
-														<div class="row col-lg-12" style="margin: 0px;">
-															<button class="btn btn-primary form-control" data-target="#myModal2" data-toggle="modal">New Rental PO</button>
-														</div>
-													</div>
-												</div>
-						</div>
-					<!-- end row -->
-				
 					<!-- end row -->
 				
 				</section>

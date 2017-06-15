@@ -37,19 +37,16 @@
 						<a href="#" title="Dashboard" class="highlight"><i class="fa fa-lg fa-fw fa-home" style="color: #404040;"></i> <span class="menu-item-parent needHiddenParent">Equipment</span></a>
 						<ul>
 							<li>
-								<a href="" title="Admin"><span class="menu-item-parent needHidden">Inventory</span></a>
+								<a href="../project/eqoverview.php" title="Admin"><span class="menu-item-parent needHidden">Overview</span></a>
 							</li>
 							<li class="">
-								<a href="" title="Projects"><span class="menu-item-parent needHidden">Forecasting</span></a>
+								<a href="../project/forecasting.php" title="Projects"><span class="menu-item-parent needHidden">Forecasting</span></a>
 							</li>
 							<li class="">
-								<a href="" title="Equipment"><span class="menu-item-parent needHidden">Trucking Log</span></a>
+								<a href="../project/truckinglog.php" title="Equipment"><span class="menu-item-parent needHidden">Trucking Log</span></a>
 							</li>
 							<li class="">
-								<a href="" title="Contacts"><span class="menu-item-parent needHidden">Rental</span></a>
-							</li>
-							<li class="">
-								<a href="" title="Estimating"><span class="menu-item-parent needHidden">Allocation</span></a>
+								<a href="../project/rental.php" title="Contacts"><span class="menu-item-parent needHidden">Rental / Allocation</span></a>
 							</li>
 						</ul>	
 					</li>
@@ -58,10 +55,10 @@
 					</li>
 				</ul>
 			</nav>
-			
 
-			<span class="minifyme" data-action="minifyMenu"> 
-				<i class="fa fa-arrow-circle-left hit"></i> 
+			<div style="width: 100% !important; height: 50%;">
+				<span class="minifyme" data-action="minifyMenu" style="bottom: 50px;"> 
+							<i class="fa fa-arrow-circle-left hit"></i> 
 			</span>
-
+			</div>
 		</aside>

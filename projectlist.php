@@ -87,7 +87,7 @@
 											<tbody>
 												<tr>
 													<td>1</td>
-													<td>Ramble Hotel</td>
+													<td><a href="drawings/layout1.php">Ramble Hotel</a></td>
 													<td>Sprung Construction</td>
 													<td>Test Address</td>
 													<td>City</td>
