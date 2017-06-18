@@ -69,7 +69,7 @@
 													<tbody>
 														<!-- foreach -->
 															<tr>
-																<td>Jim Jones</td>
+																<td><a href="#">Jim Jones</a></td>
 																<td>WACO Plumbing</td>
 																<td>Foreman</td>
 																<td>
@@ -83,7 +83,7 @@
 																<td>555-444-1234</td>
 															</tr>
 															<tr>
-																<td>Steve Jones</td>
+																<td><a href="#">Steve Jones</a></td>
 																<td>Schmit GC</td>
 																<td>Superintendent</td>
 																<td>
@@ -97,7 +97,7 @@
 																<td>666-777-4567</td>
 															</tr>
 															<tr>
-																<td>Mikael Kanouff</td>
+																<td><a href="#">Mikael Kanouff</a></td>
 																<td>McClone Construction</td>
 																<td>Project Manager</td>
 																<td>
@@ -111,7 +111,7 @@
 																<td>425-444-1247</td>
 															</tr>
 															<tr>
-																<td>Jeff Thao</td>
+																<td><a href="#">Jeff Thao</a></td>
 																<td>McClone Construction</td>
 																<td>Project Engineer</td>
 																<td>
@@ -125,7 +125,7 @@
 																<td>253-475-1934</td>
 															</tr>
 															<tr>
-																<td>Chris Town</td>
+																<td><a href="#">Chris Town</a></td>
 																<td>McClone Construction</td>
 																<td>Superintendent</td>
 																<td>
@@ -139,7 +139,7 @@
 																<td>503-874-9863</td>
 															</tr>
 															<tr>
-																<td>Amy Bunn</td>
+																<td><a href="#">Amy Bunn</a></td>
 																<td>McClone Construction</td>
 																<td>Coordinator</td>
 																<td>
@@ -165,13 +165,13 @@
 										</header>
 										<div class="row">
 											<div class="widget-body">
-												<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-block">
+												<button type="button" class="btn btn-success btn-block"> <!--data-toggle="modal" data-target="#myModal"-->
 													Print Directory
 												</button>
-												<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-block">
+												<button type="button" class="btn btn-success btn-block"> <!--data-toggle="modal" data-target="#myModal"-->
 													Add new Company
 												</button>
-												<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-block">
+												<button type="button" class="btn btn-success btn-block"> <!--data-toggle="modal" data-target="#myModal"-->
 													Add new Contact
 												</button>
 											</div>
