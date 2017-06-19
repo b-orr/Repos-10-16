@@ -158,6 +158,9 @@
 								</div>
 								<br>
 								<div class="row col-lg-12" style="margin: 0px;">
+									<h7>Contact Type:</h7>
+								</div>
+								<div class="row col-lg-12" style="margin: 0px;">
 									<div class="form-group">
 										<select class="form-control no-padding" id="category">
 											<option>Owner</option>
@@ -181,34 +184,34 @@
 				
 				</section>
 				<div class="modal fade" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
+					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header txt-color-white" style="background-color: #313131; ">
 								<button type="button" class="close txt-color-white" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h3 class="modal-title" id="myModalLabel">ADD COMPANY</h3>
+								<h3 class="modal-title" id="myModalLabel"><b>ADD COMPANY</b></h3>
 							</div>
 							<div class="modal-body">
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-5 col-md-offset-1">
 										<div class="form-group">
-											<h4>Company Name:</h4>
+											<h4><b>Company Name:</b></h4>
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-5">
 										<div class="form-group">
 											<input type="text" class="form-control" required />
 										</div>
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-5 col-md-offset-1">
 										<div class="form-group">
-											<h4>Company Type:</h4>
+											<h4><b>Company Type:</b></h4>
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-5">
 										<div class="form-group">
 											<select class="form-control" id="category">
 												<option> </option>
@@ -235,8 +238,8 @@
 				
 								-->
 								<header>
-									<h2>Locations </h2>
-										<a class="btn btn-default btn-success pull-right" href="javascript:void(0);"><i class="fa fa-plus"></i> Add new location</a>
+									<h2><b>Locations</b></h2>
+										<a class="btn btn-default btn-success btn-xs pull-right" href="javascript:void(0);" style="margin: 5px 5px 2px 2px;"> NEW LOCATION </a>
 								</header>
 				
 								<!-- widget div-->
@@ -252,7 +255,7 @@
 									<!-- widget content -->
 									<div class="widget-body">
 										<div class="tabs-left">
-											<ul class="nav nav-tabs tabs-left" id="demo-pill-nav">
+											<ul class="nav nav-tabs tabs-left" id="demo-pill-nav" >
 												<li class="active">
 													<a href="#tab-o1" data-toggle="tab">Honolulu Office</a>
 												</li>
@@ -304,15 +307,15 @@
 													<div class="row">
 														<div class="col-md-4">
 															<div class="form-group">
-																<h6>City, State:</h6>
+																<h6>City, State & Zip:</h6>
 															</div>
 														</div>
-														<div class="col-md-5">
+														<div class="col-md-4">
 															<div class="form-group">
 																<input type="text" class="form-control" required />
 															</div>
 														</div>
-														<div class="col-md-3">
+														<div class="col-md-2">
 															<div class="form-group">
 																<select class="form-control" id="category">
 																	<option>CO</option>
@@ -327,35 +330,40 @@
 																</select>
 															</div>
 														</div>
+														<div class="col-md-2">
+															<div class="form-group">
+																<input type="text" class="form-control" required />
+															</div>
+														</div>
 													</div>
 													<div class="row">
 														<div class="col-md-4">
 															<div class="form-group">
-																<h6>Area Association</h6>
+																<h6>Area Association:</h6>
 															</div>
 														</div>
 														<div class="col-md-8">
 															<div class="form-group" style="border-style: groove; border-width: 2px;">
-																<ul class="checkbox"> 
+																<ul class="checkbox">
 												 					 <li>
-												  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10">Colorado</label>
+												  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>
 												  					</li> 
 												 					 <li>
-												  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11">Washington</label>
+												  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>
 												  					</li> 
 												  					<li>
-												 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12">Hawaii</label>
+												 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>
 												 					</li> 
 												  					<li>
-												  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13">South Texas</label>
+												  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>
 												  					</li>
 												  					<li>
-												  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14">Northern CA</label>
+												  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>
 												  					</li>
 												  					<li>
-												  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14">Southern CA</label>
+												  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>
 												  					</li>
-																</ul> 
+																</ul>
 															</div>
 														</div>
 													</div>
@@ -400,15 +408,15 @@
 													<div class="row">
 														<div class="col-md-4">
 															<div class="form-group">
-																<h6>City, State:</h6>
+																<h6>City, State & Zip:</h6>
 															</div>
 														</div>
-														<div class="col-md-5">
+														<div class="col-md-4">
 															<div class="form-group">
 																<input type="text" class="form-control" required />
 															</div>
 														</div>
-														<div class="col-md-3">
+														<div class="col-md-2">
 															<div class="form-group">
 																<select class="form-control" id="category">
 																	<option>CO</option>
@@ -423,6 +431,11 @@
 																</select>
 															</div>
 														</div>
+														<div class="col-md-2">
+															<div class="form-group">
+																<input type="text" class="form-control" required />
+															</div>
+														</div>
 													</div>
 													<div class="row">
 														<div class="col-md-4">
@@ -432,24 +445,24 @@
 														</div>
 														<div class="col-md-8">
 															<div class="form-group" style="border-style: groove; border-width: 2px;">
-																<ul class="checkbox"> 
+																<ul class="checkbox">
 												 					 <li>
-												  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10">Colorado</label>
+												  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>
 												  					</li> 
 												 					 <li>
-												  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11">Washington</label>
+												  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>
 												  					</li> 
 												  					<li>
-												 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12">Hawaii</label>
+												 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>
 												 					</li> 
 												  					<li>
-												  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13">South Texas</label>
+												  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>
 												  					</li>
 												  					<li>
-												  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14">Northern CA</label>
+												  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>
 												  					</li>
 												  					<li>
-												  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14">Southern CA</label>
+												  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>
 												  					</li>
 																</ul> 
 															</div>
@@ -496,15 +509,15 @@
 													<div class="row">
 														<div class="col-md-4">
 															<div class="form-group">
-																<h6>City, State:</h6>
+																<h6>City, State & Zip:</h6>
 															</div>
 														</div>
-														<div class="col-md-5">
+														<div class="col-md-4">
 															<div class="form-group">
 																<input type="text" class="form-control" required />
 															</div>
 														</div>
-														<div class="col-md-3">
+														<div class="col-md-2">
 															<div class="form-group">
 																<select class="form-control" id="category">
 																	<option>CO</option>
@@ -519,6 +532,11 @@
 																</select>
 															</div>
 														</div>
+														<div class="col-md-2">
+															<div class="form-group">
+																<input type="text" class="form-control" required />
+															</div>
+														</div>
 													</div>
 													<div class="row">
 														<div class="col-md-4">
@@ -528,24 +546,24 @@
 														</div>
 														<div class="col-md-8">
 															<div class="form-group" style="border-style: groove; border-width: 2px;">
-																<ul class="checkbox"> 
+																<ul class="checkbox">
 												 					 <li>
-												  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10">Colorado</label>
+												  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>
 												  					</li> 
 												 					 <li>
-												  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11">Washington</label>
+												  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>
 												  					</li> 
 												  					<li>
-												 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12">Hawaii</label>
+												 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>
 												 					</li> 
 												  					<li>
-												  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13">South Texas</label>
+												  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>
 												  					</li>
 												  					<li>
-												  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14">Northern CA</label>
+												  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>
 												  					</li>
 												  					<li>
-												  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14">Southern CA</label>
+												  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>
 												  					</li>
 																</ul> 
 															</div>
@@ -563,7 +581,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">
-									Cancel
+									CANCEL
 								</button>
 								<button type="button" class="btn btn-success">
 									ADD COMPANY
@@ -580,14 +598,14 @@
 								<button type="button" class="close txt-color-white" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h3 class="modal-title" id="myModalLabel">ADD PERSON</h3>
+								<h3 class="modal-title" id="myModalLabel"><b>ADD PERSON</b></h3>
 							</div>
 							<div class="modal-body">
 							<br>
 								<div class="row no-margin">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>First Name: <b><sup style="color: #FF0000;">*</sup></b></h4>
+											<h4><b>First Name:</b> <b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -599,7 +617,7 @@
 								<div class="row no-margin">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>Last Name: <b><sup style="color: #FF0000;">*</sup></b></h4>
+											<h4><b>Last Name:</b> <b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -611,7 +629,7 @@
 								<div class="row no-margin">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>email: <b><sup style="color: #FF0000;">*</sup></b></h4>
+											<h4><b>Email:</b> <b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -623,7 +641,7 @@
 								<div class="row no-margin">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>Title:</b></h4>
+											<h4><b>Title:</b></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -632,11 +650,11 @@
 										</div>
 									</div>
 								</div>
-								<br>
+								<hr>
 								<div class="row no-margin">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>Direct Line:</b></h4>
+											<h4><b>Direct Line:</b></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -648,7 +666,7 @@
 								<div class="row no-margin">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>Cell Phone:</b></h4>
+											<h4><b>Cell Phone:</b></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -657,11 +675,11 @@
 										</div>
 									</div>
 								</div>
-								<br>
+								<hr>
 								<div class="row no-margin">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4> Company Association: <b><sup style="color: #FF0000;">*</sup></b></h4>
+											<h4><b>Company Association:</b><b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -673,29 +691,29 @@
 								<div class="row no-margin">
 								<div class="col-md-5">
 									<div class="form-group">
-										<h4>Area Association:</h4>
+										<h4><b>Area Association:</b></h4>
 									</div>
 								</div>
 								<div class="col-md-7">
 									<div class="form-group" style="border-style: groove; border-width: 2px;" >
 										<ul class="checkbox"> 
 											<li>
-												<input type="checkbox" id="cb1" value="Colorado" /><label for="cb1">Colorado Office</label>
+												<input type="checkbox" id="cb1" value="Colorado" /><label for="cb1"><b>Colorado Office</b></label>
 											</li> 
 											<li>
-												<input type="checkbox" id="cb2" value="Washington" /><label for="cb2">Washington Office</label>
+												<input type="checkbox" id="cb2" value="Washington" /><label for="cb2"><b>Washington Office</b></label>
 											</li> 
 											<li>
-												<input type="checkbox" id="cb3" value="Hawaii" /><label for="cb3">Hawaii Office</label>
+												<input type="checkbox" id="cb3" value="Hawaii" /><label for="cb3"><b>Hawaii Office</b></label>
 											</li>
 											<li>
-												<input type="checkbox" id="cb4" value="Southern CA" /><label for="cb4">Southern CA</label>
+												<input type="checkbox" id="cb4" value="Southern CA" /><label for="cb4"><b>Southern CA</b></label>
 											</li>
 											<li>
-												<input type="checkbox" id="cb5" value="South Texas" /><label for="cb5">South Texas</label>
+												<input type="checkbox" id="cb5" value="South Texas" /><label for="cb5"><b>South Texas</b></label>
 											</li>
 											<li>
-												<input type="checkbox" id="cb6" value="Northern CA" /><label for="cb6">Northern CA</label>
+												<input type="checkbox" id="cb6" value="Northern CA" /><label for="cb6"><b>Northern CA</b></label>
 											</li>
 										</ul> 
 									</div>
@@ -704,7 +722,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">
-									Cancel
+									CANCEL
 								</button>
 								<button type="button" class="btn btn-success">
 									<b> ADD PERSON </b>
