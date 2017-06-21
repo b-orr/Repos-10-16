@@ -21,7 +21,20 @@ class GuestController extends Controller
     {
     
     		if (Auth::check()) {
-    		    return redirect('home');
+    				switch (Auth::user()->role) {
+    						case "super":
+						        return redirect('super');
+						        break;
+						    case "tenant":
+						        return redirect('home');
+						        break;
+						    case "contact":
+						        return redirect('home');
+						        break;
+						    default:
+						    	return redirect('login');
+						    	break;
+    				}
     		}else {
     			  return redirect('login');
     		}
