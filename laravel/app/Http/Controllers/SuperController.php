@@ -7,20 +7,19 @@ use Illuminate\Http\Request;
 
 class SuperController extends Controller
 {
-
+		public $data;
+		
 		public function __construct()
 		{
 		    $this->middleware('auth');
-		    
 		    $this->middleware('role:super');
-		 
 		}
 		
     
     public function index()
     {
-    		$data['lists'] = User::whereIn('role', ['super', 'tenant'])->get();
-        return view('super/super', $data);
+    		$this->data['lists'] = User::whereIn('role', ['super', 'tenant'])->get();
+        return view('super/list', $this->data);
     }
     
        
@@ -46,10 +45,10 @@ class SuperController extends Controller
  
     public function edit($super)
     {
-    			$data['user']=User::find($super);
+    			$this->data['user']=User::find($super);
     	 
-          if(!empty($data['user'])){
-          	return view('super/edit', $data);
+          if(!empty($this->data['user'])){
+          	return view('super/edit', $this->data);
           }else {
           	return redirect('/super');
           }

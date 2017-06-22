@@ -19,7 +19,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Companies list</li>
+					<li>Super</li><li>Company Edit</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -50,7 +50,7 @@
 									<div class="jarviswidget jarviswidget-color-darken" id="wid-id-22" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
 										<header>
 										<span class="widget-icon"> <i class="fa fa-comments"></i> </span>
-											<h2>Companies List</h2>
+											<h2>Company Edit</h2>
 										</header>
 										<div class="row">
 											<div class="widget-body">

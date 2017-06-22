@@ -235,32 +235,37 @@
 			<div class="project-context hidden-xs col-lg-1">
 
 				<span class="label">Site Area</span>
-				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Projects <i class="fa fa-angle-down"></i> </strong></span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>{{ $site_area }} <i class="fa fa-angle-down"></i> </strong></span>
 
 				<!-- Suggestion: populate this list with fetch and push technique -->
+				
+				
 				<ul class="dropdown-menu">
 					<li>
-						<a href="{{ url('/erp/Admin/adminarea.php') }}">Admin</a>
+						<a href="{{ url('/admin/regions') }}">Admin</a>
 					</li>
 					<li>
-						<a href="{{ url('/projectlist.php') }}">Projects</a>
+						<a href="{{ url('/home') }}">Projects</a>
 					</li>
 					<li>
-						<a href="{{ url('/equipment/eqoverview.php') }}">Equipment</a>
+						<a href="{{ url('/equipment') }}">Equipment</a>
 					</li>
 					<li>
-						<a href="{{ url('/erp/Contacts/contactslist.php') }}">Contacts</a>
+						<a href="{{ url('/contacts') }}">Contacts</a>
 					</li>
 					<li>
 						<a href="javascript:void(0);">Estimating</a>
 					</li>
 					<li>
-						<a href="{{ url('/erp/Projections/crew_projections.php') }}">Resources</a>
+						<a href="{{ url('/resources') }}">Resources</a>
 					</li>
 				</ul>
+			
 				<!-- end dropdown-menu-->
 
 			</div>
+			
+			@if($site_area != 'Admin')
 			<!-- projects dropdown -->
 			<div class="project-context hidden-xs">
 
@@ -293,12 +298,15 @@
 					</li>
 				</ul>
 				<!-- end dropdown-menu-->
-
+				@endif
 			</div>
 			<!-- end projects dropdown -->
-
+			
+		
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
+			
+				@if($site_area != 'Admin')
 				<div class="project-context hidden-xs">
 
 					<span class="label">Area:</span>
@@ -319,6 +327,7 @@
 					<!-- end dropdown-menu-->
 
 				</div>
+				@endif
 				<!-- collapse menu button -->
 				<div id="hide-menu" class="btn-header pull-right">
 					<span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>

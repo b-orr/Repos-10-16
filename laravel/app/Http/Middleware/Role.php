@@ -15,21 +15,21 @@ class Role
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ... $roles)
     {
-        if (!Auth::check()) // I included this check because you have it, but it really should be part of your 'auth' middleware, most likely added as part of a route group.
+        if (!Auth::check())
             return redirect('/');
     
         $user = Auth::user();
     
-  
+
     
-         
-            // Check if user has the role This check will depend on how your roles are set up
-            if($user->role == $role)
+         foreach($roles as $role) {
+            if($user->role == $role){
                 return $next($request);
+            }
        
-    
+    		}
        return redirect('/');
     }
 }

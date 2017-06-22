@@ -25,14 +25,11 @@ class GuestController extends Controller
     						case "super":
 						        return redirect('super');
 						        break;
-						    case "tenant":
-						        return redirect('home');
-						        break;
-						    case "contact":
-						        return redirect('home');
-						        break;
+//						    case "tenant":
+//						        return redirect('home');
+//						        break;
 						    default:
-						    	return redirect('login');
+						    	return redirect('home');
 						    	break;
     				}
     		}else {
