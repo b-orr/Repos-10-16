@@ -47,14 +47,14 @@
 			<!-- END RIBBON -->
 
 			<!-- MAIN CONTENT -->
-			<div id="content">
+			<div id="content row col-lg-12" style="padding: 2px 0px 2px 2px;">
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
 							
 					<!-- row -->
 					<div class="row no-margin">
 						
-						<div id="contentMain" class="col-md-9" style="width: 75%; padding-right: 0px;">
+						<div id="contentMain1" class="col-md-12" style="padding: 0px 2px 2px 0px;">
 							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
 
 								<!-- Widget ID (each widget will need unique ID)-->
@@ -215,84 +215,21 @@
 									</div>
 									<!-- end widget div -->
 									
-								<!-- end widget -->
-							</article>
-						</div>
-						<div class="col-lg-3" id="rightMenu" style="padding-left: 2px; padding-right: 0px;">
-							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-
-								<!-- Widget ID (each widget will need unique ID)-->
-								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">
-									<!-- widget options:
-										usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-										
-										data-widget-colorbutton="false"	
-										data-widget-editbutton="false"
-										data-widget-togglebutton="false"
-										data-widget-deletebutton="false"
-										data-widget-fullscreenbutton="false"
-										data-widget-custombutton="false"
-										data-widget-collapsed="true" 
-										data-widget-sortable="false"
-										
-									-->
-									<header>
-										<h2 class="font-md" id="actionsTitle">Actions</h2>
-										<div class="widget-toolbar" role="menu">
-											<label class="btn btn-success" for="collapseMenu" id="collapseName">Collapse</label>
-										</div>
-									</header>
-
-									
-										<!-- widget content -->
-										<div class="widget-body">
-											<div class="widget-body-toolbar no-padding" id="expandedMenu">
-											
-												<div class="row">
-													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="padding-right: 2px;" >
-														<button class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal" style="padding-right: 0px; padding-left: 2px;">
-															Import <br> Drawings
-														</button>
-													</div>
-													<div class="col-xs-12 col-sm-6 col-md-7 col-lg-6 text-right" style="padding-left: 2px;">
-														
-														<button class="btn btn-success btn-block " style="padding-right: 0px; padding-left: 2px; height: auto;">
-															Download <br>Current Set
-														</button>
-														
-													</div>
-													
-												</div><br>
-												<div class="padding-10 bordered" id="uploadedFile-'+uploadedFilesCount+'">
-													<p style="font-size: 12px;">
-														Addendum #1<span class="txt-color-green"></span>
-														<span class="txt-color-green"><i class="fa fa-check"></i></span>
-														<a class="btn btn-danger btn-xs pull-right" href="processDrawing.php" style="margin: 0;">Process Now</a>
-													</p>
-												</div>
-											</div>
-											<div class="widget-body-toolbar no-padding" id="collapsedMenu" style="display: none;">
-											
-												<div class="row" style="padding-left: 5px; padding-right: 5px;">
-													<button class="btn btn-success btn-block paddin" data-toggle="modal" data-target="#myModal" style="padding-right: 0px; padding-left: 2px; font-size: 11px;">
-														Import
-													</button>
-													<button class="btn btn-success btn-block " style="padding-right: 0px; padding-left: 2px; height: auto; font-size: 11px;">
-														Download
-													</button>
-													
-												</div>
-											</div>
-										</div>
-										<!-- end widget content -->
-										
 								</div>
 								<!-- end widget -->
-							
 							</article>
 						</div>
+						<div class="bordered padding-5" id="rightMenu1" style="position: absolute; right: 0px; height: 95%; width: 15%; margin-top: -3px;">
+							<b>Actions</b> <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
+								<legend style="padding-top: 0px;"></legend>
+								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal">
+									<span style="font-size: 12px;">Import <span class="showOrHide">drawings</span></span>
+								</button>
+								<button class="btn btn-success btn-block " style="padding-left: 10%;">
+									<span style="font-size: 12px;">Download <span class="showOrHide">current set</span></span>
+								</button>
+						</div>
 
-					</div>
 					
 						
 
@@ -449,54 +386,58 @@
 			})();
 
 			if($('#collapseMenu').is(':checked')){
-					$('#rightMenu').animate({
-						width: "10%"
+					$('#rightMenu1').animate({
+						width: "8%"
 					}, 50);
 					$('#actionsTitle').hide();
-					$('#contentMain').animate({
-						width: "90%"
+					$('#contentMain1').animate({
+						width: "92%"
 					}, 70);
 					$('#collapseName').text('+');
 					$('#expandedMenu').hide();
 					$('#collapsedMenu').show();
+					$('.showOrHide').hide();
 				}
 				else{
-					$('#rightMenu').animate({
-						width: "25%"
+					$('#rightMenu1').animate({
+						width: "20%"
 					}, 70);
 					$('#actionsTitle').show();
-					$('#contentMain').animate({
-						width: "75%"
+					$('#contentMain1').animate({
+						width: "80%"
 					}, 30);
 					$('#collapseName').text('-');
 					$('#expandedMenu').show();
 					$('#collapsedMenu').hide();
+					$('.showOrHide').show();
 				}
 
 			$('#collapseMenu').on('change', function() {
 				if($(this).is(':checked')){
-					$('#rightMenu').animate({
-						width: "10%"
+					$('#rightMenu1').animate({
+						width: "8%"
 					}, 50);
 					$('#actionsTitle').hide();
-					$('#contentMain').animate({
-						width: "90%"
+					$('#contentMain1').animate({
+						width: "92%"
 					}, 70);
 					$('#collapseName').text('+');
 					$('#expandedMenu').hide();
 					$('#collapsedMenu').show();
+					$('.showOrHide').toggle('hide');
 				}
 				else{
-					$('#rightMenu').animate({
-						width: "25%"
+					$('#rightMenu1').animate({
+						width: "20%"
 					}, 70);
 					$('#collapseName').text('-');
 					$('#actionsTitle').show();
-					$('#contentMain').animate({
-						width: "75%"
+					$('#contentMain1').animate({
+						width: "80%"
 					}, 30);
 					$('#expandedMenu').show();
 					$('#collapsedMenu').hide();
+					$('.showOrHide').toggle('hide');
 				}
 			})
 
