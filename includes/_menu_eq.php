@@ -16,7 +16,7 @@
 						<a href="../equipment/inventory.php"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Inventory</span></a>
 					</li>
 					<li>
-						<a href="../equipment/eqmanagement.php"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Equipment Management</span></a>
+						<a href="../equipment/eqmanagement.php"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Equipment Manager</span></a>
 					</li>
 					<li>
 						<a href="../equipment/forecasting.php"><i class="fa fa-lg fa-fw fa-pencil" style="color: #404040;"></i> <span class="menu-item-parent">Forecasting</span></a>

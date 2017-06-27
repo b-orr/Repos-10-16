@@ -19,6 +19,22 @@
 		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
 			padding: 2px 10px;
 		}
+
+		tr {
+			height:25px !important;
+		}
+
+		i {
+			font-size: 8px;
+		}
+
+		.up_5 {
+			position: relative;
+			top: -5px;
+		}
+		.glyphicon, .glyphicon-plus {
+			font-size: 6px;
+		}
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -128,11 +144,11 @@
 															$count = 1;
 															$num = 1;
 															while ($count <= 3 ) { ?>
-																<tr class="main-parent" data_id="<?php echo $num; ?>">
+																<tr class="main-parent" data_id="<?php echo $num; ?>" >
 																	<td style="width:10px !important;">
-																		<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
-																			<i class="fa fa-plus level_1_<?php echo$num; ?>"></i>
-																			<i class="fa fa-minus hide level_1_<?php echo$num; ?>"></i>
+																		<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
+																			<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
+																			<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
 																		</button> 
 																		<span class="description-name">HV</span>
 																	</td>
@@ -150,9 +166,9 @@
 																while ($count1 <= 3 ) { ?>
 																	<tr class="hide first-child-<?php echo $num; ?> fchild">
 																		<td style="width:10px !important; padding-left: 20px;">
-																			<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<i class="fa fa-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
-																				<i class="fa fa-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
+																			<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																				<i class="up_5 glyphicon glyphicon-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
+																				<i class="up_5 glyphicon glyphicon-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
 																			</button> 
 																		<span class="description-name">Main Beams</span>
 																		</td>
@@ -206,7 +222,7 @@
 														</div>
 														<br>
 														<div class="row col-lg-12" style="margin: 0px;">
-															<button class="btn btn-primary form-control" data-target="#myModal2" data-toggle="modal">Add Inventory</button>
+															<button class="btn btn-success form-control" data-target="#myModal2" data-toggle="modal" >Add Inventory</button>
 														</div>
 														<h5>Equipment Filters</h5>
 														<div class="col-lg-12">
