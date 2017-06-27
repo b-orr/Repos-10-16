@@ -181,15 +181,18 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Shipped To</b></label>
-														<div class="col-md-9">
+														<div class="col-md-7">
 															<select class="form-control">
 																<option>UW Life Sciences Building</option>
 															</select>
 														</div>
+														<div class="col-md-2 no-padding">
+															<button class="btn btn-success btn-sm">Add New</button>
+														</div>
 													</div>
 												</div>
-												<div class="col-lg-1"> <!-- append this to "shipped to" field -->
-													<button class="btn btn-success btn-block btn-xs">Add New</button>
+												<div class="col-lg-1">
+													
 												</div>
 											</div>
 											<div class="row">

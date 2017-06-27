@@ -239,17 +239,21 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Recieved Times:</b></label>
-														<div class="col-md-3 control-label" style="text-align: left;">
-															<input type="text" placeholder="Scheduled Arrival" name="nameInput" style="width: 100%" class="form-control">
-														</div>
-														<div class="col-md-2 control-label" style="text-align: left;">
-															<input type="text" placeholder="Actual Arrival" name="nameInput" style="width: 100%" class="form-control">
-														</div>
-														<div class="col-md-2 control-label" style="text-align: left;">
-															<input type="text" placeholder="Actual Loaded" name="nameInput" style="width: 100%" class="form-control">
-														</div>
-														<div class="col-md-2 control-label" style="text-align: left;">
-															<input type="text" placeholder="Actual Departure" name="nameInput" style="width: 100%" class="form-control">
+														<div class="col-md-9">
+															<div class="col-md-12 no-padding">
+																<div class="col-md-6 control-label " style="text-align: left;padding: 1px;">
+																	<input type="text" placeholder="Scheduled Arrival" name="nameInput" style="width: 100%" class="form-control">
+																</div>
+																<div class="col-md-6 control-label" style="text-align: left;padding: 1px;">
+																	<input type="text" placeholder="Actual Arrival" name="nameInput" style="width: 100%" class="form-control">
+																</div>
+																<div class="col-md-6 control-label " style="text-align: left;padding: 1px;">
+																	<input type="text" placeholder="Actual Loaded" name="nameInput" style="width: 100%" class="form-control">
+																</div>
+																<div class="col-md-6 control-label" style="text-align: left;padding: 1px;">
+																	<input type="text" placeholder="Actual Departure" name="nameInput" style="width: 100%" class="form-control">
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
