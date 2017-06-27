@@ -100,7 +100,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Truck Status</label>
+														<label class="col-md-3 control-label"><b>Truck Status</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option>Draft</option>
@@ -118,7 +118,7 @@
 												<div class="col-lg-1"></div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Pickup Date</label>
+														<label class="col-md-3 control-label"><b>Pickup Date</b></label>
 														<div class="col-md-9">
 															<div class="input-group">
 																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
@@ -129,7 +129,7 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Delivery Date</label>
+														<label class="col-md-3 control-label"><b>Delivery Date</b></label>
 														<div class="col-md-9">
 															<div class="input-group">
 																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
@@ -144,7 +144,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Shipped From</label>
+														<label class="col-md-3 control-label"><b>Shipped From</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option>WA Yard</option>
@@ -156,7 +156,7 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Shipped To</label>
+														<label class="col-md-3 control-label"><b>Shipped To</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option>UW Life Sciences Building</option>
@@ -192,21 +192,20 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Loaded By</label>
+														<label class="col-md-3 control-label"><b>Loaded By</b></label>
 														<div class="col-md-9">
-															<select class="form-control">
-																<option></option>
-																<option></option>
-																<option></option>
-															</select>
+														<input type="text" name="loadedby" style="width: 100%" class="form-control">
 														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Delivery Contact:</label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-														Andres Gomez 206-930-1775
+														<label class="col-md-3 control-label"><b>Delivery Contact:</b></label>
+														<div class="col-md-5 control-label">
+														<input type="text" placeholder="Andres Gomez" name="nameInput" style="width: 100%" class="form-control">
+														</div>
+														<div class="col-md-4 control-label">
+															<input type="text" placeholder="206-930-1775" name="dateInput" style="width: 100%" class="form-control">
 														</div>
 													</div>
 												</div>
@@ -216,7 +215,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Freight Line</label>
+														<label class="col-md-3 control-label"><b>Freight Line</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option></option>
@@ -228,7 +227,7 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Total Weight:</label>
+														<label class="col-md-3 control-label"><b>Total Weight:</b></label>
 														<div class="col-md-9 control-label" style="text-align: left;">
 															3,650 lbs
 														</div>
@@ -240,7 +239,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Load Times</label>
+														<label class="col-md-3 control-label"><b>Load Times</b></label>
 														<div class="col-md-9 no-padding">
 															<div class="col-lg-12 no-padding">
 																<div class="col-lg-4">
@@ -265,7 +264,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Created:</label>
+														<label class="col-md-3 control-label"><b>Created:</b></label>
 														<div class="col-md-9 control-label" style="text-align: left;">
 															Ryan Jones 04/06/2017
 														</div>
@@ -279,8 +278,9 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Comments</label>
+														<label class="col-md-3 control-label"><b>Comments</b></label>
 														<div class="col-md-9">
+															<textarea rows="3" class="custom-scroll" style="width: 100%;"></textarea>
 														</div>
 													</div>
 												</div>
@@ -299,7 +299,7 @@
 													<th style="width: 25%;">Description</th>
 													<th style="width: 4%; text-align: center;">Qty (EA)</th>
 													<th>Units</th>
-													<th style="width: 8%; text-align: center;">Weight (EA)</th>
+													<th style="width: 8%; text-align: center;">Weight (lbs)</th>
 													<th style="width: 10%;">Tracking #</th>
 													<th style="width: 4%;">Commit</th>
 													<th>Total Weight</th>
@@ -378,10 +378,12 @@
 										<!-- widget content -->
 										<div class="widget-body">
 											<div>
-												<button class="btn btn-success btn-block actionBtns" data-toggle="modal" data-target="#myModal2">Input Rental Info</button>
-												<button class="btn btn-success btn-block actionBtns">Print View</button>
-												<button class="btn btn-success btn-block actionBtns">Save as Status</button>
+												<button class="btn btn-success btn-block actionBtns">Save</button>
 												<button class="btn btn-success btn-block actionBtns">Cancel</button>
+												<hr>
+												<button class="btn btn-success btn-block actionBtns" data-toggle="modal" data-target="#myModal2">Input Rental Info</button>
+												<hr>
+												<button class="btn btn-success btn-block actionBtns">Print View</button>
 											</div>
 										</div>
 										<!-- end widget content -->
