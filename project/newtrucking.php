@@ -100,7 +100,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Truck Status</label>
+														<label class="col-md-3 control-label"><b>Truck Status</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option>Draft</option>
@@ -117,18 +117,22 @@
 												<div class="col-lg-1"></div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Pickup Date</label>
-														<div class="col-md-9">
+														<label class="col-md-3 control-label"><b>Pickup Date</b></label>
+														<div class="col-md-4">
 															<div class="input-group">
 																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
 																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 															</div>
 														</div>
+														<label class="col-md-2 control-label"><b>Requested Time</b></label>
+														<div class="col-md-3">
+															<input type="text" class="form-control">
+														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Delivery Date</label>
+														<label class="col-md-3 control-label"><b>Delivery Date</b></label>
 														<div class="col-md-9">
 															<div class="input-group">
 																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
@@ -143,27 +147,7 @@
 												<div class="col-lg-1"></div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Requested Time</label>
-														<div class="col-md-9">
-															<input type="text" class="form-control">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label">Requested Time</label>
-														<div class="col-md-9">
-															<input type="text" class="form-control">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row" style="">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label">Shipped From</label>
+														<label class="col-md-3 control-label"><b>Shipped From</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option>WA Yard</option>
@@ -175,7 +159,28 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Shipped To</label>
+														<label class="col-md-3 control-label"><b>Requested Time</b></label>
+														<div class="col-md-9">
+															<input type="text" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-1"> </div>
+											</div>
+											<div class="row" style="">
+												<div class="col-lg-1"> </div>
+												<div class="col-lg-5">
+													<div class="form-group">
+														<label class="col-md-3 control-label"><b></b></label>
+														<div class="col-md-9">
+															28620 Maple Valley Hwy<br>
+															Maple Valley, WA 98038
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-5">
+													<div class="form-group">
+														<label class="col-md-3 control-label"><b>Shipped To</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option>UW Life Sciences Building</option>
@@ -183,16 +188,17 @@
 														</div>
 													</div>
 												</div>
-												<div class="col-lg-1"> </div>
+												<div class="col-lg-1"> <!-- append this to "shipped to" field -->
+													<button class="btn btn-success btn-block btn-xs">Add New</button>
+												</div>
 											</div>
 											<div class="row">
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<div class="col-lg-3"></div>
-														<div class="col-md-9">
-															28620 Maple Valley Hwy<br>
-															Maple Valley, WA 98038
+														<label class="col-md-3 control-label"><b>Site Contact</b></label>
+														<div class="col-md-9 control-label" style="text-align: left;">
+															Ryan Jones 206-930-9893
 														</div>
 													</div>
 												</div>
@@ -211,15 +217,19 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Site Contact</label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															Ryan Jones 206-930-9893
+														<label class="col-md-3 control-label"><b>Freight Line</b></label>
+														<div class="col-md-9">
+															<select class="form-control">
+																<option></option>
+																<option></option>
+																<option></option>
+															</select>
 														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Delivery Contact:</label>
+														<label class="col-md-3 control-label"><b>Delivery Contact</b>:</label>
 														<div class="col-md-9 control-label" style="text-align: left;">
 														Andres Gomez 206-930-1775
 														</div>
@@ -231,7 +241,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Freight Line</label>
+														<label class="col-md-3" style="text-align: right;"><b>Size Truck Needed</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option></option>
@@ -243,7 +253,7 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Total Weight:</label>
+														<label class="col-md-3 control-label"><b>Total Weight</b>:</label>
 														<div class="col-md-9 control-label" style="text-align: left;">
 															3,650 lbs
 														</div>
@@ -255,7 +265,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3" style="text-align: right;">Size Truck Needed</label>
+														<label class="col-md-3" style="text-align: right;"><b>Loading Method</b></label>
 														<div class="col-md-9">
 															<select class="form-control">
 																<option></option>
@@ -267,7 +277,7 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="col-lg-4" style="text-align: center;"> 
-														<label class="control-label">Multiple Trucks</label><br>
+														<label class="control-label"><b>Multiple Trucks</b></label><br>
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1">
 															<label class="onoffswitch-label" for="myonoffswitch1"> 
@@ -277,7 +287,7 @@
 														</span>
 													</div>
 													<div class="col-lg-4" style="text-align: center;"> 
-														<label class="control-label">Round Trip</label><br>
+														<label class="control-label"><b>Round Trip</b></label><br>
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2">
 															<label class="onoffswitch-label" for="myonoffswitch2"> 
@@ -287,7 +297,7 @@
 														</span>
 													</div>
 													<div class="col-lg-4" style="text-align: center;"> 
-														<label class="control-label">Early Trailer Drop</label><br>
+														<label class="control-label"><b>Early Trailer Drop</b></label><br>
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3">
 															<label class="onoffswitch-label" for="myonoffswitch3"> 
@@ -303,25 +313,7 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3" style="text-align: right;">Loading Method</label>
-														<div class="col-md-9">
-															<select class="form-control">
-																<option></option>
-																<option></option>
-																<option></option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label">Created:</label>
+														<label class="col-md-3 control-label"><b>Created:</b></label>
 														<div class="col-md-9 control-label" style="text-align: left;">
 															Ryan Jones 04/06/2017
 														</div>
@@ -334,7 +326,7 @@
 											<div class="row">
 												<div class="col-lg-9">
 													<div class="form-group">
-														<label class="col-lg-3 control-label">Comments</label>
+														<label class="col-lg-3 control-label"><b>Comments</b></label>
 														<div class="col-lg-9">
 															<textarea class="form-control"> </textarea>
 														</div>
@@ -351,7 +343,7 @@
 													<th style="width: 35%;">Description</th>
 													<th style="width: 15%; text-align: center;">Qty (EA)</th>
 													<th style="width: 15%; text-align: center;">Units</th>
-													<th style="width: 15%; text-align: center;">Weight (EA)</th>
+													<th style="width: 15%; text-align: center;">Weight (lbs)</th>
 													<th style="width: 4%;">Commit</th>
 													<th>Total Weight</th>
 												</thead>
@@ -360,7 +352,7 @@
 														<td><button class="btn btn-xs btn-success btn-block" data-toggle="modal" data-target="#myModal">Search</button></td>
 														<td><input type="text" placeholder="Search" name="searchDesc" style="width: 100%" class="form-control"></td>
 														<td><input type="text" name="rental" style="width: 100%" class="form-control"></td>
-														<td><input type="text" name="unitsEQ" style="width: 100%" class="form-control"></td>
+														<td style="text-align: center;"> 1.1 </td>
 														<td><input type="text" name="weightEQ" style="width: 100%" class="form-control"></td>
 														<td style="text-align: center;">
 															<button class="button btn btn-xs btn-success btn-circle">
@@ -417,8 +409,8 @@
 										<!-- widget content -->
 										<div class="widget-body">
 											<div>
-												<button class="btn btn-success btn-block actionBtns">Save</button>
-												<button class="btn btn-success btn-block actionBtns">Cancel</button>
+												<button class="btn btn-success btn-block actionBtns"><b>Save</b></button>
+												<button class="btn btn-success btn-block actionBtns"><b>Cancel</b></button>
 											</div>
 										</div>
 										<!-- end widget content -->

@@ -275,18 +275,15 @@
 												<div class="col-lg-1"> </div>
 											</div>
 											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
+												<div class="col-lg-9">
 													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Comments</b></label>
-														<div class="col-md-9">
-															<textarea rows="3" class="custom-scroll" style="width: 100%;"></textarea>
+														<label class="col-lg-3 control-label"><b>Comments</b></label>
+														<div class="col-lg-9">
+															<textarea class="form-control"> </textarea>
 														</div>
 													</div>
+													
 												</div>
-												<div class="col-lg-5">
-												</div>
-												<div class="col-lg-1"> </div>
 											</div>
 										</form>
 										<legend></legend>
@@ -378,12 +375,12 @@
 										<!-- widget content -->
 										<div class="widget-body">
 											<div>
-												<button class="btn btn-success btn-block actionBtns">Save</button>
-												<button class="btn btn-success btn-block actionBtns">Cancel</button>
+												<button class="btn btn-success btn-block actionBtns"><b>Save</b></button>
+												<button class="btn btn-success btn-block actionBtns"><b>Cancel</b></button>
 												<hr>
-												<button class="btn btn-success btn-block actionBtns" data-toggle="modal" data-target="#myModal2">Input Rental Info</button>
+												<button class="btn btn-success btn-block actionBtns" data-toggle="modal" data-target="#myModal2"><b>Input Rental Info</b></button>
 												<hr>
-												<button class="btn btn-success btn-block actionBtns">Print View</button>
+												<button class="btn btn-success btn-block actionBtns"><b>Print View</b></button>
 											</div>
 										</div>
 										<!-- end widget content -->
