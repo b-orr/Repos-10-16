@@ -15,6 +15,10 @@
  				padding: 5px 7px;
  			}
  		}
+ 		.control-label{
+ 			font-weight: bold;
+ 			padding-top: 0px !important;
+ 		}
 		.main-parent{
 			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
 			font-weight: bolder;
@@ -109,7 +113,7 @@
 												<div class="col-lg-1"></div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label">Requirement Date</label>
+														<label class="col-md-3 control-label" style="padding-left: 0px;">Requirement Date</label>
 														<div class="col-md-9">
 															<div class="input-group">
 																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
@@ -133,7 +137,7 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label">Project</label>
-														<div class="col-md-9 control-label" style="text-align: left;">
+														<div class="col-md-9" style="text-align: left;">
 															1007 - UW Life Sciences Building
 														</div>
 													</div>
@@ -141,7 +145,7 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label">Created</label>
-														<div class="col-md-9 control-label" style="text-align: left;">
+														<div class="col-md-9" style="text-align: left;">
 															Lesley Hicks 05/06/2017
 														</div>
 													</div>

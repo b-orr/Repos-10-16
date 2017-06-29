@@ -239,7 +239,7 @@
 									<header>
 										<h2 class="font-md" id="actionsTitle">Actions</h2>
 										<div class="widget-toolbar" role="menu">
-											<label class="btn btn-success" for="collapseMenu" id="collapseName">Collapse</label>
+											<label class="btn btn-success" for="collapseMenu" id="collapseName"></label>
 										</div>
 									</header>
 
