@@ -219,15 +219,35 @@
 								<!-- end widget -->
 							</article>
 						</div>
-						<div class="bordered padding-5" id="rightMenu1" style="position: absolute; right: 0px; height: 95%; width: 15%; margin-top: -3px;">
-							<b>Actions</b> <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
-								<legend style="padding-top: 0px;"></legend>
+						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; height: 95%; width: 15%; margin-top: -3px; padding-top: 2px;">
+							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
+								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+							</div>
+							<div class="menu-body padding-5">
 								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal">
-									<span style="font-size: 12px;">Import <span class="showOrHide">drawings</span></span>
+									<span style="font-size: 12px; font-weight: bold;">Import <span class="showOrHide">drawings</span></span>
 								</button>
-								<button class="btn btn-success btn-block " style="padding-left: 10%;">
-									<span style="font-size: 12px;">Download <span class="showOrHide">current set</span></span>
+								<button class="btn btn-success btn-block " style="">
+									<span style="font-size: 12px; font-weight: bold;">Download <span class="showOrHide">current set</span></span>
 								</button>
+								<legend style="padding-top: 0px; margin: 15px 0px;"></legend>
+								<label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Search</label><br>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Quick seach</label>
+								<input type="text" name="search" class="form-control">
+								<legend style="padding-top: 0px; margin: 15px 0px;"></legend>
+								<label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Filters</label><br>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
+								<select type="text" name="search" class="form-control">
+									<option>Active</option>
+									<option>Damaged</option>
+								</select>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Owner</label>
+								<select type="text" name="search" class="form-control">
+									<option>McClone</option>
+									<option>Other</option>
+								</select>
+							</div>
 						</div>
 
 					
