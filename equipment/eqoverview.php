@@ -125,8 +125,8 @@
 														<a href="../project/newtransfer.php" class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
 													</td>
 													<td>
-														<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
-														<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+														<a href="../project/approverequirement.php" class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+														<a href="../project/approverequirement.php" class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
 													</td>
 													<td>M. Danielson</td>
 													<td>A. Gomez</td>
@@ -142,8 +142,8 @@
 													<td></td>
 													<td></td>
 													<td>
-													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
-													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+													<a href="../project/approverequirement.php"  class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+													<a href="../project/approverequirement.php"  class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
 													</td>
 													<td>D. Dockter</td>
 													<td>A. Gomez</td>
@@ -156,8 +156,8 @@
 													<td><a href class="btn btn-success btn-xs btn-block">From at 111 - 05/12/17</a></td>
 													<td></td>
 													<td>
-													<a href class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
-													<a href class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
+													<a href="../project/approverequirement.php"  class="btn btn-success btn-xs btn-block">To 1025 - 05/12/17</a>
+													<a href="../project/approverequirement.php"  class="btn btn-success btn-xs btn-block">TO 1025 - 05/12/17</a>
 													</td>
 													<td>M. Danielson</td>
 													<td>J. Bueler</td>
@@ -182,10 +182,10 @@
 													<td></td>
 													<td></td>
 													<td>
-													<a href class="btn btn-success btn-xs btn-block">From at 111 - 05/13/17</a>
-													<a href class="btn btn-success btn-xs btn-block">From at 111 - 05/15/17</a>
-													<td></td>
+													<a class="btn btn-success btn-xs btn-block">From at 111 - 05/13/17</a>
+													<a class="btn btn-success btn-xs btn-block">From at 111 - 05/15/17</a>
 													</td>
+													<td></td>
 													<td>M. Danielson</td>
 													<td>C. Town</td>
 												</tr>
