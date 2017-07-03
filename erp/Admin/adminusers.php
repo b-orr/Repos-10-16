@@ -37,7 +37,10 @@
 
 			</div>
 			<!-- END RIBBON -->
-
+			<style type="text/css">
+				.pagination > li.active > a, .pagination > li.active > span{background-color:#739e73}
+				.dataTables_wrapper .dataTables_paginate .paginate_button:hover {background-color:#739e73}
+			</style>
 			<!-- MAIN CONTENT -->
 			<div id="content">
 				<!-- widget grid -->
@@ -65,9 +68,7 @@
 				
 								-->
 								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Users list</h2>
-				
+									<h2><b>Users list</b></h2>
 								</header>
 				
 								<!-- widget div-->
@@ -86,36 +87,164 @@
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone">Title</th>
-													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>First Name</th>
 													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Last Name</th>
+													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>First Name</th>
 													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>User Name</th>
+													<th data-hide="phone">Title</th>
 													<th data-hide="phone"><i class="text-muted hidden-md hidden-sm hidden-xs"></i>Access Type</th>
 													<th data-hide="phone,tablet">Action</th>	
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td>Project Engineer</td>
-													<td>John</td>
 													<td>Doe</td>
+													<td>John</td>
 													<td>JohnDoe</td>
+													<td>Project Engineer</td>
 													<td>Area Leader</td>
 													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
 												</tr>
 												<tr>
-													<td>Project Coordinator</td>
-													<td>Lilly</td>
 													<td>Smith</td>
+													<td>Lilly</td>
 													<td>LillyS</td>
+													<td>Project Coordinator</td>
 													<td>Corporate Access</td>
 													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
 												</tr>
 												<tr>
-													<td>Superintendent</td>
-													<td>James</td>
 													<td>Bishop</td>
+													<td>James</td>
 													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
+													<td>Superintendent</td>
+													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bishop</td>
+													<td>James</td>
+													<td>JamesB</td>
+													<td>Superintendent</td>
 													<td>Superintendent</td>
 													<td><a href="#"><i class="fa fa-edit"></i></a>&nbsp; | <a href="#">&nbsp;<i class="fa fa-trash-o"></i></a></td>
 												</tr>
@@ -142,8 +271,30 @@
 								<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
 														
 									<div class="row col-lg-12" style="margin: 0px;">
-										<button class="btn btn-success form-control" data-target="#userModal" data-toggle="modal">Add User</button>
+										<button class="btn btn-success form-control" data-target="#userModal" data-toggle="modal">New User</button>
 									</div>
+								<hr>
+								<div class="row col-lg-12" style="margin: 0px;">
+									<h7>User Search</h7>
+								</div>
+								<div class="row col-lg-12" style="margin: 0px;">
+								<input type="text" name="userSearch" class="form-control">
+								</div>
+								<hr>
+								<div class="row col-lg-12" style="margin: 0px;">
+									<h7>Access Type</h7>
+								</div>
+								<div class="row col-lg-12" style="margin: 0px;">
+									<div class="form-group">
+										<select class="form-control no-padding" id="category">
+											<option></option>
+											<option></option>
+											<option></option>
+											<option></option>
+											<option></option>
+										</select>
+									</div>
+								</div>
 								</div>
 							</div>
 						</article>
@@ -406,13 +557,15 @@
 				};
 	
 				$('.table').dataTable({
-					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
-						"t"+
+					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'><'col-sm-6 col-xs-12 hidden-xs'>>"+
+						""+
 						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
 					"autoWidth" : true,
+					"pageLength": 25,
+					"bLengthChange": false,
 			        "oLanguage": {
 					    "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-					},
+					}, 
 					"preDrawCallback" : function() {
 						// Initialize the responsive datatables helper once.
 						if (!responsiveHelper_dt_basic) {
