@@ -2,7 +2,7 @@
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-		
+
 		<!-- END NAVIGATION -->
 
 <?php include '../includes/_menu_eq.php'; ?>
@@ -42,10 +42,10 @@
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
 
-				<span class="ribbon-button-alignment"> 
+				<span class="ribbon-button-alignment">
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
 						<i class="fa fa-refresh"></i>
-					</span> 
+					</span>
 				</span>
 
 				<!-- breadcrumb -->
@@ -67,27 +67,27 @@
 
 			</div>
 			<!-- END RIBBON -->
-			
-			
+
+
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
 				<!-- end row -->
 				<section id="widget-grid">
-				
+
 					<!-- row -->
 					<div class="row">
-				
+
 						<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
+
 							<!-- Widget ID (each widget will need unique ID)-->
-							
+
 							<!-- end widget -->
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false"  data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
+
 								data-widget-colorbutton="false"
 								data-widget-editbutton="false"
 								data-widget-togglebutton="false"
@@ -96,29 +96,29 @@
 								data-widget-custombutton="false"
 								data-widget-collapsed="true"
 								data-widget-sortable="false"
-				
+
 								-->
-								
-								
+
+
 								<!-- added buttons -->
 
 								<!-- widget div-->
 
 
 								<div>
-				
+
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
-				
+
 									</div>
 									<!-- end widget edit box -->
-				
+
 									<!-- widget content -->
 									<div class="widget-body">
-									
-										
-											
+
+
+
 										<div class="row">
 												<div class="widget-body col-lg-10 table-1" id="table-1" style="margin-top: 3px;">
 													<div class="row bordered" style="margin-left: 0px; margin-right: 0px; background-color: #404040; color: white;">
@@ -127,7 +127,7 @@
 														</div>
 													</div>
 													<table id="dt_basic" class="table table-bordered" width="100%">
-													<thead>			                
+													<thead>
 															<tr>
 																<th style="width: 40%;">Descriptions</th>
 																<th>Owned</th>
@@ -140,7 +140,7 @@
 													</thead>
 													<tbody>
 
-													<?php 
+													<?php
 															$count = 1;
 															$num = 1;
 															while ($count <= 3 ) { ?>
@@ -149,7 +149,7 @@
 																		<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
 																			<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
 																			<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
-																		</button> 
+																		</button>
 																		<span class="description-name">HV</span>
 																	</td>
 
@@ -160,7 +160,7 @@
 																	<td style="width:40px !important;"></td>
 																	<td style="width:15px !important;"></td>
 																</tr>
-													<?php 
+													<?php
 																$count1 = 1;
 																$num1 = 1;
 																while ($count1 <= 3 ) { ?>
@@ -169,7 +169,7 @@
 																			<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
 																				<i class="up_5 glyphicon glyphicon-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
 																				<i class="up_5 glyphicon glyphicon-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
-																			</button> 
+																			</button>
 																		<span class="description-name">Main Beams</span>
 																		</td>
 																		<td style="width:50px !important;" ></td>
@@ -179,7 +179,7 @@
 																		<td style="width:15px !important;" ></td>
 																		<td style="width:15px !important;"></td>
 																	</tr>
-													<?php 
+													<?php
 																$count2 = 1;
 																$num2 = 1;
 																while ($count2 <= 6 ) { ?>
@@ -196,7 +196,7 @@
 																	</tr>
 
 																<?php $count2++; } ?>
-															
+
 
 																<?php $count1++;
 																	$num1++; } ?>
@@ -204,21 +204,21 @@
 															<?php
 															$num++;
 															$count = $count + 1;
-															 } ?>	
+															 } ?>
 													</tbody>
-												
+
 													</table>
 												</div>
 
 											<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
-												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">	
+												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">
 													<header>
 														<h2 class="font-md">Actions</h2>
-													</header>	
-			
+													</header>
+
 													<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
 														<div class="col-lg-12">
-															<input type="text" class="form-control" placeholder="Quick search">	
+															<input type="text" class="form-control" placeholder="Quick search">
 														</div>
 														<br>
 														<div class="row col-lg-12" style="margin: 0px;">
@@ -256,29 +256,29 @@
 											</article>
 										</div>
 
-	
+
 									</div>
 								</div>
-				
+
 							</div>
 									<!-- end widget content -->
-				
+
 								</div>
 						</article>
 						<!-- WIDGET END -->
 
 					<!-- end row -->
-				
+
 					<!-- end row -->
-				
+
 				</section>
 
 				<!--
-					The ID "widget-grid" will start to initialize all widgets below 
-					You do not need to use widgets if you dont want to. Simply remove 
-					the <section></section> and you can use wells or panels instead 
+					The ID "widget-grid" will start to initialize all widgets below
+					You do not need to use widgets if you dont want to. Simply remove
+					the <section></section> and you can use wells or panels instead
 					-->
-				
+
 			</div>
 			<!-- END MAIN CONTENT -->
 
@@ -286,7 +286,7 @@
 		<!-- END MAIN PANEL -->
 
 		<!-- PAGE FOOTER -->
-		
+
 		<!-- END PAGE FOOTER -->
 
 		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
@@ -316,7 +316,7 @@
 										<label class="input" style="font-weight: bold;">Owner</label>
 										<input type="text" class="form-control" required style="padding-left: 5px;" />
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -328,19 +328,19 @@
 											<option>4</option>
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Onsite</label><br>
 										1253
 									</div>
-									
+
 								</div>
 							</div><br>
 							<div class="row">
 								<div class="col-md-4 ">
-									<h6 class="pull-right">Change to:</h6>												
+									<h6 class="pull-right">Change to:</h6>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -352,14 +352,14 @@
 											<option>4</option>
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Qty to Change</label>
 										<input type="text" name="qtyToChange" class="form-control">
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -367,7 +367,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -396,7 +396,7 @@
 										<select class="form-control">
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -404,7 +404,7 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -412,7 +412,7 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 							</div>
 							<div>
@@ -427,7 +427,7 @@
 										<select class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
@@ -435,7 +435,7 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
@@ -443,7 +443,7 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
@@ -451,7 +451,7 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 							</div>
 							<div>
@@ -465,7 +465,7 @@
 										<label class="input" style="font-weight: bold;">Quantity</label>
 										<input type="text" class="form-control" required style="padding-left: 5px;" />
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -473,7 +473,7 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
@@ -481,10 +481,10 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-lg-2">
-									
+
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
@@ -492,16 +492,16 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 							</div><br>
-							
+
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -515,7 +515,7 @@
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-	
+
 
 		<!-- IMPORTANT: APP CONFIG -->
 		<!--[if IE 8]>
@@ -530,9 +530,9 @@
 		<script type="text/javascript">
 
 			$(document).ready(function() {
-			
+
 			pageSetUp();
-			
+
 			$('.button').on('click', function() {
 				var id = $(this).attr('data_id');
 
@@ -564,25 +564,25 @@
 				}
 				$('.inner_' + id).toggleClass('hide');
 			});
-			
+
 
 			    "use strict";
-			
+
 			    var date = new Date();
 			    var d = date.getDate();
 			    var m = date.getMonth();
 			    var y = date.getFullYear();
-			
+
 			    var hdr = {
 			        left: 'title',
 			        center: 'month,agendaWeek,agendaDay',
 			        right: 'prev,today,next'
 			    };
-			
+
 			    var initDrag = function (e) {
 			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
 			        // it doesn't need to have a start or end
-			
+
 			        var eventObject = {
 			            title: $.trim(e.children().text()), // use the element's text as the event title
 			            description: $.trim(e.children('span').attr('data-description')),
@@ -591,7 +591,7 @@
 			        };
 			        // store the Event Object in the DOM element so we can get to it later
 			        e.data('eventObject', eventObject);
-			
+
 			        // make the event draggable using jQuery UI
 			        e.draggable({
 			            zIndex: 999,
@@ -599,41 +599,41 @@
 			            revertDuration: 0 //  original position after the drag
 			        });
 			    };
-			
+
 			    var addEvent = function (title, priority, description, icon) {
 			        title = title.length === 0 ? "Untitled Event" : title;
 			        description = description.length === 0 ? "No Description" : description;
 			        icon = icon.length === 0 ? " " : icon;
 			        priority = priority.length === 0 ? "label label-default" : priority;
-			
+
 			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
 			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-			
+
 			        $("#event-container").effect("highlight", 800);
-			
+
 			        initDrag(html);
 			    };
-			
+
 			    /* initialize the external events
 				 -----------------------------------------------------------------*/
-			
+
 			    $('#external-events > li').each(function () {
 			        initDrag($(this));
 			    });
-			
+
 			    $('#add-event').click(function () {
 			        var title = $('#title').val(),
 			            priority = $('input:radio[name=priority]:checked').val(),
 			            description = $('#description').val(),
 			            icon = $('input:radio[name=iconselect]:checked').val();
-			
+
 			        addEvent(title, priority, description, icon);
 			    });
-			
+
 			    /* initialize the calendar
 				 -----------------------------------------------------------------*/
-						
-		
+
+
 		})
 
 		</script>
@@ -643,7 +643,7 @@
 			var _gaq = _gaq || [];
 				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
 				_gaq.push(['_trackPageview']);
-			
+
 			(function() {
 				var ga = document.createElement('script');
 				ga.type = 'text/javascript';
