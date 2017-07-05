@@ -2,7 +2,7 @@
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-		
+
 		<!-- END NAVIGATION -->
 
 <?php include '../includes/_menu.php'; ?>
@@ -26,6 +26,15 @@
 		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
 			padding: 2px 5px;
 		}
+		.form-group {
+			margin-bottom: 0px;
+		}
+		@media (min-width: 768px){
+			.form-horizontal .control-label {
+				padding-top: 0px !important;
+			}	
+		}
+
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -33,10 +42,10 @@
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
 
-				<span class="ribbon-button-alignment"> 
+				<span class="ribbon-button-alignment">
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
 						<i class="fa fa-refresh"></i>
-					</span> 
+					</span>
 				</span>
 
 				<!-- breadcrumb -->
@@ -58,14 +67,14 @@
 
 			</div>
 			<!-- END RIBBON -->
-			
-			
+
+
 
 			<!-- MAIN CONTENT -->
 			<div id="content" style="padding-left: 0px;">
 				<!-- end row -->
 				<section id="widget-grid" style="padding-left: 0px;">
-				
+
 					<!-- row -->
 					<div class="row" style="padding-left: 0px;">
 					<article style="margin-left: 0px; ">
@@ -73,20 +82,20 @@
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false"	 data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:
 									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-									
-									data-widget-colorbutton="false"	
+
+									data-widget-colorbutton="false"
 									data-widget-editbutton="false"
 									data-widget-togglebutton="false"
 									data-widget-deletebutton="false"
 									data-widget-fullscreenbutton="false"
 									data-widget-custombutton="false"
-									data-widget-collapsed="true" 
+									data-widget-collapsed="true"
 									data-widget-sortable="false"
-									
+
 								-->
 								<header>
-									<h2>Transfer# 1001-006</h2>				
-									
+									<h2>Transfer# 1001-006</h2>
+
 								</header>
 
 								<!-- widget div-->
@@ -252,7 +261,7 @@
 																	<input type="text" class="form-control" placeholder="Departure">
 																</div>
 															</div>
-															
+
 														</div>
 													</div>
 												</div>
@@ -282,7 +291,7 @@
 															<textarea class="form-control"> </textarea>
 														</div>
 													</div>
-													
+
 												</div>
 											</div>
 										</form>
@@ -332,46 +341,46 @@
 										</div>
 									</div>
 									<!-- end widget content -->
-									
+
 								</div>
 								<!-- end widget div -->
-								
+
 							</div>
 						</div>
 
 												<!-- NEW WIDGET START -->
 						<div class="col-lg-2">
-							
-							
+
+
 								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
 									<!-- widget options:
 										usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-										
-										data-widget-colorbutton="false"	
+
+										data-widget-colorbutton="false"
 										data-widget-editbutton="false"
 										data-widget-togglebutton="false"
 										data-widget-deletebutton="false"
 										data-widget-fullscreenbutton="false"
 										data-widget-custombutton="false"
-										data-widget-collapsed="true" 
+										data-widget-collapsed="true"
 										data-widget-sortable="false"
-										
+
 									-->
 									<header>
 										<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
-										<h2>Actions </h2>			
-										
+										<h2>Actions </h2>
+
 									</header>
 
 									<!-- widget div-->
 									<div>
-										
+
 										<!-- widget edit box -->
 										<div class="jarviswidget-editbox">
 											<!-- This area used as dropdown edit box -->
 										</div>
 										<!-- end widget edit box -->
-										
+
 										<!-- widget content -->
 										<div class="widget-body">
 											<div>
@@ -384,30 +393,30 @@
 											</div>
 										</div>
 										<!-- end widget content -->
-										
+
 									</div>
 									<!-- end widget div -->
-										
+
 								</div>
 
 
 							</div>
 						<div class="col-lg-10">
-							
+
 						</div>
 						</article>
 					</div>
 
 					<!-- end row -->
-				
+
 				</section>
 
 				<!--
-					The ID "widget-grid" will start to initialize all widgets below 
-					You do not need to use widgets if you dont want to. Simply remove 
-					the <section></section> and you can use wells or panels instead 
+					The ID "widget-grid" will start to initialize all widgets below
+					You do not need to use widgets if you dont want to. Simply remove
+					the <section></section> and you can use wells or panels instead
 					-->
-				
+
 			</div>
 			<!-- END MAIN CONTENT -->
 
@@ -415,7 +424,7 @@
 		<!-- END MAIN PANEL -->
 
 		<!-- PAGE FOOTER -->
-		
+
 		<!-- END PAGE FOOTER -->
 		<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
@@ -437,7 +446,7 @@
 											<option></option>
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -449,14 +458,14 @@
 											<option></option>
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Equipment Name</label><br>
 										<input type="text" name="eqName" class="form-control">
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -601,9 +610,9 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">PO Number</label>
-										<input type="text" name="poNumber" class="form-control">	
+										<input type="text" name="poNumber" class="form-control">
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -612,14 +621,14 @@
 											<option></option>
 										</select>
 									</div>
-									
+
 								</div>
 								<div class="col-md-5">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Description</label>
 										<input type="text" name="description" class="form-control">
 									</div>
-									
+
 								</div>
 							</div>
 							<div class="row">
@@ -631,14 +640,14 @@
 											<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 										</div>
 									</div>
-									
+
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Billing Cycle (Days)</label>
 										<input type="text" name="billingCycle" class="form-control">
 									</div>
-									
+
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -646,10 +655,10 @@
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
-									
+
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -666,10 +675,10 @@
 		Note: These tiles are completely responsive,
 		you can add as many as you like
 		-->
-						
-						
-	
-		
+
+
+
+
 		<!--================================================== -->
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
@@ -680,9 +689,9 @@
 		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
 
 		<script type="text/javascript">
-			
+
 			$(document).ready(function() {
-			
+
 			$('#datepickmodal').datepicker({
 			    //comment the beforeShow handler if you want to see the ugly overlay
 			    beforeShow: function() {
@@ -725,24 +734,24 @@
 				}
 				$('.inner_' + id).toggleClass('hide');
 			});
-			
+
 			    "use strict";
-			
+
 			    var date = new Date();
 			    var d = date.getDate();
 			    var m = date.getMonth();
 			    var y = date.getFullYear();
-			
+
 			    var hdr = {
 			        left: 'title',
 			        center: 'month,agendaWeek,agendaDay',
 			        right: 'prev,today,next'
 			    };
-			
+
 			    var initDrag = function (e) {
 			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
 			        // it doesn't need to have a start or end
-			
+
 			        var eventObject = {
 			            title: $.trim(e.children().text()), // use the element's text as the event title
 			            description: $.trim(e.children('span').attr('data-description')),
@@ -751,7 +760,7 @@
 			        };
 			        // store the Event Object in the DOM element so we can get to it later
 			        e.data('eventObject', eventObject);
-			
+
 			        // make the event draggable using jQuery UI
 			        e.draggable({
 			            zIndex: 999,
@@ -759,41 +768,41 @@
 			            revertDuration: 0 //  original position after the drag
 			        });
 			    };
-			
+
 			    var addEvent = function (title, priority, description, icon) {
 			        title = title.length === 0 ? "Untitled Event" : title;
 			        description = description.length === 0 ? "No Description" : description;
 			        icon = icon.length === 0 ? " " : icon;
 			        priority = priority.length === 0 ? "label label-default" : priority;
-			
+
 			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
 			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-			
+
 			        $("#event-container").effect("highlight", 800);
-			
+
 			        initDrag(html);
 			    };
-			
+
 			    /* initialize the external events
 				 -----------------------------------------------------------------*/
-			
+
 			    $('#external-events > li').each(function () {
 			        initDrag($(this));
 			    });
-			
+
 			    $('#add-event').click(function () {
 			        var title = $('#title').val(),
 			            priority = $('input:radio[name=priority]:checked').val(),
 			            description = $('#description').val(),
 			            icon = $('input:radio[name=iconselect]:checked').val();
-			
+
 			        addEvent(title, priority, description, icon);
 			    });
-			
+
 			    /* initialize the calendar
 				 -----------------------------------------------------------------*/
-						
-		
+
+
 		})
 
 		</script>
@@ -803,7 +812,7 @@
 			var _gaq = _gaq || [];
 				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
 				_gaq.push(['_trackPageview']);
-			
+
 			(function() {
 				var ga = document.createElement('script');
 				ga.type = 'text/javascript';
