@@ -41,3 +41,11 @@ Route::get('home', 'ProjectController@index');
 */ 
 
 Route::resource('admin/regions', 'AdminRegionsController');
+
+/*
+|--------------------------------------------------------------------------
+| Drawings
+|--------------------------------------------------------------------------
+*/ 
+
+Route::resource('project/{id}/drawings', 'DrawingsController');
