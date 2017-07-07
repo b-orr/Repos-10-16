@@ -146,7 +146,7 @@
 														<div class="col-lg-5"></div>
 														
 													</div>
-													<table id="dt_basic" class="table table-bordered" width="100%">
+														<table id="dt_basic" class="table table-bordered" width="100%">
 													<thead>
 															
 													</thead>
