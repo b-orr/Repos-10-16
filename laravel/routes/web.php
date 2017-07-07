@@ -4,16 +4,16 @@
 |--------------------------------------------------------------------------
 | Authentication
 |--------------------------------------------------------------------------
-*/ 
+*/
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'GuestController@index');
 
 /*
 |--------------------------------------------------------------------------
-| Super admin 
+| Super admin
 |--------------------------------------------------------------------------
-*/ 
+*/
 
 Route::resource('super', 'SuperController');
 
@@ -23,22 +23,22 @@ Route::resource('super', 'SuperController');
 |
 | TENANT
 |
-| 
+|
 |--------------------------------------------------------------------------
-*/ 
+*/
 
 /*
 |--------------------------------------------------------------------------
 | Project
 |--------------------------------------------------------------------------
-*/ 
+*/
 Route::get('home', 'ProjectController@index');
 
 /*
 |--------------------------------------------------------------------------
 | Administration region
 |--------------------------------------------------------------------------
-*/ 
+*/
 
 Route::resource('admin/regions', 'AdminRegionsController');
 
@@ -46,6 +46,19 @@ Route::resource('admin/regions', 'AdminRegionsController');
 |--------------------------------------------------------------------------
 | Drawings
 |--------------------------------------------------------------------------
-*/ 
+*/
 
 Route::resource('project/{id}/drawings', 'DrawingsController');
+
+
+/*
+|--------------------------------------------------------------------------
+| Main Equipment
+|--------------------------------------------------------------------------
+*/
+
+Route::get('equipment/overview', 'EquipmentController@index');
+
+Route::get('equipment/inventory', 'InventoryController@index');
+
+Route::resource('equipment/management', 'CategoryController');

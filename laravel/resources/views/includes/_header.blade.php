@@ -7,7 +7,7 @@
 		<title> Pronovos </title>
 		<meta name="description" content="">
 		<meta name="author" content="">
-			
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ url('/assets/css/your_style.css') }}">
@@ -21,7 +21,7 @@
 		<!-- <link rel="stylesheet" type="text/css" media="screen" href="{{ url('/assets/css/smartadmin-skins.min.css') }}"> -->
 
 		<!-- SmartAdmin RTL Support -->
-		<link rel="stylesheet" type="text/css" media="screen" href="{{ url('/assets/css/smartadmin-rtl.min.css') }}"> 
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ url('/assets/css/smartadmin-rtl.min.css') }}">
 
 		<!-- We recommend you use "your_style.css" to override SmartAdmin
 		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
@@ -36,17 +36,17 @@
 		<!-- GOOGLE FONT -->
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
-		<!-- Specifying a Webpage Icon for Web Clip 
+		<!-- Specifying a Webpage Icon for Web Clip
 			 Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
 		<link rel="apple-touch-icon" href="{{ url('/assets/img/splash/sptouch-icon-iphone.png') }}">
 		<link rel="apple-touch-icon" sizes="76x76" href="{{ url('/assets/img/splash/touch-icon-ipad.png') }}">
 		<link rel="apple-touch-icon" sizes="120x120" href="{{ url('/assets/img/splash/touch-icon-iphone-retina.png') }}">
 		<link rel="apple-touch-icon" sizes="152x152" href="{{ url('/assets/img/splash/touch-icon-ipad-retina.png') }}">
-		
+
 		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		
+
 		<!-- Startup image for web apps -->
 		<link rel="apple-touch-startup-image" href="{{ url('/assets/img/splash/ipad-landscape.png') }}" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
 		<link rel="apple-touch-startup-image" href="{{ url('/assets/img/splash/ipad-portrait.png') }}" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
@@ -57,7 +57,7 @@
 			 *
 			 * Special styles for displaying the icons and their classes in the docs.
 			 */
-		
+
 			.bs-glyphicons {
 				padding-left: 0;
 				padding-bottom: 1px;
@@ -89,7 +89,7 @@
 			.bs-glyphicons li:hover {
 				background-color: rgba(86,61,124,.1);
 			}
-		
+
 			@media (min-width: 768px) {
 				.bs-glyphicons li {
 				}
@@ -134,15 +134,15 @@
 			}
 		</style>
 	</head>
-	
+
 	<!--
 
 	TABLE OF CONTENTS.
-	
+
 	Use search to find needed section.
-	
+
 	===================================================================
-	
+
 	|  01. #CSS Links                |  all CSS links and file paths  |
 	|  02. #FAVICONS                 |  Favicon links and file paths  |
 	|  03. #GOOGLE FONT              |  Google font link              |
@@ -160,11 +160,11 @@
 	|  15. #PAGE FOOTER              |  page footer                   |
 	|  16. #SHORTCUT AREA            |  dropdown shortcuts area       |
 	|  17. #PLUGINS                  |  all scripts and plugins       |
-	
+
 	===================================================================
-	
+
 	-->
-	
+
 	<!-- #BODY -->
 	<!-- Possible Classes
 
@@ -191,7 +191,7 @@
 
 				<!-- Note: The activity badge color changes when clicked and resets the number to 0
 				Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
-				
+
 
 				<!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
 				<div class="ajax-dropdown">
@@ -238,8 +238,8 @@
 				<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>{{ $site_area }} <i class="fa fa-angle-down"></i> </strong></span>
 
 				<!-- Suggestion: populate this list with fetch and push technique -->
-				
-				
+
+
 				<ul class="dropdown-menu">
 					<li>
 						<a href="{{ url('/admin/regions') }}">Admin</a>
@@ -248,7 +248,7 @@
 						<a href="{{ url('/home') }}">Projects</a>
 					</li>
 					<li>
-						<a href="{{ url('/equipment') }}">Equipment</a>
+						<a href="{{ url('/equipment/overview') }}">Equipment</a>
 					</li>
 					<li>
 						<a href="{{ url('/contacts') }}">Contacts</a>
@@ -260,11 +260,11 @@
 						<a href="{{ url('/resources') }}">Resources</a>
 					</li>
 				</ul>
-			
+
 				<!-- end dropdown-menu-->
 
 			</div>
-			
+
 			@if($site_area != 'Admin')
 			<!-- projects dropdown -->
 			<div class="project-context hidden-xs">
@@ -301,11 +301,11 @@
 				@endif
 			</div>
 			<!-- end projects dropdown -->
-			
-		
+
+
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
-			
+
 				@if($site_area != 'Admin')
 				<div class="project-context hidden-xs">
 
@@ -333,13 +333,13 @@
 					<span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
 				</div>
 				<!-- end collapse menu -->
-				
+
 				<!-- #MOBILE -->
 				<!-- Top menu profile link : this shows only when top menu is active -->
 				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
 					<li class="">
-						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
-							<img src="{{ url('/assets/img/avatars/sunny.png') }}" alt="John Doe" class="online" />  
+						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+							<img src="{{ url('/assets/img/avatars/sunny.png') }}" alt="John Doe" class="online" />
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li>
@@ -382,10 +382,10 @@
 					<span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
 				</div>
 				<!-- end fullscreen button -->
-				
+
 				<!-- #Voice Command: Start Speech -->
 				<div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs">
-					<div> 
+					<div>
 						<div class="popover bottom"><div class="arrow"></div>
 							<div class="popover-content">
 								<h4 class="vc-title">Voice command activated <br><small>Please speak clearly into the mic</small></h4>
@@ -394,8 +394,8 @@
 									<br><small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
 									<br><small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
 								</h4>
-								<a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a> 
-								<a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a> 
+								<a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a>
+								<a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a>
 							</div>
 						</div>
 					</div>
@@ -403,7 +403,7 @@
 				<!-- end voice command -->
 
 				<!-- multiple lang dropdown : find all flags in the flags page -->
-				
+
 				<!-- end multiple lang -->
 
 			</div>
