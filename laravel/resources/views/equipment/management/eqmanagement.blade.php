@@ -147,34 +147,44 @@
 															</tr>
 													</thead>
 													<tbody>
+														<?php
+															$count = 1;
+															$num = 1;
+														?>
+														@foreach($categories as $key => $c)
+															<tr class="main-parent" data_id="<?php echo $num; ?>">
+																<td style="width:10px !important;">
+																	<!-- <button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
+																		<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
+																		<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
+																	</button>  -->
+																	<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num;?>" data_level="1">
+																		<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
+																			<i class="up_5 glyphicon glyphicon-plus"></i>
+																		</span>
+																		<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
+																			<i class="up_5 glyphicon glyphicon-minus"></i>
+																		</span>
+																	</button>
+																	<span class="description-name">HV</span>
+																</td>
 
+																<!-- <td style="width:50px !important;"></td>
+																<td style="width:60px !important;"></td> -->
+																<td style="width:50px !important;"></td>
+																<td style="width:40px !important;"></td>
+																<td style="width:15px !important;"></td>
+															</tr>
+															<?php
+																$num++;
+																$count++;
+															?>
+														@endforeach
 													<?php
 															$count = 1;
 															$num = 1;
 															while ($count <= 4 ) { ?>
-																<tr class="main-parent" data_id="<?php echo $num; ?>">
-																	<td style="width:10px !important;">
-																		<!-- <button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
-																			<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
-																			<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
-																		</button>  -->
-																		<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num;?>" data_level="1">
-																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																				<i class="up_5 glyphicon glyphicon-plus"></i>
-																			</span>
-																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																				<i class="up_5 glyphicon glyphicon-minus"></i>
-																			</span>
-																		</button>
-																		<span class="description-name">HV</span>
-																	</td>
 
-																	<!-- <td style="width:50px !important;"></td>
-																	<td style="width:60px !important;"></td> -->
-																	<td style="width:50px !important;"></td>
-																	<td style="width:40px !important;"></td>
-																	<td style="width:15px !important;"></td>
-																</tr>
 													<?php
 																$count1 = 1;
 																$num1 = 1;
@@ -538,13 +548,14 @@
 							</button>
 							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Category</h4>
 						</div>
-						<form id="newCategory">
+						<form id="newCategory" method="post" action="{{ url('/equipment/eqmanagement') }}">
+							{{ csrf_field() }}
 							<div class="modal-body">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="input" style="font-weight: bold;">Category Name</label>
-											<input type="text" class="form-control">
+											<input type="text" class="form-control" name="name">
 										</div>
 
 									</div>
@@ -552,24 +563,24 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<label class="input" style="font-weight: bold;">Allocation UOM</label>
-											<input type="text" class="form-control">
+											<input type="text" class="form-control" name="allocation_uom">
 										</div>
 
 									</div>
 								</div>
 							</div>
-						</form>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal">
+							<button type="submit" class="btn btn-primary">
 								Save
 							</button>
 							<button type="button" class="btn btn-primary" id="saveandadd">
 								Save and add new category
 							</button>
 						</div>
+					</form>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
@@ -582,14 +593,17 @@
 							</button>
 							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Sub-Category</h4>
 						</div>
-						<form id="newCategory">
+						<form id="newCategory" method="post" action="{{ url('equipment/subcategories') }}">
+							{{csrf_field()}}
 							<div class="modal-body">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="input" style="font-weight: bold;">Category</label>
-											<select class="form-control">
-												<!-- foreach categories -->
+											<select class="form-control" name="category_id">
+												@foreach($categories as $key => $c)
+													<option value="{{$c->id}}">{{$c->name}}</option>
+												@endforeach
 											</select>
 										</div>
 
@@ -597,28 +611,29 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="input" style="font-weight: bold;">Sub-Category</label>
-											<input type="text" class="form-control">
+											<input type="text" class="form-control" name="name">
 										</div>
 
 									</div>
 								</div>
 							</div>
-						</form>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-success" data-dismiss="modal">
+							<button type="submit" class="btn btn-success">
 								Save
 							</button>
 						</div>
+					</form>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 			<div class="modal fade" id="addEquipmentModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
-						<form class="form-horizontal">
+						<form class="form-horizontal" method="post" action="{{ url('/equipment/regionequipment') }}">
+							{{csrf_field()}}
 							<div class="modal-header" style="background-color: #404040;">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
@@ -638,7 +653,10 @@
 											<div class="form-group">
 												<div class="col-md-12">
 													<label class="input" style="font-weight: bold;">Category</label>
-													<select class="form-control">
+													<select class="form-control" name="category_id">
+														@foreach($categories as $key => $c)
+															<option value="{{$c->id}}">{{$c->name}}</option>
+														@endforeach
 													</select>
 												</div>
 											</div>
@@ -648,7 +666,12 @@
 											<div class="form-group">
 												<div class="col-md-12">
 													<label class="input" style="font-weight: bold;">Subcategory</label>
-													<select class="form-control">
+													<select class="form-control" name="sub_category_id">
+														@foreach($categories as $key => $c)
+															@foreach($c->subcategories as $key1 => $s)
+																<option value="{{$s->id}}">{{$s->name}}</option>
+															@endforeach
+														@endforeach
 													</select>
 												</div>
 											</div>
@@ -660,7 +683,7 @@
 										<div class="form-group">
 											<div class="col-md-12">
 												<label class="input" style="font-weight: bold;">Equipment Name</label><br>
-													<input type="text" name="eqName" class="form-control">
+													<input type="text" name="name" class="form-control">
 												</div>
 										</div>
 
@@ -673,37 +696,37 @@
 											<div class="form-group">
 												<label class="col-md-4 control-label">Manufacturer</label>
 												<div class="col-md-8">
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="manufacturer">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-md-4 control-label">Model Number</label>
 												<div class="col-md-8">
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="model">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-md-4 control-label">UPC Number</label>
 												<div class="col-md-8">
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="upc">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-md-4 control-label">Weight</label>
 												<div class="col-md-8">
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="weight">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-md-4 control-label">Items per Unit</label>
 												<div class="col-md-8">
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="items_per_units">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-md-4 control-label">Notes</label>
 												<div class="col-md-8">
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="notes">
 												</div>
 											</div>
 											<div class="form-group">
@@ -711,13 +734,13 @@
 												<div class="col-md-8">
 													<label class="radio radio-inline">
 
-															<input type="radio" class="radiobox" name="itemType">
+															<input type="radio" class="radiobox" name="type">
 															<span>Unique</span>
 
 														</label>
 													<label class="radio radio-inline">
 
-															<input type="radio" class="radiobox" name="itemType">
+															<input type="radio" class="radiobox" name="type">
 															<span>General</span>
 
 														</label>
@@ -732,14 +755,16 @@
 												<div class="col-md-10" style="margin: -10px 0px 0px 10px;">
 													<div class="checkbox">
 														<label>
-														  <input type="checkbox" class="checkbox style-0">
+															<input type="hidden" name="forecasted" value="0">
+														  <input type="checkbox" class="checkbox style-0" name="forecasted" value="1">
 														  <span>Track as Forecasted Item</span>
 														</label>
 													</div>
 
 													<div class="checkbox">
 														<label>
-														  <input type="checkbox" class="checkbox style-0" >
+															<input type="hidden" name="allocated" value="0">
+														  <input type="checkbox" class="checkbox style-0" name="allocated" value="1">
 														  <span>Track as Allocated Item</span>
 														</label>
 													</div>
@@ -750,18 +775,15 @@
 												<label class="col-md-4 control-label" style="margin-top: 15px;">Allocated Qty Calc</label>
 												<div class="col-md-3">
 													<small>Item multiplier</small>
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="allocated_qty">
 												</div>
 												<label class="col-md-1" style="margin-top: 20px;">SF</label>
 											</div>
-											<input type="submit" class="btn btn-primary hidden" id="pdfUpload" />
 
-											</form>
 											<section>
 												<div class="form-group">
 													<label class="input" style="font-weight: bold;">Upload Picture</label><small class="font-xs"> (Click below to open File Explorer)</small><br>
 													<div class="col-lg-12">
-														<form action="upload.php" class="dropzone" id="mydropzone"></form>
 													</div>
 												</div>
 											</section>
@@ -773,8 +795,9 @@
 								<button type="button" class="btn btn-default" data-dismiss="modal">
 									Cancel
 								</button>
-								<label for="pdfUpload" class="btn btn-primary" data-dismiss="modal">Save</label>
+								<button type="submit" class="btn btn-success">Save</button>
 							</div>
+						</form>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->

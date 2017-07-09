@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\RegionEquipment;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class RegionEquipmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $this->data['categories'] = Category::with('subcategories')->get();
-      
-        return view('equipment.management.eqmanagement', $this->data);
+        //
     }
 
     /**
@@ -37,11 +35,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request, [ 'name' => 'required']);
-
-      Category::create($request->all());
+      RegionEquipment::create($request->all());
 
       return redirect('/equipment/eqmanagement');
+        // dd($request->all());
     }
 
     /**
@@ -88,6 +85,4 @@ class CategoryController extends Controller
     {
         //
     }
-
-
 }

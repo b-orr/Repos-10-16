@@ -68,3 +68,7 @@ Route::get('project/approvetruck', 'EquipmentController@approvetruck');
 Route::get('equipment/overview', 'EquipmentController@index');
 
 Route::resource('/equipment/eqmanagement', 'CategoryController');
+
+Route::resource('/equipment/subcategories', 'SubCategoryController');
+
+Route::resource('/equipment/regionequipment', 'RegionEquipmentcontroller');

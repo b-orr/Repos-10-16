@@ -9,6 +9,8 @@ class RegionEquipment extends Model
   protected $table = 'eq_region_equipment';
 
   protected $fillable = [
+      'sub_category_id',
+      'region_id',
       'name',
       'manufacturer',
       'model',
@@ -23,8 +25,13 @@ class RegionEquipment extends Model
       'picture',
   ];
 
-  public function category()
+  public function subcategory()
   {
-      return $this->belongsTo('App\Categories');
+      return $this->belongsTo('App\SubCategories');
+  }
+
+  public function region()
+  {
+      return $this->belongsTo('App\Regions');
   }
 }

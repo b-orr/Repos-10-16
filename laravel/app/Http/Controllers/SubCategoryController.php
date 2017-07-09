@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\SubCategories;
+use App\Categories;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $this->data['categories'] = Category::with('subcategories')->get();
-      
-        return view('equipment.management.eqmanagement', $this->data);
+        //
     }
 
     /**
@@ -38,8 +37,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [ 'name' => 'required']);
+      // dd($request->all());
 
-      Category::create($request->all());
+      $subcategories = new SubCategories();
+      SubCategories::create($request->all());
 
       return redirect('/equipment/eqmanagement');
     }
@@ -88,6 +89,4 @@ class CategoryController extends Controller
     {
         //
     }
-
-
 }

@@ -629,7 +629,7 @@
 							<div class="modal-body">
 								<div>
 									<strong>
-										<legend>Select storage location & name</legend>
+										<legend>Select storage lasdasdasocation & name</legend>
 									</strong>
 								</div>
 								<div class="row">
@@ -637,8 +637,12 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<div class="col-md-12">
-													<label class="input" style="font-weight: bold;">Category</label>
-													<select class="form-control">
+													<label class="input" style="font-weight: bold;">Categoasdry</label>
+													<select class="form-control" name="category_id">
+														@foreach($categories as $key => $c)
+															<?php var_dump($c); ?>
+															<option value="{{$c->id}}">{{$c->name}}</option>
+														@endforeach
 													</select>
 												</div>
 											</div>
