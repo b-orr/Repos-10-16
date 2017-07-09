@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('equipment.management.eqmanagement');
     }
 
     /**
@@ -81,4 +81,6 @@ class CategoryController extends Controller
     {
         //
     }
+
+
 }

@@ -100,9 +100,9 @@
 													<td>111</td>
 													<td>Washington Yard</td>
 													<td>
-														<a href="../project/approvetruck.php" class="btn btn-success btn-xs btn-block"> From 1001 - 05/09/17</a>
-														<a href="../project/approvetruck.php" class="btn btn-success btn-xs btn-block"> From 1007 - 05/10/17</a>
-														<a href="../project/approvetruck.php" class="btn btn-success btn-xs btn-block"> From 1025 - 05/12/17</a>
+														<a href="{{ url('project/approvetruck') }}" class="btn btn-success btn-xs btn-block"> From 1001 - 05/09/17</a>
+														<a href="{{ url('project/approvetruck') }}" class="btn btn-success btn-xs btn-block"> From 1007 - 05/10/17</a>
+														<a href="{{ url('project/approvetruck') }}" class="btn btn-success btn-xs btn-block"> From 1025 - 05/12/17</a>
 													</td>
 													<td></td>
 													<td></td>

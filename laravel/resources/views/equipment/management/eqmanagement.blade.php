@@ -1,11 +1,11 @@
-<?php include '../includes/_header_eq.php'; ?>
+@include('../../includes/_header_eq')
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 
 		<!-- END NAVIGATION -->
 
-<?php include '../includes/_menu_eq.php'; ?>
+@include('../../includes/_menu_eq')
 		<!-- MAIN PANEL -->
 	<style type="text/css">
 		/* .main-parent{
@@ -784,7 +784,7 @@
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
-		<?php include '../includes/_footer.php'; ?>
+		@include('../../includes/_footer');
 
 		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
 

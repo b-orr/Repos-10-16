@@ -56,9 +56,15 @@ Route::resource('project/{id}/drawings', 'DrawingsController');
 | Main Equipment
 |--------------------------------------------------------------------------
 */
+Route::get('equipment/forecasting', 'EquipmentController@forecasting');
+Route::get('equipment/rental', 'EquipmentController@rental');
+Route::get('equipment/allocation', 'EquipmentController@allocation');
+Route::get('equipment/inventory', 'EquipmentController@inventory');
+
+// project equipment routes
+Route::get('project/approvetruck', 'EquipmentController@approvetruck');
+
 
 Route::get('equipment/overview', 'EquipmentController@index');
 
-Route::get('equipment/inventory', 'InventoryController@index');
-
-Route::resource('equipment/management', 'CategoryController');
+Route::resource('/equipment/eqmanagement', 'CategoryController');
