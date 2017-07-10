@@ -44,12 +44,23 @@ Route::resource('admin/regions', 'AdminRegionsController');
 
 /*
 |--------------------------------------------------------------------------
+| Fields
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('admin/fields', 'AdminFieldsController');
+Route::resource('admin/fieldsValue', 'AdminFieldsValueController');
+
+
+
+
+/*
+|--------------------------------------------------------------------------
 | Drawings
 |--------------------------------------------------------------------------
 */
 
 Route::resource('project/{id}/drawings', 'DrawingsController');
-
 
 /*
 |--------------------------------------------------------------------------

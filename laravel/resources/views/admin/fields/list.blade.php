@@ -1,3 +1,5 @@
+
+
 @include('includes._header')
 @include('includes._menu_admin')
 
@@ -15,7 +17,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Admin</li><li>Regions</li>
+					<li>Admin</li><li>Fields</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -80,24 +82,49 @@
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone">Regions</th>
-													<th data-hide="phone,tablet" style="width: 60px;">Action</th>	
+													<th data-hide="phone" width="10%">Page Name</th>
+													<th data-hide="phone" width="10%">Fields</th>
+													<th ></th>
+													<th data-hide="phone" width="10%" data-hide="phone,tablet" style="width: 60px;">Action</th>	
 												</tr>
 											</thead>
 											<tbody>
 											
 											@foreach($lists AS $list)
 												<tr>
+													<td>{{ $list->page }}</td>
 													<td>{{ $list->name }}</td>
-													<td><a href="{{ url('/admin/regions/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
+													
+													<td>
+													<select class="form-control" multiple style="width: 200px;" >
+													
+													@foreach($list->fieldValues AS $fv)
+													<option value="{{ $fv->id }}" onclick="$('#form_{{ $list->id }}').attr('action', '{{ url('/admin/fieldsValue/' . $list->id . '|' . $fv->id) }}')">{{ $fv->value }}</option>
+													@endforeach
+													</select>
+													
+													<button class="btn btn-primary" data-toggle="modal" id="myModalBtn" data-target="#areaModal2" onclick="$('#fields_id').val('{{ $list->id }}')">Add Value</button>
+													
+													
+													<form action="" id="form_{{ $list->id }}" method="POST"  style="display: inline;">
+													<button class="btn btn-primary btn-danger"  type="submit" >Remove Selected</button>
+													
+													    {{ method_field('DELETE') }}
+													    {{ csrf_field() }}
+													 
+													</form>
+													
+													</td>
+													
+													<td><a href="{{ url('/admin/fields/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
+													
+													
+											
 													
 													
 													
 													
-													
-													
-													
-													<form action="{{ url('/admin/regions/' . $list->id) }}" method="POST"  style="display: inline;">
+													<form action="{{ url('/admin/fields/' . $list->id) }}" method="POST"  style="display: inline;">
 													<a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o"></i></a>
 													    {{ method_field('DELETE') }}
 													    {{ csrf_field() }}
@@ -130,12 +157,80 @@
 					<!-- end row -->
 				
 				</section>
+				
+				<div class="modal fade" id="areaModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+						<div class="modal-dialog">
+						
+						
+						
+						<form   role="form" method="POST"   action="{{ url('/admin/fieldsValue') }}">
+						{{ csrf_field() }}
+						
+						<input type="hidden" name="fields_id" id="fields_id" value="" />
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;
+									</button>
+									<h4 class="modal-title" id="myModalLabel">Add New Value</h4>
+								</div>
+								<br>
+								<div class="modal-body">
+								
+								@if (count($errors) > 0)
+								    <div class="alert alert-danger">
+								        <ul>
+								            @foreach ($errors->all() as $error)
+								                <li>{{ $error }}</li>
+								            @endforeach
+								        </ul>
+								    </div>
+								@endif
+								
+									<div class="row">
+										<div class="col-md-5">
+											<div class="form-group">
+												<h4>Value Name: <sup>*</sup></h4>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<div class="form-group">
+												<input type="text" name="value" class="form-control" required />
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									
+									
+									
+									<br>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">
+										Cancel
+									</button>
+									<button type="submit" class="btn btn-primary">
+										Add Value
+									</button>
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+						</form>
+						
+						
+						
+					</div>
+				</div>
+				
+				
+				
 				<div class="modal fade" id="areaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 					
 					
 					
-					<form   role="form" method="POST"   action="{{ url('/admin/regions') }}">
+					<form   role="form" method="POST"   action="{{ url('/admin/fields') }}">
 					{{ csrf_field() }}
 					
 						<div class="modal-content">
@@ -143,7 +238,7 @@
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h4 class="modal-title" id="myModalLabel">Add New Area</h4>
+								<h4 class="modal-title" id="myModalLabel">Add New Field</h4>
 							</div>
 							<br>
 							<div class="modal-body">
@@ -161,7 +256,7 @@
 								<div class="row">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>Area Name: <sup>*</sup></h4>
+											<h4>Field Name: <sup>*</sup></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -170,13 +265,46 @@
 										</div>
 									</div>
 								</div>
+								
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>Page:  </h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+										<select  name="page" class="form-control">
+										<option>Project Info</option>
+										<option>Equipment Transfer</option>
+										<option>Equipment Rental Info</option>
+										</select>
+										 
+										</div>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>Order:  </h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<input type="text" name="order" class="form-control" required value="1" />
+										</div>
+									</div>
+								</div>
+								
 								<br>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">
 									Cancel
 								</button>
 								<button type="submit" class="btn btn-primary">
-									Add Area
+									Add Field
 								</button>
 							</div>
 						</div><!-- /.modal-content -->
@@ -249,7 +377,7 @@
 				});
 	
 			/* END BASIC */
-			$('#dt_basic_filter label').append('<button class="btn btn-primary" data-toggle="modal" id="myModalBtn" data-target="#areaModal">Add New:</button>');
+			$('#dt_basic_filter label').append('<button class="btn btn-primary" data-toggle="modal" id="myModalBtn" data-target="#areaModal">Add Field</button>');
 			/* COLUMN FILTER  */
 		    var otable = $('#datatable_fixed_column').DataTable({
 		    	//"bFilter": false,
