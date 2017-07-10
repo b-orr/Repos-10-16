@@ -13,7 +13,7 @@ class CreateEQSubCategories extends Migration
      */
     public function up()
     {
-        Schema::create('EQ_sub_categories', function (Blueprint $table) {
+        Schema::create('eq_sub_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id');
             $table->string('name');
@@ -29,6 +29,6 @@ class CreateEQSubCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('EQ_sub_categories');
+        Schema::dropIfExists('eq_sub_categories');
     }
 }

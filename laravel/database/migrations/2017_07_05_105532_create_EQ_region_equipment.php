@@ -13,7 +13,7 @@ class CreateEQRegionEquipment extends Migration
      */
     public function up()
     {
-        Schema::create('EQ_region_equipment', function (Blueprint $table) {
+        Schema::create('eq_region_equipment', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sub_category_id');
             $table->integer('region_id');
@@ -40,6 +40,6 @@ class CreateEQRegionEquipment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('EQ_region_equipment');
+        Schema::dropIfExists('eq_region_equipment');
     }
 }

@@ -13,7 +13,7 @@ class CreateEQCategories extends Migration
      */
     public function up()
     {
-        Schema::create('EQ_categories', function (Blueprint $table) {
+        Schema::create('eq_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('allocation_uom');
@@ -28,6 +28,6 @@ class CreateEQCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('EQ_categories');
+        Schema::dropIfExists('eq_categories');
     }
 }
