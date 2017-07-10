@@ -51,8 +51,13 @@ Route::resource('admin/regions', 'AdminRegionsController');
 Route::resource('admin/fields', 'AdminFieldsController');
 Route::resource('admin/fieldsValue', 'AdminFieldsValueController');
 
+/*
+|--------------------------------------------------------------------------
+| Admin users
+|--------------------------------------------------------------------------
+*/
 
-
+Route::resource('admin/users', 'AdminUsersController');
 
 /*
 |--------------------------------------------------------------------------

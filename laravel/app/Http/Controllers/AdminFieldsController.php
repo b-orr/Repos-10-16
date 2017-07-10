@@ -69,4 +69,5 @@ class AdminFieldsController extends Controller
         $this->user->fields()->find($fields)->delete();
         
         return redirect('/admin/fields');
-    }}
+    }
+}

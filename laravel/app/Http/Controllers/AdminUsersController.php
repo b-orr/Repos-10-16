@@ -4,82 +4,81 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminUsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public $data;
+    public $user;
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:super,tenant');
+        
+        $this->middleware(function ($request, $next) {
+                $this->user= Auth::user();
+                return $next($request);
+        });
+        
+        
+        $this->data['site_area']='Admin';
+     
+    }
+    
     public function index()
     {
-        //
+        $this->data['lists'] = User::where('parent_user_id', $this->user->id)->get();
+        
+        $this->data['regions'] =  $this->user->regions;
+        return view('admin/users/list', $this->data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
+       $this->validate($request, [
+              'title' => 'required', 
+              'name' => 'required',
+              'last_name' => 'required',
+              'email' => 'required|email|unique:users',
+              'password' => 'required',
+              
+          ]);
+        
+        $request->request->add(['parent_user_id' => $this->user->id]);
+       	User::create($request->all());      
+        return redirect('/admin/users');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
+    
+    public function edit($user)
     {
-        //
+        $this->data['list']=User::where('parent_user_id', $this->user->id)->where('id', $user)->first();
+        
+        $this->data['regions'] =  $this->user->regions;
+         if(!empty($this->data['list'])){
+         	return view('admin/users/edit', $this->data);
+         }else {
+         	return redirect('/admin/users');
+         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
+    
+    public function update(Request $request, $user)
     {
-        //
+        User::find($user)->update($request->all());
+        
+        return redirect('/admin/users');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
+     
+    public function destroy($user_id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
+        $user = User::where('parent_user_id', $this->user->id)->where('id', $user_id)->first();
+        
+        $user->delete();
+        
+        return redirect('/admin/users');
     }
 }
