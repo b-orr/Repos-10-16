@@ -20,7 +20,7 @@ class UpdateUser2 extends Migration
                 $table->integer('active');
              
                 $table->index('group_id');
-                $table->index('area_id');
+                $table->index('region_id');
                 $table->index('active');
             });
             
@@ -36,7 +36,7 @@ class UpdateUser2 extends Migration
             Schema::table('users', function($table) {
                   $table->dropColumn('title');
                   $table->dropColumn('group_id');
-                  $table->dropColumn('area_id');
+                  $table->dropColumn('region_id');
                   $table->dropColumn('active');
             
             });
