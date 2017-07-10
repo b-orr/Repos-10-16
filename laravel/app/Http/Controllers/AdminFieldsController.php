@@ -11,11 +11,17 @@ class AdminFieldsController extends Controller
 {
     
     public $data;
+    public $user;
     
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
+        
+        $this->middleware(function ($request, $next) {
+                $this->user= Auth::user();
+                return $next($request);
+        });
         
         $this->data['site_area']='Admin';
      
@@ -23,7 +29,7 @@ class AdminFieldsController extends Controller
     
     public function index()
     {
-        $this->data['lists'] = Auth::user()->fields;
+        $this->data['lists'] = $this->user->fields;
         return view('admin/fields/list', $this->data);
     }
 
@@ -32,7 +38,7 @@ class AdminFieldsController extends Controller
     {
         $this->validate($request, [ 'name' => 'required']);
           
-        Auth::user()->fields()->save(new Fields($request->all()));
+        $this->user->fields()->save(new Fields($request->all()));
         
         return redirect('/admin/fields');
     }
@@ -40,7 +46,7 @@ class AdminFieldsController extends Controller
     
     public function edit($fields)
     {
-        $this->data['field']=Auth::user()->fields()->find($fields);
+        $this->data['field']=$this->user->fields()->find($fields);
         
          if(!empty($this->data['field'])){
          	return view('admin/fields/edit', $this->data);
@@ -52,7 +58,7 @@ class AdminFieldsController extends Controller
     
     public function update(Request $request, $fields)
     {
-        Auth::user()->fields()->find($fields)->update($request->all());
+        $this->user->fields()->find($fields)->update($request->all());
         
         return redirect('/admin/fields');
     }
@@ -60,7 +66,7 @@ class AdminFieldsController extends Controller
      
     public function destroy($fields)
     {
-        Auth::user()->fields()->find($fields)->delete();
+        $this->user->fields()->find($fields)->delete();
         
         return redirect('/admin/fields');
     }}
