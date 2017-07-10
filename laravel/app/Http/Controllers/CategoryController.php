@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\SubCategories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\RegionEquipment;
 
 class CategoryController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
       $this->data['categories'] = Category::with('subcategories')->get();
-      
+      $this->data['sub'] = SubCategories::with('equipment')->get();
         return view('equipment.management.eqmanagement', $this->data);
     }
 
