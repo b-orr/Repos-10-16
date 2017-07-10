@@ -75,216 +75,195 @@
 
 
 			<!-- MAIN CONTENT -->
-			<div id="content">
+			<div id="content" style="padding: 2px 0px 0px 2px;">
 				<!-- end row -->
 				<section id="widget-grid">
-
-					<!-- row -->
-					<div class="row">
-
-						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-							<!-- Widget ID (each widget will need unique ID)-->
-
-							<!-- end widget -->
+					
+					<div class="row no-margin">
+							
+						<div id="contentMain" class="col-md-9" style="width: 80%; padding: 0px 2px 0px 0px; margin-right: 2px;">
+							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+							
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+									<!-- widget options:
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
+									data-widget-colorbutton="false"
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true"
+									data-widget-sortable="false"
 
-								-->
-
-
-								<!-- added buttons -->
-
-								<!-- widget div-->
+									-->
 
 
-								<div>
+									<!-- added buttons -->
 
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-
-									</div>
-									<!-- end widget edit box -->
-
-									<!-- widget content -->
-									<div class="widget-body">
+									<!-- widget div-->
 
 
+									<div>
 
-										<div class="row">
-												<div class="widget-body col-lg-10 table-1" id="table-1" style="margin-top: 3px;">
-													<div class="row bordered" style="margin-left: 0px; margin-right: 0px; background-color: #404040; color: white;">
-														<div class="col-lg-4" style="display: flex; align-items: center;">
-																<h5><b>Equipment Manager</b></h5>
+										<!-- widget content -->
+										<div class="widget-body no-padding">
+
+													<div class="table-1" id="table-1" style="margin-top: 0px;">
+														<div class="row bordered" style="margin-left: 0px; margin-right: 0px; background-color: #404040; color: white;">
+															<div class="col-lg-4" style="display: flex; align-items: center;">
+																	<h5><b>Equipment Manager</b></h5>
+															</div>
+															<div class="col-lg-5"></div>
+															<div class="col-lg-3" style="display: flex; align-items: left;">
+																<button class="btn btn-primary" style="margin: 5px 5px;" onclick="expand();">Expand All</button>
+																<button class="btn btn-primary" style="margin: 5px 5px;" onclick="collapse();">Collapse All</button>
+															</div>
 														</div>
-														<div class="col-lg-5"></div>
-														<div class="col-lg-3" style="display: flex; align-items: left;">
-															<button class="btn btn-primary" style="margin: 5px 5px;" onclick="expand();">Expand All</button>
-															<button class="btn btn-primary" style="margin: 5px 5px;" onclick="collapse();">Collapse All</button>
-														</div>
-													</div>
-													<table id="dt_basic" class="table table-bordered" width="100%">
-													<thead>
-															<tr>
-																<th style="width: 40%;">Descriptions</th>
-																<!-- <th>Owned</th>
-																<th>Rented</th> -->
-																<th>Weight</th>
-																<th style="width: 40%;">Notes</th>
-																<th style="width: 3%;">Edit</th>
-															</tr>
-													</thead>
-													<tbody>
-														<?php
-															$count = 1;
-															$num = 1;
-														?>
-														@foreach($categories as $key => $c)
-															<tr class="main-parent" data_id="<?php echo $num; ?>">
-																<td style="width:10px !important;">
-																	<!-- <button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
-																		<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
-																		<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
-																	</button>  -->
-																	<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num;?>" data_level="1">
-																		<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																			<i class="up_5 glyphicon glyphicon-plus"></i>
-																		</span>
-																		<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																			<i class="up_5 glyphicon glyphicon-minus"></i>
-																		</span>
-																	</button>
-																	<span class="description-name">{{$c->name}}</span>
-																</td>
-
-																<!-- <td style="width:50px !important;"></td>
-																<td style="width:60px !important;"></td> -->
-																<td style="width:50px !important;"></td>
-																<td style="width:40px !important;"></td>
-																<td style="width:15px !important;"></td>
-															</tr>
+														<table id="dt_basic" class="table table-bordered" width="100%">
+														<thead>
+																<tr>
+																	<th style="width: 40%;">Descriptions</th>
+																	<!-- <th>Owned</th>
+																	<th>Rented</th> -->
+																	<th>Weight</th>
+																	<th style="width: 40%;">Notes</th>
+																	<th style="width: 3%;">Edit</th>
+																</tr>
+														</thead>
+														<tbody>
 															<?php
-																$count1 = 1;
-																$num1 = 1;
+																$count = 1;
+																$num = 1;
 															?>
-															@foreach($c->subcategories as $key1 => $s)
-															<tr class="hide f-children first-child-<?php echo $num; ?> fchild">
-																<td style="width:10px !important; padding-left: 20px;">
-																	<button class="button btn btn-warning btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																		<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>_<?php echo$num1?>">
-																			<i class="up_5 glyphicon glyphicon-plus"></i>
-																		</span>
-																		<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>_<?php echo$num1?>">
-																			<i class="up_5 glyphicon glyphicon-minus"></i>
-																		</span>
-																	</button>
-																<span class="description-name">{{$s->name}}</span>
-																</td>
-																<!-- <td style="width:50px !important;" ></td>
-																<td style="width:60px !important;" ></td> -->
-																<td style="width:40px !important;" ></td>
-																<td style="width:15px !important;" ></td>
-																<td style="width:15px !important;"></td>
-															</tr>
-															<?php $count2 = 1;
-															 	$num2 = 1;
+															@foreach($categories as $key => $c)
+																<tr class="main-parent" data_id="<?php echo $num; ?>">
+																	<td style="width:10px !important;">
+																		<!-- <button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
+																			<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
+																			<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
+																		</button>  -->
+																		<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num;?>" data_level="1">
+																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
+																				<i class="up_5 glyphicon glyphicon-plus"></i>
+																			</span>
+																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
+																				<i class="up_5 glyphicon glyphicon-minus"></i>
+																			</span>
+																		</button>
+																		<span class="description-name">{{$c->name}}</span>
+																	</td>
+
+																	<!-- <td style="width:50px !important;"></td>
+																	<td style="width:60px !important;"></td> -->
+																	<td style="width:50px !important;"></td>
+																	<td style="width:40px !important;"></td>
+																	<td style="width:15px !important;"></td>
+																</tr>
+																<?php
+																	$count1 = 1;
+																	$num1 = 1;
 																?>
-															@foreach($sub as $key2 => $val)
-																@foreach($val->equipment as $key3 => $e)
-																	@if($val->id == $s->id)
-																	<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
-																		<td style="width:10px !important; padding-left: 40px;">
-																			{{$e->name}}
-																		</td>
-																		<!-- <td style="width:60px !important;" ></td>
-																		<td style="width:15px !important;"></td> -->
-																		<td style="width:40px !important;" >{{$e->weight}}</td>
-																		<td style="width:15px !important;" >{{$e->notes}}</td>
-																		<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
-																	</tr>
-																	<?php $count2++; ?>
-																	@endif
+																@foreach($c->subcategories as $key1 => $s)
+																<tr class="hide f-children first-child-<?php echo $num; ?> fchild">
+																	<td style="width:10px !important; padding-left: 20px;">
+																		<button class="button btn btn-warning btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																			<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>_<?php echo$num1?>">
+																				<i class="up_5 glyphicon glyphicon-plus"></i>
+																			</span>
+																			<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>_<?php echo$num1?>">
+																				<i class="up_5 glyphicon glyphicon-minus"></i>
+																			</span>
+																		</button>
+																	<span class="description-name">{{$s->name}}</span>
+																	</td>
+																	<!-- <td style="width:50px !important;" ></td>
+																	<td style="width:60px !important;" ></td> -->
+																	<td style="width:40px !important;" ></td>
+																	<td style="width:15px !important;" ></td>
+																	<td style="width:15px !important;"></td>
+																</tr>
+																<?php $count2 = 1;
+																 	$num2 = 1;
+																	?>
+																@foreach($sub as $key2 => $val)
+																	@foreach($val->equipment as $key3 => $e)
+																		@if($val->id == $s->id)
+																		<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
+																			<td style="width:10px !important; padding-left: 40px;">
+																				{{$e->name}}
+																			</td>
+																			<!-- <td style="width:60px !important;" ></td>
+																			<td style="width:15px !important;"></td> -->
+																			<td style="width:40px !important;" >{{$e->weight}}</td>
+																			<td style="width:15px !important;" >{{$e->notes}}</td>
+																			<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
+																		</tr>
+																		<?php $count2++; ?>
+																		@endif
+																	@endforeach
 																@endforeach
+																<?php $num1++;
+																$count1++; ?>
+																@endforeach
+																<?php
+																	$num++;
+																	$count++;
+																?>
 															@endforeach
-															<?php $num1++;
-															$count1++; ?>
-															@endforeach
-															<?php
-																$num++;
-																$count++;
-															?>
-														@endforeach
 
-													</tbody>
+														</tbody>
 
-													</table>
-												</div>
-
-											<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
-												<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">
-													<header>
-														<h2 class="font-md">Actions</h2>
-													</header>
-
-													<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
-														<div class="col-lg-12">
-															<input type="text" class="form-control" placeholder="Quick search">
-														</div>
-														<br>
-														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-															<button class="btn btn-success form-control" data-target="#addEquipmentModal" data-toggle="modal">Add Equipment</button>
-														</div>
-														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-															<button class="btn btn-success form-control" data-target="#categoryModal" data-toggle="modal">Add Category</button>
-														</div>
-														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-															<button class="btn btn-success form-control" data-target="#subCategoryModal" data-toggle="modal">Add Sub-Category</button>
-														</div>
-
-														<h5>Equipment Filters</h5>
-														<div class="col-lg-12">
-															<label><b>Owner</b></label>
-															<select class="form-control">
-																<option>McClone</option>
-															</select>
-														</div>
-														<legend style="margin-bottom: 3px;"></legend>
-														<div class="col-lg-12">
-															<label><b>Equipment Search</b></label>
-															<input type="text" name="searchEquipment" class="form-control">
-														</div>
+														</table>
 													</div>
-												</div>
-											</article>
+											
+												
+											
+											
+
+
 										</div>
-
-
 									</div>
-								</div>
 
+								</div>
+										<!-- end widget content -->
+							</article>
+						</div>
+						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
+							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
+								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
 							</div>
-									<!-- end widget content -->
-
-								</div>
-						</article>
-						<!-- WIDGET END -->
-
-					<!-- end row -->
-
-					<!-- end row -->
-
+							<div class="menu-body padding-5">
+								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#addEquipmentModal">
+									<span style="font-size: 12px; font-weight: bold;">Add Equipment</span>
+								</button>
+								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#categoryModal">
+									<span style="font-size: 12px; font-weight: bold;">Add Category</span>
+								</button>
+								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#subCategoryModal">
+									<span style="font-size: 12px; font-weight: bold;">Add Sub-Category</span>
+								</button>
+								<legend></legend>
+								<label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Search</label><br>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Quick seach</label>
+								<input type="text" name="search" class="form-control">
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
+								<legend></legend>
+								<label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Filters</label><br>
+								<select type="text" name="search" class="form-control">
+									<option>Active</option>
+									<option>Damaged</option>
+								</select>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Owner</label>
+								<select type="text" name="search" class="form-control">
+									<option>McClone</option>
+									<option>Other</option>
+								</select>
+							</div>
+						</div>
+					</div>
 				</section>
 
 				<!--
@@ -318,64 +297,6 @@
 							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Edit Equipment Type</h4>
 						</div>
 						<div class="modal-body">
-						<!-- 	<div>
-							<strong>
-								HV-MAIN BEAM 5' 7''
-							</strong>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Owner</label>
-									<input type="text" class="form-control" required style="padding-left: 5px;" />
-								</div>
-
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Status</label>
-									<select type="text" class="form-control" required style="padding-left: 5px;">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
-
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Onsite</label><br>
-									1253
-								</div>
-
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-4 ">
-								<h6 class="pull-right">Change to:</h6>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">New Status</label>
-									<select type="text" class="form-control" required style="padding-left: 5px;">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
-
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Qty to Change</label><br>
-									1253
-								</div>
-
-							</div>
-						</div> -->
 						<!-- od ovde-->
 
 									<div>
