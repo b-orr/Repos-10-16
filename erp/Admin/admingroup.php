@@ -165,8 +165,8 @@
 										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
 											<tbody>
 												<tr>
-													<td>Admin</td>
-													<td id="switch-1" style="width: 8%;">
+													<td  style="background-color: #f0efef; vertical-align: middle;"><b>Admin</b></td>
+													<td id="switch-1" style="width: 8%; background-color: #f0efef;">
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1">
 															<label class="onoffswitch-label" for="myonoffswitch1"> 
@@ -180,8 +180,8 @@
 										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
 											<tbody>
 												<tr>
-													<td>Estimating Area</td>
-													<td id="switch-1" style="width: 8%;">
+													<td style="background-color: #f0efef; vertical-align: middle;"><b>Estimating Area</b></td>
+													<td id="switch-1" style="width: 8%; background-color: #f0efef;">
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2">
 															<label class="onoffswitch-label" for="myonoffswitch2"> 
@@ -221,8 +221,8 @@
 										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
 											<tbody>
 												<tr>
-													<td>Resource Area</td>
-													<td id="switch-1" style="width: 8%;">
+													<td style="background-color: #f0efef; vertical-align: middle;"><b>Resource Area</b></td>
+													<td id="switch-1" style="width: 8%; background-color: #f0efef;">
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3">
 															<label class="onoffswitch-label" for="myonoffswitch3"> 
@@ -262,8 +262,8 @@
 										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
 											<tbody>
 												<tr>
-													<td>Contacts Area</td>
-													<td id="switch-1" style="width: 8%">
+													<td style="background-color: #f0efef; vertical-align: middle;"><b>Contacts Area</b></td>
+													<td id="switch-1" style="width: 8%;  background-color: #f0efef;">
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch4">
 															<label class="onoffswitch-label" for="myonoffswitch4"> 
@@ -288,8 +288,8 @@
 										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
 											<tbody>
 												<tr>
-													<td>Equipment Area</td>
-													<td id="switch-1" style="width: 8%;">
+													<td style="background-color: #f0efef; vertical-align: middle;"><b>Equipment Area</b></td>
+													<td id="switch-1" style="width: 8%;  background-color: #f0efef;">
 														<span class="onoffswitch">
 															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5">
 															<label class="onoffswitch-label" for="myonoffswitch5"> 
