@@ -584,7 +584,7 @@
 									CANCEL
 								</button>
 								<button type="button" class="btn btn-success">
-									ADD COMPANY
+									<b>ADD COMPANY</b>
 								</button>
 							</div>
 						</div><!-- /.modal-content -->
