@@ -28,4 +28,8 @@ class Permissions
   		return $list;
    
   	}
+  	
+  	public function doIHaveAccess() {
+  		return  \Request::route()->getName();
+  	}
 }

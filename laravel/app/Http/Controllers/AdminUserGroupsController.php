@@ -32,7 +32,10 @@ class AdminUserGroupsController extends Controller
  		   
     public function index()
     {
-        dd($this->prm->getList());
+ 
+        $this->data['lists'] = $this->prm->getList();
+        
+        return view('admin/usergroups/list', $this->data);
     }
 		
 		

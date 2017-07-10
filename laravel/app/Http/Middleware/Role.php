@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Permissions;
 use Illuminate\Support\Facades\Auth;
 
 class Role
@@ -23,13 +24,18 @@ class Role
         $user = Auth::user();
     
 
-    
+    		
+    		 //$prm = new Permissions;
+    		 //dd($prm->doIHaveAccess());
+    		
          foreach($roles as $role) {
             if($user->role == $role){
                 return $next($request);
             }
        
     		}
+    		
+    		
        return redirect('/');
     }
 }
