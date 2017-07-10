@@ -16,6 +16,7 @@ class Permissions
   		 	$segments =  explode('.', $route->getName());
   			
   			if(count($segments)==3){
+  				if($segments[2]!='store' && $segments[2]!='show' && $segments[2]!='update')
   				$list[$segments[0]][$segments[2]]='';
   			}
   			

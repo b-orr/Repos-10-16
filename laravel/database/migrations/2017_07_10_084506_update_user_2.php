@@ -16,7 +16,7 @@ class UpdateUser2 extends Migration
             Schema::table('users', function ($table) {
             		$table->string('title');
                 $table->integer('group_id');
-                $table->integer('area_id');
+                $table->integer('region_id');
                 $table->integer('active');
              
                 $table->index('group_id');
