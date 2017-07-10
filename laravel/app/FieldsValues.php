@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FieldsValues extends Model
 {
-    protected $table = 'fieldsValue';
+    protected $table = 'fields_value';
         
     protected $fillable = [
         'fields_id', 'value', 

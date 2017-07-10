@@ -13,7 +13,7 @@ class FieldsValues1 extends Migration
      */
      public function up()
         {
-            Schema::create('fieldsValue', function (Blueprint $table) {
+            Schema::create('fields_value', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('fields_id');
             $table->string('value');
@@ -28,7 +28,7 @@ class FieldsValues1 extends Migration
          */
         public function down()
         {
-            Schema::dropIfExists('fieldsValue');
+            Schema::dropIfExists('fields_value');
         }
     
 }
