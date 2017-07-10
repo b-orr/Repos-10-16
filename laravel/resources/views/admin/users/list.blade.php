@@ -97,7 +97,7 @@
 													<td>{{ $list->name }}</td>
 												 
 													<td>{{ $list->role }}</td>
-													<td>{{ $list->accessRegion->name }}</td>
+													<td>{{ @$list->accessRegion->name }}</td>
 													<td><a href="{{ url('/admin/users/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
 															
 															

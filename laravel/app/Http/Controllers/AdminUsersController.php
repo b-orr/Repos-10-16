@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Db;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +30,7 @@ class AdminUsersController extends Controller
     public function index()
     {
         $this->data['lists'] = User::where('parent_user_id', $this->user->id)->get();
+         
         
         $this->data['regions'] =  $this->user->regions;
         return view('admin/users/list', $this->data);
