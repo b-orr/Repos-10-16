@@ -166,7 +166,7 @@
 																			<i class="up_5 glyphicon glyphicon-minus"></i>
 																		</span>
 																	</button>
-																	<span class="description-name">HV</span>
+																	<span class="description-name">{{$c->name}}</span>
 																</td>
 
 																<!-- <td style="width:50px !important;"></td>
@@ -176,62 +176,57 @@
 																<td style="width:15px !important;"></td>
 															</tr>
 															<?php
+																$count1 = 1;
+																$num1 = 1;
+															?>
+															@foreach($c->subcategories as $key1 => $s)
+															<tr class="hide f-children first-child-<?php echo $num; ?> fchild">
+																<td style="width:10px !important; padding-left: 20px;">
+																	<button class="button btn btn-warning btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																		<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>_<?php echo$num1?>">
+																			<i class="up_5 glyphicon glyphicon-plus"></i>
+																		</span>
+																		<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>_<?php echo$num1?>">
+																			<i class="up_5 glyphicon glyphicon-minus"></i>
+																		</span>
+																	</button>
+																<span class="description-name">{{$s->name}}</span>
+																</td>
+																<!-- <td style="width:50px !important;" ></td>
+																<td style="width:60px !important;" ></td> -->
+																<td style="width:40px !important;" ></td>
+																<td style="width:15px !important;" ></td>
+																<td style="width:15px !important;"></td>
+															</tr>
+															<?php $count2 = 1;
+															 	$num2 = 1;
+																?>
+															@foreach($sub as $key2 => $val)
+																@foreach($val->equipment as $key3 => $e)
+																	@if($val->id == $s->id)
+																	<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
+																		<td style="width:10px !important; padding-left: 40px;">
+																			{{$e->name}}
+																		</td>
+																		<!-- <td style="width:60px !important;" ></td>
+																		<td style="width:15px !important;"></td> -->
+																		<td style="width:40px !important;" >{{$e->weight}}</td>
+																		<td style="width:15px !important;" >{{$e->notes}}</td>
+																		<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
+																	</tr>
+																	<?php $count2++; ?>
+																	@endif
+																@endforeach
+															@endforeach
+															<?php $num1++;
+															$count1++; ?>
+															@endforeach
+															<?php
 																$num++;
 																$count++;
 															?>
 														@endforeach
-													<?php
-															$count = 1;
-															$num = 1;
-															while ($count <= 4 ) { ?>
 
-													<?php
-																$count1 = 1;
-																$num1 = 1;
-																while ($count1 <= 3 ) { ?>
-																	<tr class="hide f-children first-child-<?php echo $num; ?> fchild">
-																		<td style="width:10px !important; padding-left: 20px;">
-																			<button class="button btn btn-warning btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>_<?php echo$num1?>">
-																					<i class="up_5 glyphicon glyphicon-plus"></i>
-																				</span>
-																				<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>_<?php echo$num1?>">
-																					<i class="up_5 glyphicon glyphicon-minus"></i>
-																				</span>
-																			</button>
-																		<span class="description-name">Main Beams</span>
-																		</td>
-																		<!-- <td style="width:50px !important;" ></td>
-																		<td style="width:60px !important;" ></td> -->
-																		<td style="width:40px !important;" ></td>
-																		<td style="width:15px !important;" ></td>
-																		<td style="width:15px !important;"></td>
-																	</tr>
-													<?php
-																$count2 = 1;
-																$num2 = 1;
-																while ($count2 <= 6 ) { ?>
-																	<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
-																		<td style="width:10px !important; padding-left: 40px;">
-																			Main Beams 3' 9''
-																		</td>
-																		<!-- <td style="width:60px !important;" ></td>
-																		<td style="width:15px !important;"></td> -->
-																		<td style="width:40px !important;" ></td>
-																		<td style="width:15px !important;" ></td>
-																		<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
-																	</tr>
-
-																<?php $count2++; } ?>
-
-
-																<?php $count1++;
-																	$num1++; } ?>
-
-															<?php
-															$num++;
-															$count = $count + 1;
-															 } ?>
 													</tbody>
 
 													</table>
@@ -555,7 +550,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="input" style="font-weight: bold;">Category Name</label>
-											<input type="text" class="form-control" name="name">
+											<input type="text" class="form-control" name="name" required>
 										</div>
 
 									</div>
@@ -563,7 +558,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<label class="input" style="font-weight: bold;">Allocation UOM</label>
-											<input type="text" class="form-control" name="allocation_uom">
+											<input type="text" class="form-control" name="allocation_uom" required>
 										</div>
 
 									</div>

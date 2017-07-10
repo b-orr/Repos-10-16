@@ -14,12 +14,12 @@ class SubCategories extends Model
 
   public function category()
   {
-      return $this->belongsTo('App\Categories');
+      return $this->belongsTo('App\Category');
   }
 
   public function equipment()
   {
-      return $this->hasMany('App\RegionEquipment');
+      return $this->hasMany('App\RegionEquipment', 'sub_category_id');
   }
 
 }
