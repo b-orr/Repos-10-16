@@ -13,7 +13,7 @@
 						<a href="{{ url('admin/regions') }}"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Regions</span></a>
 					</li>
 					<li>
-						<a href="{{ url('admin/categories') }}"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Categories</span></a>
+						<a href="{{ url('admin/fields') }}"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Fields Manager</span></a>
 					</li>
 					<li>
 						<a href="{{ url('admin/user_groups') }}"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">User Groups</span></a>

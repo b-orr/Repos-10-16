@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'company', 'phone1', 'phone2', 'address', 'city', 'state', 'zip', 'last_name'
+        'name', 'email', 'password', 'role', 'company', 'phone1', 'phone2', 'address', 'city', 'state', 'zip', 'last_name', 'title', 'group_id', 'area_id', 'active', 'parent_user_id'
     ];
     
     
@@ -41,5 +41,15 @@ class User extends Authenticatable
     public function regions()
     {
         return $this->hasMany('App\Regions');
+    }
+    
+    public function accessRegion()
+    {
+        return $this->hasOne('App\Regions', 'id');
+    }
+    
+    public function fields()
+    {
+        return $this->hasMany('App\Fields');
     }
 }

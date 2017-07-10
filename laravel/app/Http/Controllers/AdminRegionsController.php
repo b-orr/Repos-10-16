@@ -10,11 +10,17 @@ class AdminRegionsController extends Controller
 {
     
     public $data;
+    public $user;
     
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
+        
+        $this->middleware(function ($request, $next) {
+                $this->user= Auth::user();
+                return $next($request);
+        });
         
         $this->data['site_area']='Admin';
      
@@ -23,7 +29,7 @@ class AdminRegionsController extends Controller
     
     public function index()
     {
-        $this->data['lists'] = Auth::user()->regions;
+        $this->data['lists'] = $this->user->regions;
         return view('admin/region/list', $this->data);
     }
  
@@ -32,7 +38,7 @@ class AdminRegionsController extends Controller
     {
         $this->validate($request, [ 'name' => 'required']);
           
-        Auth::user()->regions()->save(new Regions($request->all()));
+        $this->user->regions()->save(new Regions($request->all()));
         
         return redirect('/admin/regions');
     }
@@ -40,7 +46,7 @@ class AdminRegionsController extends Controller
     
     public function edit($regions)
     {
-        $this->data['region']=Auth::user()->regions()->find($regions);
+        $this->data['region']=$this->user->regions()->find($regions);
         
          if(!empty($this->data['region'])){
          	return view('admin/region/edit', $this->data);
@@ -52,7 +58,7 @@ class AdminRegionsController extends Controller
     
     public function update(Request $request, $regions)
     {
-        Auth::user()->regions()->find($regions)->update($request->all());
+        $this->user->regions()->find($regions)->update($request->all());
         
         return redirect('/admin/regions');
     }
@@ -60,7 +66,7 @@ class AdminRegionsController extends Controller
      
     public function destroy($regions)
     {
-        Auth::user()->regions()->find($regions)->delete();
+        $this->user->regions()->find($regions)->delete();
         
         return redirect('/admin/regions');
     }
