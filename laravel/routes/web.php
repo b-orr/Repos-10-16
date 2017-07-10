@@ -40,7 +40,7 @@ Route::get('home', 'ProjectController@index');
 |--------------------------------------------------------------------------
 */
 
-Route::resource('admin/regions', 'AdminRegionsController');
+Route::resource('admin/regions', 'AdminRegionsController', [ 'as' => 'Admin - Regions' ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +48,8 @@ Route::resource('admin/regions', 'AdminRegionsController');
 |--------------------------------------------------------------------------
 */
 
-Route::resource('admin/fields', 'AdminFieldsController');
-Route::resource('admin/fieldsValue', 'AdminFieldsValueController');
+Route::resource('admin/fields', 'AdminFieldsController', [ 'as' => 'Admin - Fields Management' ]);
+Route::resource('admin/fieldsValue', 'AdminFieldsValueController', [ 'as' => 'Admin - Fields Management Value' ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +57,15 @@ Route::resource('admin/fieldsValue', 'AdminFieldsValueController');
 |--------------------------------------------------------------------------
 */
 
-Route::resource('admin/users', 'AdminUsersController');
+Route::resource('admin/users', 'AdminUsersController', [ 'as' => 'Admin - Users' ]);
+
+/*
+|--------------------------------------------------------------------------
+| Admin user groups
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Admin - User Groups' ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -65,26 +73,26 @@ Route::resource('admin/users', 'AdminUsersController');
 |--------------------------------------------------------------------------
 */
 
-Route::resource('project/{id}/drawings', 'DrawingsController');
+Route::resource('project/{id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Main' ]);
 
 /*
 |--------------------------------------------------------------------------
 | Main Equipment
 |--------------------------------------------------------------------------
 */
-Route::get('equipment/forecasting', 'EquipmentController@forecasting');
-Route::get('equipment/rental', 'EquipmentController@rental');
-Route::get('equipment/allocation', 'EquipmentController@allocation');
-Route::get('equipment/inventory', 'EquipmentController@inventory');
+Route::get('equipment/forecasting', 'EquipmentController@forecasting')->name('Equpment - Forecasting');
+Route::get('equipment/rental', 'EquipmentController@rental')->name('Equpment - Rental');
+Route::get('equipment/allocation', 'EquipmentController@allocation')->name('Equpment - Allocation');
+Route::get('equipment/inventory', 'EquipmentController@inventory')->name('Equpment - Inventory');
 
 // project equipment routes
-Route::get('project/approvetruck', 'EquipmentController@approvetruck');
+Route::get('project/approvetruck', 'EquipmentController@approvetruck')->name('Equpment - Approvetruck');
 
 
-Route::get('equipment/overview', 'EquipmentController@index');
+Route::get('equipment/overview', 'EquipmentController@index')->name('Equpment - Overview');
 
-Route::resource('/equipment/eqmanagement', 'CategoryController');
+Route::resource('/equipment/eqmanagement', 'CategoryController', [ 'as' => 'Equpment - Management' ]);
 
-Route::resource('/equipment/subcategories', 'SubCategoryController');
+Route::resource('/equipment/subcategories', 'SubCategoryController', [ 'as' => 'Equpment - Subcategories' ]);
 
-Route::resource('/equipment/regionequipment', 'RegionEquipmentcontroller');
+Route::resource('/equipment/regionequipment', 'RegionEquipmentcontroller', [ 'as' => 'Equpment - Regions' ]);
