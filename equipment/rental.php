@@ -206,7 +206,7 @@
 			
 													<div class="widget-body">
 														<div class="row col-lg-12" style="margin: 0px;">
-															<button class="btn btn-primary form-control" data-target="#myModal2" data-toggle="modal">New Rental PO</button>
+															<button class="btn btn-success form-control" data-target="#myModal2" data-toggle="modal">New Rental PO</button>
 														</div>
 													</div>
 												</div>
@@ -306,7 +306,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>

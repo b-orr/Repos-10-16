@@ -10,7 +10,7 @@
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon">
+			<div id="ribbon" style="background-color: white;">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -20,7 +20,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Admin</li><li>Regions</li>
+					<li style="color: black;">Admin</li><li style="color: black;">Regions</li>
 				</ol>
 				<!-- end breadcrumb -->
 
