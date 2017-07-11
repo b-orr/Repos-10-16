@@ -306,74 +306,16 @@
 			<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
-						<div class="modal-header" style="background-color: #404040;">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								&times;
-							</button>
-							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Edit Equipment Type</h4>
-						</div>
-						<div class="modal-body">
-						<!-- 	<div>
-							<strong>
-								HV-MAIN BEAM 5' 7''
-							</strong>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Owner</label>
-									<input type="text" class="form-control" required style="padding-left: 5px;" />
-								</div>
-
+						<form class="form-horizontal">
+							<div class="modal-header" style="background-color: #404040;">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Edit Equipment Type</h4>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Status</label>
-									<select type="text" class="form-control" required style="padding-left: 5px;">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
 
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Onsite</label><br>
-									1253
-								</div>
-
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-4 ">
-								<h6 class="pull-right">Change to:</h6>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">New Status</label>
-									<select type="text" class="form-control" required style="padding-left: 5px;">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
-
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="input" style="font-weight: bold;">Qty to Change</label><br>
-									1253
-								</div>
-
-							</div>
-						</div> -->
-						<!-- od ovde-->
-
-									<div>
+							<div class="modal-body">
+								<div>
 									<strong>
 										<legend>Select storage location & name</legend>
 									</strong>
@@ -388,7 +330,6 @@
 													</select>
 												</div>
 											</div>
-
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
@@ -398,10 +339,8 @@
 													</select>
 												</div>
 											</div>
-
 										</div>
 									</div>
-
 									<div class="col-md-5">
 										<div class="form-group">
 											<div class="col-md-12">
@@ -409,7 +348,6 @@
 													<input type="text" name="eqName" class="form-control">
 												</div>
 										</div>
-
 									</div>
 								</div>
 								<div class="row">
@@ -514,17 +452,13 @@
 										</fieldset>
 									</div>
 								</div>
-
-						<!--do ovde-->
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Cancel
-							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
-								Save
-							</button>
-						</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Cancel
+								</button>
+								<label for="pdfUpload" class="btn btn-success" data-dismiss="modal">Save</label>
+							</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
@@ -563,10 +497,10 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal">
+							<button type="button" class="btn btn-success" data-dismiss="modal">
 								Save
 							</button>
-							<button type="button" class="btn btn-primary" id="saveandadd">
+							<button type="button" class="btn btn-success" id="saveandadd">
 								Save and add new category
 							</button>
 						</div>
@@ -777,7 +711,7 @@
 								<button type="button" class="btn btn-default" data-dismiss="modal">
 									Cancel
 								</button>
-								<label for="pdfUpload" class="btn btn-primary" data-dismiss="modal">Save</label>
+								<label for="pdfUpload" class="btn btn-success" data-dismiss="modal">Save</label>
 							</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->

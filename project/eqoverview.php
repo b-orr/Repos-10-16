@@ -335,7 +335,165 @@
 		you can add as many as you like
 		-->
 						
-						
+				<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<form class="form-horizontal">
+							<div class="modal-header" style="background-color: #404040;">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Edit Equipment Type</h4>
+							</div>
+
+							<div class="modal-body">
+								<div>
+									<strong>
+										<legend>Select storage location & name</legend>
+									</strong>
+								</div>
+								<div class="row">
+									<div class="row col-lg-7">
+										<div class="col-md-6">
+											<div class="form-group">
+												<div class="col-md-12">
+													<label class="input" style="font-weight: bold;">Classification</label>
+													<select class="form-control">
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<div class="col-md-12">
+													<label class="input" style="font-weight: bold;">Category</label>
+													<select class="form-control">
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label class="input" style="font-weight: bold;">Equipment Name</label><br>
+													<input type="text" name="eqName" class="form-control">
+												</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<fieldset>
+											<legend>Equipment Data</legend>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Manufacturer</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Model Number</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">UPC Number</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Weight</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Items per Unit</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Notes</label>
+												<div class="col-md-8">
+													<input class="form-control" type="text">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-4 control-label">Item Type</label>
+												<div class="col-md-8">
+													<label class="radio radio-inline">
+
+															<input type="radio" class="radiobox" name="itemType">
+															<span>Unique</span>
+
+														</label>
+													<label class="radio radio-inline">
+
+															<input type="radio" class="radiobox" name="itemType">
+															<span>General</span>
+
+														</label>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+									<div class="col-lg-6">
+										<fieldset>
+											<legend>Options</legend>
+											<div class="form-group">
+												<div class="col-md-10" style="margin: -10px 0px 0px 10px;">
+													<div class="checkbox">
+														<label>
+														  <input type="checkbox" class="checkbox style-0">
+														  <span>Track as Forecasted Item</span>
+														</label>
+													</div>
+
+													<div class="checkbox">
+														<label>
+														  <input type="checkbox" class="checkbox style-0" >
+														  <span>Track as Allocated Item</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+											<br>
+												<label class="col-md-4 control-label" style="margin-top: 15px;">Allocated Qty Calc</label>
+												<div class="col-md-3">
+													<small>Item multiplier</small>
+													<input class="form-control" type="text">
+												</div>
+												<label class="col-md-1" style="margin-top: 20px;">SF</label>
+											</div>
+											<input type="submit" class="btn btn-primary hidden" id="pdfUpload" />
+
+											</form>
+											<section>
+												<div class="form-group">
+													<label class="input" style="font-weight: bold;">Upload Picture</label><small class="font-xs"> (Click below to open File Explorer)</small><br>
+													<div class="col-lg-12">
+														<form action="upload.php" class="dropzone" id="mydropzone"></form>
+													</div>
+												</div>
+											</section>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Cancel
+								</button>
+								<label for="pdfUpload" class="btn btn-success" data-dismiss="modal">Save</label>
+							</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div>		
 	
 		
 		<!--================================================== -->

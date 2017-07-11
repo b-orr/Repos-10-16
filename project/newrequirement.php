@@ -477,7 +477,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -592,7 +592,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -668,7 +668,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
+							<button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
 								Save
 							</button>
 						</div>

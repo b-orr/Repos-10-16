@@ -181,7 +181,7 @@
 														<div class="col-md-9">
 															<section>
 																<div class="inline-group smart-form">
-																	<div class="col-lg-3">
+																	<div class="col-lg-4">
 																		<label class="radio">
 																		<input type="radio" name="radio-inline1" checked="checked">
 																		<i></i>Need</label>
@@ -208,7 +208,7 @@
 														<div class="col-md-9">
 															<section>
 																<div class="inline-group smart-form">
-																	<div class="col-lg-3">
+																	<div class="col-lg-4">
 																		<label class="radio">
 																		<input type="radio" name="radio-inline" checked="checked">
 																		<i></i>Estimate</label>
@@ -481,7 +481,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -596,7 +596,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -672,7 +672,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
+							<button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
 								Save
 							</button>
 						</div>
