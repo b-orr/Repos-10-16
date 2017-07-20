@@ -75,13 +75,13 @@ Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Adm
 |--------------------------------------------------------------------------
 */
 
-Route::resource('drawings', 'DrawingsController', [ 'as' => 'Drawings' ]);
+//Route::resource('drawings', 'DrawingsController', [ 'as' => 'Drawings' ]);
 
 //Route::get('drawings/layout', 'DrawingsController@layout')->name('Drawings - Layout');
 //Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
 
 
-Route::resource('project/{id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Main' ]);
+Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings - Main' ]);
 Route::get('project/overview', 'ProjectController@projectOverview');
 /*
 |--------------------------------------------------------------------------

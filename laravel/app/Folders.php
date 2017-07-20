@@ -18,7 +18,12 @@ class Folders extends Model
     public function drawings()
     {
       return $this->hasMany('App\Drawings');
-    }    
+    }
+    
+    public function project()
+	  {
+	   	return $this->belongsTo('App\Projects', 'pj_project_id');
+	  }   
     
 
 }

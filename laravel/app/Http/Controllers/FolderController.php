@@ -2,29 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Fields;
+use App\FieldsValues;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FolderController extends Controller
 {
     	public $data;
-		
+    	public $user;
+    			
 		public function __construct()
 		{
 		    $this->middleware('auth');
 		    $this->middleware('role:super,tenant');
 		    
+		    $this->middleware(function ($request, $next) {
+		            $this->user= Auth::user();
+		            return $next($request);
+		    });
+		    
 		    $this->data['site_area']='Projects';
 		 
 		}
 		
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+     
+    public function index($id)
     {
-        
+         dd($this->user->projects->find($id)->folders);
     }
 
     /**
