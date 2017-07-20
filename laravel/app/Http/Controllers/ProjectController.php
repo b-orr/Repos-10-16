@@ -21,4 +21,9 @@ class ProjectController extends Controller
     {
         return view('project/list', $this->data);
     }
+
+    public function projectOverview()
+    {
+        return view('project.overview', $this->data);
+    }
 }

@@ -82,7 +82,7 @@ Route::resource('drawings', 'DrawingsController', [ 'as' => 'Drawings' ]);
 
 
 Route::resource('project/{id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Main' ]);
-
+Route::get('project/overview', 'ProjectController@projectOverview');
 /*
 |--------------------------------------------------------------------------
 | Main Equipment

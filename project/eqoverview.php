@@ -114,7 +114,7 @@
 											<tr>
 												<td></td>
 												<td><a href="newtransfer.php">To Yard 330 - 06/15/2017</a></td>
-												<td>Phase 4 - West Pour 5 07/15/2017</td>
+												<td><a href="newrequirement.php">Phase 4 - West Pour 5 07/15/2017</a></td>
 											</tr>
 										</table>
 										
