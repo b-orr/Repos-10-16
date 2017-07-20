@@ -81,8 +81,12 @@ Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Adm
 //Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
 
 
-Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings - Main' ]);
+Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings - Folder' ]);
+Route::resource('project/{id}/folders/{folder_id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Drawings' ]);
+
 Route::get('project/overview', 'ProjectController@projectOverview');
+
+
 /*
 |--------------------------------------------------------------------------
 | Main Equipment

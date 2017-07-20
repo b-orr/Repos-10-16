@@ -17,7 +17,7 @@ class Folders extends Model
 
     public function drawings()
     {
-      return $this->hasMany('App\Drawings');
+      return $this->hasMany('App\Drawings', 'drw_folder_id');
     }
     
     public function project()

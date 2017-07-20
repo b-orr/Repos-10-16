@@ -29,7 +29,11 @@ class FolderController extends Controller
      
     public function index($id)
     {
-         dd($this->user->projects->find($id)->folders);
+         //dd($this->user->projects->find($id)->folders);
+
+        $this->data['folders'] = $this->user->projects->find($id)->folders;
+
+        return view('drawings/layout', $this->data);
     }
 
     /**

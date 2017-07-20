@@ -14,6 +14,7 @@ class DrawingsController extends Controller
         public $folders;
         public $drawings;
         public $data;
+        public $user;
 
 	public function __construct()
     {
@@ -35,12 +36,15 @@ class DrawingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id,$folder_id)
     {
         $this->data['site_area'] = 'Drawings';
 
+        $this->data['drawings'] = $this->user->projects->find($id)->folders->find($folder_id)->drawings;
+
+       
                             
-        return view('drawings.layout', $this->data);
+        return view('drawings.drawingList', $this->data);
        
     }
 

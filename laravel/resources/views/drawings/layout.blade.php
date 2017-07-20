@@ -125,6 +125,8 @@
 		}
 
 	</style>
+
+
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
@@ -176,9 +178,10 @@
 											<div class="widget-body">
 					
 												<ul class="bs-glyphicons" id="folderList">
-													<a href="{{ url('drawings/list') }}" class="txt-color-darken">
+													@foreach($folders as $key => $value)
+													<a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/drawings') }}" class="txt-color-darken">
 														<li class="folder-li" style="">
-															<h4 class="glyphicon-class " style="">Contract Documents</h4>
+															<h4 class="glyphicon-class " style="">{{ $value->folder_name }}</h4>
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
@@ -190,7 +193,7 @@
 															</div>
 														</li>
 													</a>
-													
+													@endforeach
 													
 													
 
