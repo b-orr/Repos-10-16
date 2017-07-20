@@ -3,20 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Drawings extends Model
 {
-    protected $table = 'drawings';
+    protected $table = 'drw_drawings';
     
-    /*
+    
     protected $fillable = [
-        'user_id', 'name',
+        'drawing_name', 'description', 'revisited_num', 'drawing_date'
     ];
+
+
+    public function folders()
+    {
+      return $this->belongsTo('App\Folders');
+    }  
+
+
+        
     
-    
-    public function user()
-    	{
-    	   return $this->belongsTo('App\User');
-    	}
-    	*/
 }

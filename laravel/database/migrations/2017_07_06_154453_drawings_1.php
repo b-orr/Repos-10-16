@@ -13,11 +13,9 @@ class Drawings1 extends Migration
      */
     public function up()
     {
-   		 Schema::create('drawings', function (Blueprint $table) {
-               $table->increments('id');
-             
-           });
-       }
+   		    Schema::dropIfExists('drawings');          
+    
+    }
    
        /**
         * Reverse the migrations.

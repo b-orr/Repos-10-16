@@ -2,33 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Drawings;
-use App\Folders;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use DB;
 
-class DrawingsController extends Controller
+class FolderController extends Controller
 {
-
-        public $folders;
-        public $drawings;
-        public $data;
-
-	public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:super,tenant');
-        
-        $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
-                return $next($request);
-        });
-        
-        
-        $this->data['site_area']='Admin';
-     
-    }
+    	public $data;
+		
+		public function __construct()
+		{
+		    $this->middleware('auth');
+		    $this->middleware('role:super,tenant');
+		    
+		    $this->data['site_area']='Projects';
+		 
+		}
 		
     /**
      * Display a listing of the resource.
@@ -37,11 +24,7 @@ class DrawingsController extends Controller
      */
     public function index()
     {
-        $this->data['site_area'] = 'Drawings';
-
-                            
-        return view('drawings.layout', $this->data);
-       
+        
     }
 
     /**
@@ -71,13 +54,9 @@ class DrawingsController extends Controller
      * @param  \App\Drawings  $drawings
      * @return \Illuminate\Http\Response
      */
-    public function show($location)
+    public function show(Drawings $drawings)
     {
-
-
-        $this->data['site_area'] = 'Drawings';
-
-        return view('drawings/' . $location , $this->data);
+        //
     }
 
     /**
@@ -113,6 +92,4 @@ class DrawingsController extends Controller
     {
         //
     }
-
-    
 }

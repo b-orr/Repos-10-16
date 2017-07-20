@@ -67,11 +67,19 @@ Route::resource('admin/users', 'AdminUsersController', [ 'as' => 'Admin - Users'
 
 Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Admin - User Groups' ]);
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Drawings
 |--------------------------------------------------------------------------
 */
+
+Route::resource('drawings', 'DrawingsController', [ 'as' => 'Drawings' ]);
+
+//Route::get('drawings/layout', 'DrawingsController@layout')->name('Drawings - Layout');
+//Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
+
 
 Route::resource('project/{id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Main' ]);
 
@@ -80,6 +88,7 @@ Route::resource('project/{id}/drawings', 'DrawingsController', [ 'as' => 'Drawin
 | Main Equipment
 |--------------------------------------------------------------------------
 */
+
 Route::get('equipment/forecasting', 'EquipmentController@forecasting')->name('Equpment - Forecasting');
 Route::get('equipment/rental', 'EquipmentController@rental')->name('Equpment - Rental');
 Route::get('equipment/allocation', 'EquipmentController@allocation')->name('Equpment - Allocation');
