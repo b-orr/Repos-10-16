@@ -51,7 +51,7 @@
  									
  								-->
  								<header>
- 									<span class="widget-icon"> <i class="fa fa-arrows-v"></i> </span>
+ 									
  									<h2 class="font-md">Project List</h2>				
  									
  								</header>
@@ -81,7 +81,7 @@
  											<tbody>
  												<tr>
  													<td>1</td>
- 													<td><a href="drawings/layout1.php">Ramble Hotel</a></td>
+ 													<td><a href="{{ url('project/overview') }}">Ramble Hotel</a></td>
  													<td>Sprung Construction</td>
  													<td>Test Address</td>
  													<td>City</td>

@@ -56,18 +56,6 @@
 				<ol class="breadcrumb">
 					<li style="color: black;">Equipment</li><li style="color: black;">Equipment List</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
@@ -75,7 +63,7 @@
 
 
 			<!-- MAIN CONTENT -->
-			<div id="content" style="padding: 2px 0px 0px 2px;">
+			<div id="content" style="padding: 0px 0px 0px 2px;">
 				<!-- end row -->
 				<section id="widget-grid">
 					

@@ -27,7 +27,7 @@
 			padding: 2px 5px;
 		}
 		.form-group {
-			margin-bottom: 0px;
+			margin-bottom: 5px;
 		}
 		@media (min-width: 768px){
 			.form-horizontal .control-label {
