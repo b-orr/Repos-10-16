@@ -114,12 +114,12 @@ class FolderController extends Controller
      * @param  \App\Drawings  $drawings
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $folder_id)
+    public function destroy($id, $folder)
     {
         
-        dd('hello');
+        //dd('hello');
 
-
+        $this->user->projects->find($id)->folders->find($folder)->delete();
 
         return redirect('/project/1/folders');
     }

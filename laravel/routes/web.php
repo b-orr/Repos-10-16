@@ -85,7 +85,7 @@ Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Adm
 
 Route::resource('project/{id}/folders/{folder_id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Drawings' ]);
 
-Route::resource('project/{id}/folders/', 'FolderController', [ 'as' => 'Drawings - Folder' ]);
+Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings - Folder' ]);
 
 
 
