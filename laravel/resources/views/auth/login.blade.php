@@ -68,12 +68,12 @@
 			}
 			@media (max-width: 1366px){
 				#main {
-				background-image: url('../public/assets/img/login_background_img.jpg');
+				background-image: url('assets/img/login_background_img.jpg');
 				}
 			}
 			@media (min-width: 1367px){
 				#main {
-					background-image: url('../public/assets/img/login_background_img.jpg');
+					background-image: url('assets/img/login_background_img.jpg');
 					min-height: 912px !important;
 
 				}
