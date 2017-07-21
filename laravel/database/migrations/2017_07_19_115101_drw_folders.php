@@ -18,6 +18,7 @@ class DrwFolders extends Migration
                $table->increments('id');
                $table->integer('pj_project_id');
                $table->string('folder_name');
+               $table->string('folder_description');
                $table->integer('last_change_user_id');
                $table->timestamps();
             });

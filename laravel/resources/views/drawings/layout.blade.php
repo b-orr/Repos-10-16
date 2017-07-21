@@ -179,9 +179,11 @@
 					
 												<ul class="bs-glyphicons" id="folderList">
 													@foreach($folders as $key => $value)
-													<a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/drawings') }}" class="txt-color-darken">
+													<a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/drawings') }}" class="txt-color-darken" style="z-index:1000">
 														<li class="folder-li" style="">
-															<h4 class="glyphicon-class " style="">{{ $value->folder_name }}</h4>
+														<div class="row" style="display:inline">
+															<h4 class="glyphicon-class " style="display:inline">{{ $value->folder_name }}</h4><form action="" method="POST"  style="display: inline;"><a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id) }}" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o pull-right" style="position:relative;margin-right:10px;bottom:1px;"></i></a>{{ method_field('DELETE') }} {{ csrf_field() }} <a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/edit') }}"><i class="fa fa-edit pull-right"></i></a></form>
+														</div>
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
@@ -216,7 +218,7 @@
 				</section>
 				<!-- end widget grid -->
 					<!-- end widget grid -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-sm">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -225,18 +227,31 @@
 								</button>
 								<h4 class="modal-title" id="myModalLabel">Create New Folder</h4>
 							</div>
+
+									@if (count($errors) > 0)
+									    <div class="alert alert-danger">
+									        <ul>
+									            @foreach ($errors->all() as $error)
+									                <li>{{ $error }}</li>
+									            @endforeach
+									        </ul>
+									    </div>
+									@endif
 							
 									<div class="modal-body">
-										<form class="smart-form">
+										<form   role="form" method="POST" action="{{ url('project/' . $project_id->id . '/folders' ) }}">
+										{{ csrf_field() }}
+										<input type="hidden" name="pj_project_id" value="{{ $project_id->id }}">
+										<input type="hidden" name="last_change_user_id" value="{{ $project_id->user_id }}">
 										<div class="row"  style="display: flex; justify-content: center;">
 											<div class="col-md-10">
 												<div class="form-group">
 													<label class="input">Name</label>
-													<input type="text" class="form-control" name="folderName" required style="padding-left: 5px;" />
+													<input type="text" class="form-control" name="folder_name" required style="padding-left: 5px;" />
 												</div><br>
 												<div class="form-group">
 													<label class="input">Description</label>
-													<input type="text" class="form-control" name="folderDesc" required style="padding-left: 5px;" />
+													<input type="text" class="form-control" name="folder_description" required style="padding-left: 5px;" />
 												</div>
 												</section>
 											</div>
@@ -246,7 +261,7 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">
 											Cancel
 										</button>
-										<button type="button" id="createFolder" class="btn btn-primary" data-dismiss="modal">
+										<button type="submit" id="createFolder-1" class="btn btn-primary" >
 											Create
 										</button>
 									</div>

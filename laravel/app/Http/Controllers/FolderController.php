@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fields;
 use App\FieldsValues;
+use App\Folders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,6 +12,7 @@ class FolderController extends Controller
 {
     	public $data;
     	public $user;
+        public $folder;
     			
 		public function __construct()
 		{
@@ -33,6 +35,8 @@ class FolderController extends Controller
 
         $this->data['folders'] = $this->user->projects->find($id)->folders;
 
+        $this->data['project_id'] = $this->user->projects->find($id);
+
         return view('drawings/layout', $this->data);
     }
 
@@ -52,9 +56,22 @@ class FolderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
+
+        
+        $this->validate($request, [
+            'pj_project_id' => 'required',
+            'last_change_user_id' => 'required',
+            'folder_name' => 'required',
+            'folder_description' => 'required',
+            ]);
+
+        
+
+        $this->user->projects->find($id)->folders()->save(new Folders($request->all()));
+        
+        return redirect('/project/1/folders');
     }
 
     /**
@@ -76,7 +93,7 @@ class FolderController extends Controller
      */
     public function edit(Drawings $drawings)
     {
-        //
+        dd('edit page');
     }
 
     /**
@@ -97,8 +114,13 @@ class FolderController extends Controller
      * @param  \App\Drawings  $drawings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Drawings $drawings)
+    public function destroy($id, $folder_id)
     {
-        //
+        
+        dd('hello');
+
+
+
+        return redirect('/project/1/folders');
     }
 }
