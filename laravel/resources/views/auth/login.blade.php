@@ -52,24 +52,49 @@
 		<link rel="apple-touch-startup-image" href="{{ url('/assets/img/splash/iphone.png') }}" media="screen and (max-device-width: 320px)">
 
 	</head>
-	
+	<style type="text/css">
+			#header {
+				border-bottom: 2px solid #999999 !important;
+			}
+
+			#logo {
+				margin-top: 12px;
+			}
+			#mcclone-logo {
+				width: 205px;
+			}
+			#mainForm {
+				margin-top: 20%;
+			}
+			@media (max-width: 1366px){
+				#main {
+				background-image: url('../public/assets/img/login_background_img.jpg');
+				}
+			}
+			@media (min-width: 1367px){
+				#main {
+					background-image: url('../public/assets/img/login_background_img.jpg');
+					min-height: 912px !important;
+
+				}
+			}
+		</style>
 	<body class="animated fadeInDown">
 
 		<header id="header">
-
 			<div id="logo-group">
-				<span id="logo"> <img src="{{ url('/assets/img/logo.png') }}" alt="SmartAdmin"> </span>
+				<span id="logo"> <img src="{{ url('/assets/img/logo.png') }}" id="mcclone-logo" alt="SmartAdmin"> </span>
 			</div>
 
 
 		</header>
 
-		<div id="main" role="main">
+		<div id="main" role="main" style="">
 
 			<!-- MAIN CONTENT -->
-			<div id="content" class="container">
+			<div id="content" class="container" style="">
 
-				<div class="row">
+				<div class="row" id="mainForm">
 					
 					<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 						<div class="well no-padding">
