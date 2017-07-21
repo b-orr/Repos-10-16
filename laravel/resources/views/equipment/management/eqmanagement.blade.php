@@ -505,6 +505,7 @@
 										<div class="form-group">
 											<label class="input" style="font-weight: bold;">Category</label>
 											<select class="form-control" name="category_id">
+													<option value="0">Pick a category </option> 
 												@foreach($categories as $key => $c)
 													<option value="{{$c->id}}">{{$c->name}}</option>
 												@endforeach
