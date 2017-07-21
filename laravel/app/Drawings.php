@@ -18,7 +18,10 @@ class Drawings extends Model
     public function folders()
     {
       return $this->belongsTo('App\Folders');
-    }  
+    }
+
+
+
 
 
         

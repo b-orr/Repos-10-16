@@ -186,7 +186,7 @@
 												<p>
 													Addendum #1<span class="txt-color-green"></span>
 													<span class="txt-color-green"><i class="fa fa-check"></i></span>
-													<a class="btn btn-danger btn-xs pull-right" href="processDrawing.php" style="margin: 0;">Process Now</a>
+													<a class="btn btn-danger btn-xs pull-right" href="{{ url('drawings/processDrawings') }}" style="margin: 0;">Process Now</a>
 												</p>
 											</div>
 										</div>
@@ -447,7 +447,7 @@
 				var htmlstrDone = 'Addendum #'+uploadedFilesCount+'<span class="txt-color-green"></span>';
 
 				htmlstrDone += '<span class="txt-color-green"><i class="fa fa-check"></i></span>';
-				htmlstrDone += '<a class="btn btn-danger btn-xs pull-right" href="processDrawing.php" style="margin: 0;">Process Now</a>';
+				htmlstrDone += '<a class="btn btn-danger btn-xs pull-right" href="{{ url("drawings/processDrawings") }}" style="margin: 0;">Process Now</a>';
 
 				$('.widget-body-toolbar').append(htmlstr);
 
