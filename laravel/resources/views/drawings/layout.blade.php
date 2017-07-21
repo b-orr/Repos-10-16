@@ -182,7 +182,7 @@
 													<a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/drawings') }}" class="txt-color-darken" style="z-index:1000">
 														<li class="folder-li" style="">
 														<div class="row" style="display:inline">
-															<h4 class="glyphicon-class " style="display:inline">{{ $value->folder_name }}</h4><form action="" method="POST"  style="display: inline;"><a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id) }}" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o pull-right" style="position:relative;margin-right:10px;bottom:1px;"></i></a>{{ method_field('DELETE') }} {{ csrf_field() }} <a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/edit') }}"><i class="fa fa-edit pull-right"></i></a></form>
+															<h4 class="glyphicon-class " style="display:inline">{{ $value->folder_name }}</h4>
 														</div>
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
