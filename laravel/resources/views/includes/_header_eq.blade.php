@@ -246,7 +246,7 @@
 						<a href="{{ url('/home') }}">Projects</a>
 					</li>
 					<li>
-						<a href="../equipment/eqoverview.php">Equipment</a>
+						<a href="{{ url('/equipment/overview') }}">Equipment</a>
 					</li>
 					<li>
 						<a href="../erp/Contacts/contactslist.php">Contacts</a>
