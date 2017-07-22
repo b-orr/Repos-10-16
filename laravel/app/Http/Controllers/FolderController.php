@@ -91,9 +91,17 @@ class FolderController extends Controller
      * @param  \App\Drawings  $drawings
      * @return \Illuminate\Http\Response
      */
-    public function edit(Drawings $drawings)
+    public function edit($id, $folder)
     {
-        dd('edit page');
+        //dd('edit page');
+
+        $this->data['project_id'] = $this->user->projects->find($id);
+
+        $this->data['folders'] = $this->user->projects->find($id)->folders->find($folder);
+
+        //dd($this->data['folders']);
+
+        return view('drawings/folderEdit', $this->data);
     }
 
     /**
@@ -103,9 +111,20 @@ class FolderController extends Controller
      * @param  \App\Drawings  $drawings
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Drawings $drawings)
+    public function update($id, $folder, Request $request)
     {
-        //
+        $this->validate($request, [
+            'pj_project_id' => 'required',
+            'last_change_user_id' => 'required',
+            'folder_name' => 'required',
+            'folder_description' => 'required',
+            ]);
+
+        
+
+        $this->user->projects->find($id)->folders->find($folder)->update($request->all());
+        
+        return redirect('/project/1/folders');
     }
 
     /**

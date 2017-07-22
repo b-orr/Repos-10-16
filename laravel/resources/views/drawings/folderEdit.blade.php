@@ -164,49 +164,56 @@
 				
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
-				
-				
+					
 					<div class="row">
-							<div class="col-sm-12">
+							<div class="col-sm-9">
 								<article class="col-lg-12">
 									<div class="jarviswidget jarviswidget-color-darken" id="wid-id-22" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
 										<header>
 										<span class="widget-icon"> <i class="fa fa-comments"></i> </span>
-											<h2>All Folders</h2>
+											<h2>Edit Folder</h2>
 										</header>
 										<div class="row">
 											<div class="widget-body">
-					
-												<ul class="bs-glyphicons" id="folderList">
-													@foreach($folders as $key => $value)
-													<a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/drawings') }}" class="txt-color-darken" style="z-index:1000">
-														<li class="folder-li" style="">
-														<div class="row" style="display:inline">
-															<h4 class="glyphicon-class " style="display:inline">{{ $value->folder_name }}</h4><form action="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id) }}" method="POST"  style="display: inline;"><a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o pull-right" style="position:relative;margin-right:10px;bottom:1px;"></i></a>{{ method_field('DELETE') }} {{ csrf_field() }}</form><a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/edit') }}"><i class="fa fa-edit pull-right"></i></a>
-														</div>
-															<div class="folder-data" style="">
-																<span class="glyphicon glyphicon-folder-close"></span>
-																<div>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>Bruce Orr
-																<br>
-																<small><i>May 5, 2017</i></small></p>
-																</div>													
-															</div>
-														</li>
-													</a>
-													@endforeach
-													
-													
+												
+												<form   role="form" method="POST" action="{{ url('project/' . $project_id->id . '/folders/' . $folders->id ) }}">
+										
+										{{ csrf_field() }}
+										{{ method_field('PUT') }}
 
-												</ul>
+										<input type="hidden" name="pj_project_id" value="{{ $project_id->id }}">
+										<input type="hidden" name="last_change_user_id" value="{{ $project_id->user_id }}">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="input">Name</label>
+													<input type="text" class="form-control" name="folder_name" required style="padding-left: 5px;" value="{{ $folders->folder_name }}"/>
+												</div><br>
+												<div class="form-group">
+													<label class="input">Description</label>
+													<input type="text" class="form-control" name="folder_description" required style="padding-left: 5px;" value="{{ $folders->folder_description }}" />
+												</div>
+											</div>
+											
+										</div>
+										<br>
+									<div class="row" style="display: flex; justify-content: center;">
+									<div class="col-md-5" >
+										
+										<a type="button" class="btn btn-default" href="{{ url('project/' . $project_id->id .  '/folders/') }}">
+											Cancel
+										</a>
+										<button type="submit" id="createFolder-1" class="btn btn-primary" style="position:relative;margin-right:30px;">
+											Update
+										</button>
+									</div>
+									</div>
+								</form>
+												
 					
 											</div>
 											
-											<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default btn-lg btn-block">
-												Create new folder
-											</button>
-											<br>
+											
 										</div>
 									</div>
 								</article>
@@ -214,61 +221,15 @@
 							</div>
 						</div>
 				
-				
+					
+						
 				</section>
+				
+				
+				
 				<!-- end widget grid -->
 					<!-- end widget grid -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-sm">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									&times;
-								</button>
-								<h4 class="modal-title" id="myModalLabel">Create New Folder</h4>
-							</div>
-
-									@if (count($errors) > 0)
-									    <div class="alert alert-danger">
-									        <ul>
-									            @foreach ($errors->all() as $error)
-									                <li>{{ $error }}</li>
-									            @endforeach
-									        </ul>
-									    </div>
-									@endif
-							
-									<div class="modal-body">
-										<form   role="form" method="POST" action="{{ url('project/' . $project_id->id . '/folders' ) }}">
-										{{ csrf_field() }}
-										<input type="hidden" name="pj_project_id" value="{{ $project_id->id }}">
-										<input type="hidden" name="last_change_user_id" value="{{ $project_id->user_id }}">
-										<div class="row"  style="display: flex; justify-content: center;">
-											<div class="col-md-10">
-												<div class="form-group">
-													<label class="input">Name</label>
-													<input type="text" class="form-control" name="folder_name" required style="padding-left: 5px;" />
-												</div><br>
-												<div class="form-group">
-													<label class="input">Description</label>
-													<input type="text" class="form-control" name="folder_description" required style="padding-left: 5px;" />
-												</div>
-												</section>
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">
-											Cancel
-										</button>
-										<button type="submit" id="createFolder-1" class="btn btn-primary" >
-											Create
-										</button>
-									</div>
-								</form>
-							</div><!-- /.modal-content -->
-						</div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->
+					
 
 			</div>
 			<!-- END MAIN CONTENT -->

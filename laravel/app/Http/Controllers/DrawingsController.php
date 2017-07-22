@@ -81,7 +81,7 @@ class DrawingsController extends Controller
 
         $this->data['site_area'] = 'Drawings';
 
-        return view('drawings/' . $location , $this->data);
+        return view('project/1/folders/17/drawings/' . $location , $this->data);
     }
 
     /**

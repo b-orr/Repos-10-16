@@ -331,7 +331,7 @@
 
 		@include('../includes/_footer')
 
-		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
+		<script src="{{ asset('public/assets/js/plugin/dropzone/dropzone.min.js') }}"></script>
 		<script type="text/javascript">
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
