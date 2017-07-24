@@ -113,19 +113,27 @@ Route::resource('project/photos', 'PhotosFolderController');
 |--------------------------------------------------------------------------
 */
 
+Route::get('equipment/overview', 'EquipmentController@index')->name('Equpment - Overview');
 Route::get('equipment/forecasting', 'EquipmentController@forecasting')->name('Equpment - Forecasting');
 Route::get('equipment/rental', 'EquipmentController@rental')->name('Equpment - Rental');
 Route::get('equipment/allocation', 'EquipmentController@allocation')->name('Equpment - Allocation');
 Route::get('equipment/inventory', 'EquipmentController@inventory')->name('Equpment - Inventory');
-
-// project equipment routes
 Route::get('project/approvetruck', 'EquipmentController@approvetruck')->name('Equpment - Approvetruck');
-
-
-Route::get('equipment/overview', 'EquipmentController@index')->name('Equpment - Overview');
-
 Route::resource('/equipment/eqmanagement', 'CategoryController', [ 'as' => 'Equpment - Management' ]);
-
 Route::resource('/equipment/subcategories', 'SubCategoryController', [ 'as' => 'Equpment - Subcategories' ]);
-
 Route::resource('/equipment/regionequipment', 'RegionEquipmentcontroller', [ 'as' => 'Equpment - Regions' ]);
+
+/*
+|--------------------------------------------------------------------------
+| Project Equipment
+|--------------------------------------------------------------------------
+*/
+
+Route::get('project/equipment/overview', 'ProjectEquipmentController@overview')->name('Equipment - Overview');
+Route::get('project/equipment/forecasting', 'ProjectEquipmentController@forecasting')->name('Equipment - Forecasting');
+Route::get('project/equipment/truckinglog', 'ProjectEquipmentController@truckinglog')->name('Equipment - Trucking Log');
+Route::get('project/equipment/rental', 'ProjectEquipmentController@rental')->name('Equipment - Rental');
+
+Route::get('project/equipment/newtransfer', 'TransferController@create')->name('Equipment - New Transfer');
+Route::get('project/equipment/newtrucking', 'TruckingController@create')->name('Equipment - New Trucking');
+Route::get('project/equipment/newrequirement', 'RequirementController@create')->name('Equipment - New Requirement');

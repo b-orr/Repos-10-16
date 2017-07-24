@@ -37,16 +37,16 @@
 						<a href="#" title="Dashboard" class="highlight"><i class="fa fa-lg fa-fw fa-home" style="color: #404040;"></i> <span class="menu-item-parent needHiddenParent">Equipment</span></a>
 						<ul>
 							<li>
-								<a href="../project/eqoverview.php" title="Admin"><span class="menu-item-parent needHidden">Overview</span></a>
+								<a href="{{ url('project/equipment/overview') }}" title="Admin"><span class="menu-item-parent needHidden">Overview</span></a>
 							</li>
 							<li class="">
-								<a href="../project/forecasting.php" title="Projects"><span class="menu-item-parent needHidden">Forecasting</span></a>
+								<a href="{{ url('project/equipment/forecasting') }}" title="Projects"><span class="menu-item-parent needHidden">Forecasting</span></a>
 							</li>
 							<li class="">
-								<a href="../project/truckinglog.php" title="Equipment"><span class="menu-item-parent needHidden">Trucking Log</span></a>
+								<a href="{{ url('project/equipment/truckinglog') }}" title="Equipment"><span class="menu-item-parent needHidden">Trucking Log</span></a>
 							</li>
 							<li class="">
-								<a href="../project/rental.php" title="Contacts"><span class="menu-item-parent needHidden">Rental / Allocation</span></a>
+								<a href="{{ url('project/equipment/rental') }}" title="Contacts"><span class="menu-item-parent needHidden">Rental / Allocation</span></a>
 							</li>
 						</ul>	
 					</li>
