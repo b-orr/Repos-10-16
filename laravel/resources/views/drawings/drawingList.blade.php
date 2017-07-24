@@ -305,7 +305,7 @@
 												<section>
 												<div class="form-group">
 													<label class="input" style="font-weight: bold;">File input</label><small class="font-xs"> (Click below to open File Explorer)</small>
-													<form action="upload.php" class="dropzone" id="mydropzone"></form>
+													<form action="{{ asset('public/assets/plugins/upload.php') }}" class="dropzone" id="mydropzone"></form>
 												</div>
 												</section>
 											</div>
@@ -331,7 +331,7 @@
 
 		@include('../includes/_footer')
 
-		<script src="{{ asset('public/assets/js/plugin/dropzone/dropzone.min.js') }}"></script>
+		<script src="{{ asset('assets/js/plugin/dropzone/dropzone.min.js') }}"></script>
 		<script type="text/javascript">
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
@@ -339,14 +339,19 @@
 		$(document).ready(function() {
 			
 			pageSetUp();
+			
+
+			$('#myModal').on('show', function (e) {
 			Dropzone.autoDiscover = false;
-			$("#mydropzone").dropzone({
-				//url: "/file/post",
-				addRemoveLinks : true,
-				maxFilesize: 0.5,
-				dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
-				dictResponseError: 'Error uploading file!'
+				$("#mydropzone").dropzone({
+					//url: "/file/post",
+					addRemoveLinks : true,
+					maxFilesize: 0.5,
+					dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
+					dictResponseError: 'Error uploading file!'
+				});
 			});
+
 			$('#dt_basic').dataTable({
 					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
 						"t"+
