@@ -95,6 +95,18 @@ Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings 
 Route::get('project/overview', 'ProjectController@projectOverview');
 
 
+
+/*
+|--------------------------------------------------------------------------
+| Photos
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('project/photos', 'PhotosFolderController');
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Main Equipment
