@@ -84,28 +84,20 @@
 																			<div class="row">
 																				<div class="col-md-12">
 																					<div class="form-group">
-																					<label class="input" style="font-weight: bold;">Page:  </label>
+																					<label class="input" style="font-weight: bold;">Field type:  </label>
 																				 
-																					<select  name="page" class="form-control">
-																					<option  {{ $field->page=='Project Info'?'selected':'' }} >Project Info</option>
-																					<option {{ $field->page=='Equipment Transfer'?'selected':'' }}>Equipment Transfer</option>
-																					<option {{ $field->page=='Equipment Rental Info'?'selected':'' }}>Equipment Rental Info</option>
-																					</select>
-																					 
+																					<select  name="type" class="form-control">
+																						
+																						@foreach($fields->fieldTypes as $key=>$val)
+																						<option {{ $field->type==$key?'selected':'' }} value="{{ $key }}">{{ $val }}</option>
+																					@endforeach
+																						</select>																					 
 																					</div>
 																				</div>
 																			</div>
 																			
 																			
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label class="input" style="font-weight: bold;">Order:  </label>
-																				 
-																						<input type="text" name="order" value="{{ $field->order }}" class="form-control" required value="1" />
-																					</div>
-																				</div>
-																			</div>
+																			 
 																		 
 																		</div>
 																		<div class="modal-footer">

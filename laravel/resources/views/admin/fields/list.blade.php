@@ -4,6 +4,7 @@
 @include('includes._menu_admin')
 
 
+
 <div id="main" role="main">
 
 			<!-- RIBBON -->
@@ -62,7 +63,7 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Regions</h2>
+									<h2>Fields</h2>
 				
 								</header>
 				
@@ -82,9 +83,10 @@
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone" width="10%">Page Name</th>
-													<th data-hide="phone" width="10%">Fields</th>
-													<th ></th>
+													<th data-hide="phone" width="10%">Type</th>
+													<th data-hide="phone" width="10%">Name</th>
+													<th data-hide="phone" width="20%">Preview</th>
+													<th >Values</th>
 													<th data-hide="phone" width="10%" data-hide="phone,tablet" style="width: 60px;">Action</th>	
 												</tr>
 											</thead>
@@ -92,8 +94,9 @@
 											
 											@foreach($lists AS $list)
 												<tr>
-													<td>{{ $list->page }}</td>
+													<td>{{ $fields->fieldTypes[$list->type] }}</td>
 													<td>{{ $list->name }}</td>
+													<td>{!! $fields->generateField($list->name, $list->type, $list->fieldValues) !!}</td>
 													
 													<td>
 													<select class="form-control" multiple style="width: 200px;" >
@@ -269,15 +272,16 @@
 								<div class="row">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>Page:  </h4>
+											<h4>Field type:  </h4>
 										</div>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group">
-										<select  name="page" class="form-control">
-										<option>Project Info</option>
-										<option>Equipment Transfer</option>
-										<option>Equipment Rental Info</option>
+										<select  name="type" class="form-control">
+										
+										@foreach($fields->fieldTypes as $key=>$val)
+										<option value="{{ $key }}">{{ $val }}</option>
+									 @endforeach
 										</select>
 										 
 										</div>
@@ -285,18 +289,7 @@
 								</div>
 								
 								
-								<div class="row">
-									<div class="col-md-5">
-										<div class="form-group">
-											<h4>Order:  </h4>
-										</div>
-									</div>
-									<div class="col-md-7">
-										<div class="form-group">
-											<input type="text" name="order" class="form-control" required value="1" />
-										</div>
-									</div>
-								</div>
+								 
 								
 								<br>
 							<div class="modal-footer">
@@ -316,6 +309,7 @@
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
+
 
 		</div>
 

@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FieldsValues extends Model
+class FieldsRecords extends Model
 {
-    protected $table = 'fields_value';
-        
+    protected $table = 'fields_records';
+            
     protected $fillable = [
-        'fields_id', 'value', 
+        'fields_id', 'page_name', 'order', 'value'
     ];
 
 
@@ -17,5 +17,5 @@ class FieldsValues extends Model
 		{
 		   return $this->belongsTo('App\Fields');
 		}
- 
+		 
 }
