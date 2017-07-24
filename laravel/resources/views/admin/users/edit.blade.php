@@ -83,6 +83,7 @@
 																						</div>
 																					</div>
 																				</div>
+																				{!! $fields->appendFieldPlaceholder($user->fields(), 'modal1', $list->extraValue ) !!}
 																				<div class="row">
 																					<div class="col-md-6">
 																						<div class="form-group">
@@ -95,6 +96,7 @@
 																						</div>
 																					</div>
 																				</div>
+																				{!! $fields->appendFieldPlaceholder($user->fields(), 'modal1', $list->extraValue) !!}
 																				<div class="row">
 																					<div class="col-md-6">
 																						<div class="form-group">
@@ -107,6 +109,7 @@
 																						</div>
 																					</div>
 																				</div>
+																				{!! $fields->appendFieldPlaceholder($user->fields(), 'modal1', $list->extraValue) !!}
 																			<hr>
 																			<div class="row">
 																				<div class="col-md-6">
@@ -252,7 +255,7 @@
 
 			</div>
 			<!-- END MAIN CONTENT -->
-
+{!! $fields->appendFieldModal($user->fields) !!}
 		</div>
 		<!-- END MAIN PANEL -->
 

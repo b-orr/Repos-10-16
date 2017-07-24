@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'company', 'phone1', 'phone2', 'address', 'city', 'state', 'zip', 'last_name', 'title', 'group_id', 'region_id', 'active', 'parent_user_id'
+        'name', 'email', 'password', 'role', 'company', 'phone1', 'phone2', 'address', 'city', 'state', 'zip', 'last_name', 'title', 'group_id', 'region_id', 'active', 'parent_user_id', 'extraValue'
     ];
     
     
@@ -36,6 +36,11 @@ class User extends Authenticatable
     public function setPasswordAttribute($password)
     {   
        $this->attributes['password'] = bcrypt($password);
+    }
+    
+    public function setextraValueAttribute($extraValue)
+    {   
+       $this->attributes['extraValue'] = json_encode($extraValue);
     }
        
     public function regions()

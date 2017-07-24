@@ -65,6 +65,9 @@
 									<h2><b>Users list</b></h2>
 								</header>
 				
+			
+				
+		 
 								<!-- widget div-->
 								<div>
 				
@@ -212,18 +215,21 @@
 										</div>
 									</div>
 								</div>
+									{!! $fields->appendFieldPlaceholder($user->fields(), 'modal1') !!}
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
 											<h4>First Name: <b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
+									
 									<div class="col-md-6">
 										<div class="form-group">
 											<input type="text" class="form-control" name="name" value="{{ old('name') }}" required />
 										</div>
 									</div>
 								</div>
+									{!! $fields->appendFieldPlaceholder($user->fields(), 'modal1') !!}
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
@@ -236,6 +242,7 @@
 										</div>
 									</div>
 								</div>
+									{!! $fields->appendFieldPlaceholder($user->fields(), 'modal1') !!}
 							<hr>
 							<div class="row">
 								<div class="col-md-6">
@@ -360,7 +367,7 @@
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
-
+{!! $fields->appendFieldModal($user->fields) !!}
 		</div>
 
 @include('includes._footer')

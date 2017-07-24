@@ -19,11 +19,14 @@ class AdminFieldsController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
+                  $this->data['user']=$this->user= Auth::user();
+           
                 return $next($request);
         });
         
         $this->data['site_area']='Admin';
+        $this->data['fields'] = New Fields;
+        
      
     }
     
@@ -47,6 +50,7 @@ class AdminFieldsController extends Controller
     public function edit($fields)
     {
         $this->data['field']=$this->user->fields()->find($fields);
+    
         
          if(!empty($this->data['field'])){
          	return view('admin/fields/edit', $this->data);

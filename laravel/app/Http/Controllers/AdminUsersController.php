@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Fields;
 use Db;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,11 +19,11 @@ class AdminUsersController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
+                $this->data['user']=$this->user= Auth::user();
                 return $next($request);
         });
         
-        
+        $this->data['fields'] = New Fields;
         $this->data['site_area']='Admin';
      
     }

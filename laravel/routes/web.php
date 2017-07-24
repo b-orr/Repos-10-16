@@ -50,7 +50,7 @@ Route::resource('admin/regions', 'AdminRegionsController', [ 'as' => 'Admin - Re
 
 Route::resource('admin/fields', 'AdminFieldsController', [ 'as' => 'Admin - Fields Management' ]);
 Route::resource('admin/fieldsValue', 'AdminFieldsValueController', [ 'as' => 'Admin - Fields Management Value' ]);
-
+Route::resource('admin/fieldsRecords', 'AdminFieldsRecordsController', [ 'as' => 'Admin - Fields Management Records' ]);
 /*
 |--------------------------------------------------------------------------
 | Admin users
