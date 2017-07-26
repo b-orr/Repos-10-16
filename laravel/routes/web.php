@@ -103,7 +103,7 @@ Route::get('project/overview', 'ProjectController@projectOverview');
 */
 
 Route::resource('project/photos', 'PhotosFolderController');
-
+Route::resource('project/photos/subfolders', 'PhotosSubFolderController');
 
 
 
