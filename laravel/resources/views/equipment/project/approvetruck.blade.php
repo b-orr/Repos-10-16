@@ -9,6 +9,13 @@
 		<!-- MAIN PANEL -->
 	<style type="text/css">
 
+		
+		.form-group {
+			margin: 2px;
+		}
+		.col-lg-3 {
+			padding: 0px;
+		}
  		@media screen and (max-width: 1366px){
  			.actionBtns{
  				font-size: 10px;
@@ -219,15 +226,15 @@
 														<label class="col-md-3 control-label"><b>Load Times</b></label>
 														<div class="col-md-9 no-padding">
 															<div class="col-lg-12 no-padding">
-																<div class="col-lg-4 text-center">
+																<div class="col-lg-3 text-center">
 																	<label class="font-xs"><b>Scheduled</b></label><br>
 																	9:00am
 																</div>
-																<div class="col-lg-4 text-center">
+																<div class="col-lg-3 text-center">
 																	<label class="font-xs"><b>Actual</b></label><br>
 																	8:45am
 																</div>
-																<div class="col-lg-4 text-center">
+																<div class="col-lg-3 text-center">
 																	<label class="font-xs"><b>Departure</b></label><br>
 																	10:00am
 																</div>
@@ -238,20 +245,16 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Recieved Times:</b></label>
+														<label class="col-md-3 control-label" style="padding-top: 22px;"><b>Recieved Times:</b></label>
 														<div class="col-md-9">
 															<div class="col-md-12 no-padding">
-																<div class="col-md-6 control-label " style="text-align: left;padding: 1px;">
-																	<input type="text" placeholder="Scheduled Arrival" name="nameInput" style="width: 100%" class="form-control">
+																<div class="col-md-6 control-label " style="text-align: center;padding: 1px;">
+																	<span>Scheduled</span>
+																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
 																</div>
-																<div class="col-md-6 control-label" style="text-align: left;padding: 1px;">
-																	<input type="text" placeholder="Actual Arrival" name="nameInput" style="width: 100%" class="form-control">
-																</div>
-																<div class="col-md-6 control-label " style="text-align: left;padding: 1px;">
-																	<input type="text" placeholder="Actual Loaded" name="nameInput" style="width: 100%" class="form-control">
-																</div>
-																<div class="col-md-6 control-label" style="text-align: left;padding: 1px;">
-																	<input type="text" placeholder="Actual Departure" name="nameInput" style="width: 100%" class="form-control">
+																<div class="col-md-6 control-label" style="text-align: center;padding: 1px;">
+																	<span>Actual Arrival</span>
+																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
 																</div>
 															</div>
 														</div>
@@ -270,6 +273,21 @@
 													</div>
 												</div>
 												<div class="col-lg-5">
+													<div class="form-group">
+														<label class="col-md-3 control-label" style="padding-top: 22px;"><b>Exit Times:</b></label>
+														<div class="col-md-9">
+															<div class="col-md-12 no-padding">
+																<div class="col-md-6 control-label " style="text-align: center;padding: 1px;">
+																	<span>Loaded</span>
+																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
+																</div>
+																<div class="col-md-6 control-label" style="text-align: center;padding: 1px;">
+																	<span>Actual Departure</span>
+																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
+																</div>
+															</div>
+														</div>
+													</div>
 												</div>
 												<div class="col-lg-1"> </div>
 											</div>

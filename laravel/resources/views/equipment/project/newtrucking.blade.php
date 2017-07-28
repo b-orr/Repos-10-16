@@ -9,6 +9,9 @@
 		<!-- MAIN PANEL -->
 	<style type="text/css">
 
+		.form-horizontal .control-label {
+			padding-top: 0px;
+		}
  		@media screen and (max-width: 1366px){
  			.actionBtns{
  				font-size: 10px;
@@ -41,7 +44,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li><li style="color: black;">New Transfer</li>
+					<li style="color: black; font-weight: bold;">Home</li><li style="color: black; font-weight: bold;">Projects</li><li style="color: black; font-weight: bold;">1001 Broadway</li><li style="color: black; font-weight: bold;">Equipment</li><li style="color: black; font-weight: bold;">Overview</li><li style="color: black; font-weight: bold;">New Transfer</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -85,7 +88,7 @@
 									
 								-->
 								<header>
-									<h2>Trucking Request 1001-001</h2>				
+									<h2><b>Trucking Request 1001-001</b></h2>				
 									
 								</header>
 

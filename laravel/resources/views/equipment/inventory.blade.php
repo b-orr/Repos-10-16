@@ -32,8 +32,12 @@
 			position: relative;
 			top: -5px;
 		}
-		.glyphicon, .glyphicon-plus {
+		.fa, .fa-minus {
 			font-size: 6px;
+		}
+		.fa-plus {
+			font-size: 6px;
+		}
 		}
 	</style>
 		<!-- MAIN PANEL -->
@@ -147,8 +151,8 @@
 																<tr class="main-parent" data_id="<?php echo $num; ?>" >
 																	<td style="width:10px !important;">
 																		<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
-																			<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
-																			<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
+																			<i class="up_5 fa fa-plus level_1_<?php echo$num; ?>"></i>
+																			<i class="up_5 fa fa-minus hide level_1_<?php echo$num; ?>"></i>
 																		</button>
 																		<span class="description-name">HV</span>
 																	</td>
@@ -167,8 +171,8 @@
 																	<tr class="hide first-child-<?php echo $num; ?> fchild">
 																		<td style="width:10px !important; padding-left: 20px;">
 																			<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<i class="up_5 glyphicon glyphicon-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
-																				<i class="up_5 glyphicon glyphicon-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
+																				<i class="up_5 fa fa-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
+																				<i class="up_5 fa fa-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
 																			</button>
 																		<span class="description-name">Main Beams</span>
 																		</td>
@@ -392,7 +396,7 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Classification</label>
+										<label class="input" style="font-weight: bold;">Category</label>
 										<select class="form-control">
 										</select>
 									</div>
@@ -400,7 +404,7 @@
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Category</label>
+										<label class="input" style="font-weight: bold;">Sub-Category</label>
 										<select type="text" class="form-control" required style="padding-left: 5px;">
 										</select>
 									</div>
@@ -417,7 +421,7 @@
 							</div>
 							<div>
 								<strong>
-									<h6>Select Tool</h6>
+									<h6>Equipment Management Data</h6>
 								</strong>
 							</div>
 							<div class="row">
@@ -456,7 +460,7 @@
 							</div>
 							<div>
 								<strong>
-									<h6>Select Tool</h6>
+									<h6>Purchase Info</h6>
 								</strong>
 							</div>
 							<div class="row">

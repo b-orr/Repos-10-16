@@ -8,6 +8,14 @@
 @include('../includes/_menu_eq')
 		<!-- MAIN PANEL -->
 	<style type="text/css">
+		.list-dropdown {
+			background-color: Transparent;
+		    background-repeat:no-repeat;
+		    border: none;
+		    cursor:pointer;
+		    overflow: hidden;
+		    outline:none;
+		}
 		.main-parent{
 			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
 			font-weight: bolder;
@@ -16,6 +24,9 @@
 			background-color: #e6e6e6;
 			font-weight: bold;
 		}
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+		    padding: 3px 10px;
+		}
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -23,15 +34,11 @@
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
 
-				<span class="ribbon-button-alignment">
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span>
-				</span>
+				
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Equipment</li><li style="color: black;">Rental</li>
+					<li style="color: black; font-weight: bold;">Equipment</li><li style="color: black; font-weight: bold;">Rental</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -65,7 +72,7 @@
 							<!-- Widget ID (each widget will need unique ID)-->
 
 							<!-- end widget -->
-								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false"  data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false"  data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" data-widget-togglebutton="false">
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -85,8 +92,7 @@
 
 								<!-- widget div-->
 									<header class="no-margin no-padding">
-										<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-										<h2>Rented Equipment Overview </h2>
+										<h2><b>Rented Equipment Overview</b></h2>
 
 									</header>
 
@@ -97,12 +103,12 @@
 
 
 										<div class="row">
-												<div class="widget-body table-1" id="table-1" style="margin-top: 3px;">
-													<table id="dt_basic" class="table table-bordered" width="100%">
+												<div class="widget-body table-1" id="table-1" style="margin-top: -7px;">
+													<table id="dt_basic" class="table table-bordered" width="100%" style="margin-left: 7px;">
 													<thead>
 															<tr>
 																<th>No.</th>
-																<th style="width: 50%;"><span>Project</span> <span class="pull-right">Descriptions</span></th>
+																<th style="width: 50%; height: 25px;"><span>Project</span> <span class="pull-right">Descriptions</span></th>
 																<th>MCC ID No</th>
 																<th>Qty</th>
 																<th>Rental Rate</th>
@@ -117,12 +123,12 @@
 															while ($count <= 3 ) { ?>
 																<tr class="main-parent" data_id="<?php echo $num; ?>">
 																	<td style="width:10px !important;">
-																		<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
-																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																				<b>+</b>
-																			</span>
+																		<button class="list-dropdown button" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
 																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																				<b>-</b>
+																				<i class="fa fa-plus"></i>
+																			</span>
+																			<span style="font-size:12px !important;" class=" level_1_<?php echo$num;?>">
+																				<i class="fa fa-minus"></i>
 																			</span>
 																		</button>
 																		<span>1007</span>
@@ -137,19 +143,19 @@
 																$count1 = 1;
 																$num1 = 1;
 																while ($count1 <= 3 ) { ?>
-																	<tr class="hide first-child-<?php echo $num; ?> fchild">
+																	<tr class=" first-child-<?php echo $num; ?> fchild">
 																		<td></td>
 																		<td style="width:10px !important; padding-left: 20px;">
-																			<button class="button btn btn-warning btn-xs" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>">
-																					<b>+</b>
+																			<button class="list-dropdown button" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																				<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>_<?php echo$num1?>">
+																					<i class="fa fa-plus"></i>
 																				</span>
-																				<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>">
-																					<b>-</b>
+																				<span style="font-size:12px !important;" class=" level_2_<?php echo$num;?>_<?php echo$num1?>">
+																					<i class="fa fa-minus"></i>
 																				</span>
 																			</button>
 																		<span class="description-name">MMC-1028</span>
-																		<span class="pull-right" style="font-size: smaller;">WA LiftTruck - Due 4/28</span>
+																		<span class="pull-right">WA LiftTruck - Due 4/28</span>
 																		</td>
 																		<td style="width:50px !important;" ></td>
 																		<td style="width:60px !important;" ></td>
@@ -160,7 +166,7 @@
 																$count2 = 1;
 																$num2 = 1;
 																while ($count2 <= 2 ) { ?>
-																	<tr class="hide second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
+																	<tr class=" second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
 																		<td></td>
 																		<td style="width:10px !important; padding-left: 40px;">
 																			1923 JLG Scissor Lift
@@ -352,10 +358,12 @@
 
 				if(level == 1){
 					$('.first-child-'+id).toggleClass('hide');
+					$('.level_1_'+id).toggleClass('hide');
 					$('.second-child-'+id).addClass('hide');
 				}
 				else if(level == 2){
 					var id2 = $(this).attr('parent_data_id');
+					$('.level_2_'+id2+'_'+id).toggleClass('hide');
 					$('.second-child-'+id2+'-'+id).toggleClass('hide');
 				}
 				else{
@@ -366,68 +374,6 @@
 
 			    "use strict";
 
-			    var date = new Date();
-			    var d = date.getDate();
-			    var m = date.getMonth();
-			    var y = date.getFullYear();
-
-			    var hdr = {
-			        left: 'title',
-			        center: 'month,agendaWeek,agendaDay',
-			        right: 'prev,today,next'
-			    };
-
-			    var initDrag = function (e) {
-			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-			        // it doesn't need to have a start or end
-
-			        var eventObject = {
-			            title: $.trim(e.children().text()), // use the element's text as the event title
-			            description: $.trim(e.children('span').attr('data-description')),
-			            icon: $.trim(e.children('span').attr('data-icon')),
-			            className: $.trim(e.children('span').attr('class')) // use the element's children as the event class
-			        };
-			        // store the Event Object in the DOM element so we can get to it later
-			        e.data('eventObject', eventObject);
-
-			        // make the event draggable using jQuery UI
-			        e.draggable({
-			            zIndex: 999,
-			            revert: true, // will cause the event to go back to its
-			            revertDuration: 0 //  original position after the drag
-			        });
-			    };
-
-			    var addEvent = function (title, priority, description, icon) {
-			        title = title.length === 0 ? "Untitled Event" : title;
-			        description = description.length === 0 ? "No Description" : description;
-			        icon = icon.length === 0 ? " " : icon;
-			        priority = priority.length === 0 ? "label label-default" : priority;
-
-			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
-			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-
-			        $("#event-container").effect("highlight", 800);
-
-			        initDrag(html);
-			    };
-
-			    /* initialize the external events
-				 -----------------------------------------------------------------*/
-
-			    $('#external-events > li').each(function () {
-			        initDrag($(this));
-			    });
-
-			    $('#add-event').click(function () {
-			        var title = $('#title').val(),
-			            priority = $('input:radio[name=priority]:checked').val(),
-			            description = $('#description').val(),
-			            icon = $('input:radio[name=iconselect]:checked').val();
-
-			        addEvent(title, priority, description, icon);
-			    });
-
 			    /* initialize the calendar
 				 -----------------------------------------------------------------*/
 
@@ -437,21 +383,7 @@
 		</script>
 
 		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-				_gaq.push(['_trackPageview']);
-
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
+		
 
 	</body>
 

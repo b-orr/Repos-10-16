@@ -8,6 +8,14 @@
 @include('../../includes/_menu')
 		<!-- MAIN PANEL -->
 	<style type="text/css">
+		.list-dropdown {
+			background-color: Transparent;
+		    background-repeat:no-repeat;
+		    border: none;
+		    cursor:pointer;
+		    overflow: hidden;
+		    outline:none;
+		}
 		.main-parent{
 			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
 			font-weight: bolder;
@@ -25,12 +33,6 @@
 
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
-
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
@@ -120,14 +122,6 @@
 																while ($count <= 1 ) { ?>
 																	<tr class="main-parent" data_id="<?php echo $num; ?>">
 																		<td style="width:10px !important;">
-																			<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
-																				<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																					<b>+</b>
-																				</span>
-																				<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																					<b>-</b>
-																				</span>
-																			</button> 
 																			<span>1007</span>
 																		</td>
 																		<td><span class="description-name">1001 Broadway</span></td>
@@ -143,12 +137,12 @@
 																		<tr class="first-child-<?php echo $num; ?> fchild">
 																			<td></td>
 																			<td style="width:10px !important; padding-left: 20px;">
-																				<button class="button btn btn-warning btn-xs" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																					<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>">
-																						<b>+</b>
+																				<button class="button list-dropdown" style="height: 20px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																					<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>_<?php echo$num1?>">
+																						<i class="fa fa-plus"></i>
 																					</span>
-																					<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>">
-																						<b>-</b>
+																					<span style="font-size:12px !important;" class=" level_2_<?php echo$num;?>_<?php echo$num1?>">
+																						<i class="fa fa-minus"></i>
 																					</span>
 																				</button> 
 																			<span class="description-name">MMC-1028</span>
@@ -163,7 +157,7 @@
 																	$count2 = 1;
 																	$num2 = 1;
 																	while ($count2 <= 2 ) { ?>
-																		<tr class="second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
+																		<tr style="font-size: 12px" class="second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
 																			<td></td>
 																			<td style="width:10px !important; padding-left: 40px;">
 																				1923 JLG Scissor Lift
@@ -248,14 +242,6 @@
 											while ($count <= 1 ) { ?>
 												<tr class="main-parent" data_id="<?php echo $num; ?>">
 													<td style="width:10px !important;">
-														<button class="button btn btn-success btn-xs" style="height: 20px;" data_id="<?php echo $num;?>" data_level="1">
-															<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																<b>+</b>
-															</span>
-															<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																<b>-</b>
-															</span>
-														</button> 
 														<span>1007</span>
 													</td>
 													<td><span class="description-name">1001 Broadway</span></td>
@@ -265,7 +251,7 @@
 												$count1 = 1;
 												$num1 = 1;
 												while ($count1 <= 3 ) { ?>
-													<tr class="first-child-<?php echo $num; ?> fchild">
+													<tr class="first-child-<?php echo $num; ?>">
 														<td></td>
 														<td style="width:10px !important; padding-left: 20px;">
 														</td>
@@ -433,6 +419,7 @@
 				}
 				else if(level == 2){
 					var id2 = $(this).attr('parent_data_id');
+					$('.level_2_'+id2+'_'+id).toggleClass('hide');
 					$('.second-child-'+id2+'-'+id).toggleClass('hide');
 				}
 				else{

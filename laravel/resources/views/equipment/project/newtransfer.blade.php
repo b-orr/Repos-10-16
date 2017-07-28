@@ -642,21 +642,31 @@
 									</div>
 
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Billing Cycle (Days)</label>
 										<input type="text" name="billingCycle" class="form-control">
 									</div>
 
 								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Vendor</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
+								<div class="row col-md-4">
+									<div class="col-md-12 no-padding">
+										<div class="col-md-9">
+											<div class="form-group">
+												<label class="input" style="font-weight: bold;">Vendor</label><br>
+												<select type="text" class="form-control" required style="padding-left: 5px;">
+												</select>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+											<br>
+												<button class="btn btn-success" style="font-weight: bold; margin-top: 5px;">Add Vendor</button><br>
+											</div>
+										</div>
 									</div>
-
 								</div>
+								
 							</div>
 
 						</div>

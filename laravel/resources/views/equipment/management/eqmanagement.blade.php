@@ -36,7 +36,7 @@
 			position: relative;
 			top: -5px;
 		}
-		.glyphicon, .glyphicon-plus {
+		.fa, .fa-plus, .fa-minus {
 			font-size: 6px;
 		}
 	</style>
@@ -105,8 +105,7 @@
 															</div>
 															<div class="col-lg-5"></div>
 															<div class="col-lg-3" style="display: flex; align-items: left;">
-																<button class="btn btn-primary" style="margin: 5px 5px;" onclick="expand();">Expand All</button>
-																<button class="btn btn-primary" style="margin: 5px 5px;" onclick="collapse();">Collapse All</button>
+																
 															</div>
 														</div>
 														<table id="dt_basic" class="table table-bordered" width="100%">
@@ -129,15 +128,15 @@
 																<tr class="main-parent" data_id="<?php echo $num; ?>">
 																	<td style="width:10px !important;">
 																		<!-- <button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
-																			<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
-																			<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
+																			<i class="up_5 fa fa-plus level_1_<?php echo$num; ?>"></i>
+																			<i class="up_5 fa fa-minus hide level_1_<?php echo$num; ?>"></i>
 																		</button>  -->
 																		<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num;?>" data_level="1">
 																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																				<i class="up_5 glyphicon glyphicon-plus"></i>
+																				<i class="up_5 fa fa-plus"></i>
 																			</span>
 																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																				<i class="up_5 glyphicon glyphicon-minus"></i>
+																				<i class="up_5 fa fa-minus"></i>
 																			</span>
 																		</button>
 																		<span class="description-name">{{$c->name}}</span>
@@ -158,10 +157,10 @@
 																	<td style="width:10px !important; padding-left: 20px;">
 																		<button class="button btn btn-warning btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
 																			<span style="font-size:12px !important;" class="level_2_<?php echo$num;?>_<?php echo$num1?>">
-																				<i class="up_5 glyphicon glyphicon-plus"></i>
+																				<i class="up_5 fa fa-plus"></i>
 																			</span>
 																			<span style="font-size:12px !important;" class="hide level_2_<?php echo$num;?>_<?php echo$num1?>">
-																				<i class="up_5 glyphicon glyphicon-minus"></i>
+																				<i class="up_5 fa fa-minus"></i>
 																			</span>
 																		</button>
 																	<span class="description-name">{{$s->name}}</span>
@@ -224,6 +223,15 @@
 								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
 							</div>
 							<div class="menu-body padding-5">
+								<div class="row col-lg-12 no-padding no-margin">
+									<div class="col-lg-6" style="padding: 0px 2px 5px 0px;">
+										<button class="btn btn-primary btn-block" onclick="expand();">Expand All</button>
+									</div>
+									<div class="col-lg-6 no-padding">
+										<button class="btn btn-primary btn-block" onclick="collapse();">Collapse All</button>
+									</div>
+								</div>
+								<legend style="margin: 10px 0px; padding: 5px 0px 0px 0px; " ></legend>
 								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#addEquipmentModal">
 									<span style="font-size: 12px; font-weight: bold;">Add Equipment</span>
 								</button>
@@ -239,11 +247,11 @@
 								<input type="text" name="search" class="form-control">
 								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
 								<legend></legend>
-								<label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Filters</label><br>
+								<!-- <label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Filters</label><br>
 								<select type="text" name="search" class="form-control">
 									<option>Active</option>
 									<option>Damaged</option>
-								</select>
+								</select> -->
 								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Owner</label>
 								<select type="text" name="search" class="form-control">
 									<option>McClone</option>
@@ -278,6 +286,7 @@
 			<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
+					<form class="form-horizontal" method="post" action="">
 						<div class="modal-header" style="background-color: #404040;">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 								&times;
@@ -285,151 +294,148 @@
 							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Edit Equipment Type</h4>
 						</div>
 						<div class="modal-body">
-						<!-- od ovde-->
-
-									<div>
-									<strong>
-										<legend>Select storage location & name</legend>
-									</strong>
-								</div>
-								<div class="row">
-									<div class="row col-lg-7">
-										<div class="col-md-6">
-											<div class="form-group">
-												<div class="col-md-12">
-													<label class="input" style="font-weight: bold;">Classification</label>
-													<select class="form-control">
-													</select>
-												</div>
-											</div>
-
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<div class="col-md-12">
-													<label class="input" style="font-weight: bold;">Category</label>
-													<select class="form-control">
-													</select>
-												</div>
-											</div>
-
-										</div>
-									</div>
-
-									<div class="col-md-5">
+							<div>
+								<strong>
+									<legend>Select storage location & name</legend>
+								</strong>
+							</div>
+							<div class="row">
+								<div class="row col-lg-7">
+									<div class="col-md-6">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label class="input" style="font-weight: bold;">Equipment Name</label><br>
-													<input type="text" name="eqName" class="form-control">
-												</div>
+												<label class="input" style="font-weight: bold;">Classification</label>
+												<select class="form-control">
+												</select>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label class="input" style="font-weight: bold;">Category</label>
+												<select class="form-control">
+												</select>
+											</div>
 										</div>
 
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-lg-6">
-										<fieldset>
-											<legend>Equipment Data</legend>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Manufacturer</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Model Number</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">UPC Number</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Weight</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Items per Unit</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Notes</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Item Type</label>
-												<div class="col-md-8">
-													<label class="radio radio-inline">
 
-															<input type="radio" class="radiobox" name="itemType">
-															<span>Unique</span>
-
-														</label>
-													<label class="radio radio-inline">
-
-															<input type="radio" class="radiobox" name="itemType">
-															<span>General</span>
-
-														</label>
-												</div>
+								<div class="col-md-5">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label class="input" style="font-weight: bold;">Equipment Name</label><br>
+												<input type="text" name="eqName" class="form-control">
 											</div>
-										</fieldset>
 									</div>
-									<div class="col-lg-6">
-										<fieldset>
-											<legend>Options</legend>
-											<div class="form-group">
-												<div class="col-md-10" style="margin: -10px 0px 0px 10px;">
-													<div class="checkbox">
-														<label>
-														  <input type="checkbox" class="checkbox style-0">
-														  <span>Track as Forecasted Item</span>
-														</label>
-													</div>
 
-													<div class="checkbox">
-														<label>
-														  <input type="checkbox" class="checkbox style-0" >
-														  <span>Track as Allocated Item</span>
-														</label>
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-											<br>
-												<label class="col-md-4 control-label" style="margin-top: 15px;">Allocated Qty Calc</label>
-												<div class="col-md-3">
-													<small>Item multiplier</small>
-													<input class="form-control" type="text">
-												</div>
-												<label class="col-md-1" style="margin-top: 20px;">SF</label>
-											</div>
-											<input type="submit" class="btn btn-primary hidden" id="pdfUpload" />
-
-											</form>
-											<section>
-												<div class="form-group">
-													<label class="input" style="font-weight: bold;">Upload Picture</label><small class="font-xs"> (Click below to open File Explorer)</small><br>
-													<div class="col-lg-12">
-														<form action="upload.php" class="dropzone" id="mydropzone"></form>
-													</div>
-												</div>
-											</section>
-										</fieldset>
-									</div>
 								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<fieldset>
+										<legend>Equipment Data</legend>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Manufacturer</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Model Number</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">UPC Number</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Weight</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Items per Unit</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Notes</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Item Type</label>
+											<div class="col-md-8">
+												<label class="radio radio-inline">
 
-						<!--do ovde-->
+														<input type="radio" class="radiobox" name="itemType">
+														<span>Unique</span>
+
+													</label>
+												<label class="radio radio-inline">
+
+														<input type="radio" class="radiobox" name="itemType">
+														<span>General</span>
+
+													</label>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+								<div class="col-lg-6">
+									<fieldset>
+										<legend>Options</legend>
+										<div class="form-group">
+											<div class="col-md-10" style="margin: -10px 0px 0px 10px;">
+												<div class="checkbox">
+													<label>
+													  <input type="checkbox" class="checkbox style-0">
+													  <span>Track as Forecasted Item</span>
+													</label>
+												</div>
+
+												<div class="checkbox">
+													<label>
+													  <input type="checkbox" class="checkbox style-0" >
+													  <span>Track as Allocated Item</span>
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+										<br>
+											<label class="col-md-4 control-label" style="margin-top: 15px;">Allocated Qty Calc</label>
+											<div class="col-md-3">
+												<small>Item multiplier</small>
+												<input class="form-control" type="text">
+											</div>
+											<label class="col-md-1" style="margin-top: 20px;">SF</label>
+										</div>
+										<input type="submit" class="btn btn-primary hidden" id="pdfUpload" />
+
+										</form>
+										<section>
+											<div class="form-group">
+												<label class="input" style="font-weight: bold;">Upload Picture</label><small class="font-xs"> (Click below to open File Explorer)</small><br>
+												<div class="col-lg-12">
+													<form action="upload.php" class="dropzone" id="mydropzone"></form>
+												</div>
+											</div>
+										</section>
+									</fieldset>
+								</div>
+							</div>
+
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -439,6 +445,7 @@
 								Save
 							</button>
 						</div>
+					</form>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
@@ -766,93 +773,12 @@
 
 			    "use strict";
 
-			    var date = new Date();
-			    var d = date.getDate();
-			    var m = date.getMonth();
-			    var y = date.getFullYear();
-
-			    var hdr = {
-			        left: 'title',
-			        center: 'month,agendaWeek,agendaDay',
-			        right: 'prev,today,next'
-			    };
-
-			    var initDrag = function (e) {
-			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-			        // it doesn't need to have a start or end
-
-			        var eventObject = {
-			            title: $.trim(e.children().text()), // use the element's text as the event title
-			            description: $.trim(e.children('span').attr('data-description')),
-			            icon: $.trim(e.children('span').attr('data-icon')),
-			            className: $.trim(e.children('span').attr('class')) // use the element's children as the event class
-			        };
-			        // store the Event Object in the DOM element so we can get to it later
-			        e.data('eventObject', eventObject);
-
-			        // make the event draggable using jQuery UI
-			        e.draggable({
-			            zIndex: 999,
-			            revert: true, // will cause the event to go back to its
-			            revertDuration: 0 //  original position after the drag
-			        });
-			    };
-
-			    var addEvent = function (title, priority, description, icon) {
-			        title = title.length === 0 ? "Untitled Event" : title;
-			        description = description.length === 0 ? "No Description" : description;
-			        icon = icon.length === 0 ? " " : icon;
-			        priority = priority.length === 0 ? "label label-default" : priority;
-
-			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
-			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-
-			        $("#event-container").effect("highlight", 800);
-
-			        initDrag(html);
-			    };
-
-			    /* initialize the external events
-				 -----------------------------------------------------------------*/
-
-			    $('#external-events > li').each(function () {
-			        initDrag($(this));
-			    });
-
-			    $('#add-event').click(function () {
-			        var title = $('#title').val(),
-			            priority = $('input:radio[name=priority]:checked').val(),
-			            description = $('#description').val(),
-			            icon = $('input:radio[name=iconselect]:checked').val();
-
-			        addEvent(title, priority, description, icon);
-			    });
-
-			    /* initialize the calendar
-				 -----------------------------------------------------------------*/
+			   
 
 
 		})
 
 		</script>
-
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-				_gaq.push(['_trackPageview']);
-
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
-
 	</body>
 
 </html>_
