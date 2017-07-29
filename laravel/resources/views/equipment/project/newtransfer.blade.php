@@ -1,21 +1,14 @@
-@include('../../includes/_header_eq')
+@include('../../includes/_header')
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-
+		
 		<!-- END NAVIGATION -->
 
-@include('../../includes/_menu_eq')
+@include('../../includes/_menu')
 		<!-- MAIN PANEL -->
 	<style type="text/css">
 
-		
-		.form-group {
-			margin: 2px;
-		}
-		.col-lg-3 {
-			padding: 0px;
-		}
  		@media screen and (max-width: 1366px){
  			.actionBtns{
  				font-size: 10px;
@@ -33,6 +26,15 @@
 		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
 			padding: 2px 5px;
 		}
+		.form-group {
+			margin-bottom: 5px;
+		}
+		@media (min-width: 768px){
+			.form-horizontal .control-label {
+				padding-top: 0px !important;
+			}	
+		}
+
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -48,7 +50,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li><li style="color: black;">Receive Transfer</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li><li style="color: black;">New Transfer</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -92,7 +94,7 @@
 
 								-->
 								<header>
-									<h2>Receive# 1001-006</h2>
+									<h2>Transfer# 1001-006</h2>
 
 								</header>
 
@@ -108,8 +110,12 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Truck Status</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															Unapproved
+														<div class="col-md-9">
+															<select class="form-control">
+																<option>Draft</option>
+																<option>Reserved</option>
+																<option>To Send</option>
+															</select>
 														</div>
 													</div>
 												</div>
@@ -122,16 +128,22 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Pickup Date</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															05/15/2017
+														<div class="col-md-9">
+															<div class="input-group">
+																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
+																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+															</div>
 														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Delivery Date</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															05/15/2017
+														<div class="col-md-9">
+															<div class="input-group">
+																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
+																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+															</div>
 														</div>
 													</div>
 												</div>
@@ -142,16 +154,22 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Shipped From</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															WA Yard
+														<div class="col-md-9">
+															<select class="form-control">
+																<option>WA Yard</option>
+																<option>NY Yard</option>
+																<option>TX Yard</option>
+															</select>
 														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Shipped To</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															UW Life Sciences Building
+														<div class="col-md-9">
+															<select class="form-control">
+																<option>UW Life Sciences Building</option>
+															</select>
 														</div>
 													</div>
 												</div>
@@ -183,17 +201,20 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label"> <b>Loaded By</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															Ryan Jones
+														<label class="col-md-3 control-label"><b>Loaded By</b></label>
+														<div class="col-md-9">
+														<input type="text" name="loadedby" style="width: 100%" class="form-control">
 														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Delivery Contact:</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-														Andres Gomez 206-930-1775
+														<div class="col-md-5 control-label">
+														<input type="text" placeholder="Andres Gomez" name="nameInput" style="width: 100%" class="form-control">
+														</div>
+														<div class="col-md-4 control-label">
+															<input type="text" placeholder="206-930-1775" name="dateInput" style="width: 100%" class="form-control">
 														</div>
 													</div>
 												</div>
@@ -204,8 +225,12 @@
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Freight Line</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															Thacker Trucking
+														<div class="col-md-9">
+															<select class="form-control">
+																<option></option>
+																<option></option>
+																<option></option>
+															</select>
 														</div>
 													</div>
 												</div>
@@ -226,17 +251,14 @@
 														<label class="col-md-3 control-label"><b>Load Times</b></label>
 														<div class="col-md-9 no-padding">
 															<div class="col-lg-12 no-padding">
-																<div class="col-lg-3 text-center">
-																	<label class="font-xs"><b>Scheduled</b></label><br>
-																	9:00am
+																<div class="col-lg-4">
+																	<input type="text" class="form-control" placeholder="Scheduled">
 																</div>
-																<div class="col-lg-3 text-center">
-																	<label class="font-xs"><b>Actual</b></label><br>
-																	8:45am
+																<div class="col-lg-4">
+																	<input type="text" class="form-control" placeholder="Actual">
 																</div>
-																<div class="col-lg-3 text-center">
-																	<label class="font-xs"><b>Departure</b></label><br>
-																	10:00am
+																<div class="col-lg-4">
+																	<input type="text" class="form-control" placeholder="Departure">
 																</div>
 															</div>
 
@@ -244,21 +266,6 @@
 													</div>
 												</div>
 												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label" style="padding-top: 22px;"><b>Recieved Times:</b></label>
-														<div class="col-md-9">
-															<div class="col-md-12 no-padding">
-																<div class="col-md-6 control-label " style="text-align: center;padding: 1px;">
-																	<span>Scheduled</span>
-																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
-																</div>
-																<div class="col-md-6 control-label" style="text-align: center;padding: 1px;">
-																	<span>Actual Arrival</span>
-																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
-																</div>
-															</div>
-														</div>
-													</div>
 												</div>
 												<div class="col-lg-1"> </div>
 											</div>
@@ -273,36 +280,19 @@
 													</div>
 												</div>
 												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label" style="padding-top: 22px;"><b>Exit Times:</b></label>
-														<div class="col-md-9">
-															<div class="col-md-12 no-padding">
-																<div class="col-md-6 control-label " style="text-align: center;padding: 1px;">
-																	<span>Loaded</span>
-																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
-																</div>
-																<div class="col-md-6 control-label" style="text-align: center;padding: 1px;">
-																	<span>Actual Departure</span>
-																	<input type="text" name="nameInput" style="width: 100%" class="form-control">
-																</div>
-															</div>
-														</div>
-													</div>
 												</div>
 												<div class="col-lg-1"> </div>
 											</div>
 											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
+												<div class="col-lg-9">
 													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Comments</b></label>
-														<div class="col-md-9">
+														<label class="col-lg-3 control-label"><b>Comments</b></label>
+														<div class="col-lg-9">
+															<textarea class="form-control"> </textarea>
 														</div>
 													</div>
+
 												</div>
-												<div class="col-lg-5">
-												</div>
-												<div class="col-lg-1"> </div>
 											</div>
 										</form>
 										<legend></legend>
@@ -311,6 +301,7 @@
 												<thead>
 													<th style="width: 3%;">Rental</th>
 													<th>Status</th>
+													<th style="width: 5%;"></th>
 													<th style="width: 25%;">Description</th>
 													<th style="width: 4%; text-align: center;">Qty (EA)</th>
 													<th>Units</th>
@@ -321,15 +312,29 @@
 												</thead>
 												<tbody>
 													<tr>
+														<td style="text-align: center;"><input type="checkbox" name="rental" style="height: 20px; width: 20px;"></td>
+														<td><select name="rental" style="width: 100%;" class="form-control">
+																<option></option>
+																<option></option>
+															</select>
+														</td>
+														<td><button class="btn btn-xs btn-success btn-block" data-toggle="modal" data-target="#myModal">Search</button></td>
+														<td><input type="text" placeholder="Search" name="searchDesc" style="width: 100%" class="form-control"></td>
+														<td><input type="text" name="rental" style="width: 100%" class="form-control"></td>
 														<td></td>
+														<td><input type="text" name="weightEQ" style="width: 100%" class="form-control"></td>
+														<td>
+															<select style="width: 100%;" class="form-control">
+																<option></option>
+																<option></option>
+															</select>
+														</td>
+														<td style="text-align: center;">
+															<button class="button btn btn-xs btn-success btn-circle">
+																<i class="fa fa-plus"></i>
+															</button>
+														</td>
 														<td></td>
-														<td>Aluma Beam - 6.5'' - 15'</td>
-														<td>10</td>
-														<td></td>
-														<td>15.0 lbs</td>
-														<td></td>
-														<td></td>
-														<td>150.0 lbs</td>
 													</tr>
 												</tbody>
 											</table>
@@ -379,12 +384,12 @@
 										<!-- widget content -->
 										<div class="widget-body">
 											<div>
-												<a href="eqoverview.php" class="btn btn-success btn-block actionBtns">Approve</a>
-												<button class="btn btn-success btn-block actionBtns">Reject</button>
+												<button class="btn btn-success btn-block actionBtns"><b>Save</b></button>
+												<button class="btn btn-success btn-block actionBtns"><b>Cancel</b></button>
 												<hr>
-												<button class="btn btn-success btn-block actionBtns">Cancel</button>
+												<button class="btn btn-success btn-block actionBtns" data-toggle="modal" data-target="#myModal2"><b>Input Rental Info</b></button>
 												<hr>
-												<button class="btn btn-success btn-block actionBtns">Print View</button>
+												<button class="btn btn-success btn-block actionBtns"><b>Print View</b></button>
 											</div>
 										</div>
 										<!-- end widget content -->
@@ -468,7 +473,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -583,7 +588,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
 								Save
 							</button>
 						</div>
@@ -637,21 +642,31 @@
 									</div>
 
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Billing Cycle (Days)</label>
 										<input type="text" name="billingCycle" class="form-control">
 									</div>
 
 								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Vendor</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
+								<div class="row col-md-4">
+									<div class="col-md-12 no-padding">
+										<div class="col-md-9">
+											<div class="form-group">
+												<label class="input" style="font-weight: bold;">Vendor</label><br>
+												<select type="text" class="form-control" required style="padding-left: 5px;">
+												</select>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+											<br>
+												<button class="btn btn-success" style="font-weight: bold; margin-top: 5px;">Add Vendor</button><br>
+											</div>
+										</div>
 									</div>
-
 								</div>
+								
 							</div>
 
 						</div>
@@ -659,7 +674,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
+							<button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
 								Save
 							</button>
 						</div>
@@ -679,145 +694,18 @@
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
-@include('../../includes/_footer')
-
-		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
+		@include('../../includes/_footer')
 
 		<script type="text/javascript">
 
 			$(document).ready(function() {
-
-			$('#datepickmodal').datepicker({
-			    //comment the beforeShow handler if you want to see the ugly overlay
-			    beforeShow: function() {
-			        setTimeout(function(){
-			            $('.ui-datepicker').css('z-index', 99999999999999);
-			        }, 0);
-			    }
-			});
-
 			pageSetUp();
-
-			$('.button').on('click', function() {
-				var id = $(this).attr('data_id');
-
-				var level = $(this).attr('data_level');
-
-				if(level == 1){
-					$('.first-child-'+id).toggleClass('hide');
-					$('.level_1_'+id).toggleClass('hide');
-					if($('.level_1_'+id).first().hasClass('hide')){
-						$('.level_1_'+id).parent().removeClass('btn-success').addClass('btn-warning');
-					}
-					else{
-						$('.level_1_'+id).parent().removeClass('btn-warning').addClass('btn-success');
-					}
-					$('.second-child-'+id).addClass('hide');
-				}
-				else if(level == 2){
-					var id2 = $(this).attr('parent_data_id');
-					$('.second-child-'+id2+'-'+id).toggleClass('hide');
-					$('.level_2_'+id2+'_'+id).toggleClass('hide');
-					if($('.level_2_'+id2+'_'+id).first().hasClass('hide')){
-						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-success').addClass('btn-warning');
-					}
-					else{
-						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-warning').addClass('btn-success');
-					}
-				}
-				else{
-				}
-				$('.inner_' + id).toggleClass('hide');
-			});
-
 			    "use strict";
-
-			    var date = new Date();
-			    var d = date.getDate();
-			    var m = date.getMonth();
-			    var y = date.getFullYear();
-
-			    var hdr = {
-			        left: 'title',
-			        center: 'month,agendaWeek,agendaDay',
-			        right: 'prev,today,next'
-			    };
-
-			    var initDrag = function (e) {
-			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-			        // it doesn't need to have a start or end
-
-			        var eventObject = {
-			            title: $.trim(e.children().text()), // use the element's text as the event title
-			            description: $.trim(e.children('span').attr('data-description')),
-			            icon: $.trim(e.children('span').attr('data-icon')),
-			            className: $.trim(e.children('span').attr('class')) // use the element's children as the event class
-			        };
-			        // store the Event Object in the DOM element so we can get to it later
-			        e.data('eventObject', eventObject);
-
-			        // make the event draggable using jQuery UI
-			        e.draggable({
-			            zIndex: 999,
-			            revert: true, // will cause the event to go back to its
-			            revertDuration: 0 //  original position after the drag
-			        });
-			    };
-
-			    var addEvent = function (title, priority, description, icon) {
-			        title = title.length === 0 ? "Untitled Event" : title;
-			        description = description.length === 0 ? "No Description" : description;
-			        icon = icon.length === 0 ? " " : icon;
-			        priority = priority.length === 0 ? "label label-default" : priority;
-
-			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
-			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-
-			        $("#event-container").effect("highlight", 800);
-
-			        initDrag(html);
-			    };
-
-			    /* initialize the external events
-				 -----------------------------------------------------------------*/
-
-			    $('#external-events > li').each(function () {
-			        initDrag($(this));
-			    });
-
-			    $('#add-event').click(function () {
-			        var title = $('#title').val(),
-			            priority = $('input:radio[name=priority]:checked').val(),
-			            description = $('#description').val(),
-			            icon = $('input:radio[name=iconselect]:checked').val();
-
-			        addEvent(title, priority, description, icon);
-			    });
-
-			    /* initialize the calendar
-				 -----------------------------------------------------------------*/
-
 
 		})
 
 		</script>
 
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-				_gaq.push(['_trackPageview']);
-
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
 
 	</body>
 

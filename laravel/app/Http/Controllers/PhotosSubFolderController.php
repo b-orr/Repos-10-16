@@ -6,7 +6,7 @@ use App\PhotosFolders;
 use App\PhotosSubFolders;
 use Illuminate\Http\Request;
 
-class PhotosFolderController extends Controller
+class PhotosSubFolderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class PhotosFolderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $this->data['folders'] = PhotosFolders::with('subfolders')->get();
-      //  dd($this->data['folders']->subfolders);
-        return view('project.photos.photos', $this->data);
+    {
+        //
     }
 
     /**
@@ -38,9 +36,13 @@ class PhotosFolderController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['name' => 'required']);
-        PhotosFolders::create($request->all());
-        return redirect('project/photos');
+     $this->validate($request, [ 'name' => 'required']);
+   // dd($request->all());
+
+      $subfolders = new PhotosSubFolders();
+      PhotosSubFolders::create($request->all());
+
+      return redirect('/project/photos');
     }
 
     /**

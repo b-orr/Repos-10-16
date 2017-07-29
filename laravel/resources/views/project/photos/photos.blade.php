@@ -172,10 +172,10 @@
 
 																	
 																</tr>
-															<?php
+															<?php 
 																$count1 = 1;
-																$num1 = 1;
-																while ($count1 <= 3 ) { ?>
+																$num1 = 1; ?>
+																@foreach($f->subfolders as $key1 => $sf)
 																	<tr class="hide f-children first-child-<?php echo $num; ?> fchild">
 																		<td style="width:10px !important; padding-left: 20px;">
 																			<button class="button btn btn-warning btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
@@ -186,7 +186,7 @@
 																					<i class="up_5 glyphicon glyphicon-minus"></i>
 																				</span>
 																			</button>
-																		<span class="description-name">2017-02-01</span>
+																		<span class="description-name">{{$sf->name}}</span>
 																		</td>
 																		
 																	</tr>
@@ -226,10 +226,10 @@
 
 																<?php $count2++; } ?>
 
-
 																<?php $count1++;
-																	$num1++; } ?>
+																	$num1++;  ?>
 
+																@endforeach
 															<?php
 															$num++;
 															$count = $count + 1;
@@ -410,24 +410,26 @@
 							</button>
 							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">New SubFolder</h4>
 						</div>
+					<form method="post" action="{{ url('project/photos/subfolders') }}">
+					{{csrf_field()}}
 						<div class="modal-body">
 							
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">SubFolder Name</label>
-										<input type="text" name="compName" class="form-control">
+										<input type="text" name="name" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="select" style="font-weight: bold;">Select Folder</label>
-										<select>
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-										</select>
+										<select class="form-control" name="folder_id">
+													<option value="0">Pick a category </option> 
+												@foreach($folders as $key => $f)
+													<option value="{{$f->id}}">{{$f->name}}</option>
+												@endforeach
+											</select>
 									</div>
 								</div>
 							</div>
@@ -436,10 +438,11 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cancel
 							</button>
-							<button type="button" class="btn btn-success" data-dismiss="modal" id="pdfUpload">
+							<button type="submit" class="btn btn-success">
 								Create
 							</button>
 						</div>
+						</form>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div>
