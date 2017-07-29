@@ -83,9 +83,12 @@ Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Adm
 //Route::get('drawings/layout', 'DrawingsController@layout')->name('Drawings - Layout');
 //Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
 
+Route::post('project/file/upload', 'DrawingsController@uploadFile');
 Route::resource('project/{id}/folders/{folder_id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Drawings' ]);
 
 Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings - Folder' ]);
+
+
 
 
 

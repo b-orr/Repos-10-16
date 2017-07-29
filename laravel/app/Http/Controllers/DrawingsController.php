@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Drawings;
 use App\Folders;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use DB;
 
 class DrawingsController extends Controller
@@ -116,6 +118,28 @@ class DrawingsController extends Controller
     public function destroy(Drawings $drawings)
     {
         //
+    }
+
+    
+
+    public function uploadFile(Request $request) {
+            
+        $sourceFile = $request->file('file');
+      
+        $originalName = $sourceFile->getClientOriginalName();
+
+        $userName = $this->user->name;
+
+        $now = Carbon::now();
+
+        $targetFile = $userName . '_' . $now . '_' . $originalName;
+
+        // Configure the config/filesystems.php (or .env) for the s3 drive ... bucket: pronovosrubixcube, folder: drawings
+
+        // $disk = Storage::disk('s3');
+        
+        // $disk->put($targetFile, fopen($sourceFile, 'r+'));
+
     }
 
     

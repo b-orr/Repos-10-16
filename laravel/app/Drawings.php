@@ -22,7 +22,10 @@ class Drawings extends Model
 
 
 
-
+    // method for uploading file
+    public function uploadFIle() {
+        	// code
+    }
 
         
     

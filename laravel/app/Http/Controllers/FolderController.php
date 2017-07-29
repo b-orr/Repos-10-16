@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use App\Fields;
 use App\FieldsValues;
 use App\Folders;
@@ -136,10 +137,12 @@ class FolderController extends Controller
     public function destroy($id, $folder)
     {
         
-        //dd('hello');
+        
 
         $this->user->projects->find($id)->folders->find($folder)->delete();
 
         return redirect('/project/1/folders');
     }
+
+    
 }

@@ -295,17 +295,23 @@
 										<div class="row"  style="display: flex; justify-content: center;">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="input" style="font-weight: bold;">Release Description</label>
-													<input type="text" class="form-control" required style="padding-left: 5px;" />
+													<label class="input" style="font-weight: bold;" id="releaseDescription">Release Description</label>
+													<input type="text" class="form-control" required style="padding-left: 5px;" value=""/>
 												</div>
 												<div class="form-group">
-													<label class="input" style="font-weight: bold;">Release Date</label>
-													<input id="dateselect_filter" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
+													<label class="input" style="font-weight: bold;" id="releaseDate">Release Date</label>
+													<input id="dateselect_filter" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" value="" style="padding-left: 5px;">
 												</div>
 												<section>
 												<div class="form-group">
 													<label class="input" style="font-weight: bold;">File input</label><small class="font-xs"> (Click below to open File Explorer)</small>
-													<form action="{{ asset('public/assets/plugins/upload.php') }}" class="dropzone" id="mydropzone"></form>
+													<form action="{{ url('/project/file/upload')}}" 
+														class="dropzone" 
+														id="mydropzone">
+														<input type="hidden" value="" id="releaseDescription_hidden" name ="releaseDesc_hidden">
+														<input type="hidden" value="" id="releaseDate_hidden" name ="releaseDate_hidden">
+														{{ csrf_field() }}
+													</form> <!-- {{ asset('public/assets/plugins/upload.php') }} -->
 												</div>
 												</section>
 											</div>
@@ -344,12 +350,21 @@
 			$('#myModal').on('show', function (e) {
 			Dropzone.autoDiscover = false;
 				$("#mydropzone").dropzone({
+					$('#releaseDescription_hidden').val($('#releaseDescription'));
 					//url: "/file/post",
 					addRemoveLinks : true,
 					maxFilesize: 0.5,
 					dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
 					dictResponseError: 'Error uploading file!'
+				
+					
+
 				});
+
+				$("#releaseDescription").keyup(function() {
+				    $('#releaseDescription_hidden').val( this.value );
+				});
+			
 			});
 
 			$('#dt_basic').dataTable({
