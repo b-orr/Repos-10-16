@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Storage;
 use App\Drawings;
 use App\Folders;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Contracts\Filesystem\Filesystem;
+//use Aws\S3\S3Client;
+//use League\Flysystem\AwsS3v2\AwsS3Adapter;
+//use Illuminate\Contracts\Filesystem\Filesystem;
 use DB;
 
 class DrawingsController extends Controller
@@ -136,9 +139,11 @@ class DrawingsController extends Controller
 
         // Configure the config/filesystems.php (or .env) for the s3 drive ... bucket: pronovosrubixcube, folder: drawings
 
-        // $disk = Storage::disk('s3');
+        $disk = Storage::disk('s3');
+
+        $filePath = '/drawings/';
         
-        // $disk->put($targetFile, fopen($sourceFile, 'r+'));
+        $disk->put($filePath.$targetFile , fopen($sourceFile, 'r+'));
 
     }
 
