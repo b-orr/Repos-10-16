@@ -6,17 +6,20 @@
 		<!-- END NAVIGATION -->
 
 @include('../../includes/_menu')
+
 		<!-- MAIN PANEL -->
 	<style type="text/css">
-
- 		@media screen and (max-width: 1366px){
- 			.actionBtns{
- 				font-size: 10px;
- 				padding: 5px 7px;
- 			}
- 		}
-		.main-parent{
+		/* .main-parent{
 			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
+			font-weight: bolder;
+		}
+		.fchild{
+			background-color: #e6e6e6;
+			font-weight: bold;
+		} */
+
+		.main-parent{
+			background-color: #c0c0c0;
 			font-weight: bolder;
 		}
 		.fchild{
@@ -24,46 +27,29 @@
 			font-weight: bold;
 		}
 		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-			padding: 2px 5px;
-		}
-		.form-group {
-			margin-bottom: 5px;
-		}
-		@media (min-width: 768px){
-			.form-horizontal .control-label {
-				padding-top: 0px !important;
-			}	
+			padding: 2px 10px;
 		}
 
+		tr {
+			height:25px !important;
+		}
+		.up_5 {
+			position: relative;
+			top: -5px;
+		}
+		.fa-plus, .fa-minus {
+			font-size: 10px;
+		}
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
-
-				<span class="ribbon-button-alignment">
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span>
-				</span>
-
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li><li style="color: black;">New Transfer</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">{{$project->name}}</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li><li style="color: black;">New Transfer</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
@@ -71,16 +57,17 @@
 
 
 			<!-- MAIN CONTENT -->
-			<div id="content" style="padding-left: 0px;">
+			<div id="content" style="padding: 0px 0px 0px 2px;">
 				<!-- end row -->
-				<section id="widget-grid" style="padding-left: 0px;">
-
-					<!-- row -->
-					<div class="row" style="padding-left: 0px;">
-					<article style="margin-left: 0px; ">
-						<div class="col-lg-10" style="padding-left: 13px;">
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false"	 data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
-								<!-- widget options:
+				<section id="widget-grid">
+					
+					<div class="row no-margin">
+							
+						<div id="contentMain" class="col-md-9" style="width: 80%; padding: 0px 2px 0px 0px; margin-right: 2px;">
+							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+							
+								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" data-widget-togglebutton="false">
+									<!-- widget options:
 									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
 									data-widget-colorbutton="false"
@@ -92,208 +79,216 @@
 									data-widget-collapsed="true"
 									data-widget-sortable="false"
 
-								-->
-								<header>
-									<h2>Transfer# 1001-006</h2>
+									-->
 
-								</header>
 
-								<!-- widget div-->
-								<div>
+									<!-- added buttons -->
 
-									<!-- widget content -->
-									<div class="widget-body no-padding" style="min-height: 50px;">
-										<form class="form-horizontal">
-										<br>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Truck Status</b></label>
-														<div class="col-md-9">
-															<select class="form-control">
-																<option>Draft</option>
-																<option>Reserved</option>
-																<option>To Send</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"></div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Pickup Date</b></label>
-														<div class="col-md-9">
-															<div class="input-group">
-																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
-																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+									<header>
+										<h2>Transfer# 1001-006</h2>
+									</header><!-- widget div-->
+
+
+									<div>
+
+										<!-- widget content -->
+										<div class="widget-body no-padding">
+											<!-- main page content here -->
+											<form class="form-horizontal" method="post" action="{{url('project/'.$project->id.'/equipment')}}">
+											{{ csrf_field() }}
+											<br>
+												<div class="row">
+													<div class="col-lg-1"> </div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Truck Status</b></label>
+															<div class="col-md-9">
+																<select class="form-control" name="status">
+																	<option>Draft</option>
+																	<option>Reserved</option>
+																	<option>To Send</option>
+																</select>
 															</div>
 														</div>
 													</div>
+													<div class="col-lg-5">
+													</div>
+													<div class="col-lg-1"> </div>
 												</div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Delivery Date</b></label>
-														<div class="col-md-9">
-															<div class="input-group">
-																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
-																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												<div class="row">
+													<div class="col-lg-1"></div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Pickup Date</b></label>
+															<div class="col-md-9">
+																<div class="input-group">
+																	<input type="text" name="pickup_date" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
+																	<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Delivery Date</b></label>
+															<div class="col-md-9">
+																<div class="input-group">
+																	<input type="text" name="delivery_date" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
+																	<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+																</div>
 															</div>
 														</div>
 													</div>
+													<div class="col-lg-1"> </div>
 												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row" style="">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Shipped From</b></label>
-														<div class="col-md-9">
-															<select class="form-control">
-																<option>WA Yard</option>
-																<option>NY Yard</option>
-																<option>TX Yard</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Shipped To</b></label>
-														<div class="col-md-9">
-															<select class="form-control">
-																<option>UW Life Sciences Building</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<div class="col-lg-3"></div>
-														<div class="col-md-9">
-															28620 Maple Valley Hwy<br>
-															Maple Valley, WA 98038
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<div class="col-lg-3"></div>
-														<div class="col-md-9">
-															3745 W. Stevens Way NE<br>
-															Seattle, WA 98195
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Loaded By</b></label>
-														<div class="col-md-9">
-														<input type="text" name="loadedby" style="width: 100%" class="form-control">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Delivery Contact:</b></label>
-														<div class="col-md-5 control-label">
-														<input type="text" placeholder="Andres Gomez" name="nameInput" style="width: 100%" class="form-control">
-														</div>
-														<div class="col-md-4 control-label">
-															<input type="text" placeholder="206-930-1775" name="dateInput" style="width: 100%" class="form-control">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Freight Line</b></label>
-														<div class="col-md-9">
-															<select class="form-control">
-																<option></option>
-																<option></option>
-																<option></option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Total Weight:</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															3,650 lbs
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Load Times</b></label>
-														<div class="col-md-9 no-padding">
-															<div class="col-lg-12 no-padding">
-																<div class="col-lg-4">
-																	<input type="text" class="form-control" placeholder="Scheduled">
-																</div>
-																<div class="col-lg-4">
-																	<input type="text" class="form-control" placeholder="Actual">
-																</div>
-																<div class="col-lg-4">
-																	<input type="text" class="form-control" placeholder="Departure">
-																</div>
+												<div class="row" style="">
+													<div class="col-lg-1"> </div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Shipped From</b></label>
+															<div class="col-md-9">
+																<select class="form-control" name="shipped_from">
+																	<option>WA Yard</option>
+																	<option>NY Yard</option>
+																	<option>TX Yard</option>
+																</select>
 															</div>
+														</div>
+													</div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Shipped To</b></label>
+															<div class="col-md-9">
+																<select class="form-control" name="shipped_to">
+																	<option>UW Life Sciences Building</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-1"> </div>
+												</div>
+												<div class="row">
+													<div class="col-lg-1"> </div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<div class="col-lg-3"></div>
+															<div class="col-md-9">
+																28620 Maple Valley Hwy<br>
+																Maple Valley, WA 98038
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<div class="col-lg-3"></div>
+															<div class="col-md-9">
+																3745 W. Stevens Way NE<br>
+																Seattle, WA 98195
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-1"> </div>
+												</div>
+												<div class="row">
+													<div class="col-lg-1"> </div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Loaded By</b></label>
+															<div class="col-md-9">
+															<input type="text" name="loaded_by" style="width: 100%" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Delivery Contact:</b></label>
+															<div class="col-md-5 control-label">
+															<input type="text" placeholder="Andres Gomez" name="delivery_contact" style="width: 100%" class="form-control">
+															</div>
+															<div class="col-md-4 control-label">
+																<input type="text" placeholder="206-930-1775" name="delivery_number" style="width: 100%" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-1"> </div>
+												</div>
+												<div class="row">
+													<div class="col-lg-1"> </div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Freight Line</b></label>
+															<div class="col-md-9">
+																<select class="form-control" name="freight_line">
+																	<option>1</option>
+																	<option>2</option>
+																	<option>3</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Total Weight:</b></label>
+															<input type="hidden" name="total_weight" value="3,650 lbs">
+															<div class="col-md-9 control-label" style="text-align: left;">
+																3,650 lbs
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-1"> </div>
+												</div>
+												<div class="row">
+													<div class="col-lg-1"> </div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Load Times</b></label>
+															<div class="col-md-9 no-padding">
+																<div class="col-lg-12 no-padding">
+																	<div class="col-lg-4">
+																		<input type="text" class="form-control" placeholder="Scheduled" name="load_scheduled">
+																	</div>
+																	<div class="col-lg-4">
+																		<input type="text" class="form-control" placeholder="Actual" name="load_actual">
+																	</div>
+																	<div class="col-lg-4">
+																		<input type="text" class="form-control" placeholder="Departure" name="load_departure">
+																	</div>
+																</div>
 
+															</div>
 														</div>
 													</div>
+													<div class="col-lg-5">
+													</div>
+													<div class="col-lg-1"> </div>
 												</div>
-												<div class="col-lg-5">
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Created:</b></label>
-														<div class="col-md-9 control-label" style="text-align: left;">
-															Ryan Jones 04/06/2017
+												<div class="row">
+													<div class="col-lg-1"> </div>
+													<div class="col-lg-5">
+														<div class="form-group">
+															<label class="col-md-3 control-label"><b>Created:</b></label>
+															<input type="hidden" name="created_by" value="1">
+															<div class="col-md-9 control-label" style="text-align: left;">
+																Ryan Jones 04/06/2017
+															</div>
 														</div>
 													</div>
-												</div>
-												<div class="col-lg-5">
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-9">
-													<div class="form-group">
-														<label class="col-lg-3 control-label"><b>Comments</b></label>
-														<div class="col-lg-9">
-															<textarea class="form-control"> </textarea>
-														</div>
+													<div class="col-lg-5">
 													</div>
+													<div class="col-lg-1"> </div>
+												</div>
+												<div class="row">
+													<div class="col-lg-9">
+														<div class="form-group">
+															<label class="col-lg-3 control-label"><b>Comments</b></label>
+															<div class="col-lg-9">
+																<textarea class="form-control" name="comments"> </textarea>
+															</div>
+														</div>
 
+													</div>
 												</div>
-											</div>
+												<button type="submit" id="submitTransfer" class="hide"></button>
 										</form>
 										<legend></legend>
 										<div class="col-lg-12">
@@ -339,76 +334,37 @@
 												</tbody>
 											</table>
 										</div>
+											<!-- end main page content -->
+										</div>
 									</div>
-									<!-- end widget content -->
 
 								</div>
-								<!-- end widget div -->
-
-							</div>
-						</div>
-
-												<!-- NEW WIDGET START -->
-						<div class="col-lg-2">
-
-
-								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
-									<!-- widget options:
-										usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-										data-widget-colorbutton="false"
-										data-widget-editbutton="false"
-										data-widget-togglebutton="false"
-										data-widget-deletebutton="false"
-										data-widget-fullscreenbutton="false"
-										data-widget-custombutton="false"
-										data-widget-collapsed="true"
-										data-widget-sortable="false"
-
-									-->
-									<header>
-										<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
-										<h2>Actions </h2>
-
-									</header>
-
-									<!-- widget div-->
-									<div>
-
-										<!-- widget edit box -->
-										<div class="jarviswidget-editbox">
-											<!-- This area used as dropdown edit box -->
-										</div>
-										<!-- end widget edit box -->
-
-										<!-- widget content -->
-										<div class="widget-body">
-											<div>
-												<button class="btn btn-success btn-block actionBtns"><b>Save</b></button>
-												<button class="btn btn-success btn-block actionBtns"><b>Cancel</b></button>
-												<hr>
-												<button class="btn btn-success btn-block actionBtns" data-toggle="modal" data-target="#myModal2"><b>Input Rental Info</b></button>
-												<hr>
-												<button class="btn btn-success btn-block actionBtns"><b>Print View</b></button>
-											</div>
-										</div>
 										<!-- end widget content -->
-
-									</div>
-									<!-- end widget div -->
-
-								</div>
-
-
-							</div>
-						<div class="col-lg-10">
-
+							</article>
 						</div>
-						</article>
+						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
+							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
+								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+							</div>
+							<div class="menu-body padding-5">
+								<label for="submitTransfer" class="btn btn-success btn-block actionBtns">
+									<span style="font-size: 12px; font-weight: bold;">Save</span>
+								</label>
+								<button class="btn btn-success btn-block actionBtns">
+									<span style="font-size: 12px; font-weight: bold;">Cancel</span>
+								</button>
+								<legend></legend>
+								<button class="btn btn-success btn-block actionBtns" data-toggle="modal" data-target="#myModal2">
+									<span style="font-size: 12px; font-weight: bold;">Input Rental Info</span>
+								</button>
+								<legend></legend>
+								<button class="btn btn-success btn-block actionBtns">
+									<span style="font-size: 12px; font-weight: bold;">Print View</span>
+								</button>
+							</div>
+						</div>
 					</div>
-
-					<!-- end row -->
-
 				</section>
 
 				<!--
@@ -423,9 +379,7 @@
 		</div>
 		<!-- END MAIN PANEL -->
 
-		<!-- PAGE FOOTER -->
-
-		<!-- END PAGE FOOTER -->
+		<!-- MODALS -->
 		<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
@@ -681,32 +635,24 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div>
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
-		Note: These tiles are completely responsive,
-		you can add as many as you like
-		-->
-
-
-
-
+		<!-- END MODALS -->
 		<!--================================================== -->
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
+		<!-- PAGE FOOTER -->
 		@include('../../includes/_footer')
+		<!-- END PAGE FOOTER -->
+
 
 		<script type="text/javascript">
-
 			$(document).ready(function() {
-			pageSetUp();
+				pageSetUp();
 			    "use strict";
-
-		})
+			})
 
 		</script>
-
-
 	</body>
 
 </html>_
