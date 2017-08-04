@@ -8,15 +8,17 @@
 @include('../../includes/_menu')
 		<!-- MAIN PANEL -->
 	<style type="text/css">
-
- 		@media screen and (max-width: 1366px){
- 			.actionBtns{
- 				font-size: 10px;
- 				padding: 5px 7px;
- 			}
- 		}
-		.main-parent{
+		/* .main-parent{
 			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
+			font-weight: bolder;
+		}
+		.fchild{
+			background-color: #e6e6e6;
+			font-weight: bold;
+		} */
+
+		.main-parent{
+			background-color: #c0c0c0;
 			font-weight: bolder;
 		}
 		.fchild{
@@ -24,7 +26,18 @@
 			font-weight: bold;
 		}
 		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-			padding: 2px ;
+			padding: 2px 10px;
+		}
+
+		tr {
+			height:25px !important;
+		}
+		.up_5 {
+			position: relative;
+			top: -5px;
+		}
+		.fa-plus, .fa-minus {
+			font-size: 10px;
 		}
 	</style>
 		<!-- MAIN PANEL -->
@@ -33,607 +46,459 @@
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
 
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">{{$project->name}}</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
-			
-			
+
+
 
 			<!-- MAIN CONTENT -->
-			<div id="content" style="padding-left: 0px;">
+			<div id="content" style="padding: 0px 0px 0px 2px;">
 				<!-- end row -->
-				<section id="widget-grid" style="padding-left: 0px;">
-				
-					<!-- row -->
-					<div class="row" style="padding-left: 0px;">
-					<article style="margin-left: 0px; ">
-						<div class="col-lg-10" style="padding-left: 13px;">
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false"	 data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
-								<!-- widget options:
-									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-									
-									data-widget-colorbutton="false"	
-									data-widget-editbutton="false"
-									data-widget-togglebutton="false"
-									data-widget-deletebutton="false"
-									data-widget-fullscreenbutton="false"
-									data-widget-custombutton="false"
-									data-widget-collapsed="true" 
-									data-widget-sortable="false"
-									
-								-->
-								<header>
-									<h2>Trucking Notifications</h2>				
-									
-								</header>
-
-								<!-- widget div-->
-								<div>
-
-									<!-- widget content -->
-									<div class="widget-body no-padding" style="min-height: 50px;">
-										
-										<table class="table table-bordered table-striped">
-											<tr>
-												<th style="width: 33%;">Scheduled In-Bound Trucks</th>
-												<th style="width: 34%;">Trucking Requests</th>
-												<th style="width: 33%;">Trucks to be Approved</th>
-											</tr>
-											<tr>
-												<td><a href="newtransfer.php">From Yard 330 - 05/18/2017 12pm</a></td>
-												<td></td>
-												<td><a href="approvetruck.php">From Yard 330 - 06/16/2017</a></td>
-											</tr>
-											<tr>
-												<th>Scheduled Out-Bound Trucks</th>
-												<th>Draft Transfers</th>
-												<tH>Unreviewed Forecasts</th>
-											</tr>
-											<tr>
-												<td></td>
-												<td><a href="newtransfer.php">To Yard 330 - 06/15/2017</a></td>
-												<td><a href="newrequirement.php">Phase 4 - West Pour 5 07/15/2017</a></td>
-											</tr>
-										</table>
-										
-									</div>
-									<!-- end widget content -->
-									
-								</div>
-								<!-- end widget div -->
-								
-							</div>
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false"	 data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
-								<!-- widget options:
-									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-									
-									data-widget-colorbutton="false"	
-									data-widget-editbutton="false"
-									data-widget-togglebutton="false"
-									data-widget-deletebutton="false"
-									data-widget-fullscreenbutton="false"
-									data-widget-custombutton="false"
-									data-widget-collapsed="true" 
-									data-widget-sortable="false"
-									
-								-->
-								<header>
-									<h2>Inventory List</h2>				
-									
-								</header>
-
-								<!-- widget div-->
-								<div class="no-padding" style="min-height: 50px;">
-
-									<!-- widget content -->
-									<div class="widget-body" style="min-height: 50px;">
-													
-													<table id="dt_basic" class="table table-bordered" width="100%">
-													<thead>			                
-															<tr>
-																<th style="width: 40%;">Descriptions</th>
-																<th>Owned</th>
-																<th>Rented</th>
-																<th>Total</th>
-																<th>Units</th>
-																<th style="width: 30%;">Notes</th>
-																<th style="width: 3%;">Edit</th>
-															</tr>
-													</thead>
-													<tbody>
-
-													<?php 
-															$count = 1;
-															$num = 1;
-															while ($count <= 3 ) { ?>
-																<tr class="main-parent" data_id="<?php echo $num; ?>">
-																	<td style="width:10px !important;">
-																		<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
-																			<i class="fa fa-plus level_1_<?php echo$num; ?>"></i>
-																			<i class="fa fa-minus hide level_1_<?php echo$num; ?>"></i>
-																		</button> 
-																		<span class="description-name">HV</span>
-																	</td>
-
-																	<td style="width:50px !important;"></td>
-																	<td style="width:60px !important;"></td>
-																	<td style="width:60px !important;"></td>
-																	<td style="width:50px !important;"></td>
-																	<td style="width:40px !important;"></td>
-																	<td style="width:15px !important;"></td>
-																</tr>
-													<?php 
-																$count1 = 1;
-																$num1 = 1;
-																while ($count1 <= 3 ) { ?>
-																	<tr class="hide first-child-<?php echo $num; ?> fchild">
-																		<td style="width:10px !important; padding-left: 20px;">
-																			<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																				<i class="fa fa-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
-																				<i class="fa fa-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
-																			</button> 
-																		<span class="description-name">Main Beams</span>
-																		</td>
-																		<td style="width:50px !important;" ></td>
-																		<td style="width:60px !important;" ></td>
-																		<td style="width:40px !important;" ></td>
-																		<td style="width:40px !important;" ></td>
-																		<td style="width:15px !important;" ></td>
-																		<td style="width:15px !important;"></td>
-																	</tr>
-													<?php 
-																$count2 = 1;
-																$num2 = 1;
-																while ($count2 <= 6 ) { ?>
-																	<tr class="hide second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
-																		<td style="width:10px !important; padding-left: 40px;">
-																			Main Beams 3' 9''
-																		</td>
-																		<td style="width:60px !important;" ></td>
-																		<td style="width:15px !important;"></td>
-																		<td style="width:15px !important;"></td>
-																		<td style="width:40px !important;" ></td>
-																		<td style="width:15px !important;" ></td>
-																		<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
-																	</tr>
-
-																<?php $count2++; } ?>
-															
-
-																<?php $count1++;
-																	$num1++; } ?>
-
-															<?php
-															$num++;
-															$count = $count + 1;
-															 } ?>	
-													</tbody>
-												
-													</table>
-							</div>
-									<!-- end widget content -->
-									
-								</div>
-								<!-- end widget div -->
-								
-							</div>
-						</div>
-
-												<!-- NEW WIDGET START -->
-						<div class="col-lg-2">
+				<section id="widget-grid">
+					
+					<div class="row no-margin">
 							
+						<div id="contentMain" class="col-md-9" style="width: 80%; padding: 0px 2px 0px 0px; margin-right: 2px;">
+							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
 							
-								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
+								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" data-widget-togglebutton="false">
 									<!-- widget options:
-										usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-										
-										data-widget-colorbutton="false"	
-										data-widget-editbutton="false"
-										data-widget-togglebutton="false"
-										data-widget-deletebutton="false"
-										data-widget-fullscreenbutton="false"
-										data-widget-custombutton="false"
-										data-widget-collapsed="true" 
-										data-widget-sortable="false"
-										
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+									data-widget-colorbutton="false"
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true"
+									data-widget-sortable="false"
+
 									-->
+
+
+									<!-- added buttons -->
+
 									<header>
-										<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
-										<h2>Actions </h2>			
-										
+										<h2>Trucking Notifications</h2>
 									</header>
 
-									<!-- widget div-->
+
 									<div>
-										
-										<!-- widget edit box -->
-										<div class="jarviswidget-editbox">
-											<!-- This area used as dropdown edit box -->
-										</div>
-										<!-- end widget edit box -->
-										
+
 										<!-- widget content -->
-										<div class="widget-body">
-											<div>
-												<a class="btn btn-success btn-block actionBtns" href="{{ url('project/equipment/newtransfer') }}">New Transfer</a>
-												<a class="btn btn-success btn-block actionBtns" href="{{ url('project/equipment/newtrucking') }}">New Trucking Request</a>
-											</div>
-											<legend class="no-margin">Inventory Search</legend>
-											<br>
-											<label><b>Status</b></label>
-											<select class="form-control" name="inventoryStatus">
-												<option>Active</option>
-												<option>Damaged</option>
-												<option>Inactive</option>
-											</select>
-											<label><b>Owner</b></label>
-											<select class="form-control">
-												<option>McClone</option>
-											</select>
-											<label><b>Quick Search</b></label>
-											<input type="text" name="inventorySearch" class="form-control">
+										<div class="widget-body no-padding">
+											<!-- main page content here -->
+											<table class="table table-bordered table-striped">
+												<tr>
+													<th style="width: 33%;">Scheduled In-Bound Trucks</th>
+													<th style="width: 34%;">Trucking Requests</th>
+													<th style="width: 33%;">Trucks to be Approved</th>
+												</tr>
+												<tr>
+													<td><a href="newtransfer.php">From Yard 330 - 05/18/2017 12pm</a></td>
+													<td></td>
+													<td><a href="approvetruck.php">From Yard 330 - 06/16/2017</a></td>
+												</tr>
+												<tr>
+													<th>Scheduled Out-Bound Trucks</th>
+													<th>Draft Transfers</th>
+													<tH>Unreviewed Forecasts</th>
+												</tr>
+												<tr>
+													<td></td>
+													<td><a href="newtransfer.php">To Yard 330 - 06/15/2017</a></td>
+													<td><a href="newrequirement.php">Phase 4 - West Pour 5 07/15/2017</a></td>
+												</tr>
+											</table>
+											<!-- end main page content -->
 										</div>
-										<!-- end widget content -->
-										
 									</div>
-									<!-- end widget div -->
-										
+
 								</div>
+								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" data-widget-togglebutton="false">
+									<!-- widget options:
+									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+									data-widget-colorbutton="false"
+									data-widget-editbutton="false"
+									data-widget-togglebutton="false"
+									data-widget-deletebutton="false"
+									data-widget-fullscreenbutton="false"
+									data-widget-custombutton="false"
+									data-widget-collapsed="true"
+									data-widget-sortable="false"
+
+									-->
 
 
-							</div>
-						<div class="col-lg-10">
-							
+									<!-- added buttons -->
+
+									<header>
+										<h2>Inventory List</h2>
+									</header>
+
+
+									<div>
+
+										<!-- widget content -->
+										<div class="widget-body no-padding">
+											<!-- main page content here -->
+											<table id="dt_basic" class="table table-bordered" width="100%">
+												<thead>			                
+														<tr>
+															<th style="width: 40%;">Descriptions</th>
+															<th>Owned</th>
+															<th>Rented</th>
+															<th>Total</th>
+															<th>Units</th>
+															<th style="width: 30%;">Notes</th>
+															<th style="width: 3%;">Edit</th>
+														</tr>
+												</thead>
+												<tbody>
+
+												<?php 
+														$count = 1;
+														$num = 1;
+														while ($count <= 3 ) { ?>
+															<tr class="main-parent" data_id="<?php echo $num; ?>">
+																<td style="width:10px !important;">
+																	<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
+																		<i class="fa fa-plus level_1_<?php echo$num; ?>"></i>
+																		<i class="fa fa-minus hide level_1_<?php echo$num; ?>"></i>
+																	</button> 
+																	<span class="description-name">HV</span>
+																</td>
+
+																<td style="width:50px !important;"></td>
+																<td style="width:60px !important;"></td>
+																<td style="width:60px !important;"></td>
+																<td style="width:50px !important;"></td>
+																<td style="width:40px !important;"></td>
+																<td style="width:15px !important;"></td>
+															</tr>
+												<?php 
+															$count1 = 1;
+															$num1 = 1;
+															while ($count1 <= 3 ) { ?>
+																<tr class="hide first-child-<?php echo $num; ?> fchild">
+																	<td style="width:10px !important; padding-left: 20px;">
+																		<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
+																			<i class="fa fa-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
+																			<i class="fa fa-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
+																		</button> 
+																	<span class="description-name">Main Beams</span>
+																	</td>
+																	<td style="width:50px !important;" ></td>
+																	<td style="width:60px !important;" ></td>
+																	<td style="width:40px !important;" ></td>
+																	<td style="width:40px !important;" ></td>
+																	<td style="width:15px !important;" ></td>
+																	<td style="width:15px !important;"></td>
+																</tr>
+												<?php 
+															$count2 = 1;
+															$num2 = 1;
+															while ($count2 <= 6 ) { ?>
+																<tr class="hide second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
+																	<td style="width:10px !important; padding-left: 40px;">
+																		Main Beams 3' 9''
+																	</td>
+																	<td style="width:60px !important;" ></td>
+																	<td style="width:15px !important;"></td>
+																	<td style="width:15px !important;"></td>
+																	<td style="width:40px !important;" ></td>
+																	<td style="width:15px !important;" ></td>
+																	<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
+																</tr>
+
+															<?php $count2++; } ?>
+														
+
+															<?php $count1++;
+																$num1++; } ?>
+
+														<?php
+														$num++;
+														$count = $count + 1;
+														 } ?>	
+												</tbody>
+											
+											</table>
+											<!-- end main page content -->
+										</div>
+									</div>
+
+								</div>
+										<!-- end widget div -->
+							</article>
 						</div>
-						</article>
+						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
+							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
+								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+							</div>
+							<div class="menu-body padding-5">
+								
+								<a class="btn btn-success btn-block" href="{{url('project/'.$project->id.'/equipment/create')}}">
+									<span style="font-size: 12px; font-weight: bold;">New Transfer</span>
+								</a>
+								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#categoryModal">
+									<span style="font-size: 12px; font-weight: bold;">New Trucking Request</span>
+								</button>
+								<legend>Inventory Search</legend>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
+								<select class="form-control">
+									<option>Active</option>
+									<option>Damaged</option>
+								</select>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Owner</label>
+								<select class="form-control">
+									<option>McClone</option>	
+							</select>
+								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
+								<input type="text" name="search" class="form-control">
+								<!-- <label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Filters</label><br>
+								<select type="text" name="search" class="form-control">
+									<option>Active</option>
+									<option>Damaged</option>
+								</select> -->
+							</div>
+						</div>
 					</div>
-
-					<!-- end row -->
-				
 				</section>
 
 				<!--
-					The ID "widget-grid" will start to initialize all widgets below 
-					You do not need to use widgets if you dont want to. Simply remove 
-					the <section></section> and you can use wells or panels instead 
+					The ID "widget-grid" will start to initialize all widgets below
+					You do not need to use widgets if you dont want to. Simply remove
+					the <section></section> and you can use wells or panels instead
 					-->
-				
+
 			</div>
 			<!-- END MAIN CONTENT -->
 
 		</div>
 		<!-- END MAIN PANEL -->
 
-		<!-- PAGE FOOTER -->
-		
-		<!-- END PAGE FOOTER -->
+		<!-- MODALS -->
+		<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<form class="form-horizontal">
+						<div class="modal-header" style="background-color: #404040;">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Edit Equipment Type</h4>
+						</div>
 
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
-		Note: These tiles are completely responsive,
-		you can add as many as you like
-		-->
-						
-				<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<form class="form-horizontal">
-							<div class="modal-header" style="background-color: #404040;">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									&times;
-								</button>
-								<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Edit Equipment Type</h4>
+						<div class="modal-body">
+							<div>
+								<strong>
+									<legend>Select storage location & name</legend>
+								</strong>
 							</div>
-
-							<div class="modal-body">
-								<div>
-									<strong>
-										<legend>Select storage location & name</legend>
-									</strong>
-								</div>
-								<div class="row">
-									<div class="row col-lg-7">
-										<div class="col-md-6">
-											<div class="form-group">
-												<div class="col-md-12">
-													<label class="input" style="font-weight: bold;">Classification</label>
-													<select class="form-control">
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<div class="col-md-12">
-													<label class="input" style="font-weight: bold;">Category</label>
-													<select class="form-control">
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-5">
+							<div class="row">
+								<div class="row col-lg-7">
+									<div class="col-md-6">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label class="input" style="font-weight: bold;">Equipment Name</label><br>
-													<input type="text" name="eqName" class="form-control">
-												</div>
+												<label class="input" style="font-weight: bold;">Classification</label>
+												<select class="form-control">
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label class="input" style="font-weight: bold;">Category</label>
+												<select class="form-control">
+												</select>
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-lg-6">
-										<fieldset>
-											<legend>Equipment Data</legend>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Manufacturer</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
+								<div class="col-md-5">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label class="input" style="font-weight: bold;">Equipment Name</label><br>
+												<input type="text" name="eqName" class="form-control">
 											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Model Number</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">UPC Number</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Weight</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Items per Unit</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Notes</label>
-												<div class="col-md-8">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-md-4 control-label">Item Type</label>
-												<div class="col-md-8">
-													<label class="radio radio-inline">
-
-															<input type="radio" class="radiobox" name="itemType">
-															<span>Unique</span>
-
-														</label>
-													<label class="radio radio-inline">
-
-															<input type="radio" class="radiobox" name="itemType">
-															<span>General</span>
-
-														</label>
-												</div>
-											</div>
-										</fieldset>
-									</div>
-									<div class="col-lg-6">
-										<fieldset>
-											<legend>Options</legend>
-											<div class="form-group">
-												<div class="col-md-10" style="margin: -10px 0px 0px 10px;">
-													<div class="checkbox">
-														<label>
-														  <input type="checkbox" class="checkbox style-0">
-														  <span>Track as Forecasted Item</span>
-														</label>
-													</div>
-
-													<div class="checkbox">
-														<label>
-														  <input type="checkbox" class="checkbox style-0" >
-														  <span>Track as Allocated Item</span>
-														</label>
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-											<br>
-												<label class="col-md-4 control-label" style="margin-top: 15px;">Allocated Qty Calc</label>
-												<div class="col-md-3">
-													<small>Item multiplier</small>
-													<input class="form-control" type="text">
-												</div>
-												<label class="col-md-1" style="margin-top: 20px;">SF</label>
-											</div>
-											<input type="submit" class="btn btn-primary hidden" id="pdfUpload" />
-
-											</form>
-											<section>
-												<div class="form-group">
-													<label class="input" style="font-weight: bold;">Upload Picture</label><small class="font-xs"> (Click below to open File Explorer)</small><br>
-													<div class="col-lg-12">
-														<form action="upload.php" class="dropzone" id="mydropzone"></form>
-													</div>
-												</div>
-											</section>
-										</fieldset>
 									</div>
 								</div>
 							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">
-									Cancel
-								</button>
-								<label for="pdfUpload" class="btn btn-success" data-dismiss="modal">Save</label>
+							<div class="row">
+								<div class="col-lg-6">
+									<fieldset>
+										<legend>Equipment Data</legend>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Manufacturer</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Model Number</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">UPC Number</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Weight</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Items per Unit</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Notes</label>
+											<div class="col-md-8">
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Item Type</label>
+											<div class="col-md-8">
+												<label class="radio radio-inline">
+
+														<input type="radio" class="radiobox" name="itemType">
+														<span>Unique</span>
+
+													</label>
+												<label class="radio radio-inline">
+
+														<input type="radio" class="radiobox" name="itemType">
+														<span>General</span>
+
+													</label>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+								<div class="col-lg-6">
+									<fieldset>
+										<legend>Options</legend>
+										<div class="form-group">
+											<div class="col-md-10" style="margin: -10px 0px 0px 10px;">
+												<div class="checkbox">
+													<label>
+													  <input type="checkbox" class="checkbox style-0">
+													  <span>Track as Forecasted Item</span>
+													</label>
+												</div>
+
+												<div class="checkbox">
+													<label>
+													  <input type="checkbox" class="checkbox style-0" >
+													  <span>Track as Allocated Item</span>
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+										<br>
+											<label class="col-md-4 control-label" style="margin-top: 15px;">Allocated Qty Calc</label>
+											<div class="col-md-3">
+												<small>Item multiplier</small>
+												<input class="form-control" type="text">
+											</div>
+											<label class="col-md-1" style="margin-top: 20px;">SF</label>
+										</div>
+										<input type="submit" class="btn btn-primary hidden" id="pdfUpload" />
+
+										</form>
+										<section>
+											<div class="form-group">
+												<label class="input" style="font-weight: bold;">Upload Picture</label><small class="font-xs"> (Click below to open File Explorer)</small><br>
+												<div class="col-lg-12">
+													<form action="upload.php" class="dropzone" id="mydropzone"></form>
+												</div>
+											</div>
+										</section>
+									</fieldset>
+								</div>
 							</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-			</div>		
-	
-		
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+							<label for="pdfUpload" class="btn btn-success" data-dismiss="modal">Save</label>
+						</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>	
+		<!-- END MODALS -->
 		<!--================================================== -->
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
+		<!-- PAGE FOOTER -->
 		@include('../../includes/_footer')
+		<!-- END PAGE FOOTER -->
 
 		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
 
 		<script type="text/javascript">
-			
 			$(document).ready(function() {
-			
-
-			pageSetUp();
-		
-
-			$('.button').on('click', function() {
-				var id = $(this).attr('data_id');
-
-				var level = $(this).attr('data_level');
-
-				if(level == 1){
-					$('.first-child-'+id).toggleClass('hide');
-					$('.level_1_'+id).toggleClass('hide');
-					if($('.level_1_'+id).first().hasClass('hide')){
-						$('.level_1_'+id).parent().removeClass('btn-success').addClass('btn-warning');
-					}
-					else{
-						$('.level_1_'+id).parent().removeClass('btn-warning').addClass('btn-success');
-					}
-					$('.second-child-'+id).addClass('hide');
-				}
-				else if(level == 2){
-					var id2 = $(this).attr('parent_data_id');
-					$('.second-child-'+id2+'-'+id).toggleClass('hide');
-					$('.level_2_'+id2+'_'+id).toggleClass('hide');
-					if($('.level_2_'+id2+'_'+id).first().hasClass('hide')){
-						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-success').addClass('btn-warning');
-					}
-					else{
-						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-warning').addClass('btn-success');
-					}
-				}
-				else{
-				}
-				$('.inner_' + id).toggleClass('hide');
-			});
-			
+				pageSetUp();
 			    "use strict";
-			
-			    var date = new Date();
-			    var d = date.getDate();
-			    var m = date.getMonth();
-			    var y = date.getFullYear();
-			
-			    var hdr = {
-			        left: 'title',
-			        center: 'month,agendaWeek,agendaDay',
-			        right: 'prev,today,next'
-			    };
-			
-			    var initDrag = function (e) {
-			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-			        // it doesn't need to have a start or end
-			
-			        var eventObject = {
-			            title: $.trim(e.children().text()), // use the element's text as the event title
-			            description: $.trim(e.children('span').attr('data-description')),
-			            icon: $.trim(e.children('span').attr('data-icon')),
-			            className: $.trim(e.children('span').attr('class')) // use the element's children as the event class
-			        };
-			        // store the Event Object in the DOM element so we can get to it later
-			        e.data('eventObject', eventObject);
-			
-			        // make the event draggable using jQuery UI
-			        e.draggable({
-			            zIndex: 999,
-			            revert: true, // will cause the event to go back to its
-			            revertDuration: 0 //  original position after the drag
-			        });
-			    };
-			
-			    var addEvent = function (title, priority, description, icon) {
-			        title = title.length === 0 ? "Untitled Event" : title;
-			        description = description.length === 0 ? "No Description" : description;
-			        icon = icon.length === 0 ? " " : icon;
-			        priority = priority.length === 0 ? "label label-default" : priority;
-			
-			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
-			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-			
-			        $("#event-container").effect("highlight", 800);
-			
-			        initDrag(html);
-			    };
-			
-			    /* initialize the external events
-				 -----------------------------------------------------------------*/
-			
-			    $('#external-events > li').each(function () {
-			        initDrag($(this));
-			    });
-			
-			    $('#add-event').click(function () {
-			        var title = $('#title').val(),
-			            priority = $('input:radio[name=priority]:checked').val(),
-			            description = $('#description').val(),
-			            icon = $('input:radio[name=iconselect]:checked').val();
-			
-			        addEvent(title, priority, description, icon);
-			    });
-			
-			    /* initialize the calendar
-				 -----------------------------------------------------------------*/
-						
-		
-		})
+
+			    $('.button').on('click', function() {
+					var id = $(this).attr('data_id');
+
+					var level = $(this).attr('data_level');
+
+					if(level == 1){
+						$('.first-child-'+id).toggleClass('hide');
+						$('.level_1_'+id).toggleClass('hide');
+						if($('.level_1_'+id).first().hasClass('hide')){
+							$('.level_1_'+id).parent().removeClass('btn-success').addClass('btn-warning');
+						}
+						else{
+							$('.level_1_'+id).parent().removeClass('btn-warning').addClass('btn-success');
+						}
+						$('.second-child-'+id).addClass('hide');
+					}
+					else if(level == 2){
+						var id2 = $(this).attr('parent_data_id');
+						$('.second-child-'+id2+'-'+id).toggleClass('hide');
+						$('.level_2_'+id2+'_'+id).toggleClass('hide');
+						if($('.level_2_'+id2+'_'+id).first().hasClass('hide')){
+							$('.level_2_'+id2+'_'+id).parent().removeClass('btn-success').addClass('btn-warning');
+						}
+						else{
+							$('.level_2_'+id2+'_'+id).parent().removeClass('btn-warning').addClass('btn-success');
+						}
+					}
+					else{
+					}
+					$('.inner_' + id).toggleClass('hide');
+				});
+				
+			})
 
 		</script>
-
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-				_gaq.push(['_trackPageview']);
-			
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
-
 	</body>
 
 </html>_

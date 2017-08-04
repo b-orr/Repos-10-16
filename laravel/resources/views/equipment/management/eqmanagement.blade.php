@@ -36,7 +36,7 @@
 			position: relative;
 			top: -5px;
 		}
-		.fa, .fa-plus, .fa-minus {
+		.fa-plus, .fa-minus {
 			font-size: 6px;
 		}
 	</style>

@@ -24,4 +24,8 @@ class Projects extends Model
       return $this->hasMany('App\Folders', 'pj_project_id');
     }
     
+    public function transfers()
+    {
+        return $this->hasMany('App\Transfers', 'project_id');
+    }
 }
