@@ -49,7 +49,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">{{$project->name}}</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li>
+					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">Equipment</li><li style="color: black;">Overview</li>
 				</ol>
 
 			</div>
@@ -113,7 +113,12 @@
 												</tr>
 												<tr>
 													<td></td>
-													<td><a href="newtransfer.php">To Yard 330 - 06/15/2017</a></td>
+													<td>
+														@foreach($transfers as $key => $t)
+															<a href="newtransfer.php">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
+															<br>
+														@endforeach
+													</td>
 													<td><a href="newrequirement.php">Phase 4 - West Pour 5 07/15/2017</a></td>
 												</tr>
 											</table>
@@ -247,7 +252,7 @@
 							</div>
 							<div class="menu-body padding-5">
 								
-								<a class="btn btn-success btn-block" href="{{url('project/'.$project->id.'/equipment/create')}}">
+								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/equipment/create')}}">
 									<span style="font-size: 12px; font-weight: bold;">New Transfer</span>
 								</a>
 								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#categoryModal">

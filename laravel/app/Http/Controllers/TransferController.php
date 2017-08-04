@@ -29,7 +29,7 @@ class TransferController extends Controller
     }
     public function index($id)
     {
-        $this->data['project'] = $this->user->projects->find($id)->select('id', 'name')->first();
+        $this->data['transfers'] = $this->user->projects->find($id)->transfers()->get();
         return view('equipment.project.overview', $this->data);
     }
 
@@ -40,7 +40,7 @@ class TransferController extends Controller
      */
     public function create($id)
     {
-        $this->data['project'] = Auth::user()->projects()->find($id)->select('id', 'name')->first();
+        $this->data['project'] = $this->user->projects->find($id)->select('id', 'name')->first();
         return view('equipment.project.newtransfer', $this->data);
     }
 
@@ -66,10 +66,8 @@ class TransferController extends Controller
                                     'load_scheduled' => 'required',
                                     'load_actual' => 'required',
                                     'load_departure' => 'required',
-                                    'created_by' => 'required',
-                                    'comments' => 'required'
-
-        ]);
+                                    'created_by' => 'required'
+                                ]);
 
         $request->pickup_date = Carbon::createFromFormat('m/d/Y', $request->pickup_date)->startOfDay();
         $request->delivery_date = Carbon::createFromFormat('m/d/Y', $request->delivery_date)->startOfDay();

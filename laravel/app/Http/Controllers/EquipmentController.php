@@ -8,6 +8,20 @@ use Illuminate\Support\Facades\Auth;
 
 class EquipmentController extends Controller
 {
+
+  public $data;
+        
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:super,tenant');
+        $this->middleware(function ($request, $next) {
+                    $this->user= Auth::user();
+                    return $next($request);
+            });
+        
+        $this->data['site_area']='Projects';
+    }
     public function index()
     {
       return view('equipment.eqoverview');
@@ -15,7 +29,9 @@ class EquipmentController extends Controller
 
     public function forecasting()
     {
-      return view('equipment.forecasting');
+      dd('asdasd');
+      $this->data['project'] = $this->user->projects->find($id)->select('id')->first();
+      return view('equipment.forecasting', $this->data);
     }
 
     public function rental()

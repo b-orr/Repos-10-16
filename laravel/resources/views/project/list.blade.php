@@ -72,22 +72,22 @@
  											<thead>
  												<th>Job #</th>
  												<th>Project Name</th>
- 												<th>Client</th>
  												<th>Address</th>
  												<th>City</th>
  												<th>State</th>
  												<th>ZIP</th>
  											</thead>
  											<tbody>
- 												<tr>
- 													<td>1</td>
- 													<td><a href="{{ url('project/overview') }}">Ramble Hotel</a></td>
- 													<td>Sprung Construction</td>
- 													<td>Test Address</td>
- 													<td>City</td>
- 													<td>GA</td>
- 													<td>12345</td>
- 												</tr>
+ 												@foreach($projects as $key => $p)
+	 												<tr>
+	 													<td>{{++$key}}</td>
+	 													<td><a href="{{ url('projects/'.$p->id) }}">{{$p->name}}</a></td>
+	 													<td>{{$p->address}}</td>
+	 													<td>{{$p->city}}</td>
+	 													<td>{{$p->state}}</td>
+	 													<td>{{$p->zip}}</td>
+	 												</tr>
+ 												@endforeach
  											</tbody>
  										</table>
  									</div>

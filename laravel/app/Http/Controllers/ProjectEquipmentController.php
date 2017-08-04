@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectEquipmentController extends Controller
 { 
@@ -10,17 +11,22 @@ class ProjectEquipmentController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
-        
+        $this->middleware(function ($request, $next) {
+                    $this->user= Auth::user();
+                    return $next($request);
+            });
         $this->data['site_area']='Projects';
+
      
     }
     public function overview()
     {
-    	return view('equipment.project.overview', $this->data);
+        return view('equipment.project.overview', $this->data);
     }
 
-    public function forecasting()
+    public function forecasting($id)
     {
+        $this->data['project'] = Auth::user()->projects()->find($id)->select('id')->first();
     	return view('equipment.project.forecasting', $this->data);
     }
 

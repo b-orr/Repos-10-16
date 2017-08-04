@@ -243,7 +243,7 @@
 						<a href="../erp/Admin/adminarea.php">Admin</a>
 					</li>
 					<li>
-						<a href="{{ url('/home') }}">Projects</a>
+						<a href="{{ url('/projects') }}">Projects</a>
 					</li>
 					<li>
 						<a href="{{ url('/equipment/overview') }}">Equipment</a>

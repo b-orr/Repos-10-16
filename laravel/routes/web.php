@@ -95,7 +95,7 @@ Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings 
 
 
 
-Route::get('project/overview', 'ProjectController@projectOverview');
+Route::resource('projects', 'ProjectController');
 
 
 
@@ -133,9 +133,9 @@ Route::resource('/equipment/regionequipment', 'RegionEquipmentcontroller', [ 'as
 */
 
 Route::resource('project/{id}/equipment', 'TransferController', [ 'as' => 'Equipment - Overview' ]);
-Route::get('project/equipment/forecasting', 'ProjectEquipmentController@forecasting')->name('Equipment - Forecasting');
-Route::get('project/equipment/truckinglog', 'ProjectEquipmentController@truckinglog')->name('Equipment - Trucking Log');
-Route::get('project/equipment/rental', 'ProjectEquipmentController@rental')->name('Equipment - Rental');
+Route::get('project/{id}/equipment/forecasting', 'ProjectEquipmentController@forecasting')->name('Equipment - Forecasting');
+Route::get('project/{id}/equipment/truckinglog', 'ProjectEquipmentController@truckinglog')->name('Equipment - Trucking Log');
+Route::get('project/{id}/equipment/rental', 'ProjectEquipmentController@rental')->name('Equipment - Rental');
 
 Route::get('project/equipment/newtransfer', 'TransferController@create')->name('Equipment - New Transfer');
 Route::get('project/equipment/newtrucking', 'TruckingController@create')->name('Equipment - New Trucking');
