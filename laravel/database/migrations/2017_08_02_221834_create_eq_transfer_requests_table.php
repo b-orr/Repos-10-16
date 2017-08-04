@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEqTruckingRequestsTable extends Migration
+class CreateEqTransferRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEqTruckingRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('eq_trucking_requests', function (Blueprint $table) {
+        Schema::create('eq_transfer_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id');
             $table->string('status');
@@ -43,6 +43,6 @@ class CreateEqTruckingRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eq_trucking_requests');
+        Schema::dropIfExists('eq_transfer_requests');
     }
 }
