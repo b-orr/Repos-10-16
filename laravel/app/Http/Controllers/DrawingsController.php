@@ -8,9 +8,13 @@ use App\Folders;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-//use Aws\S3\S3Client;
-//use League\Flysystem\AwsS3v2\AwsS3Adapter;
-//use Illuminate\Contracts\Filesystem\Filesystem;
+use EddTurtle\DirectUpload\Acl;
+use EddTurtle\DirectUpload\InvalidAclException;
+use EddTurtle\DirectUpload\InvalidOptionException;
+use EddTurtle\DirectUpload\InvalidRegionException;
+use EddTurtle\DirectUpload\Region;
+use EddTurtle\DirectUpload\Signature;
+
 use DB;
 
 class DrawingsController extends Controller
@@ -33,6 +37,13 @@ class DrawingsController extends Controller
         
         
         $this->data['site_area']='Admin';
+        
+        include(app_path() . '/s3signature/Acl.php');
+        include(app_path() . '/s3signature/InvalidAclException.php');
+        include(app_path() . '/s3signature/InvalidOptionException.php');
+        include(app_path() . '/s3signature/InvalidRegionException.php');
+        include(app_path() . '/s3signature/Region.php');
+        include(app_path() . '/s3signature/Signature.php');
      
     }
 		
@@ -44,6 +55,14 @@ class DrawingsController extends Controller
     public function index($id,$folder_id)
     {
         $this->data['site_area'] = 'Drawings';
+        
+        
+        $this->data['upload'] = new Signature(
+            "AKIAIXALNCV24MHDDXXQ",
+            "CT3rGoSc/vY3hK33b0T5gBIsWtPv9AupvQc3ceF1",
+            "pronovosrubixcube",
+            "us-east-1"
+        );
 
         $this->data['drawings'] = $this->user->projects->find($id)->folders->find($folder_id)->drawings;
 
@@ -60,7 +79,8 @@ class DrawingsController extends Controller
      */
     public function create()
     {
-        //
+     
+ 
     }
 
     /**

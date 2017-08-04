@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0c24abe79e42fd0ee3cadde08e9e09c",
+    "content-hash": "6455d0051fafe453b5ea70271c24e69e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.32.2",
+            "version": "3.32.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a823106c19f44bed652b6415e846d7afa503c04c"
+                "reference": "d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a823106c19f44bed652b6415e846d7afa503c04c",
-                "reference": "a823106c19f44bed652b6415e846d7afa503c04c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd",
+                "reference": "d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-07-31T22:18:28+00:00"
+            "time": "2017-08-01T21:51:56+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -185,6 +185,55 @@
                 "string"
             ],
             "time": "2015-11-06T14:35:42+00:00"
+        },
+        {
+            "name": "eddturtle/direct-upload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eddturtle/direct-upload.git",
+                "reference": "19b8413998c543b219f82ee95076887abd1efb9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eddturtle/direct-upload/zipball/19b8413998c543b219f82ee95076887abd1efb9d",
+                "reference": "19b8413998c543b219f82ee95076887abd1efb9d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.5|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EddTurtle\\DirectUpload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Edd Turtle",
+                    "email": "edd@designedbyaturtle.co.uk",
+                    "homepage": "https://www.designedbyaturtle.co.uk"
+                }
+            ],
+            "description": "Composer Package to build an AWS Signature ready to Direct Upload to S3",
+            "keywords": [
+                "amazon",
+                "aws",
+                "direct",
+                "php",
+                "s3",
+                "signature",
+                "upload"
+            ],
+            "time": "2017-02-11T15:15:52+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -498,20 +547,20 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.30",
+            "version": "v5.4.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b9a64955f4278f45ac348a6e000b5ecc85da167a"
+                "reference": "b8300578d159199b1195413b67318c79068cd24d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b9a64955f4278f45ac348a6e000b5ecc85da167a",
-                "reference": "b9a64955f4278f45ac348a6e000b5ecc85da167a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b8300578d159199b1195413b67318c79068cd24d",
+                "reference": "b8300578d159199b1195413b67318c79068cd24d",
                 "shasum": ""
             },
             "require": {
-                "doctrine/inflector": "~1.0",
+                "doctrine/inflector": "~1.1.0",
                 "erusev/parsedown": "~1.6",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
@@ -623,7 +672,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-07-19T19:26:19+00:00"
+            "time": "2017-08-03T12:59:42+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3774,7 +3823,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "eddturtle/direct-upload": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
