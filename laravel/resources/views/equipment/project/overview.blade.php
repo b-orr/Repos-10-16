@@ -255,9 +255,9 @@
 								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/equipment/create')}}">
 									<span style="font-size: 12px; font-weight: bold;">New Transfer</span>
 								</a>
-								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#categoryModal">
+								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/trucking/create')}}">
 									<span style="font-size: 12px; font-weight: bold;">New Trucking Request</span>
-								</button>
+								</a>
 								<legend>Inventory Search</legend>
 								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
 								<select class="form-control">

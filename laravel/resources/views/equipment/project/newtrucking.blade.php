@@ -8,18 +8,17 @@
 @include('../../includes/_menu')
 		<!-- MAIN PANEL -->
 	<style type="text/css">
-
-		.form-horizontal .control-label {
-			padding-top: 0px;
-		}
- 		@media screen and (max-width: 1366px){
- 			.actionBtns{
- 				font-size: 10px;
- 				padding: 5px 7px;
- 			}
- 		}
-		.main-parent{
+		/* .main-parent{
 			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
+			font-weight: bolder;
+		}
+		.fchild{
+			background-color: #e6e6e6;
+			font-weight: bold;
+		} */
+
+		.main-parent{
+			background-color: #c0c0c0;
 			font-weight: bolder;
 		}
 		.fchild{
@@ -27,7 +26,18 @@
 			font-weight: bold;
 		}
 		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-			padding: 2px 5px;
+			padding: 2px 10px;
+		}
+
+		tr {
+			height:25px !important;
+		}
+		.up_5 {
+			position: relative;
+			top: -5px;
+		}
+		.fa-plus, .fa-minus {
+			font-size: 10px;
 		}
 	</style>
 		<!-- MAIN PANEL -->
@@ -36,76 +46,64 @@
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
 
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
-
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black; font-weight: bold;">Home</li><li style="color: black; font-weight: bold;">Projects</li><li style="color: black; font-weight: bold;">1001 Broadway</li><li style="color: black; font-weight: bold;">Equipment</li><li style="color: black; font-weight: bold;">Overview</li><li style="color: black; font-weight: bold;">New Transfer</li>
+					<li style="color: black; font-weight: bold;">Home</li><li style="color: black; font-weight: bold;">Projects</li><li style="color: black; font-weight: bold;">1001 Broadway</li><li style="color: black; font-weight: bold;">Equipment</li><li style="color: black; font-weight: bold;">Overview</li><li style="color: black; font-weight: bold;">Trucking Request</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
-			
-			
+
+
 
 			<!-- MAIN CONTENT -->
-			<div id="content" style="padding-left: 0px;">
+			<div id="content" style="padding: 0px 0px 0px 2px;">
 				<!-- end row -->
-				<section id="widget-grid" style="padding-left: 0px;">
-				
-					<!-- row -->
-					<div class="row" style="padding-left: 0px;">
-					<article style="margin-left: 0px; ">
-						<div class="col-lg-10" style="padding-left: 13px;">
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false"	 data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
-								<!-- widget options:
+				<section id="widget-grid">
+					
+					<div class="row no-margin">
+							
+						<div id="contentMain" class="col-md-9" style="width: 80%; padding: 0px 2px 0px 0px; margin-right: 2px;">
+							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+							
+								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" data-widget-togglebutton="false">
+									<!-- widget options:
 									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-									
-									data-widget-colorbutton="false"	
+
+									data-widget-colorbutton="false"
 									data-widget-editbutton="false"
 									data-widget-togglebutton="false"
 									data-widget-deletebutton="false"
 									data-widget-fullscreenbutton="false"
 									data-widget-custombutton="false"
-									data-widget-collapsed="true" 
+									data-widget-collapsed="true"
 									data-widget-sortable="false"
-									
-								-->
-								<header>
-									<h2><b>Trucking Request 1001-001</b></h2>				
-									
-								</header>
 
-								<!-- widget div-->
-								<div>
+									-->
 
-									<!-- widget content -->
-									<div class="widget-body no-padding" style="min-height: 50px;">
-										<form class="form-horizontal">
-										<br>
+
+									<!-- added buttons -->
+
+									<header>
+										<h2>New Trucking Request</h2>
+									</header><!-- widget div-->
+
+
+									<div>
+
+										<!-- widget content -->
+										<div class="widget-body no-padding">
+											<!-- main page content here -->
+										<form class="form-horizontal" method="post" action="{{url('project/'.Request::segment(2).'/trucking')}}">
+											{{ csrf_field() }}
+											<br>
 											<div class="row">
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Truck Status</b></label>
 														<div class="col-md-9">
-															<select class="form-control">
+															<select class="form-control" name="size_truck">
 																<option>Draft</option>
 																<option>To Send</option>
 															</select>
@@ -123,13 +121,13 @@
 														<label class="col-md-3 control-label"><b>Pickup Date</b></label>
 														<div class="col-md-4">
 															<div class="input-group">
-																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
+																<input type="text" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy" name="pickup_date">
 																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 															</div>
 														</div>
 														<label class="col-md-2 control-label"><b>Requested Time</b></label>
 														<div class="col-md-3">
-															<input type="text" class="form-control">
+															<input type="text" class="form-control" name="requested_time">
 														</div>
 													</div>
 												</div>
@@ -138,7 +136,7 @@
 														<label class="col-md-3 control-label"><b>Delivery Date</b></label>
 														<div class="col-md-9">
 															<div class="input-group">
-																<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
+																<input type="text" name="delivery_date" placeholder="Select a date" class="form-control datepicker" data-dateformat="mm/dd/yy">
 																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 															</div>
 														</div>
@@ -152,7 +150,7 @@
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Shipped From</b></label>
 														<div class="col-md-9">
-															<select class="form-control">
+															<select class="form-control" name="shipped_from">
 																<option>WA Yard</option>
 																<option>NY Yard</option>
 																<option>TX Yard</option>
@@ -162,9 +160,14 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Requested Time</b></label>
-														<div class="col-md-9">
-															<input type="text" class="form-control">
+														<label class="col-md-3 control-label"><b>Shipped To</b></label>
+														<div class="col-md-7">
+															<select class="form-control" name="shipped_to">
+																<option>UW Life Sciences Building</option>
+															</select>
+														</div>
+														<div class="col-md-2 no-padding">
+															<button class="btn btn-success btn-sm">Add New</button>
 														</div>
 													</div>
 												</div>
@@ -183,17 +186,14 @@
 												</div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Shipped To</b></label>
-														<div class="col-md-7">
-															<select class="form-control">
-																<option>UW Life Sciences Building</option>
-															</select>
-														</div>
-														<div class="col-md-2 no-padding">
-															<button class="btn btn-success btn-sm">Add New</button>
+														<div class="col-lg-3"></div>
+														<div class="col-md-9">
+															3745 W. Stevens Way NE<br>
+															Seattle, WA 98195
 														</div>
 													</div>
 												</div>
+												
 												<div class="col-lg-1">
 													
 												</div>
@@ -205,31 +205,6 @@
 														<label class="col-md-3 control-label"><b>Site Contact</b></label>
 														<div class="col-md-9 control-label" style="text-align: left;">
 															Ryan Jones 206-930-9893
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<div class="col-lg-3"></div>
-														<div class="col-md-9">
-															3745 W. Stevens Way NE<br>
-															Seattle, WA 98195
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-1"> </div>
-											</div>
-											<div class="row">
-												<div class="col-lg-1"> </div>
-												<div class="col-lg-5">
-													<div class="form-group">
-														<label class="col-md-3 control-label"><b>Freight Line</b></label>
-														<div class="col-md-9">
-															<select class="form-control">
-																<option></option>
-																<option></option>
-																<option></option>
-															</select>
 														</div>
 													</div>
 												</div>
@@ -247,12 +222,12 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3" style="text-align: right;"><b>Size Truck Needed</b></label>
+														<label class="col-md-3 control-label"><b>Freight Line</b></label>
 														<div class="col-md-9">
-															<select class="form-control">
-																<option></option>
-																<option></option>
-																<option></option>
+															<select class="form-control" name="freight_line">
+																<option>1</option>
+																<option>2</option>
+																<option>3</option>
 															</select>
 														</div>
 													</div>
@@ -271,48 +246,32 @@
 												<div class="col-lg-1"> </div>
 												<div class="col-lg-5">
 													<div class="form-group">
-														<label class="col-md-3" style="text-align: right;"><b>Loading Method</b></label>
+														<label class="col-md-3" style="text-align: right;"><b>Size Truck Needed</b></label>
 														<div class="col-md-9">
-															<select class="form-control">
-																<option></option>
-																<option></option>
-																<option></option>
+															<select class="form-control" name="size_truck">
+																<option>1</option>
+																<option>2</option>
+																<option>3</option>
 															</select>
 														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
-													<div class="col-lg-4" style="text-align: center;"> 
-														<label class="control-label"><b>Multiple Trucks</b></label><br>
-														<span class="onoffswitch">
-															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1">
-															<label class="onoffswitch-label" for="myonoffswitch1"> 
-																<span class="onoffswitch-inner" data-swchon-text="YES" data-swchoff-text="NO"></span> 
-																<span class="onoffswitch-switch"></span> 
-															</label> 
-														</span>
-													</div>
-													<div class="col-lg-4" style="text-align: center;"> 
-														<label class="control-label"><b>Round Trip</b></label><br>
-														<span class="onoffswitch">
-															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2">
-															<label class="onoffswitch-label" for="myonoffswitch2"> 
-																<span class="onoffswitch-inner" data-swchon-text="YES" data-swchoff-text="NO"></span> 
-																<span class="onoffswitch-switch"></span> 
-															</label> 
-														</span>
-													</div>
-													<div class="col-lg-4" style="text-align: center;"> 
-														<label class="control-label"><b>Early Trailer Drop</b></label><br>
-														<span class="onoffswitch">
-															<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3">
-															<label class="onoffswitch-label" for="myonoffswitch3"> 
-																<span class="onoffswitch-inner" data-swchon-text="YES" data-swchoff-text="NO"></span> 
-																<span class="onoffswitch-switch"></span> 
-															</label> 
-														</span>
+													<div class="form-group">
+														<label class="col-md-3" style="text-align: right;"><b>Loading Method</b></label>
+														<div class="col-md-9">
+															<select class="form-control" name="loading_method">
+																<option>1</option>
+																<option>2</option>
+																<option>3</option>
+															</select>
+														</div>
 													</div>
 												</div>
+												<div class="col-lg-1"> </div>
+											</div>
+											<div class="row">
+												<div class="col-lg-1"> </div>
 												<div class="col-lg-1"> </div>
 											</div>
 											<div class="row">
@@ -334,12 +293,13 @@
 													<div class="form-group">
 														<label class="col-lg-3 control-label"><b>Comments</b></label>
 														<div class="col-lg-9">
-															<textarea class="form-control"> </textarea>
+															<textarea class="form-control" name="comments"> </textarea>
 														</div>
 													</div>
 													
 												</div>
 											</div>
+											<button type="submit" class="hide" id="submitForm"></button>
 										</form>
 										<legend></legend>
 										<div class="col-lg-12">
@@ -370,353 +330,51 @@
 												</tbody>
 											</table>
 										</div>
+											<!-- end main page content -->
+										</div>
 									</div>
-									<!-- end widget content -->
-									
+
 								</div>
-								<!-- end widget div -->
-								
-							</div>
-						</div>
-
-												<!-- NEW WIDGET START -->
-						<div class="col-lg-2">
-							
-							
-								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
-									<!-- widget options:
-										usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-										
-										data-widget-colorbutton="false"	
-										data-widget-editbutton="false"
-										data-widget-togglebutton="false"
-										data-widget-deletebutton="false"
-										data-widget-fullscreenbutton="false"
-										data-widget-custombutton="false"
-										data-widget-collapsed="true" 
-										data-widget-sortable="false"
-										
-									-->
-									<header>
-										<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
-										<h2>Actions </h2>			
-										
-									</header>
-
-									<!-- widget div-->
-									<div>
-										
-										<!-- widget edit box -->
-										<div class="jarviswidget-editbox">
-											<!-- This area used as dropdown edit box -->
-										</div>
-										<!-- end widget edit box -->
-										
-										<!-- widget content -->
-										<div class="widget-body">
-											<div>
-												<button class="btn btn-success btn-block actionBtns"><b>Save</b></button>
-												<button class="btn btn-success btn-block actionBtns"><b>Cancel</b></button>
-											</div>
-										</div>
 										<!-- end widget content -->
-										
-									</div>
-									<!-- end widget div -->
-										
-								</div>
-
-
-							</div>
-						<div class="col-lg-10">
-							
+							</article>
 						</div>
-						</article>
+						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
+							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
+								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+							</div>
+							<div class="menu-body padding-5">
+								<label class="btn btn-success btn-block" for="submitForm">
+									<span style="font-size: 12px; font-weight: bold;">Save</span>
+								</label>
+								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#categoryModal">
+									<span style="font-size: 12px; font-weight: bold;">Cancel</span>
+								</button>
+							</div>
+						</div>
 					</div>
-
-					<!-- end row -->
-				
 				</section>
 
-				<!--
-					The ID "widget-grid" will start to initialize all widgets below 
-					You do not need to use widgets if you dont want to. Simply remove 
-					the <section></section> and you can use wells or panels instead 
-					-->
-				
 			</div>
 			<!-- END MAIN CONTENT -->
 
 		</div>
 		<!-- END MAIN PANEL -->
 
-		<!-- PAGE FOOTER -->
+		<!-- MODALS -->
 		
-		<!-- END PAGE FOOTER -->
-		<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header" style="background-color: #404040;">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								&times;
-							</button>
-							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Select Storage Location & Name</h4>
-						</div>
-						<div class="modal-body">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Category</label>
-										<select class="form-control">
-											<option></option>
-											<option></option>
-											<option></option>
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Sub-Category</label>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-											<option></option>
-											<option></option>
-											<option></option>
-											<option></option>
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Equipment Name</label><br>
-										<input type="text" name="eqName" class="form-control">
-									</div>
-									
-								</div>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Cancel
-							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
-								Save
-							</button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-		</div>
-
-		<div class="modal fade" id="myModal2" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header" style="background-color: #404040;">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								&times;
-							</button>
-							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Rental Information</h4>
-						</div>
-						<div class="modal-body">
-						<form class="form-horizontal">
-							<div class="row col-lg-12">
-								<div class="col-lg-6">
-									<div class="col-lg-6">
-									</div>
-									<div class="col-lg-6 text-center">
-										PO Number
-									</div>
-								</div>
-								<div class="col-lg-6" style="padding-right: 0px;">
-									<div class="col-lg-6">
-										PO Vendor
-									</div>
-									<div class="col-lg-6 text-center">
-										Rental Rate
-									</div>
-								</div>
-							</div>
-							<!-- foreach od tuka -->
-							<div class="row" style="margin-bottom: 5px;">
-								<div class="col-lg-6">
-									<div class="col-lg-6">
-										#3 Poles
-									</div>
-									<div class="col-lg-6 text-center">
-										<select class="form-control input-xs">
-											<option>MMC-1028</option>
-											<option>MMC-1029</option>
-											<option>MMC-1035</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="col-lg-6 no-padding">
-										Titan
-									</div>
-									<div class="col-lg-6" style="text-align: left; padding-left: 0px;">
-										<input type="text" name="rentalRate" class="form-control input-xs">
-									</div>
-								</div>
-							</div>
-							<!-- endforeach tuka -->
-							<!-- brisi od tuka -->
-							<div class="row" style="margin-bottom: 5px;">
-								<div class="col-lg-6">
-									<div class="col-lg-6">
-										#4 Poles
-									</div>
-									<div class="col-lg-6 text-center">
-										<select class="form-control input-xs">
-											<option>MMC-1028</option>
-											<option>MMC-1029</option>
-											<option>MMC-1035</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="col-lg-6 no-padding">
-										Titan
-									</div>
-									<div class="col-lg-6" style="text-align: left; padding-left: 0px;">
-										<input type="text" name="rentalRate" class="form-control input-xs">
-									</div>
-								</div>
-							</div>
-							<div class="row" style="margin-bottom: 5px;">
-								<div class="col-lg-6">
-									<div class="col-lg-6">
-										Aluma Beam - 6.5'' - 12'
-									</div>
-									<div class="col-lg-6 text-center">
-										<select class="form-control input-xs">
-											<option>MMC-1028</option>
-											<option>MMC-1029</option>
-											<option>MMC-1035</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="col-lg-6 no-padding">
-										Titan
-									</div>
-									<div class="col-lg-6" style="text-align: left; padding-left: 0px;">
-										<input type="text" name="rentalRate" class="form-control input-xs">
-									</div>
-								</div>
-							</div>
-							<!-- do tuka -->
-						</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-success pull-left" data-dismiss="modal" data-toggle="modal" data-target="#myModal3">
-								New PO
-							</button>
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Cancel
-							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
-								Save
-							</button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-		</div>
-
-		<div class="modal fade" id="myModal3" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header" style="background-color: #404040;">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								&times;
-							</button>
-							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">New Rental PO</h4>
-						</div>
-						<div class="modal-body">
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">PO Number</label>
-										<input type="text" name="poNumber" class="form-control">	
-									</div>
-									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Project</label>
-										<select class="form-control" name="projectPO">
-											<option></option>
-										</select>
-									</div>
-									
-								</div>
-								<div class="col-md-5">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Description</label>
-										<input type="text" name="description" class="form-control">
-									</div>
-									
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Start Date</label>
-										<div class="input-group">
-											<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" id="datepickmodal" data-dateformat="dd/mm/yy">
-											<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-										</div>
-									</div>
-									
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Billing Cycle (Days)</label>
-										<input type="text" name="billingCycle" class="form-control">
-									</div>
-									
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="input" style="font-weight: bold;">Vendor</label><br>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-										</select>
-									</div>
-									
-								</div>
-							</div>
-							
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">
-								Cancel
-							</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
-								Save
-							</button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-			</div>
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
-		Note: These tiles are completely responsive,
-		you can add as many as you like
-		-->
-						
-						
-	
-		
+		<!-- END MODALS -->
 		<!--================================================== -->
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
+		<!-- PAGE FOOTER -->
 		@include('../../includes/_footer')
+		<!-- END PAGE FOOTER -->
 
-		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
 
 		<script type="text/javascript">
-			
 			$(document).ready(function() {
 				pageSetUp();
 			    "use strict";

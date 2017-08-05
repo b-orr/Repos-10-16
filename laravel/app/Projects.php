@@ -28,4 +28,9 @@ class Projects extends Model
     {
         return $this->hasMany('App\Transfers', 'project_id');
     }
+
+    public function truckings()
+    {
+        return $this->hasMany('App\Truckings', 'project_id');
+    }
 }
