@@ -27,11 +27,11 @@ class RegionEquipment extends Model
 
   public function subcategory()
   {
-      return $this->belongsTo('App\SubCategories');
+      return $this->belongsTo('App\SubCategories', 'sub_category_id');
   }
 
   public function region()
   {
-      return $this->belongsTo('App\Regions');
+      return $this->belongsTo('App\Regions', 'region_id');
   }
 }

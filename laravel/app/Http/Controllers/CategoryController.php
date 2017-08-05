@@ -10,6 +10,17 @@ use App\RegionEquipment;
 
 class CategoryController extends Controller
 {
+    public $user;
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:super,tenant');
+        $this->middleware(function ($request, $next) {
+                    $this->user= Auth::user();
+                    return $next($request);
+            });
+        $this->data['site_area']='Equipment';
+    }
 
     /**
      * Display a listing of the resource.
@@ -18,8 +29,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $this->data['categories'] = Category::with('subcategories')->get();
-      $this->data['sub'] = SubCategories::with('equipment')->get();
+      $this->data['categories'] = $this->user->categories()->with('subcategories', 'subcategories.equipment')->get();
+      $this->data['userData'] = $this->user->id;
         return view('equipment.management.eqmanagement', $this->data);
     }
 

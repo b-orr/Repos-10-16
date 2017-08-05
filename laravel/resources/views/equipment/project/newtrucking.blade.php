@@ -104,8 +104,8 @@
 														<label class="col-md-3 control-label"><b>Truck Status</b></label>
 														<div class="col-md-9">
 															<select class="form-control" name="size_truck">
-																<option>Draft</option>
-																<option>To Send</option>
+																<option value="Draft">Draft</option>
+																<option value="To Send">To Send</option>
 															</select>
 														</div>
 													</div>
@@ -151,9 +151,9 @@
 														<label class="col-md-3 control-label"><b>Shipped From</b></label>
 														<div class="col-md-9">
 															<select class="form-control" name="shipped_from">
-																<option>WA Yard</option>
-																<option>NY Yard</option>
-																<option>TX Yard</option>
+																<option value="1">WA Yard</option>
+																<option value="2">NY Yard</option>
+																<option value="3">TX Yard</option>
 															</select>
 														</div>
 													</div>
@@ -225,9 +225,9 @@
 														<label class="col-md-3 control-label"><b>Freight Line</b></label>
 														<div class="col-md-9">
 															<select class="form-control" name="freight_line">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
 															</select>
 														</div>
 													</div>
@@ -249,9 +249,9 @@
 														<label class="col-md-3" style="text-align: right;"><b>Size Truck Needed</b></label>
 														<div class="col-md-9">
 															<select class="form-control" name="size_truck">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
 															</select>
 														</div>
 													</div>
@@ -261,9 +261,9 @@
 														<label class="col-md-3" style="text-align: right;"><b>Loading Method</b></label>
 														<div class="col-md-9">
 															<select class="form-control" name="loading_method">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
 															</select>
 														</div>
 													</div>

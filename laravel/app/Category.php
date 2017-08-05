@@ -9,11 +9,16 @@ class Category extends Model
   protected $table = 'eq_categories';
 
   protected $fillable = [
-      'name', 'allocation_uom',
+      'user_id', 'name', 'allocation_uom',
   ];
 
   public function subcategories()
   {
-      return $this->hasMany('App\SubCategories');
+      return $this->hasMany('App\SubCategories', 'category_id');
+  }
+
+  public function user()
+  {
+  	return $this->belongsTo('App\User', 'user_id');
   }
 }

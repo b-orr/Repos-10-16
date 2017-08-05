@@ -53,6 +53,7 @@ class TransferController extends Controller
     public function store($id, Request $request)
     {
 
+        dd($request);
         $this->validate($request, [ 'status' => 'required',
                                     'pickup_date' => 'required',
                                     'delivery_date' => 'required',

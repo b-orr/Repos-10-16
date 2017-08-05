@@ -174,22 +174,20 @@
 																<?php $count2 = 1;
 																 	$num2 = 1;
 																	?>
-																@foreach($sub as $key2 => $val)
-																	@foreach($val->equipment as $key3 => $e)
+																@foreach($s->equipment as $key2 => $val)
 																		@if($val->id == $s->id)
 																		<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
 																			<td style="width:10px !important; padding-left: 40px;">
-																				{{$e->name}}
+																				{{$val->name}}
 																			</td>
 																			<!-- <td style="width:60px !important;" ></td>
 																			<td style="width:15px !important;"></td> -->
-																			<td style="width:40px !important;" >{{$e->weight}}</td>
-																			<td style="width:15px !important;" >{{$e->notes}}</td>
+																			<td style="width:40px !important;" >{{$val->weight}}</td>
+																			<td style="width:15px !important;" >{{$val->notes}}</td>
 																			<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
 																		</tr>
 																		<?php $count2++; ?>
 																		@endif
-																	@endforeach
 																@endforeach
 																<?php $num1++;
 																$count1++; ?>
@@ -491,6 +489,7 @@
 								Save and add new category
 							</button>
 						</div>
+						<input type="hidden" name="user_id" value="{{$userData}}">
 					</form>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->

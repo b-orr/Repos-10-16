@@ -20,6 +20,6 @@ class Regions extends Model
 
     public function regionequipment()
     {
-      return $this->hasMany('App\RegionEquipment');
+      return $this->hasMany('App\RegionEquipment', 'region_id');
     }
 }
