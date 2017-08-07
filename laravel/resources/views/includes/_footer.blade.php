@@ -149,3 +149,6 @@
 
 		<script src="{{ url('/assets/js/plugin/moment/moment.min.js') }}"></script>
 		<script src="{{ url('/assets/js/plugin/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+		
+		
+		<script src="{{ url('/assets/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
