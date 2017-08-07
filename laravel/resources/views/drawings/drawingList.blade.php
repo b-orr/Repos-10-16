@@ -1,6 +1,6 @@
 @include('../includes/_header')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.14.1/js/jquery.fileupload.min.js"></script>
+
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
@@ -48,6 +48,10 @@
 			<!-- END RIBBON -->
 
 			<!-- MAIN CONTENT -->
+			<!-- hidden input-->
+				<input type="hidden" name="releaseDescTake" id="releaseDescTake" value="">
+				<input type="hidden" name="releaseDateTake" id="releaseDateTake" value="">
+			<!-- hidden input-->
 			<div id="content">
 				<div class="row col-lg-12">
 				<!-- widget grid -->
@@ -184,11 +188,11 @@
 												
 											</div><br>
 											<div class="padding-10 bordered" id="uploadedFile-'+uploadedFilesCount+'">
-												<p>
+												<!-- <p>
 													Addendum #1<span class="txt-color-green"></span>
 													<span class="txt-color-green"><i class="fa fa-check"></i></span>
 													<a class="btn btn-danger btn-xs pull-right" href="#" onclick="$('.process_form').submit()" style="margin: 0;">Process Now</a>
-												</p>
+												</p> -->
 											</div>
 										</div>
 										</div>
@@ -199,8 +203,10 @@
 							
 							</article>
 							
-							<form method="post" action="{{ url('drawings/processDrawings') }}" class="process_form">
+							<form method="post" action="{{ url('drawings/1/processDrawings/17') }}" class="process_form">
 							{{ csrf_field() }}
+
+							<input type="submit" value="submit" id="process_form_submit">
 							</form>
 					<!-- row -->
 					<article class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
@@ -300,12 +306,12 @@
 										<div class="row"  style="display: flex; justify-content: center;">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="input" style="font-weight: bold;" id="releaseDescription">Release Description</label>
-													<input type="text" class="form-control" required style="padding-left: 5px;" value=""/>
+													<label class="input" style="font-weight: bold;" id="releaseDescription_label">Release Description</label>
+													<input type="text" class="form-control" required style="padding-left: 5px;" value=""/ id="releaseDescription">
 												</div>
 												<div class="form-group">
-													<label class="input" style="font-weight: bold;" id="releaseDate">Release Date</label>
-													<input id="dateselect_filter" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" value="" style="padding-left: 5px;">
+													<label class="input" style="font-weight: bold;" id="releaseDate_label">Release Date</label>
+													<input id="releaseDate" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" value="" style="padding-left: 5px;">
 												</div>
 												<section>
 												<div class="form-group">
@@ -331,7 +337,7 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">
 											Cancel
 										</button>
-										<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+										<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload" >
 											Upload
 										</button>
 									</div>
@@ -347,6 +353,7 @@
 
 		@include('../includes/_footer')
 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.14.1/js/jquery.fileupload.min.js"></script>
 		<script src="{{ asset('assets/js/plugin/dropzone/dropzone.min.js') }}"></script>
 		<script type="text/javascript">
 		
@@ -360,16 +367,32 @@
 						
 						  s3counter=0;			
 						     			
-						     			
+						  
 							$("#mydropzone").dropzone({
-							 
-						 
+							 	
+
+							 	addedfile: function () {
+							 	
+
+								var myDropzone = this;
+								var fileName = myDropzone.files[s3counter].name
+                   				 	//console.log(myDropzone.files[s3counter].name)
+                   				 	$('input[name="key"]').val('drawings/' + fileName)
+								$('#releaseDescTake').val($('#releaseDescription').val());
+								$('#releaseDateTake').val($('#releaseDate').val());
+								 var releaseDate = $('#releaseDate').val();
+                   				
+                   				},
 								 success: function(file, response){
-								  
+
+								 var releaseDesc = $('#releaseDescTake').val();
+								 var releaseDate = $('#releaseDateTake').val();
+								
+								 
 								 xmlDoc = $.parseXML( response );
 								 $xml = $( xmlDoc );
 								            
-				          $Location = $xml.find( "Location" );
+				          	$Location = $xml.find( "Location" );
 				        	$Key = $xml.find( "Key" );
 				        	$ETag = $xml.find( "ETag" );
 				        	
@@ -377,11 +400,16 @@
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][location]" value="'+$Location.text()+'" />');
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][key]" value="'+$Key.text()+'" />');
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][etag]" value="'+$ETag.text()+'" />');
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDesc]" value="'+releaseDesc+'" />');
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDate]" value="'+releaseDate+'" />');
+				        	$('#process_form_submit').click();
    				        s3counter++;
 //				        	alert($Location.text())
 //				        	alert($Key.text())
 //				        	alert($ETag.text())
-							 }
+							
+							$('#pdfUpload').click();
+							}
 			
 							});
 			
@@ -495,8 +523,8 @@
 				var htmlstrDone = 'Addendum #'+uploadedFilesCount+'<span class="txt-color-green"></span>';
 
 				htmlstrDone += '<span class="txt-color-green"><i class="fa fa-check"></i></span>';
-				htmlstrDone += '<a class="btn btn-danger btn-xs pull-right" href="{{ url("drawings/processDrawings") }}" style="margin: 0;">Process Now</a>';
-
+				htmlstrDone += '<a class="btn btn-danger btn-xs pull-right" href="#" onclick="$(".process_form").submit()" style="margin: 0;">Process Now</a>';
+								
 				$('.widget-body-toolbar').append(htmlstr);
 
 				var timeleft = 99;
