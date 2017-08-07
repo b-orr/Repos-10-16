@@ -75,7 +75,7 @@ Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Adm
 */
 
 
-Route::resource('projects', 'ProjectController', [ 'as' => 'Project' ]);
+Route::resource('project', 'ProjectController', [ 'as' => 'Project' ]);
 
 /*
 |--------------------------------------------------------------------------
