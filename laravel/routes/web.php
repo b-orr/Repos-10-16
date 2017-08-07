@@ -87,8 +87,12 @@ Route::resource('projects', 'ProjectController', [ 'as' => 'Project' ]);
 
 //Route::get('drawings/layout', 'DrawingsController@layout')->name('Drawings - Layout');
 //Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
+<<<<<<< HEAD
 
 
+=======
+Route::post('drawings/{project_id}/processDrawings/{folder_id}', 'DrawingsController@saveToDB');
+>>>>>>> a94361752275c77f25bfa3606701a8d435ef00fb
 Route::post('project/file/upload', 'DrawingsController@uploadFile');
 Route::resource('project/{id}/folders/{folder_id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Drawings' ]);
 

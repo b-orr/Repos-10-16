@@ -167,5 +167,23 @@ class DrawingsController extends Controller
 
     }
 
+    public function saveToDB($project_id, $folder_id, Request $request) {
+            
+        //dd($request->s3file[0]);
+
+        $location = str_replace("%2F", "/", $request->s3file[0]['location']);
+        
+        $name = substr($request->s3file[0]['key'], 9);
+
+        $drawing_name = substr($name, 0, -4);
+
+        $description = $request->s3file[0]['releaseDesc'];
+        
+        $drawing_date = $request->s3file[0]['releaseDate'];
+
+        
+
+        
+        }
     
 }
