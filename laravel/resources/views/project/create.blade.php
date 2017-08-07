@@ -27,6 +27,10 @@
     <!-- END RIBBON -->
     <!-- MAIN CONTENT -->
     <div id="content">
+    
+    	<form action="{{ url('/project') }}" method="POST"   >
+    	
+    	{{ csrf_field() }}
         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
                 <header>
@@ -83,7 +87,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" value=""  />
+                                    <input type="text" class="form-control" name="name" value="" required  />
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -93,7 +97,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="area" id="" class="form-control" style="color: grey;">
+                                    <select name="area" id="" class="form-control" style="">
                                       	<option value="0">ASdc</option>
                                     
                                       
@@ -118,7 +122,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="input-group">
-                                																<input type="text" name="bid_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                																<input type="text" required name="bid_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                 																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 															</div>
                             </div>
@@ -136,8 +140,8 @@
                                                                                                <input name="city" type="text" id="" class="form-control">
                                                                                            </div>
                                                                                            <div class="col-sm-4  col-xs-5">
-                                                                                               <select name="state" id="" class="form-control location" style="color: grey;">
-                                   	<option value="0" style="color:grey">[Select One]</option>
+                                                                                               <select name="state" id="" class="form-control location" style="">
+                                   	<option value="0" style="">[Select One]</option>
                                    	<option value="97" style="color: rgb(0, 0, 0);">CA</option>
                                    	<option value="99" style="color: rgb(0, 0, 0);">CO</option>
                                    	<option value="98" style="color: rgb(0, 0, 0);">HI</option>
@@ -163,7 +167,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="input-group">
-                                																		<input class="form-control" id="timepicker" type="text" name="bid_time" placeholder="">
+                                																		<input class="form-control" required id="timepicker" type="text" name="bid_time" placeholder="">
                                 																		<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                 																	</div>
                             </div>
@@ -176,8 +180,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="structure_use" id="" class="form-control" style="color: grey;">
-                                    	<option value="0" style="color:grey">[Select One]</option>
+                                    <select name="structure_use" id="" class="form-control" style="">
+                                    	<option value="0" style="">[Select One]</option>
                                     	<option  >ATCT</option>
                                     	<option >Correctional Facility</option>
                                     	<option >Courthouse</option>
@@ -205,9 +209,12 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <select name="owner" id="" class="form-control" style="color: grey;">
-                                     	<option value="0" style="color:grey">[Select One]</option>
-                                   
+                                   <select name="owner" id="" class="form-control" style="">
+                                     	<option value="0" style="">[Select One]</option>
+                                   		
+                                   		@foreach($owners as $owner)
+                                   		<option value="{{ $owner->id }}" style="">{{ $owner->first_name }} {{ $owner->last_name }} - {{ $owner->company_association }}</option>
+                                   		@endforeach
                                      
                                      </select>
                                 </div>
@@ -221,8 +228,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="structure_type" id="" class="form-control" style="color: grey;">
-                                    	<option   style="color:grey">[Select One]</option>
+                                    <select name="structure_type" id="" class="form-control" style="">
+                                    	<option   style="">[Select One]</option>
                                     	<option  >2</option>
                                     	<option >High Rise</option>
                                     	<option >Hybrid Garage</option>
@@ -243,8 +250,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <select name="scope" id="" class="form-control" style="color: grey;">
-                                   	<option  style="color:grey">[Select One]</option>
+                                   <select name="scope" id="" class="form-control" style="">
+                                   	<option  style="">[Select One]</option>
                                    	<option>Formwork Modified</option>
                                    	<option>Horizontal &amp; Vertical Form</option>
                                    	<option>Horizontal Form Only</option>
@@ -264,10 +271,11 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="architect" id="" class="form-control" style="color: grey;">
-                                    	<option value="0" style="color:grey">[Select One]</option>
-                                  
-                                    
+                                    <select name="architect" id="" class="form-control" style="">
+                                    	<option value="0" style="">[Select One]</option>
+                                  @foreach($architects as $architect)
+                                  <option value="{{ $architect->id }}" style="">{{ $architect->name }}</option>
+                                  @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -280,9 +288,11 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <select name="struct_eng" id="" class="form-control" style="color: grey;">
-                                   	<option value="0" style="color:grey">[Select One]</option>
-                                
+                                   <select name="struct_eng" id="" class="form-control" style="">
+                                   	<option value="0" style="">[Select One]</option>
+                                		@foreach($struct_eng as $struct_en)
+                                		<option value="{{ $struct_en->id }}" style="">{{ $struct_en->name }}</option>
+                                		@endforeach
                                    
                                    </select>
                                 </div>
@@ -315,7 +325,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                																<input type="text" name="start_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                																<input type="text" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                 																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 															</div>
                             </div>
@@ -331,7 +341,7 @@
                                     <div class="row">
                                     <div class="col-sm-3 col-xs-4">
                                         <span class="duration-lebal custom_min_height">Start Up </span>
-                                        <input name="duration_start" type="text" id="" class=" form-control Duration quantity1 width-1 text-center"  >
+                                        <input name="duration_start" type="text" id="" required class=" form-control Duration quantity1 width-1 text-center"  >
 
                                     </div>
                                     <div class="col-sm-6  col-xs-4">
@@ -384,7 +394,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="bid_site_address" value=""  />
+                                    <input type="text" class="form-control" name="bid_site_address" value=""  required />
                                 </div>
                             </div>
                         </div>
@@ -396,7 +406,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="bid_username" value=""  />
+                                    <input type="text" class="form-control" name="bid_username" value=""  required />
                                 </div>
                             </div>
                         </div>
@@ -467,8 +477,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select name="prevailing_wage" id="" class="form-control" style="color: grey;">
-                                    	<option style="color:grey">[Select One]</option>
+                                    <select name="prevailing_wage" id="" class="form-control" style="">
+                                    	<option style="">[Select One]</option>
                                     	<option>No</option>
                                     	<option>Yes</option>
                                     
@@ -484,8 +494,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <select name="wrap_up" id="" class="form-control" style="color: grey;">
-                                 	<option   style="color:grey">[Select One]</option>
+                                 <select name="wrap_up" id="" class="form-control" style="">
+                                 	<option   style="">[Select One]</option>
                                  	<option  >GL / WC</option>
                                  	<option >GL Only</option>
                                  	<option >None</option>
@@ -502,7 +512,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <select name="performance_bond" id="" class="form-control" style="color: grey;">
+                                  <select name="performance_bond" id="" class="form-control" style="">
                                   	<option  >[Select One]</option>
                                   	<option >No</option>
                                   	<option >Yes</option>
@@ -541,8 +551,8 @@
                                 <div class="form-group">
                                   <strong>Add Recipients</strong>
                                   
-                                    <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="color: grey;">
-                                    	<option value="0" style="color:grey">[Select One]</option>
+                                    <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
+                                    	<option value="0" style="">[Select One]</option>
                                      
                                     
                                     </select>
@@ -584,8 +594,8 @@
                                 <div class="form-group">
                                   <strong>Add Client</strong>
                                   
-                                    <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="color: grey;">
-                                    	<option value="0" style="color:grey">[Select One]</option>
+                                    <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
+                                    	<option value="0" style="">[Select One]</option>
                                      
                                     
                                     </select>
@@ -631,9 +641,11 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="op_manager" id="" class="form-control" style="color: grey;">
-                                     	<option  style="color:grey">[Select One]</option>
-                                      
+                                    <select name="op_manager" id="" class="form-control" style="">
+                                     	<option  style="">[Select One]</option>
+                                      @foreach($op_manager as $op_mng)
+                                      <option value="{{ $op_mng->id }}" style="">{{ $op_mng->name }} {{ $op_mng->last_name }}</option>
+                                      @endforeach
                                      
                                      </select>
                                     
@@ -646,9 +658,11 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                  <select name="estimator" id="" class="form-control" style="color: grey;">
-                                   	<option  style="color:grey">[Select One]</option>
-                                    
+                                  <select name="estimator" id="" class="form-control" style="">
+                                   	<option  style="">[Select One]</option>
+                                    @foreach($estimators as $estimator)
+                                    <option value="{{ $estimator->id }}" style="">{{ $estimator->name }} {{ $estimator->last_name }}</option>
+                                    @endforeach
                                    
                                    </select>
                                 </div>
@@ -743,6 +757,15 @@
                 <!-- end widget div -->
             </div>
         </article>
+        
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button type="submit" class="btn btn-primary  pull-right">Save info</button>
+        <br style="clear: both;">
+        <br style="clear: both;">
+        <br style="clear: both;">
+        </article>
+        
+        </form>
     </div>
     <!-- END MAIN CONTENT -->
     <br style="clear: both;">

@@ -81,7 +81,7 @@
  												@foreach($projects as $key => $p)
 	 												<tr>
 	 													<td>{{++$key}}</td>
-	 													<td><a href="{{ url('projects/'.$p->id) }}">{{$p->name}}</a></td>
+	 													<td><a href="{{ url('project/'.$p->id) }}">{{$p->name}}</a></td>
 	 													<td>{{$p->address}}</td>
 	 													<td>{{$p->city}}</td>
 	 													<td>{{$p->state}}</td>
@@ -131,7 +131,7 @@
  																			 
  																			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right"  >
  																				
- 																				<button class="btn btn-success btn-block " onclick="window.location = '{{ url('projects/create') }}'" style="padding-right: 0px; padding-left: 2px; height: auto;">
+ 																				<button class="btn btn-success btn-block " onclick="window.location = '{{ url('project/create') }}'" style="padding-right: 0px; padding-left: 2px; height: auto;">
  																					Create new project
  																				</button>
  																				

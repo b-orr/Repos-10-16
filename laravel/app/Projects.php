@@ -13,6 +13,23 @@ class Projects extends Model
         
     ];
 
+		
+		public function setBidDateAttribute($bid_date)
+		{   
+		
+	 
+		   $this->attributes['bid_date'] = date('Y-m-d', strtotime(str_replace('/', '-',$bid_date))); 
+		}
+		
+		public function setStartDateAttribute($start_date)
+		{   
+		   $this->attributes['start_date']= date('Y-m-d', strtotime(str_replace('/', '-',$start_date))); 
+		}
+		
+		public function setEstDateAttribute($est_date)
+		{   
+		   $this->attributes['est_date'] = date('Y-m-d', strtotime(str_replace('/', '-',$est_date))); 
+		}
 
     public function user()
 		{
