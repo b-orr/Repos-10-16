@@ -74,18 +74,26 @@ class ProjectController extends Controller
     
     public function edit($id)
     {
-        //
+    
+    		$this->data['architects'] = $this->user->companies->where('type', 'Architect');
+			  $this->data['struct_eng'] = $this->user->companies->where('type', 'Structural/Engineer');
+			  $this->data['owners'] = $this->user->persons;
+			  $this->data['op_manager'] = User::where('parent_user_id', $this->user->id)->where('role', 'OP Manager')->get();
+			  $this->data['estimators'] = User::where('parent_user_id', $this->user->id)->where('role', 'Estimator')->get();
+		
+		
+        $this->data['project'] = $this->user->projects->find($id);
+          
+        return view('project.edit', $this->data);
     }
 
    
     public function update(Request $request, $id)
     {
-        //
+        $this->user->projects()->find($id)->update($request->all());
+        
+        return redirect('/project/' . $id);
     }
 
-    
-    public function destroy($id)
-    {
-        //
-    }
+     
 }
