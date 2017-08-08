@@ -30,6 +30,7 @@ class CategoryController extends Controller
     public function index()
     {
       $this->data['categories'] = $this->user->categories()->with('subcategories', 'subcategories.equipment')->get();
+      
       $this->data['userData'] = $this->user->id;
         return view('equipment.management.eqmanagement', $this->data);
     }

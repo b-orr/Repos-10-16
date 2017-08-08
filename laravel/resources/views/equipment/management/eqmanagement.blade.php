@@ -175,7 +175,6 @@
 																 	$num2 = 1;
 																	?>
 																@foreach($s->equipment as $key2 => $val)
-																		@if($val->id == $s->id)
 																		<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
 																			<td style="width:10px !important; padding-left: 40px;">
 																				{{$val->name}}
@@ -187,7 +186,6 @@
 																			<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
 																		</tr>
 																		<?php $count2++; ?>
-																		@endif
 																@endforeach
 																<?php $num1++;
 																$count1++; ?>
