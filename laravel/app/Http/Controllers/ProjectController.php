@@ -18,15 +18,18 @@ class ProjectController extends Controller
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
                     $this->user= Auth::user();
+                    $this->data['projects'] = $this->user->projects;
                     return $next($request);
             });
         
         $this->data['site_area']='Projects';
+        
+   
     }
  
     public function index()
     {
-        $this->data['projects'] = $this->user->projects;
+        
         return view('project/list', $this->data);
     }
 
@@ -62,7 +65,9 @@ class ProjectController extends Controller
     
     public function show($id)
     {
-        $this->data['project'] = $this->user->projects->find($id)->select('id')->first();
+        $this->data['project'] = $this->user->projects->find($id);
+        
+     
         return view('project.overview', $this->data);
     }
 
