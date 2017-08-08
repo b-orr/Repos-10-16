@@ -49,7 +49,14 @@ class TruckingController extends Controller
      */
     public function store($id, Request $request)
     {
-        
+        $this->validate($request, [ 'status' => 'required',
+                                    'pickup_date' => 'required',
+                                    'requested_time' => 'required',
+                                    'delivery_date' => 'required',
+                                    'shipped_from' => 'required',
+                                    'shipped_to' => 'required'
+                                ]);
+
         $this->user->projects->find($id)->truckings()->save(new Truckings($request->all()));
         return redirect('project/'.$id.'/equipment');
         dd('asd');

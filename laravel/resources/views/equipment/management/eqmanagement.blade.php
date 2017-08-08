@@ -1,4 +1,4 @@
-@include('../../includes/_header_eq')
+@include('../../includes/_header')
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->

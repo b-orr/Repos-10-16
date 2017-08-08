@@ -24,33 +24,32 @@ class EquipmentController extends Controller
     }
     public function index()
     {
-      return view('equipment.eqoverview');
+      return view('equipment.eqoverview', $this->data);
     }
 
     public function forecasting()
     {
-      dd('asdasd');
-      $this->data['project'] = $this->user->projects->find($id)->select('id')->first();
+      // $this->data['project'] = $this->user->projects->find($id)->select('id')->first();
       return view('equipment.forecasting', $this->data);
     }
 
     public function rental()
     {
-      return view('equipment.rental');
+      return view('equipment.rental', $this->data);
     }
     public function allocation()
     {
-      return view('equipment.allocation');
+      return view('equipment.allocation', $this->data);
     }
     public function inventory()
     {
-      return view('equipment.inventory');
+      return view('equipment.inventory', $this->data);
     }
 
     //project equipment functions
 
     public function approvetruck()
     {
-      return view('equipment.project.approvetruck');
+      return view('equipment.project.approvetruck', $this->data);
     }
 }
