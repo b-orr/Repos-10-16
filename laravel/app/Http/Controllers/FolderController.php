@@ -80,7 +80,7 @@ class FolderController extends Controller
 
         $this->user->projects->find($id)->folders()->save(new Folders($request->all()));
         
-        return redirect('/project/1/folders');
+        return redirect('/project/'. $id .'/folders');
     }
 
     /**
