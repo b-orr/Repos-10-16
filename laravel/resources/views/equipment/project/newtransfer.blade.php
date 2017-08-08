@@ -94,7 +94,7 @@
 										<!-- widget content -->
 										<div class="widget-body no-padding">
 											<!-- main page content here -->
-											<form class="form-horizontal" method="post" action="{{url('project/'.$project->id.'/equipment')}}">
+											<form class="form-horizontal" method="post" action="{{url('project/'.Request::segment(2).'/equipment')}}">
 											{{ csrf_field() }}
 											<br>
 												<div class="row">
