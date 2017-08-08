@@ -241,7 +241,7 @@
 															<a href="../job/printinfo.php"><button class="btn btn-warning form-control" data-target="#categoryModal">Print Info Sheet</button></a>
 														</div>
 														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-															<button class="btn btn-warning form-control" data-target="#subCategoryModal">Edit Project Info</button>
+															<button class="btn btn-warning form-control" onclick="window.location='{{ url('/project/' . $project->id . '/edit') }}'">Edit Project Info</button>
 														</div>
 														
 													</div>
