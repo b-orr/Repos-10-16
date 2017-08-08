@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Transfers;
+use App\Truckings;
 use Carbon\Carbon;
 
 class TransferController extends Controller
@@ -30,6 +31,8 @@ class TransferController extends Controller
     public function index($id)
     {
         $this->data['transfers'] = $this->user->projects->find($id)->transfers()->get();
+        $this->data['truckings'] = $this->user->projects->find($id)->truckings()->get();
+        // dd($this->data['truckings']);
         return view('equipment.project.overview', $this->data);
     }
 

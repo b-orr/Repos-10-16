@@ -103,7 +103,12 @@
 												</tr>
 												<tr>
 													<td><a href="newtransfer.php">From Yard 330 - 05/18/2017 12pm</a></td>
-													<td></td>
+													<td>
+														@foreach($truckings as $key => $t)
+															<a href="newtransfer.php">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
+															<br>
+														@endforeach
+													</td>
 													<td><a href="approvetruck.php">From Yard 330 - 06/16/2017</a></td>
 												</tr>
 												<tr>
