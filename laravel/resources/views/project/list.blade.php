@@ -35,7 +35,7 @@
  
  			<!-- MAIN CONTENT -->
  			<div id="content" >
- 
+ <article class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
  				<div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
  								<!-- widget options:
  									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
@@ -81,7 +81,7 @@
  												@foreach($projects as $key => $p)
 	 												<tr>
 	 													<td>{{++$key}}</td>
-	 													<td><a href="{{ url('projects/'.$p->id) }}">{{$p->name}}</a></td>
+	 													<td><a href="{{ url('project/'.$p->id) }}">{{$p->name}}</a></td>
 	 													<td>{{$p->address}}</td>
 	 													<td>{{$p->city}}</td>
 	 													<td>{{$p->state}}</td>
@@ -97,6 +97,56 @@
  								<!-- end widget div -->
  								
  							</div>
+ 							
+ 							</article>
+ 							
+ 							<article class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+ 							
+ 															<!-- Widget ID (each widget will need unique ID)-->
+ 															<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+ 																<!-- widget options:
+ 																	usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+ 																	
+ 																	data-widget-colorbutton="false"	
+ 																	data-widget-editbutton="false"
+ 																	data-widget-togglebutton="false"
+ 																	data-widget-deletebutton="false"
+ 																	data-widget-fullscreenbutton="false"
+ 																	data-widget-custombutton="false"
+ 																	data-widget-collapsed="true" 
+ 																	data-widget-sortable="false"
+ 																	
+ 																-->
+ 																<header>
+ 																	<span class="widget-icon"> <i class="fa fa-arrows-v"></i> </span>
+ 																	<h2 class="font-md">Actions</h2>
+ 																</header>
+ 							
+ 																
+ 																	<!-- widget content -->
+ 																	<div class="widget-body">
+ 																		<div class="widget-body-toolbar">
+ 																		
+ 																		<div class="row">
+ 																			 
+ 																			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right"  >
+ 																				
+ 																				<button class="btn btn-success btn-block " onclick="window.location = '{{ url('project/create') }}'" style="padding-right: 0px; padding-left: 2px; height: auto;">
+ 																					Create new project
+ 																				</button>
+ 																				
+ 																			</div>
+ 																			
+ 																		</div> 
+ 																		 
+ 																	</div>
+ 																	</div>
+ 																	<!-- end widget content -->
+ 																	
+ 															</div>
+ 															<!-- end widget -->
+ 														
+ 														</article>
  				
  			</div>
  			<!-- END MAIN CONTENT -->

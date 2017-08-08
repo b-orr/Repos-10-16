@@ -245,7 +245,7 @@
 						<a href="{{ url('/admin/regions') }}">Admin</a>
 					</li>
 					<li>
-						<a href="{{ url('/projects') }}">Projects</a>
+						<a href="{{ url('/project') }}">Projects</a>
 					</li>
 					<li>
 						<a href="{{ url('/equipment/overview') }}">Equipment</a>
@@ -265,7 +265,7 @@
 
 			</div>
 
-			@if($site_area != 'Admin')
+			@if($site_area == 'Projects')
 			<!-- projects dropdown -->
 			<div class="project-context hidden-xs">
 
@@ -274,27 +274,18 @@
 
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
+				
+				@if(isset($projects ))
+				@foreach($projects as $value)
 					<li>
-						<a href="javascript:void(0);">1001 Broadway</a>
+						<a href="{{ url('project/' . $value->id) }}">{{ $value->name }}</a>
 					</li>
-					<li>
-						<a href="javascript:void(0);">12th and Market</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">450 Alaskan Way</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Block 52 West</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">Block 52 East</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">The Building Cure</a>
+				@endforeach 
+				@endif
 					</li>
 					<li class="divider"></li>
 					<li>
-						<a href="javascript:void(0);">Show All</a>
+						<a href="{{ url('project') }}">Show All</a>
 					</li>
 				</ul>
 				<!-- end dropdown-menu-->

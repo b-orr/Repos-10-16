@@ -68,9 +68,14 @@ Route::resource('admin/users', 'AdminUsersController', [ 'as' => 'Admin - Users'
 Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Admin - User Groups' ]);
 
 
+/*
+|--------------------------------------------------------------------------
+| Projects
+|--------------------------------------------------------------------------
+*/
 
 
-
+Route::resource('project', 'ProjectController', [ 'as' => 'Project' ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -82,20 +87,13 @@ Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Adm
 
 //Route::get('drawings/layout', 'DrawingsController@layout')->name('Drawings - Layout');
 //Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
-
+ 
+Route::post('drawings/{project_id}/processDrawings/{folder_id}', 'DrawingsController@saveToDB');
+ 
 Route::post('project/file/upload', 'DrawingsController@uploadFile');
 Route::resource('project/{id}/folders/{folder_id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Drawings' ]);
 
 Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings - Folder' ]);
-
-
-
-
-
-
-
-
-Route::resource('projects', 'ProjectController');
 
 
 
@@ -109,6 +107,16 @@ Route::resource('project/photos', 'PhotosFolderController');
 Route::resource('project/photos/subfolders', 'PhotosSubFolderController');
 
 
+/*
+|--------------------------------------------------------------------------
+| Contacts
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('contacts', 'ContactsController', [ 'as' => 'Contacts' ]);
+
+Route::resource('contacts/persons', 'PersonsController', [ 'as' => 'Contacts - Persons' ]);
+Route::resource('contacts/companies', 'CompaniesController', [ 'as' => 'Contacts - Companies' ]);
 
 /*
 |--------------------------------------------------------------------------

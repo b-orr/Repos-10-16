@@ -1,6 +1,6 @@
 @include('../includes/_header')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.14.1/js/jquery.fileupload.min.js"></script>
+
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
@@ -48,6 +48,10 @@
 			<!-- END RIBBON -->
 
 			<!-- MAIN CONTENT -->
+			<!-- hidden input-->
+				<input type="hidden" name="releaseDescTake" id="releaseDescTake" value="">
+				<input type="hidden" name="releaseDateTake" id="releaseDateTake" value="">
+			<!-- hidden input-->
 			<div id="content">
 				<div class="row col-lg-12">
 				<!-- widget grid -->
@@ -184,11 +188,11 @@
 												
 											</div><br>
 											<div class="padding-10 bordered" id="uploadedFile-'+uploadedFilesCount+'">
-												<p>
+												<!-- <p>
 													Addendum #1<span class="txt-color-green"></span>
 													<span class="txt-color-green"><i class="fa fa-check"></i></span>
-													<a class="btn btn-danger btn-xs pull-right" href="{{ url('drawings/processDrawings') }}" style="margin: 0;">Process Now</a>
-												</p>
+													<a class="btn btn-danger btn-xs pull-right" href="#" onclick="$('.process_form').submit()" style="margin: 0;">Process Now</a>
+												</p> -->
 											</div>
 										</div>
 										</div>
@@ -198,6 +202,12 @@
 								<!-- end widget -->
 							
 							</article>
+							
+							<form method="post" action="{{ url('drawings/1/processDrawings/17') }}" class="process_form">
+							{{ csrf_field() }}
+
+							<input type="submit" value="submit" id="process_form_submit">
+							</form>
 					<!-- row -->
 					<article class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
 
@@ -296,12 +306,12 @@
 										<div class="row"  style="display: flex; justify-content: center;">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="input" style="font-weight: bold;" id="releaseDescription">Release Description</label>
-													<input type="text" class="form-control" required style="padding-left: 5px;" value=""/>
+													<label class="input" style="font-weight: bold;" id="releaseDescription_label">Release Description</label>
+													<input type="text" class="form-control" required style="padding-left: 5px;" value=""/ id="releaseDescription">
 												</div>
 												<div class="form-group">
-													<label class="input" style="font-weight: bold;" id="releaseDate">Release Date</label>
-													<input id="dateselect_filter" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" value="" style="padding-left: 5px;">
+													<label class="input" style="font-weight: bold;" id="releaseDate_label">Release Date</label>
+													<input id="releaseDate" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" value="" style="padding-left: 5px;">
 												</div>
 												<section>
 												<div class="form-group">
@@ -309,7 +319,7 @@
 													<form action="<?php echo $upload->getFormUrl(); ?>"
 													      method="POST"
 													      enctype="multipart/form-data" 
-														class="dropzone" 
+														 class="dropzone"
 														id="mydropzone">
 														
 														 <?php echo $upload->getFormInputsAsHtml(); ?>
@@ -327,7 +337,7 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">
 											Cancel
 										</button>
-										<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload">
+										<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload" >
 											Upload
 										</button>
 									</div>
@@ -343,6 +353,7 @@
 
 		@include('../includes/_footer')
 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.14.1/js/jquery.fileupload.min.js"></script>
 		<script src="{{ asset('assets/js/plugin/dropzone/dropzone.min.js') }}"></script>
 		<script type="text/javascript">
 		
@@ -352,21 +363,60 @@
 			
 			pageSetUp();
 			
+		 
+						
+						  s3counter=0;			
+						     			
+						  
+							$("#mydropzone").dropzone({
+							 	
+
+							 	addedfile: function () {
+							 	
+
+								var myDropzone = this;
+								var fileName = myDropzone.files[s3counter].name
+                   				 	//console.log(myDropzone.files[s3counter].name)
+                   				 	$('input[name="key"]').val('drawings/' + fileName)
+								$('#releaseDescTake').val($('#releaseDescription').val());
+								$('#releaseDateTake').val($('#releaseDate').val());
+								 var releaseDate = $('#releaseDate').val();
+                   				
+                   				},
+								 success: function(file, response){
+
+								 var releaseDesc = $('#releaseDescTake').val();
+								 var releaseDate = $('#releaseDateTake').val();
+								
+								 
+								 xmlDoc = $.parseXML( response );
+								 $xml = $( xmlDoc );
+								            
+				          	$Location = $xml.find( "Location" );
+				        	$Key = $xml.find( "Key" );
+				        	$ETag = $xml.find( "ETag" );
+				        	
+				  
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][location]" value="'+$Location.text()+'" />');
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][key]" value="'+$Key.text()+'" />');
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][etag]" value="'+$ETag.text()+'" />');
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDesc]" value="'+releaseDesc+'" />');
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDate]" value="'+releaseDate+'" />');
+				        	$('#process_form_submit').click();
+   				        s3counter++;
+//				        	alert($Location.text())
+//				        	alert($Key.text())
+//				        	alert($ETag.text())
+							
+							$('#pdfUpload').click();
+							}
+			
+							});
+			
+			
 
 			$('#myModal').on('show', function (e) {
-			Dropzone.autoDiscover = false;
-				$("#mydropzone").dropzone({
-					$('#releaseDescription_hidden').val($('#releaseDescription'));
-					//url: "/file/post",
-					addRemoveLinks : true,
-					maxFilesize: 0.5,
-					dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
-					dictResponseError: 'Error uploading file!'
-				
-					
-
-				});
-
+			
 				$("#releaseDescription").keyup(function() {
 				    $('#releaseDescription_hidden').val( this.value );
 				});
@@ -473,8 +523,8 @@
 				var htmlstrDone = 'Addendum #'+uploadedFilesCount+'<span class="txt-color-green"></span>';
 
 				htmlstrDone += '<span class="txt-color-green"><i class="fa fa-check"></i></span>';
-				htmlstrDone += '<a class="btn btn-danger btn-xs pull-right" href="{{ url("drawings/processDrawings") }}" style="margin: 0;">Process Now</a>';
-
+				htmlstrDone += '<a class="btn btn-danger btn-xs pull-right" href="#" onclick="$(".process_form").submit()" style="margin: 0;">Process Now</a>';
+								
 				$('.widget-body-toolbar').append(htmlstr);
 
 				var timeleft = 99;
@@ -737,72 +787,72 @@
 		
 		
 		 <script>
-        $(document).ready(function () {
-
-            // Assigned to variable for later use.
-            var form = $('.direct-upload');
-            var filesUploaded = [];
-
-            // Place any uploads within the descending folders
-            // so ['test1', 'test2'] would become /test1/test2/filename
-            var folders = [];
-
-            form.fileupload({
-                url: form.attr('action'),
-                type: form.attr('method'),
-                datatype: 'xml',
-                add: function (event, data) {
-
-                    // Show warning message if your leaving the page during an upload.
-                    window.onbeforeunload = function () {
-                        return 'You have unsaved changes.';
-                    };
-
-                    // Give the file which is being uploaded it's current content-type (It doesn't retain it otherwise)
-                    // and give it a unique name (so it won't overwrite anything already on s3).
-                    var file = data.files[0];
-                    var filename = Date.now() + '.' + file.name.split('.').pop();
-                    form.find('input[name="Content-Type"]').val(file.type);
-                    form.find('input[name="key"]').val((folders.length ? folders.join('/') + '/' : '') + filename);
-
-                    // Actually submit to form to S3.
-                    data.submit();
-
-                    // Show the progress bar
-                    // Uses the file size as a unique identifier
-                    var bar = $('<div class="progress" data-mod="'+file.size+'"><div class="bar"></div></div>');
-                    $('.progress-bar-area').append(bar);
-                    bar.slideDown('fast');
-                },
-                progress: function (e, data) {
-                    // This is what makes everything really cool, thanks to that callback
-                    // you can now update the progress bar based on the upload progress.
-                    var percent = Math.round((data.loaded / data.total) * 100);
-                    $('.progress[data-mod="'+data.files[0].size+'"] .bar').css('width', percent + '%').html(percent+'%');
-                },
-                fail: function (e, data) {
-                    // Remove the 'unsaved changes' message.
-                    window.onbeforeunload = null;
-                    $('.progress[data-mod="'+data.files[0].size+'"] .bar').css('width', '100%').addClass('red').html('');
-                },
-                done: function (event, data) {
-                    window.onbeforeunload = null;
-
-                    // Upload Complete, show information about the upload in a textarea
-                    // from here you can do what you want as the file is on S3
-                    // e.g. save reference to your server using another ajax call or log it, etc.
-                    var original = data.files[0];
-                    var s3Result = data.result.documentElement.children;
-                    filesUploaded.push({
-                        "original_name": original.name,
-                        "s3_name": s3Result[2].innerHTML,
-                        "size": original.size,
-                        "url": s3Result[0].innerHTML.replace("%2F", "/")
-                    });
-                    $('#uploaded').html(JSON.stringify(filesUploaded, null, 2));
-                }
-            });
-        });
+//        $(document).ready(function () {
+//
+//            // Assigned to variable for later use.
+//            var form = $('.direct-upload');
+//            var filesUploaded = [];
+//
+//            // Place any uploads within the descending folders
+//            // so ['test1', 'test2'] would become /test1/test2/filename
+//            var folders = [];
+//
+//            form.fileupload({
+//                url: form.attr('action'),
+//                type: form.attr('method'),
+//                datatype: 'xml',
+//                add: function (event, data) {
+//
+//                    // Show warning message if your leaving the page during an upload.
+//                    window.onbeforeunload = function () {
+//                        return 'You have unsaved changes.';
+//                    };
+//
+//                    // Give the file which is being uploaded it's current content-type (It doesn't retain it otherwise)
+//                    // and give it a unique name (so it won't overwrite anything already on s3).
+//                    var file = data.files[0];
+//                    var filename = Date.now() + '.' + file.name.split('.').pop();
+//                    form.find('input[name="Content-Type"]').val(file.type);
+//                    form.find('input[name="key"]').val((folders.length ? folders.join('/') + '/' : '') + filename);
+//
+//                    // Actually submit to form to S3.
+//                    data.submit();
+//
+//                    // Show the progress bar
+//                    // Uses the file size as a unique identifier
+//                    var bar = $('<div class="progress" data-mod="'+file.size+'"><div class="bar"></div></div>');
+//                    $('.progress-bar-area').append(bar);
+//                    bar.slideDown('fast');
+//                },
+//                progress: function (e, data) {
+//                    // This is what makes everything really cool, thanks to that callback
+//                    // you can now update the progress bar based on the upload progress.
+//                    var percent = Math.round((data.loaded / data.total) * 100);
+//                    $('.progress[data-mod="'+data.files[0].size+'"] .bar').css('width', percent + '%').html(percent+'%');
+//                },
+//                fail: function (e, data) {
+//                    // Remove the 'unsaved changes' message.
+//                    window.onbeforeunload = null;
+//                    $('.progress[data-mod="'+data.files[0].size+'"] .bar').css('width', '100%').addClass('red').html('');
+//                },
+//                done: function (event, data) {
+//                    window.onbeforeunload = null;
+//
+//                    // Upload Complete, show information about the upload in a textarea
+//                    // from here you can do what you want as the file is on S3
+//                    // e.g. save reference to your server using another ajax call or log it, etc.
+//                    var original = data.files[0];
+//                    var s3Result = data.result.documentElement.children;
+//                    filesUploaded.push({
+//                        "original_name": original.name,
+//                        "s3_name": s3Result[2].innerHTML,
+//                        "size": original.size,
+//                        "url": s3Result[0].innerHTML.replace("%2F", "/")
+//                    });
+//                    $('#uploaded').html(JSON.stringify(filesUploaded, null, 2));
+//                }
+//            });
+//        });
     </script>
 
 	</body>

@@ -49,7 +49,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Overview</li>
+					<li style="color: black;">Projects</li><li style="color: black;">{{ $project->name }}</li><li style="color: black;">Overview</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -81,7 +81,7 @@
 				
 				<!-- widget grid -->
 				
-
+<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<section id="widget-grid2" class="">
 				
 					<!-- row -->
@@ -90,7 +90,7 @@
 						<!-- NEW WIDGET START -->
 						<div id="content no-padding">
 
-				
+				<h1>{{ $project->name }}</h1>
 				<!-- row -->
 				
 				<div class="row">
@@ -99,7 +99,7 @@
 					<div class="col-sm-5 col-md-5 col-lg-5">
 
 					<div id="calendar_text">
-						<h2><b>(Client Name) Project Team</b></h2>
+						<h2><b>Project Team</b></h2>
 						<table id="upper_table">
 							<thead>
 								<tr>
@@ -256,10 +256,10 @@
 				
 				<!-- end row -->
 
-			</div>
+		
 						<!-- WIDGET END -->
 						
-					</div>
+					
 				
 					<!-- end row -->
 				
@@ -318,16 +318,16 @@
 						</div>
 							
 					</div>
-					<br><br><br><br>
-				
+					<br><br><br> 
+				</div>	</div>
 					<!-- end row -->
 				
-				</section>
+				</section> </article>
 				<!-- end widget grid -->
 
 			</div>
 			<!-- END MAIN CONTENT -->
-
+<br style="clear: both;" /> 
 		</div>
 		<!-- END MAIN PANEL -->
 
