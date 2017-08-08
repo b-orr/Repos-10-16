@@ -214,7 +214,7 @@
 							{{ csrf_field() }}
 							<input type="hidden" name="project_id" value={{ $project_id }} >
 							<input type="hidden" name="folder_id" value={{$folder_id}} >
-							<input type="submit" value="submit" id="process_form_submit">
+							<input type="submit" value="submit" id="process_form_submit" style="display:none">
 							</form>
 					<!-- row -->
 					<article class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
@@ -338,6 +338,12 @@
 													</form> <!-- {{ asset('public/assets/plugins/upload.php') }} -->
 												</div>
 												</section>
+
+												<div class="progress">
+												    <div class="progress-bar progress-bar-primary" id="progress_bar"role="progressbar" data-dz-uploadprogress>
+												        <span class="progress-text"></span>
+												    </div>
+												</div>
 												
 											</div>
 										</div>
@@ -380,15 +386,25 @@
 							$("#mydropzone").dropzone({
 							 	
 
-							 	addedfile: function () {
+							
+								addedfile: function (file, response) {
 							 	
-								var myDropzone = this;
-								var fileName = myDropzone.files[s3counter].name
-                   				 	//console.log(myDropzone.files[s3counter].name)
-                   				$('input[name="key"]').val('drawings/' + fileName)
-								$('#releaseDescTake').val($('#releaseDescription').val());
-								$('#releaseDateTake').val($('#releaseDate').val());
-								},                   				
+									var myDropzone = this;
+									var fileName = myDropzone.files[s3counter].name
+	                   				 	
+	                   				$('input[name="key"]').val('drawings/' + fileName)
+									$('#releaseDescTake').val($('#releaseDescription').val());
+									$('#releaseDateTake').val($('#releaseDate').val());
+								},
+
+								uploadprogress: function(file, progress, bytesSent) {
+								    	var percent = (progress).toFixed(2);
+								        var progressElement = $("#progress_bar");
+								        progressElement.css('width', percent + '%').html(percent+'%');
+								        progressElement.querySelector(".progress-text").textContent = percent + "%";
+								   
+								},
+
 								success: function(file, response){
 
 								 var releaseDesc = $('#releaseDescTake').val();
