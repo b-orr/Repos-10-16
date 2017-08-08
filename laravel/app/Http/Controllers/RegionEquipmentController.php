@@ -38,7 +38,6 @@ class RegionEquipmentController extends Controller
       RegionEquipment::create($request->all());
 
       return redirect('/equipment/eqmanagement');
-        // dd($request->all());
     }
 
     /**
