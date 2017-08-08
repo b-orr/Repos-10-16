@@ -147,7 +147,7 @@ Route::get('equipment/inventory', 'EquipmentController@inventory')->name('Equpme
 Route::get('project/approvetruck', 'EquipmentController@approvetruck')->name('Equpment - Approvetruck');
 Route::resource('/equipment/eqmanagement', 'CategoryController', [ 'as' => 'Equpment - Management' ]);
 Route::resource('/equipment/subcategories', 'SubCategoryController', [ 'as' => 'Equpment - Subcategories' ]);
-Route::resource('/equipment/regionequipment', 'RegionEquipmentcontroller', [ 'as' => 'Equpment - Regions' ]);
+Route::resource('/equipment/regionequipment', 'RegionEquipmentController', [ 'as' => 'Equpment - Regions' ]);
 
 /*
 |--------------------------------------------------------------------------
