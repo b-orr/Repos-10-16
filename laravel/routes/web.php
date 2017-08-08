@@ -75,7 +75,18 @@ Route::resource('admin/user_groups', 'AdminUserGroupsController', [ 'as' => 'Adm
 */
 
 
-Route::resource('project', 'ProjectController', [ 'as' => 'Project' ]);
+Route::resource('project', 'ProjectController', [ 'as' => 'Projects' ]);
+
+
+/*
+|--------------------------------------------------------------------------
+| Estimating
+|--------------------------------------------------------------------------
+*/
+
+
+Route::resource('estimate', 'EstimateController', [ 'as' => 'Estimating' ]);
+
 
 /*
 |--------------------------------------------------------------------------
