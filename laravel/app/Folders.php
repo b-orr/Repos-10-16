@@ -24,6 +24,11 @@ class Folders extends Model
 	  {
 	   	return $this->belongsTo('App\Projects', 'pj_project_id');
 	  }   
+
+    public function last_change()
+    {
+      return $this->hasOne('App\User', 'id', 'last_change_user_id');
+    }
     
 
 }

@@ -48,11 +48,12 @@
 
 			</div>
 			<!-- END RIBBON -->
-
+			
 			<!-- MAIN CONTENT -->
 			<!-- hidden input-->
 				<input type="hidden" name="releaseDescTake" id="releaseDescTake" value="">
 				<input type="hidden" name="releaseDateTake" id="releaseDateTake" value="">
+				<input type="hidden" name="user" id="user" value="{{$user->id}}">
 			<!-- hidden input-->
 			<div id="content">
 				<div class="row col-lg-12">
@@ -213,7 +214,7 @@
 							<form method="post" action="{{ url('project/' . $project_id . '/folders/' . $folder_id .'/saveFile') }}" class="process_form">
 							{{ csrf_field() }}
 							<input type="hidden" name="project_id" value={{ $project_id }} >
-							<input type="hidden" name="folder_id" value={{$folder_id}} >
+							<input type="hidden" name="user_id" value={{$folder_id}} >
 							<input type="submit" value="submit" id="process_form_submit" style="display:none">
 							</form>
 					<!-- row -->
@@ -409,7 +410,7 @@
 
 								 var releaseDesc = $('#releaseDescTake').val();
 								 var releaseDate = $('#releaseDateTake').val();
-								
+								 var user = $('#user').val();
 								 
 								 xmlDoc = $.parseXML( response );
 								 $xml = $( xmlDoc );
@@ -424,6 +425,7 @@
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][etag]" value="'+$ETag.text()+'" />');
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDesc]" value="'+releaseDesc+'" />');
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDate]" value="'+releaseDate+'" />');
+				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][user]" value="'+user+'" />');
 				        	$('#process_form_submit').click();
 
 				        	var name = ($Key.text().slice(9)).slice(0,-4);
