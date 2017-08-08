@@ -121,14 +121,6 @@ class TransferController extends Controller
     {
         //
     }
-    
-    public function ajaxSubCategories()
-    {
-        $catID = $_GET['category'];
-        // dd('asdasd');
-        $this->data['subcategories'] = $this->user->categories()->find($catID)->with('subcategories')->get();
-        return response()->json($this->data);
-    }
 
     
 }

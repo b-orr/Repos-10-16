@@ -394,7 +394,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Category</label>
-										<select class="form-control" name="category" id="pickCategory">
+										<select class="form-control pick" name="category" id="pickCategory">
 												<option value="0">Not selected</option>
 											@foreach($categories as $key => $c)
 												<option value="{{$c->id}}">{{$c->name}}</option>
@@ -406,7 +406,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Sub-Category</label>
-										<select type="text" class="form-control" name="subcategory" id="pickSubcategory" required style="padding-left: 5px;">
+										<select type="text" class="form-control pick" name="subcategory" id="pickSubcategory" required style="padding-left: 5px;">
 											<option value="0">Not selected</option>
 										</select>
 									</div>
@@ -653,10 +653,11 @@
 				pageSetUp();
 			    "use strict";
 
-			    $('#pickCategory').on('change', function() {
+			    $('.pick').on('change', function() {
 			    	
 			    	
 			    	var id = $('#pickCategory').val();
+			    	var sub = $('#pickSubcategory').val();
 			    	$.ajaxSetup({
 			            headers: {
 			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -667,11 +668,41 @@
 			    		type: "GET",
             			url: "getSubAjax",
             			data: {
-            				category: id
+            				category: id,
+            				subcategory: sub
             			}
 			    		, 
 				    	success : function(data) {
-				    		console.log(data);
+				    		for (var m = 0; m < data.categories.length; m++) {
+
+			    				var htmlstr = "<option value='0'>Not selected</option>";
+
+		    					for(var i = 0; i < data.categories[m].subcategories.length; i++){
+
+		    						var j = data.categories[m].subcategories[i];
+		    						if(j.id == sub){
+			    						htmlstr += "<option value='"+j.id+"' selected='true'>"+j.name+"";
+		    						}
+		    						else{
+		    							htmlstr += "<option value='"+j.id+"'>"+j.name+"";	
+		    						}
+
+			    					if(sub != 0){
+		    							var htmlstr2 = "<option value='0'>Not selected</option>";
+			    						for (var x = 0; x < j.equipment.length; x++){
+			    							htmlstr2 += "<option value='"+j.equipment[x].id+"'>"+j.equipment[x].name+"</option>";
+			    						}
+			    					}
+			    				}
+				    		}
+
+				    		$('#pickSubcategory').empty();
+				    		$('#pickSubcategory').append(htmlstr);
+
+				    		if(sub != 0){
+				    			$('#pickEquipment').empty();
+				    			$('#pickEquipment').append(htmlstr2);
+				    		}
 				    	}
 				    });
 				});
