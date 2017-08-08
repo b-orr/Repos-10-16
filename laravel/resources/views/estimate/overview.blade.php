@@ -37,7 +37,15 @@
         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <button type="button" onclick="window.location='{{ url('estimate/') }}'" class="btn  ">Back to Bid list</button>
         
-          <button type="button" onclick="window.location='{{ url('estimate/' . $project->id . '/edit') }}'" class="btn btn-primary  pull-right">Edit Info</button>
+        
+        
+         <button type="button" onclick="window.location='{{ url('estimate/' . $project->id . '/bids') }}'" class="btn btn-primary  pull-right">Enter Bid Results</button>
+          
+        
+       
+          <button type="button" onclick="window.location='{{ url('estimate/' . $project->id . '/edit') }}'" class="btn btn-primary  pull-right" style="margin-right: 20px;">Edit Info</button>
+          
+            
           <br style="clear: both;" /><br style="clear: both;" />
          
             <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">

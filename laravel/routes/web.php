@@ -87,6 +87,10 @@ Route::resource('project', 'ProjectController', [ 'as' => 'Projects' ]);
 
 Route::resource('estimate', 'EstimateController', [ 'as' => 'Estimating' ]);
 
+Route::resource('estimate/{project_id}/bids', 'BidController', [ 'as' => 'Estimating - Bids' ]);
+
+
+
 
 /*
 |--------------------------------------------------------------------------
