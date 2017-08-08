@@ -41,6 +41,7 @@ class TransferController extends Controller
     public function create($id)
     {
         $this->data['project'] = $this->user->projects->find($id)->select('id', 'name')->first();
+        $this->data['categories'] = $this->user->categories()->get();
         return view('equipment.project.newtransfer', $this->data);
     }
 
@@ -53,7 +54,6 @@ class TransferController extends Controller
     public function store($id, Request $request)
     {
 
-        dd($request);
         $this->validate($request, [ 'status' => 'required',
                                     'pickup_date' => 'required',
                                     'delivery_date' => 'required',
@@ -121,4 +121,14 @@ class TransferController extends Controller
     {
         //
     }
+    
+    public function ajaxSubCategories()
+    {
+        $catID = $_GET['category'];
+        // dd('asdasd');
+        $this->data['subcategories'] = $this->user->categories()->find($catID)->with('subcategories')->get();
+        return response()->json($this->data);
+    }
+
+    
 }

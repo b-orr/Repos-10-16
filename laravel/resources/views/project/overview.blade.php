@@ -1,5 +1,5 @@
 
-@include('includes._header_eq')
+@include('includes._header')
 @include('includes._menu')
 
 

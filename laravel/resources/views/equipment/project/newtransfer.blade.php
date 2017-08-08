@@ -387,17 +387,18 @@
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 								&times;
 							</button>
-							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Select Storage Location & Name</h4>
+							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Select Equipment</h4>
 						</div>
 						<div class="modal-body">
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Category</label>
-										<select class="form-control">
-											<option></option>
-											<option></option>
-											<option></option>
+										<select class="form-control" name="category" id="pickCategory">
+												<option value="0">Not selected</option>
+											@foreach($categories as $key => $c)
+												<option value="{{$c->id}}">{{$c->name}}</option>
+											@endforeach
 										</select>
 									</div>
 
@@ -405,11 +406,8 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Sub-Category</label>
-										<select type="text" class="form-control" required style="padding-left: 5px;">
-											<option></option>
-											<option></option>
-											<option></option>
-											<option></option>
+										<select type="text" class="form-control" name="subcategory" id="pickSubcategory" required style="padding-left: 5px;">
+											<option value="0">Not selected</option>
 										</select>
 									</div>
 
@@ -417,7 +415,9 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold;">Equipment Name</label><br>
-										<input type="text" name="eqName" class="form-control">
+										<select type="text" class="form-control" name="equipment" id="pickEquipment" required style="padding-left: 5px;">
+											<option value="0">Not selected</option>
+										</select>
 									</div>
 
 								</div>
@@ -647,9 +647,34 @@
 
 
 		<script type="text/javascript">
+		
 			$(document).ready(function() {
+
 				pageSetUp();
 			    "use strict";
+
+			    $('#pickCategory').on('change', function() {
+			    	
+			    	
+			    	var id = $('#pickCategory').val();
+			    	$.ajaxSetup({
+			            headers: {
+			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+			            }
+			        });
+
+			    	$.ajax({
+			    		type: "GET",
+            			url: "getSubAjax",
+            			data: {
+            				category: id
+            			}
+			    		, 
+				    	success : function(data) {
+				    		console.log(data);
+				    	}
+				    });
+				});
 			})
 
 		</script>

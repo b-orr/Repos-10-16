@@ -132,7 +132,10 @@ Route::resource('/equipment/regionequipment', 'RegionEquipmentcontroller', [ 'as
 |--------------------------------------------------------------------------
 */
 
+Route::get('getSubAjax', 'TransferController@ajaxSubCategories');
 Route::resource('project/{id}/equipment', 'TransferController', [ 'as' => 'Equipment - Overview' ]);
+//transfers AJAX
+
 Route::resource('project/{id}/trucking', 'TruckingController', [ 'as' => 'Equipment - Truckings']);
 Route::get('project/{id}/equipment/forecasting', 'ProjectEquipmentController@forecasting')->name('Equipment - Forecasting');
 Route::get('project/{id}/equipment/truckinglog', 'ProjectEquipmentController@truckinglog')->name('Equipment - Trucking Log');
