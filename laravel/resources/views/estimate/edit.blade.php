@@ -1,4 +1,4 @@
-@include('includes._header') @include('includes._menu')
+@include('includes._header') @include('includes._menu_list')
 <div id="main" role="main">
     <!-- RIBBON -->
     <div id="ribbon" style="background-color: white;">
@@ -29,7 +29,7 @@
     <!-- MAIN CONTENT -->
     <div id="content">
     
-    	<form action="{{ url('/project/' . $project->id) }}" method="POST"   >
+    	<form action="{{ url('/estimate/' . $project->id) }}" method="POST"   >
     	
     	{{ csrf_field() }}
     	{{ method_field('PUT') }}
@@ -72,9 +72,14 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <select name="status" id="" class="form-control">
-                                    	<option {{ $project->status=='Current'?'selected':'' }} value="Award">Current</option>
-                                     	<option {{ $project->status=='Archive'?'selected':'' }}>Archive</option>
-                                    
+                                    	
+                                     	 
+                                     	
+                                     			<option {{ $project->status=='Current'?'selected':'' }} >Current</option>
+                                     			<option {{ $project->status=='Submitted'?'selected':'' }} >Submitted</option>
+                                     			<option {{ $project->status=='Tracking'?'selected':'' }} >Tracking</option>
+                                    <option {{ $project->status=='Award'?'selected':'' }} >Award</option>
+                                    <option {{ $project->status=='Archive'?'selected':'' }} >Archive</option>
                                     </select>
                                 </div>
                             </div>

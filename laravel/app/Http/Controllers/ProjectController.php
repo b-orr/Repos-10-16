@@ -37,11 +37,7 @@ class ProjectController extends Controller
     public function create()
     {
     	
-    	 $this->data['architects'] = $this->user->companies->where('type', 'Architect');
-    	 $this->data['struct_eng'] = $this->user->companies->where('type', 'Structural/Engineer');
-    	 $this->data['owners'] = $this->user->persons;
-    	 $this->data['op_manager'] = User::where('parent_user_id', $this->user->id)->where('role', 'OP Manager')->get();
-    	 $this->data['estimators'] = User::where('parent_user_id', $this->user->id)->where('role', 'Estimator')->get();
+       $this->get_Crew();
     	 
        return view('project.create', $this->data);
     }
@@ -75,11 +71,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
     
-    		$this->data['architects'] = $this->user->companies->where('type', 'Architect');
-			  $this->data['struct_eng'] = $this->user->companies->where('type', 'Structural/Engineer');
-			  $this->data['owners'] = $this->user->persons;
-			  $this->data['op_manager'] = User::where('parent_user_id', $this->user->id)->where('role', 'OP Manager')->get();
-			  $this->data['estimators'] = User::where('parent_user_id', $this->user->id)->where('role', 'Estimator')->get();
+    		$this->get_Crew();
 		
 		
         $this->data['project'] = $this->user->projects->find($id);
@@ -93,6 +85,14 @@ class ProjectController extends Controller
         $this->user->projects()->find($id)->update($request->all());
         
         return redirect('/project/' . $id);
+    }
+    
+    public function get_Crew() {
+    		$this->data['architects'] = $this->user->companies->where('type', 'Architect');
+    		  $this->data['struct_eng'] = $this->user->companies->where('type', 'Structural/Engineer');
+    		  $this->data['owners'] = $this->user->persons;
+    		  $this->data['op_manager'] = User::where('parent_user_id', $this->user->id)->where('role', 'OP Manager')->get();
+    		  $this->data['estimators'] = User::where('parent_user_id', $this->user->id)->where('role', 'Estimator')->get();
     }
 
      

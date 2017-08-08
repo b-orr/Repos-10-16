@@ -254,7 +254,7 @@
 						<a href="{{ url('/contacts') }}">Contacts</a>
 					</li>
 					<li>
-						<a href="javascript:void(0);">Estimating</a>
+						<a href="{{ url('/estimate') }}">Estimating</a>
 					</li>
 					<li>
 						<a href="{{ url('/resources') }}">Resources</a>
