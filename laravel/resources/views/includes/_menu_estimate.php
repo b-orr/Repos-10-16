@@ -21,9 +21,3 @@
 			</span>
 
 		</aside>
-		
-		<script  type="text/javascript">
-		
-		document.body.className += ' ' + 'minified';
-		
-		</script>

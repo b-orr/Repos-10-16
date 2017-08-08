@@ -8,6 +8,7 @@ use App\FieldsValues;
 use App\Folders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class FolderController extends Controller
 {
@@ -33,15 +34,21 @@ class FolderController extends Controller
      
     public function index($id)
     {
-         //dd($this->user->projects->find($id)->folders);
+       
 
         $this->data['folders'] = $this->user->projects->find($id)->folders;
-
         $this->data['project_id'] = $this->user->projects->find($id);
-
+        
+        
+        foreach ($this->data['folders'] as $key => $value) {
+            $this->data['process_drawings'][$value->id] = DB::table('drw_uploads')->where('folder_id',$value->id)->count();
+            $this->data['user_name'][$value->id] = DB::table('drw_folders')->join('users', 'users.id', '=', 'drw_folders.last_change_user_id')->where('drw_folders.id',$value->id)->select('name')->first();
+        }
+            
+        
+        
         return view('drawings/layout', $this->data);
     }
-
     /**
      * Show the form for creating a new resource.
      *

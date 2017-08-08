@@ -1,4 +1,4 @@
-@include('includes._header') @include('includes._menu')
+@include('includes._header') @include('includes._menu_list')
 <div id="main" role="main">
     <!-- RIBBON -->
     <div id="ribbon" style="background-color: white;">
@@ -10,7 +10,7 @@
         <!-- breadcrumb -->
         <ol class="breadcrumb">
             <li style="color: black;">Home</li>
-            <li style="color: black;">Edit Project</li>
+            <li style="color: black;">Show Bid</li>
             <li style="color: black;">{{ $project->name }}</li>
         </ol>
         <!-- end breadcrumb -->
@@ -29,12 +29,27 @@
     <!-- MAIN CONTENT -->
     <div id="content">
     
-    	<form action="{{ url('/project/' . $project->id) }}" method="POST"   >
+    	<form action="{{ url('/estimate/' . $project->id) }}" method="POST"   >
     	
     	{{ csrf_field() }}
     	{{ method_field('PUT') }}
+    	
         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button type="button" onclick="window.location='{{ url('estimate/') }}'" class="btn  ">Back to Bid list</button>
+        
+        
+        
+         <button type="button" onclick="window.location='{{ url('estimate/' . $project->id . '/bids') }}'" class="btn btn-primary  pull-right">Enter Bid Results</button>
+          
+        
+       
+          <button type="button" onclick="window.location='{{ url('estimate/' . $project->id . '/edit') }}'" class="btn btn-primary  pull-right" style="margin-right: 20px;">Edit Info</button>
+          
+            
+          <br style="clear: both;" /><br style="clear: both;" />
+         
             <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+            
                 <header>
                     <h2 class="font-md">Project Information</h2>
                 </header>
@@ -55,14 +70,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select class="form-control" name="rating" value="">
-                                    <option {{ $project->rating=='1'?'selected':'' }}>1</option>
-                                    <option {{ $project->rating=='2'?'selected':'' }}>2</option>
-                                    <option {{ $project->rating=='3'?'selected':'' }}>3</option>
-                                    <option {{ $project->rating=='4'?'selected':'' }}>4</option>
-                                    <option {{ $project->rating=='5'?'selected':'' }}>5</option>
-                                    </select>
-                                </div>
+                                   {{ $project->rating  }}                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -71,11 +79,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="status" id="" class="form-control">
-                                    	<option {{ $project->status=='Current'?'selected':'' }} value="Award">Current</option>
-                                     	<option {{ $project->status=='Archive'?'selected':'' }}>Archive</option>
-                                    
-                                    </select>
+                                    {{ $project->status  }}
                                 </div>
                             </div>
                         </div>
@@ -83,12 +87,12 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <strong>Project Name: <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                    <strong>Project Name:</strong>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" value="{{ $project->name }}" required  />
+                                    {{ $project->name }}
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -98,11 +102,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="area" id="" class="form-control" style="">
-                                      	<option value="0">ASdc</option>
-                                    
-                                      
-                                      </select>                                </div>
+                                    Asd                               </div>
                             </div>
                         </div>
                         <div class="row">
@@ -113,18 +113,17 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="address" value="{{ $project->address }}"  />
+                                 {{ $project->address }}
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <strong>Bid Date: <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                    <strong>Bid Date:</strong>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="input-group">
-                                																<input type="text" required name="bid_date" placeholder="" value="{{ date('d/m/Y', strtotime($project->bid_date)) }}" class="form-control datepicker" data-dateformat="dd/mm/yy">
-                                																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                															{{ date('d/m/Y', strtotime($project->bid_date)) }}
                                 															</div>
                             </div>
                         </div>
@@ -138,38 +137,24 @@
                                 <div class="form-group">
                                    <div class="row">
                                                                                            <div class="col-sm-4 col-xs-4">
-                                                                                               <input name="city" type="text" value="{{ $project->city }}" id="" class="form-control">
+                                                                                               {{ $project->city }}
                                                                                            </div>
                                                                                            <div class="col-sm-4  col-xs-5">
-                                                                                               <select name="state" id="" class="form-control location" style="">
-                                   	<option  style="">[Select One]</option>
-                                   	<option {{ $project->state=='CA'?'selected':'' }}  style="color: rgb(0, 0, 0);">CA</option>
-                                   	<option {{ $project->state=='CO'?'selected':'' }}   style="color: rgb(0, 0, 0);">CO</option>
-                                   	<option {{ $project->state=='HI'?'selected':'' }}   style="color: rgb(0, 0, 0);">HI</option>
-                                   	<option {{ $project->state=='NCA'?'selected':'' }}   style="color: rgb(0, 0, 0);">NCA</option>
-                                   	<option {{ $project->state=='NV'?'selected':'' }}   style="color: rgb(0, 0, 0);">NV</option>
-                                   	<option {{ $project->state=='OR'?'selected':'' }}  style="color: rgb(0, 0, 0);">OR</option>
-                                   	<option {{ $project->state=='SCA'?'selected':'' }}   style="color: rgb(0, 0, 0);">SCA</option>
-                                   	<option {{ $project->state=='TX'?'selected':'' }}   style="color: rgb(0, 0, 0);">TX</option>
-                                   	<option {{ $project->state=='WA'?'selected':'' }}   style="color: rgb(0, 0, 0);">WA</option>
-                                   
-                                   </select>
-                                                                                           </div>
+                                                                                               {{ $project->state }}                                                                                           </div>
                                                                                            <div class="col-sm-4  col-xs-3">
-                                                                                               <input name="zip" type="text"  value="{{ $project->zip }}" id="" class="form-control">
+                                                                                              {{ $project->zip }}
                                                                                            </div>
                                                                                        </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <strong>Bid Time: <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                    <strong>Bid Time:</strong>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="input-group">
-                                																		<input class="form-control" required id="timepicker" type="text" value="{{ $project->bid_time }}" name="bid_time" placeholder="">
-                                																		<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                																	{{ $project->bid_time }}
                                 																	</div>
                             </div>
                         </div>
@@ -181,27 +166,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="structure_use" id="" class="form-control" style="">
-                                    	<option value="0" style="">[Select One]</option>
-                                    	<option {{ $project->structure_use=='ATCT'?'selected':'' }}  >ATCT</option>
-                                    	<option {{ $project->structure_use=='Correctional Facility'?'selected':'' }} >Correctional Facility</option>
-                                    	<option {{ $project->structure_use=='Courthouse'?'selected':'' }} >Courthouse</option>
-                                    	<option {{ $project->structure_use=='Education'?'selected':'' }} >Education</option>
-                                    	<option {{ $project->structure_use=='Government Building'?'selected':'' }} >Government Building</option>
-                                    	<option {{ $project->structure_use=='Hotel'?'selected':'' }} >Hotel</option>
-                                    	<option {{ $project->structure_use=='Hotel / Residential'?'selected':'' }} >Hotel / Residential</option>
-                                    	<option {{ $project->structure_use=='Library'?'selected':'' }} >Library</option>
-                                    	<option {{ $project->structure_use=='Medical Building'?'selected':'' }} >Medical Building</option>
-                                    	<option {{ $project->structure_use=='Mixed Use / Office'?'selected':'' }} >Mixed Use / Office</option>
-                                    	<option {{ $project->structure_use=='Museum'?'selected':'' }} >Museum</option>
-                                    	<option {{ $project->structure_use=='Other'?'selected':'' }} >Other</option>
-                                    	<option {{ $project->structure_use=='Parking'?'selected':'' }} >Parking</option>
-                                    	<option {{ $project->structure_use=='Performance Center'?'selected':'' }} >Performance Center</option>
-                                    	<option {{ $project->structure_use=='Residential'?'selected':'' }} >Residential</option>
-                                    	<option {{ $project->structure_use=='WWTP'?'selected':'' }} >WWTP</option>
-                                    
-                                    </select>
-                                </div>
+                                    {{ $project->structure_use }}                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -210,14 +175,11 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <select name="owner" id="" class="form-control" style="">
-                                     	<option value="0" style="">[Select One]</option>
-                                   		
-                                   		@foreach($owners as $owner)
-                                   		<option {{ $project->owner==$owner->id?'selected':'' }} value="{{ $owner->id }}" style="">{{ $owner->first_name }} {{ $owner->last_name }} - {{ $owner->company_association }}</option>
-                                   		@endforeach
+                                 
+                                 
+                                   	
+                                   	{{ @$project->owner()->first()->first_name }} {{ @$project->owner()->first()->last_name }} - {{ @$project->owner()->first()->company_association }}                                     
                                      
-                                     </select>
                                 </div>
                             </div>
                         </div>
@@ -229,20 +191,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="structure_type" id="" class="form-control" style="">
-                                    	<option   style="">[Select One]</option>
-                                    	<option {{ $project->structure_type=='2'?'selected':'' }} >2</option>
-                                    	<option {{ $project->structure_type=='High Rise'?'selected':'' }} >High Rise</option>
-                                    	<option {{ $project->structure_type=='Hybrid Garage'?'selected':'' }} >Hybrid Garage</option>
-                                    	<option {{ $project->structure_type=='Longspan Garage'?'selected':'' }} >Longspan Garage</option>
-                                    	<option {{ $project->structure_type=='Low Rise'?'selected':'' }} >Low Rise</option>
-                                    	<option {{ $project->structure_type=='Medium Rise'?'selected':'' }} >Medium Rise</option>
-                                    	<option {{ $project->structure_type=='Mid Rise'?'selected':'' }} >Mid Rise</option>
-                                    	<option {{ $project->structure_type=='Pan Slab'?'selected':'' }} >Pan Slab</option>
-                                    	<option {{ $project->structure_type=='Podium'?'selected':'' }} >Podium</option>
-                                    
-                                    </select>
-                                </div>
+                                   {{ $project->structure_type }}                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -251,17 +200,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <select name="scope" id="" class="form-control" style="">
-                                   	<option  style="">[Select One]</option>
-                                   	<option {{ $project->scope=='Formwork Modified'?'selected':'' }} >Formwork Modified</option>
-                                   	<option {{ $project->scope=='Horizontal &amp; Vertical Form'?'selected':'' }} >Horizontal &amp; Vertical Form</option>
-                                   	<option {{ $project->scope=='Horizontal Form Only'?'selected':'' }} >Horizontal Form Only</option>
-                                   	<option {{ $project->scope=='Package'?'selected':'' }} >Package</option>
-                                   	<option {{ $project->scope=='Package Modified'?'selected':'' }} >Package Modified</option>
-                                   	<option {{ $project->scope=='Vertical Form Only'?'selected':'' }} >Vertical Form Only</option>
-                                   
-                                   </select>
-                                </div>
+                                   {{ $project->scope }}                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -272,12 +211,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="architect" id="" class="form-control" style="">
-                                    	<option value="0" style="">[Select One]</option>
-                                  @foreach($architects as $architect)
-                                  <option {{ $project->architect==$architect->id?'selected':'' }} value="{{ $architect->id }}" style="">{{ $architect->name }}</option>
-                                  @endforeach
-                                    </select>
+                               
+                                    
+                                    	{{ @$project->architect()->first()->name }} 
                                 </div>
                             </div>
                         </div>
@@ -289,13 +225,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <select name="struct_eng" id="" class="form-control" style="">
-                                   	<option value="0" style="">[Select One]</option>
-                                		@foreach($struct_eng as $struct_en)
-                                		<option {{ $project->struct_eng==$struct_en->id?'selected':'' }}  value="{{ $struct_en->id }}" style="">{{ $struct_en->name }}</option>
-                                		@endforeach
+                                    
                                    
-                                   </select>
+                                   {{ @$project->struct_eng()->first()->name }} 
                                 </div>
                             </div>
                         </div>
@@ -321,20 +253,19 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <strong>Start Date:  <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                    <strong>Start Date: </strong>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                																<input type="text"  value="{{ date('d/m/Y', strtotime($project->start_date)) }}" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
-                                																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                															{{ date('d/m/Y', strtotime($project->start_date)) }}
                                 															</div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <strong>Duration (weeks):  <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                    <strong>Duration (weeks): </strong>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -342,15 +273,14 @@
                                     <div class="row">
                                     <div class="col-sm-3 col-xs-4">
                                         <span class="duration-lebal custom_min_height">Start Up </span>
-                                        <input name="duration_start" type="text" id="" value="{{ $project->duration_start }}"  required class=" form-control Duration quantity1 width-1 text-center"  >
+                                       {{ $project->duration_start }}
 
                                     </div>
                                     <div class="col-sm-6  col-xs-4">
-                                        <span class="duration-lebal custom_min_height">Project Duration</span><input  value="{{ $project->duration_duration }}"  name="duration_duration" type="text" id="" class=" form-control  Duration quantity1 text-center"  >
+                                        <span class="duration-lebal custom_min_height">Project Duration</span>{{ $project->duration_duration }}
                                     </div>
                                     <div class="col-sm-3  col-xs-4 finish_label">
-                                        <span class="duration-lebal custom_min_height">Finish</span><input name="duration_finish" value="{{ $project->duration_finish }}"  type="text" id="ContentPlaceHolder1_txtFinish" class="  form-control Duration quantity1 width-1 text-center"  >
-                                    </div>
+                                        <span class="duration-lebal custom_min_height">Finish</span>{{ $project->duration_finish }}                                    </div>
                                 </div>
                                 </div>
                             </div>
@@ -390,24 +320,24 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <strong>Site Addresses:  <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                    <strong>Site Addresses: </strong>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="bid_site_address"  value="{{ $project->bid_site_address }}"   required />
+                                   {{ $project->bid_site_address }}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <strong>Username: <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                    <strong>Username:</strong>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="bid_username"  value="{{ $project->bid_username }}"  required />
+                                   {{ $project->bid_username }}
                                 </div>
                             </div>
                         </div>
@@ -419,7 +349,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="bid_password" value="{{ $project->bid_password }}"  /><br /> 
+                                    {{ $project->bid_password }}
                                 </div>
                             </div>
                         </div>
@@ -446,7 +376,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <textarea   class="form-control" name="description" style="height: 126px;"  >{{ $project->description }}</textarea>
+                                  {{ $project->description }}
                                 </div>
                             </div>
                         </div>
@@ -478,12 +408,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select name="prevailing_wage" id="" class="form-control" style="">
-                                    	<option style="">[Select One]</option>
-                                    	<option {{ $project->prevailing_wage=='No'?'selected':'' }} >No</option>
-                                    	<option {{ $project->prevailing_wage=='Yes'?'selected':'' }} >Yes</option>
-                                    
-                                    </select>
+                                   {{ $project->prevailing_wage}}
                                 </div>
                             </div>
                         </div>
@@ -495,13 +420,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <select name="wrap_up" id="" class="form-control" style="">
-                                 	<option   style="">[Select One]</option>
-                                 	<option {{ $project->wrap_up=='GL / WC'?'selected':'' }} >GL / WC</option>
-                                 	<option {{ $project->wrap_up=='GL Only'?'selected':'' }} >GL Only</option>
-                                 	<option {{ $project->wrap_up=='None'?'selected':'' }} >None</option>
-                                 
-                                 </select>
+                                {{ $project->wrap_up }}
                                 </div>
                             </div>
                         </div>
@@ -513,13 +432,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <select name="performance_bond" id="" class="form-control" style="">
-                                  	<option  >[Select One]</option>
-                                  	<option {{ $project->performance_bond=='No'?'selected':'' }} >No</option>
-                                  	<option {{ $project->performance_bond=='Yes'?'selected':'' }} >Yes</option>
-                                  
-                                  </select>
-                                </div>
+                                  {{ $project->performance_bond }}                                </div>
                             </div>
                         </div>
                     </div>
@@ -642,14 +555,10 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <select name="op_manager" id="" class="form-control" style="">
-                                     	<option  style="">[Select One]</option>
-                                      @foreach($op_manager as $op_mng)
-                                      <option {{ $project->op_manager==$op_mng->id?'selected':'' }}  value="{{ $op_mng->id }}" style="">{{ $op_mng->name }} {{ $op_mng->last_name }}</option>
-                                      @endforeach
-                                     
-                                     </select>
+                        
                                     
+                                    
+                                  {{ @$project->op_manager()->first()->name }}   {{ @$project->op_manager()->first()->last_name }} 
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -659,13 +568,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                  <select name="estimator" id="" class="form-control" style="">
-                                   	<option  style="">[Select One]</option>
-                                    @foreach($estimators as $estimator)
-                                    <option {{ $project->estimator==$estimator->id?'selected':'' }}  value="{{ $estimator->id }}" style="">{{ $estimator->name }} {{ $estimator->last_name }}</option>
-                                    @endforeach
+                                 
                                    
-                                   </select>
+                                    {{ @$project->estimator()->first()->name }}   {{ @$project->estimator()->last_name }} 
                                 </div>
                             </div>
                         </div>
@@ -760,7 +665,7 @@
         </article>
         
         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <button type="submit" class="btn btn-primary  pull-right">Save info</button>
+       
         <br style="clear: both;">
         <br style="clear: both;">
         <br style="clear: both;">

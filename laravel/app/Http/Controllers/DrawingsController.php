@@ -59,6 +59,7 @@ class DrawingsController extends Controller
         $this->data['project_id'] = $id;
         $this->data['folder_id'] = $folder_id;
         
+        $this->data['user'] = $this->user= Auth::user();
         $this->data['upload'] = new Signature(
             "AKIAIXALNCV24MHDDXXQ",
             "CT3rGoSc/vY3hK33b0T5gBIsWtPv9AupvQc3ceF1",
@@ -66,7 +67,7 @@ class DrawingsController extends Controller
             "us-east-1"
         );
 
-        $this->data['UploadedFiles'] = DB::table('drw_uploads')->get();
+        $this->data['UploadedFiles'] = DB::table('drw_uploads')->where('folder_id',$folder_id)->get();
 
        
         $this->data['drawings'] = $this->user->projects->find($id)->folders->find($folder_id)->drawings;

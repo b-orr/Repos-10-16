@@ -176,7 +176,7 @@
 										</header>
 										<div class="row">
 											<div class="widget-body">
-					
+												
 												<ul class="bs-glyphicons" id="folderList">
 													@foreach($folders as $key => $value)
 													<a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/drawings') }}" class="txt-color-darken" style="z-index:1000">
@@ -187,10 +187,11 @@
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number"> 5</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>Bruce Orr
+																	<p class="folder-info" style="">Waiting:<span class="drawings-number">{{ $process_drawings[$value->id] }}</span></p>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number">0</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>{{ $user_name[$value->id]->name }}
 																<br>
-																<small><i>May 5, 2017</i></small></p>
+																<small><i>{{ date('F d, Y', strtotime($value->updated_at))}}</i></small></p>
 																</div>													
 															</div>
 														</li>
