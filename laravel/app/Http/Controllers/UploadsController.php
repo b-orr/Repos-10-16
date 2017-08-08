@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
+use DateTime;
 
 class UploadsController extends Controller
 {
@@ -23,10 +25,9 @@ class UploadsController extends Controller
             $release_desc = $request->s3file[0]['releaseDesc'];
             
             $release_date = $request->s3file[0]['releaseDate'];
-
-            //$folder_id = $request->s3file[0]['folder_id'];   
-                 
-        
+            $release_date = Carbon::createFromFormat('m/d/Y', $release_date);
+            
+            $created_at = Carbon::now();
         //into DB
 
        DB::table('drw_uploads')->insert(              
@@ -37,6 +38,7 @@ class UploadsController extends Controller
                     'release_desc' => $release_desc,
                     'release_date'=>$release_date,
                     'folder_id'=>$folder_id,
+                    'created_at'=>$created_at
                     
                 ]
             );
