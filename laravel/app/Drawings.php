@@ -27,6 +27,13 @@ class Drawings extends Model
         	// code
     }
 
-        
+    
+    public function findUploads() {
+            
+            $uploads = DB::table('drw_uploads')
+                ->get();
+
+            return $uploads;       
+        }   
     
 }

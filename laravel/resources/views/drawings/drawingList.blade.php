@@ -14,6 +14,8 @@
 			#dropzone {
 				min-height: 15px !important;
 			}
+
+
 		</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -187,13 +189,18 @@
 												</div>
 												
 											</div><br>
-											<div class="padding-10 bordered" id="uploadedFile-'+uploadedFilesCount+'">
-												<!-- <p>
-													Addendum #1<span class="txt-color-green"></span>
+																																	
+											<?php foreach ($UploadedFiles as $key => $value): ?>
+												
+											<div class="padding-10 bordered" id="uploadedFile-{{$value->id}}">
+												<p>
+													{{ $value->filename}}<span class="txt-color-green"></span>
 													<span class="txt-color-green"><i class="fa fa-check"></i></span>
-													<a class="btn btn-danger btn-xs pull-right" href="#" onclick="$('.process_form').submit()" style="margin: 0;">Process Now</a>
-												</p> -->
+													<a class="btn btn-danger btn-xs pull-right" href="{{ url('project/' . $project_id .'/folders/' .$folder_id . '/processFile/' .$value->id)}}" style="margin: 0;">Process Now</a>
+												</p>
 											</div>
+											<br>
+											<?php endforeach ?>
 										</div>
 										</div>
 										<!-- end widget content -->
@@ -203,9 +210,10 @@
 							
 							</article>
 							
-							<form method="post" action="{{ url('drawings/1/processDrawings/17') }}" class="process_form">
+							<form method="post" action="{{ url('project/' . $project_id . '/folders/' . $folder_id .'/saveFile') }}" class="process_form">
 							{{ csrf_field() }}
-
+							<input type="hidden" name="project_id" value={{ $project_id }} >
+							<input type="hidden" name="folder_id" value={{$folder_id}} >
 							<input type="submit" value="submit" id="process_form_submit">
 							</form>
 					<!-- row -->
@@ -330,6 +338,7 @@
 													</form> <!-- {{ asset('public/assets/plugins/upload.php') }} -->
 												</div>
 												</section>
+												
 											</div>
 										</div>
 									</div>
@@ -373,17 +382,14 @@
 
 							 	addedfile: function () {
 							 	
-
 								var myDropzone = this;
 								var fileName = myDropzone.files[s3counter].name
                    				 	//console.log(myDropzone.files[s3counter].name)
-                   				 	$('input[name="key"]').val('drawings/' + fileName)
+                   				$('input[name="key"]').val('drawings/' + fileName)
 								$('#releaseDescTake').val($('#releaseDescription').val());
 								$('#releaseDateTake').val($('#releaseDate').val());
-								 var releaseDate = $('#releaseDate').val();
-                   				
-                   				},
-								 success: function(file, response){
+								},                   				
+								success: function(file, response){
 
 								 var releaseDesc = $('#releaseDescTake').val();
 								 var releaseDate = $('#releaseDateTake').val();
@@ -403,6 +409,9 @@
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDesc]" value="'+releaseDesc+'" />');
 				        	$('.process_form').append('<input type="hidden" name="s3file['+s3counter+'][releaseDate]" value="'+releaseDate+'" />');
 				        	$('#process_form_submit').click();
+
+				        	var name = ($Key.text().slice(9)).slice(0,-4);
+				        	
    				        s3counter++;
 //				        	alert($Location.text())
 //				        	alert($Key.text())
@@ -415,14 +424,7 @@
 			
 			
 
-			$('#myModal').on('show', function (e) {
 			
-				$("#releaseDescription").keyup(function() {
-				    $('#releaseDescription_hidden').val( this.value );
-				});
-			
-			});
-
 			$('#dt_basic').dataTable({
 					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
 						"t"+
@@ -507,7 +509,7 @@
 
 			// upload append here
 			var uploadedFilesCount = 1;
-			$('#pdfUpload').on('click', function() {
+			$('#pdfUpload1').on('click', function() {
 				uploadedFilesCount++;
 
 				var htmlstr = '<div class="padding-10 bordered" id="uploadedFile-'+uploadedFilesCount+'">';

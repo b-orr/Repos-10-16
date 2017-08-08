@@ -55,7 +55,8 @@ class DrawingsController extends Controller
     public function index($id,$folder_id)
     {
         $this->data['site_area'] = 'Drawings';
-        
+        $this->data['project_id'] = $id;
+        $this->data['folder_id'] = $folder_id;
         
         $this->data['upload'] = new Signature(
             "AKIAIXALNCV24MHDDXXQ",
@@ -64,6 +65,9 @@ class DrawingsController extends Controller
             "us-east-1"
         );
 
+        $this->data['UploadedFiles'] = DB::table('drw_uploads')->get();
+
+       
         $this->data['drawings'] = $this->user->projects->find($id)->folders->find($folder_id)->drawings;
 
        
@@ -145,45 +149,16 @@ class DrawingsController extends Controller
 
     
 
-    public function uploadFile(Request $request) {
+    public function processFile($id,$folder_id,$file_id) {
             
-        $sourceFile = $request->file('file');
-      
-        $originalName = $sourceFile->getClientOriginalName();
+        DB::table('drw_uploads')
+            ->where('id', $file_id)
+            ->delete();
 
-        $userName = $this->user->name;
-
-        $now = Carbon::now();
-
-        $targetFile = $userName . '_' . $now . '_' . $originalName;
-
-        // Configure the config/filesystems.php (or .env) for the s3 drive ... bucket: pronovosrubixcube, folder: drawings
-
-        $disk = Storage::disk('s3');
-
-        $filePath = '/drawings/';
-        
-        $disk->put($filePath.$targetFile , fopen($sourceFile, 'r+'));
+    return redirect('project/' . $id . '/folders/' . $folder_id . '/drawings');
 
     }
 
-    public function saveToDB($project_id, $folder_id, Request $request) {
-            
-        //dd($request->s3file[0]);
 
-        $location = str_replace("%2F", "/", $request->s3file[0]['location']);
-        
-        $name = substr($request->s3file[0]['key'], 9);
-
-        $drawing_name = substr($name, 0, -4);
-
-        $description = $request->s3file[0]['releaseDesc'];
-        
-        $drawing_date = $request->s3file[0]['releaseDate'];
-
-        
-
-        
-        }
     
 }

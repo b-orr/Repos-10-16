@@ -9,8 +9,8 @@ class Uploads extends Model
     protected $table = 'drw_uploads';
 
     protected $fillable = [
-        'filename', 'release_desc', 'pj_project_id'
+        'filename', 'release_desc', 'release_date', 'location', 'folder_id'
     ];
 
-
+    
 }
