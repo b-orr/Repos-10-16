@@ -70,9 +70,8 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <select name="status" id="" class="form-control">
-                                    	<option  >Current</option>
-                                    	<option  >Submitted</option>
-                                    	<option >Tracking</option>
+                                    	<option  >Award</option>
+                                     
                                     
                                     </select>
                                 </div>

@@ -18,7 +18,7 @@ class ProjectController extends Controller
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
                     $this->user= Auth::user();
-                    $this->data['projects'] = $this->user->projects;
+                    $this->data['projects'] = $this->user->projects->where('status', 'Award');
                     return $next($request);
             });
         
