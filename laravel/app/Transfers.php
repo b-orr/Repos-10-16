@@ -16,4 +16,9 @@ class Transfers extends Model
   	{
    		return $this->belongsTo('App\Projects', 'project_id');
   	}
+
+  	public function equipment()
+  	{
+  		return $this->hasMany('App\TransferEquipment', 'transfer_id');
+  	}
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Transfers;
 use App\Truckings;
+use App\TransferEquipment;
 use Carbon\Carbon;
 
 class TransferController extends Controller
@@ -56,27 +57,18 @@ class TransferController extends Controller
      */
     public function store($id, Request $request)
     {
+        $transfer = $this->user->projects->find($id)->transfers()->save(new Transfers($request->all()));
 
-        $this->validate($request, [ 'status' => 'required',
-                                    'pickup_date' => 'required',
-                                    'delivery_date' => 'required',
-                                    'shipped_from' => 'required',
-                                    'shipped_to' => 'required',
-                                    'loaded_by' => 'required',
-                                    'delivery_contact' => 'required',
-                                    'delivery_number' => 'required',
-                                    'freight_line' => 'required',
-                                    'total_weight' => 'required',
-                                    'load_scheduled' => 'required',
-                                    'load_actual' => 'required',
-                                    'load_departure' => 'required',
-                                    'created_by' => 'required'
-                                ]);
-
-        $request->pickup_date = Carbon::createFromFormat('m/d/Y', $request->pickup_date)->startOfDay();
-        $request->delivery_date = Carbon::createFromFormat('m/d/Y', $request->delivery_date)->startOfDay();
+        foreach ($request->equipment as $key => $e) {
+            $transferData = new TransferEquipment();
+            $transferData->equipment_id = $e['equipment_id'];
+            $transferData->transfer_id = $transfer->id;
+            $transferData->quantity = $e['quantity'];
+            $transferData->total_weight = $e['total_weight'];
+            $transferData->tracking_number = $e['tracking_number'];
+            $transferData->save();
+        }
         
-        $this->user->projects->find($id)->transfers()->save(new Transfers($request->all()));
         return redirect('project/'.$id.'/equipment');
     }
 
@@ -86,9 +78,15 @@ class TransferController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $transferId)
     {
         //
+        $this->data['transfer'] = $this->user->projects->find($id)->transfers()->with('equipment', 'equipment.regionEquipment')->find($transferId);
+        // dd($this->data['transfer']);
+        $this->data['project'] = $this->user->projects->find($id)->select('id', 'name')->first();
+        $this->data['categories'] = $this->user->categories()->get();
+
+        return view('equipment.project.approvetransfer', $this->data);
     }
 
     /**
@@ -109,9 +107,11 @@ class TransferController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $transferId)
     {
-        //
+        $this->user->projects->find($id)->transfers()->find($transferId)->update($request->all());
+
+        return redirect('project/'.$id.'/equipment');
     }
 
     /**

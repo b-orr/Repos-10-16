@@ -34,4 +34,14 @@ class RegionEquipment extends Model
   {
       return $this->belongsTo('App\Regions', 'region_id');
   }
+
+  public function transferEquipment()
+  {
+      return $this->hasMany('App\TransferEquipment', 'equipment_id');
+  }
+
+  public function truckingEquipment()
+  {
+      return $this->hasMany('App\TruckingEquipment', 'equipment_id');
+  }
 }

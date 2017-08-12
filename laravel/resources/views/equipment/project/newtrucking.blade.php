@@ -16,7 +16,13 @@
 			background-color: #e6e6e6;
 			font-weight: bold;
 		} */
-
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin: 0; 
+		}
 		.main-parent{
 			background-color: #c0c0c0;
 			font-weight: bolder;
@@ -299,11 +305,9 @@
 													
 												</div>
 											</div>
-											<button type="submit" class="hide" id="submitForm"></button>
-										</form>
 										<legend></legend>
 										<div class="col-lg-12">
-											<table class="table table-bordered table-striped">
+											<table class="table table-bordered table-striped equipmentTable">
 												<thead>
 													<th style="width: 5%;"></th>
 													<th style="width: 35%;">Description</th>
@@ -313,23 +317,25 @@
 													<th style="width: 4%;">Commit</th>
 													<th>Total Weight</th>
 												</thead>
-												<tbody>
+												<tbody id="eqBody" style="text-align: center;">
 													<tr>
-														<td><button class="btn btn-xs btn-success btn-block" data-toggle="modal" data-target="#myModal">Search</button></td>
+														<td><a class="btn btn-xs btn-success btn-block" data-toggle="modal" data-target="#myModal">Search</a></td>
 														<td><input type="text" placeholder="Search" name="searchDesc" style="width: 100%" class="form-control"></td>
 														<td><input type="text" name="rental" style="width: 100%" class="form-control"></td>
-														<td style="text-align: center;"> 1.1 </td>
+														<td> 1.1 </td>
 														<td><input type="text" name="weightEQ" style="width: 100%" class="form-control"></td>
-														<td style="text-align: center;">
-															<button class="button btn btn-xs btn-success btn-circle">
+														<td>
+															<a class="button btn btn-xs btn-success btn-circle">
 																<i class="fa fa-plus"></i>
-															</button>
+															</a>
 														</td>
 														<td></td>
 													</tr>
 												</tbody>
 											</table>
 										</div>
+											<button type="submit" class="hide" id="submitForm"></button>
+										</form>
 											<!-- end main page content -->
 										</div>
 									</div>
@@ -347,9 +353,9 @@
 								<label class="btn btn-success btn-block" for="submitForm">
 									<span style="font-size: 12px; font-weight: bold;">Save</span>
 								</label>
-								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#categoryModal">
+								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/equipment')}}">
 									<span style="font-size: 12px; font-weight: bold;">Cancel</span>
-								</button>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -362,12 +368,63 @@
 		<!-- END MAIN PANEL -->
 
 		<!-- MODALS -->
-		
+		<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header" style="background-color: #404040;">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Select Equipment</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="input" style="font-weight: bold;">Category</label>
+										<select class="form-control pick" name="category" id="pickCategory">
+												<option value="0">Not selected</option>
+											@foreach($categories as $key => $c)
+												<option value="{{$c->id}}">{{$c->name}}</option>
+											@endforeach
+										</select>
+									</div>
+
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="input" style="font-weight: bold;">Sub-Category</label>
+										<select type="text" class="form-control pick" name="subcategory" id="pickSubcategory" required style="padding-left: 5px;">
+											<option value="0">Not selected</option>
+										</select>
+									</div>
+
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="input" style="font-weight: bold;">Equipment Name</label><br>
+										<select type="text" class="form-control" name="equipment" id="pickEquipment" required style="padding-left: 5px;">
+											<option value="0">Not selected</option>
+										</select>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal" id="addEquipmentToTransfer">
+								Save
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+		</div>
 		<!-- END MODALS -->
 		<!--================================================== -->
 
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
 		<!-- PAGE FOOTER -->
 		@include('../../includes/_footer')
@@ -378,6 +435,119 @@
 			$(document).ready(function() {
 				pageSetUp();
 			    "use strict";
+
+			    var addedEquipmentCount = 0;
+			    $('#addEquipmentToTransfer').on('click', function() {
+			    	addedEquipmentCount++;
+			    	var eqValue = $('#pickEquipment').val();
+			    	var eqText = $('#pickEquipment :selected').text();
+			    	if(eqValue != 0){
+			    		var weight = 0;
+			    		//ajax get weight of equipment
+			    		$.ajax({
+				    		type: "GET",
+	            			url: "getEqWeight",
+	            			data: {
+	            				equipment: eqValue
+	            			}
+				    		, 
+					    	success : function(data) {
+					    		weight = data.weight.weight;
+					    		var htmlstr = '<tr>';
+				    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][equipment_id]" value="'+eqValue+'">';
+				    			htmlstr += '<input type="hidden" class="total-weight-input" name="equipment['+addedEquipmentCount+'][total_weight]">';
+				    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][tracking_number]" value="asdasdasd">';
+								htmlstr += '<td></td>';
+								htmlstr += '<td>'+eqText+'</td>';
+								htmlstr += '<td>';
+								htmlstr += '	<input type="number" name="equipment['+addedEquipmentCount+'][quantity]" style="width: 100%" class="form-control input-xs enter-quantity">';
+								htmlstr += '</td>';
+								htmlstr += '<td></td>';
+								htmlstr += '<input type="hidden" id="equipment-weight" value="'+weight+'">';
+								htmlstr += '<td class="equipment-weight">'+weight+'</td>';
+								htmlstr += '<td>';
+								htmlstr += '	<a>';
+								htmlstr += '		<i class="fa fa-minus"></i>';
+								htmlstr += '	</a>';
+								htmlstr += '</td>';
+								htmlstr += '<td class="total-weight"></td>';
+								htmlstr +='</tr>';
+
+								$('#eqBody').append(htmlstr);
+					    	}
+					    });
+
+			    		
+			    	}
+			    });
+
+			    $('.pick').on('change', function() {
+			    	
+			    	
+			    	var id = $('#pickCategory').val();
+			    	var sub = $('#pickSubcategory').val();
+			    	$.ajaxSetup({
+			            headers: {
+			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+			            }
+			        });
+
+			    	$.ajax({
+			    		type: "GET",
+            			url: "getSubAjax",
+            			data: {
+            				category: id,
+            				subcategory: sub
+            			}
+			    		, 
+				    	success : function(data) {
+				    		for (var m = 0; m < data.categories.length; m++) {
+
+			    				var htmlstr = "<option value='0'>Not selected</option>";
+
+		    					for(var i = 0; i < data.categories[m].subcategories.length; i++){
+
+		    						var j = data.categories[m].subcategories[i];
+		    						if(j.id == sub){
+			    						htmlstr += "<option value='"+j.id+"' selected='true'>"+j.name+"";
+		    						}
+		    						else{
+		    							htmlstr += "<option value='"+j.id+"'>"+j.name+"";	
+		    						}
+
+			    					if(sub != 0){
+		    							var htmlstr2 = "<option value='0'>Not selected</option>";
+			    						for (var x = 0; x < j.equipment.length; x++){
+			    							htmlstr2 += "<option value='"+j.equipment[x].id+"'>"+j.equipment[x].name+"</option>";
+			    						}
+			    					}
+			    				}
+				    		}
+
+				    		$('#pickSubcategory').empty();
+				    		$('#pickSubcategory').append(htmlstr);
+
+				    		if(sub != 0){
+				    			$('#pickEquipment').empty();
+				    			$('#pickEquipment').append(htmlstr2);
+				    		}
+				    	}
+				    });
+				});
+
+			    $('.equipmentTable').on('keyup', '.enter-quantity', function() {
+			    	//get variables to calculate weight
+			    	var qty = $(this).val();
+			    	var eqW = $(this).parent().parent().find('#equipment-weight').val();
+			    	var total = qty*eqW;
+			    	//enter total weight in last column
+					$(this).parent().parent().find('.total-weight').empty();
+			    	$(this).parent().parent().find('.total-weight').append(total);
+			    	//update hidden input for total weight
+			    	$(this).parent().parent().find('.total-weight-input').val(total);
+
+			    })
+
 			})
 
 		</script>
