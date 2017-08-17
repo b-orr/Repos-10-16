@@ -14,6 +14,7 @@ use EddTurtle\DirectUpload\InvalidOptionException;
 use EddTurtle\DirectUpload\InvalidRegionException;
 use EddTurtle\DirectUpload\Region;
 use EddTurtle\DirectUpload\Signature;
+use Aws\Lambda\LambdaClient;
 
 use DB;
 
@@ -153,10 +154,37 @@ class DrawingsController extends Controller
 
     public function processFile($id,$folder_id,$file_id) {
             
-        DB::table('drw_uploads')
+        /*DB::table('drw_uploads')
             ->where('id', $file_id)
-            ->delete();
+            ->delete();*/
 
+        $fileLocation = DB::table('drw_uploads')->where('id', $file_id)->first();
+
+        //dd($fileLocation->location);
+
+        
+        
+           
+            $file = 'split-2.pdf';
+            
+            $folder = substr($file, 0, -4);        
+            
+            mkdir(public_path() . '/output/' . $folder, 0755, true);
+                  
+            $input_path = public_path() . '/uploads/';
+                   
+            $output_path = public_path() . '/output/' . $folder;
+
+
+            $exec = 'pdftk ' . $input_path . $file . ' burst output  ' . $output_path . '\pg_%04d.pdf' ;
+
+                 
+            exec($exec);
+
+     
+            
+
+       
     return redirect('project/' . $id . '/folders/' . $folder_id . '/drawings');
 
     }
