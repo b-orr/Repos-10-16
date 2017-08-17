@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\TruckingEquipment;
 use App\Truckings;
 
 class TruckingController extends Controller
@@ -38,6 +39,8 @@ class TruckingController extends Controller
      */
     public function create()
     {
+        $this->data['categories'] = $this->user->categories()->get();
+        
         return view('equipment.project.newtrucking', $this->data);
     }
 
@@ -56,7 +59,17 @@ class TruckingController extends Controller
         //                             'shipped_to' => 'required'
         //                         ]);
 
-        $this->user->projects->find($id)->truckings()->save(new Truckings($request->all()));
+        $trucking = $this->user->projects->find($id)->truckings()->save(new Truckings($request->all()));
+
+        foreach ($request->equipment as $key => $e) {
+            $truckingData = new TruckingEquipment();
+            $truckingData->equipment_id = $e['equipment_id'];
+            $truckingData->truck_id = $trucking->id;
+            $truckingData->quantity = $e['quantity'];
+            $truckingData->total_weight = $e['total_weight'];
+            $truckingData->save();
+        }
+
         return redirect('project/'.$id.'/equipment');
     }
 
@@ -66,9 +79,12 @@ class TruckingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $truckingId)
     {
-        //
+        // dd($id, $truckingId);
+        $this->data['truck'] = $this->user->projects->find($id)->truckings()->with('equipment', 'equipment.regionEquipment')->find($truckingId);
+
+        return view('equipment.project.approvetruck', $this->data);
     }
 
     /**

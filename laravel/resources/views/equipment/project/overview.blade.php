@@ -105,7 +105,7 @@
 													<td><a href="newtransfer.php">From Yard 330 - 05/18/2017 12pm</a></td>
 													<td>
 														@foreach($truckings as $key => $t)
-															<a href="newtransfer.php">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
+															<a href="{{url('project/'.Request::segment(2).'/trucking/'.$t->id)}}">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
 															<br>
 														@endforeach
 													</td>
@@ -120,7 +120,7 @@
 													<td></td>
 													<td>
 														@foreach($transfers as $key => $t)
-															<a href="newtransfer.php">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
+															<a href="{{url('project/'.Request::segment(2).'/equipment/'.$t->id)}}">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
 															<br>
 														@endforeach
 													</td>

@@ -145,6 +145,8 @@ Route::get('equipment/rental', 'EquipmentController@rental')->name('Equpment - R
 Route::get('equipment/allocation', 'EquipmentController@allocation')->name('Equpment - Allocation');
 Route::get('equipment/inventory', 'EquipmentController@inventory')->name('Equpment - Inventory');
 Route::get('project/approvetruck', 'EquipmentController@approvetruck')->name('Equpment - Approvetruck');
+
+//equipment management
 Route::resource('/equipment/eqmanagement', 'CategoryController', [ 'as' => 'Equpment - Management' ]);
 Route::resource('/equipment/subcategories', 'SubCategoryController', [ 'as' => 'Equpment - Subcategories' ]);
 Route::resource('/equipment/regionequipment', 'RegionEquipmentController', [ 'as' => 'Equpment - Regions' ]);
@@ -157,10 +159,21 @@ Route::resource('/equipment/regionequipment', 'RegionEquipmentController', [ 'as
 
 //transfers AJAX
 Route::get('project/{id}/equipment/getSubAjax', 'AjaxCallsController@transferSubCategories');
+Route::get('project/{id}/equipment/getEqWeight', 'AjaxCallsController@equipmentWeight');
 
+//transfers
 Route::resource('project/{id}/equipment', 'TransferController', [ 'as' => 'Equipment - Overview' ]);
 
+//truckings AJAX
+Route::get('project/{id}/trucking/getSubAjax', 'AjaxCallsController@truckingSubCategories');
+Route::get('project/{id}/trucking/getEqWeight', 'AjaxCallsController@equipmentWeightTrucking');
+
+//truckings
 Route::resource('project/{id}/trucking', 'TruckingController', [ 'as' => 'Equipment - Truckings']);
+
+
+
+
 Route::get('project/{id}/equipment/forecasting', 'ProjectEquipmentController@forecasting')->name('Equipment - Forecasting');
 Route::get('project/{id}/equipment/truckinglog', 'ProjectEquipmentController@truckinglog')->name('Equipment - Trucking Log');
 Route::get('project/{id}/equipment/rental', 'ProjectEquipmentController@rental')->name('Equipment - Rental');
