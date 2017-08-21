@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use App\Permissions;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class Role
 {
@@ -21,7 +22,7 @@ class Role
         if (!Auth::check())
             return redirect('/');
     
-        $user = Auth::user();
+        $user = User::findTenant(Auth::user());
     
 
     		
@@ -36,6 +37,6 @@ class Role
     		}
     		
     		
-       return redirect('/');
+       return redirect('/forbidden');
     }
 }

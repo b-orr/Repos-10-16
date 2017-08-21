@@ -12,6 +12,7 @@ class AdminUserGroupsController extends Controller
  		
  		public $data;
  		public $user;
+ 		public $tenant;
  		public $prm;
  		
  		public function __construct()
@@ -20,7 +21,8 @@ class AdminUserGroupsController extends Controller
  		    $this->middleware('role:super,tenant');
  		    
  		    $this->middleware(function ($request, $next) {
- 		            $this->user= Auth::user();
+ 		            $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+ 		            $this->data['user'] = $this->user= Auth::user();
  		            $this->prm = new Permissions;
  		            return $next($request);
  		    });
@@ -50,7 +52,7 @@ class AdminUserGroupsController extends Controller
               
           ]);
         
-        $request->request->add(['parent_user_id' => $this->user->id]);
+        $request->request->add(['parent_user_id' => $this->tenant->id]);
        	User::create($request->all());      
         return redirect('/admin/users');
     }
@@ -58,9 +60,9 @@ class AdminUserGroupsController extends Controller
     
     public function edit($user)
     {
-        $this->data['list']=User::where('parent_user_id', $this->user->id)->where('id', $user)->first();
+        $this->data['list']=User::where('parent_user_id', $this->tenant->id)->where('id', $user)->first();
         
-        $this->data['regions'] =  $this->user->regions;
+        $this->data['regions'] =  $this->tenant->regions;
          if(!empty($this->data['list'])){
          	return view('admin/users/edit', $this->data);
          }else {
@@ -79,7 +81,7 @@ class AdminUserGroupsController extends Controller
      
     public function destroy($user_id)
     {
-        $user = User::where('parent_user_id', $this->user->id)->where('id', $user_id)->first();
+        $user = User::where('parent_user_id', $this->tenant->id)->where('id', $user_id)->first();
         
         $user->delete();
         

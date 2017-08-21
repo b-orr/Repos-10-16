@@ -6,15 +6,16 @@ use Illuminate\Support\Facades\Input;
 use App\Fields;
 use App\FieldsValues;
 use App\Folders;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
 class FolderController extends Controller
 {
-    	public $data;
-    	public $user;
-        public $folder;
+    public $data;
+    public $user;
+    public $tenant;
     			
 		public function __construct()
 		{
@@ -22,8 +23,9 @@ class FolderController extends Controller
 		    $this->middleware('role:super,tenant');
 		    
 		    $this->middleware(function ($request, $next) {
-		            $this->user= Auth::user();
-		            $this->data['projects'] = $this->user->projects->where('status', 'Award');
+		            $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+		            $this->data['user'] = $this->user= Auth::user();
+		            $this->data['projects'] = $this->tenant->projects->where('status', 'Award');
 		            return $next($request);
 		    });
 		    
@@ -36,8 +38,8 @@ class FolderController extends Controller
     {
        
 
-        $this->data['folders'] = $this->user->projects->find($id)->folders;
-        $this->data['project_id'] = $this->user->projects->find($id);
+        $this->data['folders'] = $this->tenant->projects->find($id)->folders;
+        $this->data['project_id'] = $this->tenant->projects->find($id);
         
         
         foreach ($this->data['folders'] as $key => $value) {
@@ -78,7 +80,7 @@ class FolderController extends Controller
 
         
 
-        $this->user->projects->find($id)->folders()->save(new Folders($request->all()));
+        $this->tenant->projects->find($id)->folders()->save(new Folders($request->all()));
         
         return redirect('/project/'. $id .'/folders');
     }
@@ -104,9 +106,9 @@ class FolderController extends Controller
     {
         //dd('edit page');
 
-        $this->data['project_id'] = $this->user->projects->find($id);
+        $this->data['project_id'] = $this->tenant->projects->find($id);
 
-        $this->data['folders'] = $this->user->projects->find($id)->folders->find($folder);
+        $this->data['folders'] = $this->tenant->projects->find($id)->folders->find($folder);
 
         //dd($this->data['folders']);
 
@@ -131,7 +133,7 @@ class FolderController extends Controller
 
         
 
-        $this->user->projects->find($id)->folders->find($folder)->update($request->all());
+        $this->tenant->projects->find($id)->folders->find($folder)->update($request->all());
         
         return redirect('/project/1/folders');
     }
@@ -147,7 +149,7 @@ class FolderController extends Controller
         
         
 
-        $this->user->projects->find($id)->folders->find($folder)->delete();
+        $this->tenant->projects->find($id)->folders->find($folder)->delete();
 
         return redirect('/project/1/folders');
     }

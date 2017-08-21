@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fields;
+use App\User;
 use App\FieldsValues;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class AdminFieldsValueController extends Controller
 {
   
-    public $data;
-    public $user;
+		public $data;
+		public $user;
+		public $tenant;
     
     public function __construct()
     {
@@ -19,7 +21,8 @@ class AdminFieldsValueController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
                 return $next($request);
         });
         
@@ -31,7 +34,7 @@ class AdminFieldsValueController extends Controller
     {
         $this->validate($request, [ 'value' => 'required']);
           
-        $this->user->fields()->find($request->fields_id)->fieldValues()->save(new FieldsValues($request->all()));
+        $this->tenant->fields()->find($request->fields_id)->fieldValues()->save(new FieldsValues($request->all()));
         
         return redirect('/admin/fields');
     }
@@ -41,7 +44,7 @@ class AdminFieldsValueController extends Controller
     {
     
     	 $field = explode('|', $field);
-        $this->user->fields()->find($field[0])->fieldValues()->find($field[1])->delete();
+        $this->tenant->fields()->find($field[0])->fieldValues()->find($field[1])->delete();
         
         return redirect('/admin/fields');
         

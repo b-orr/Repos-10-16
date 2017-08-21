@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Regions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,14 +10,17 @@ use Illuminate\Support\Facades\Auth;
 class EquipmentController extends Controller
 {
 
-  public $data;
+    public $data;
+    public $user;
+    public $tenant;
         
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
-                    $this->user= Auth::user();
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
                     return $next($request);
             });
         

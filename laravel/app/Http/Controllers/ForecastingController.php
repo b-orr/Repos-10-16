@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ForecastingController extends Controller
 {
 
+		public $data;
+		public $user;
+		public $tenant;
+		
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
-                    $this->user= Auth::user();
-                    $this->data['projects'] = $this->user->projects;
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user = Auth::user();
+                    $this->data['projects'] = $this->tenant->projects;
                     return $next($request);
             });
         $this->data['site_area']='Projects';

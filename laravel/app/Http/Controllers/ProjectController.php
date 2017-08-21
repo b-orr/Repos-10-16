@@ -11,14 +11,18 @@ class ProjectController extends Controller
 {
     public $data;
     public $user;
+    public $tenant;
         
     public function __construct()
     {
+  
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
-                    $this->user= Auth::user();
-                    $this->data['projects'] = $this->user->projects->where('status', 'Award');
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
+                    $this->data['projects'] = $this->tenant->projects->where('status', 'Award');
+
                     return $next($request);
             });
         
@@ -37,7 +41,7 @@ class ProjectController extends Controller
     public function create()
     {
     	
-       $this->get_Crew();
+       $this->get_crew();
     	 
        return view('project.create', $this->data);
     }
@@ -52,8 +56,8 @@ class ProjectController extends Controller
         														 'duration_start' => 'required',
         														 'bid_username' => 'required']);
          
-        $request->request->add(['submited_user_id' => $this->user->id]); 
-        $this->user->projects()->save(new Projects($request->all()));
+        $request->request->add(['submited_user_id' => $this->tenant->id]); 
+        $this->tenant->projects()->save(new Projects($request->all()));
         
         return redirect('/project');
     }
@@ -61,7 +65,7 @@ class ProjectController extends Controller
     
     public function show($id)
     {
-        $this->data['project'] = $this->user->projects->find($id);
+        $this->data['project'] = $this->tenant->projects->find($id);
         
      
         return view('project.overview', $this->data);
@@ -71,10 +75,10 @@ class ProjectController extends Controller
     public function edit($id)
     {
     
-    		$this->get_Crew();
+    		$this->get_crew();
 		
 		
-        $this->data['project'] = $this->user->projects->find($id);
+        $this->data['project'] = $this->tenant->projects->find($id);
           
         return view('project.edit', $this->data);
     }
@@ -82,17 +86,17 @@ class ProjectController extends Controller
    
     public function update(Request $request, $id)
     {
-        $this->user->projects()->find($id)->update($request->all());
+        $this->tenant->projects()->find($id)->update($request->all());
         
         return redirect('/project/' . $id);
     }
     
-    public function get_Crew() {
-    		$this->data['architects'] = $this->user->companies->where('type', 'Architect');
-    		  $this->data['struct_eng'] = $this->user->companies->where('type', 'Structural/Engineer');
-    		  $this->data['owners'] = $this->user->persons;
-    		  $this->data['op_manager'] = User::where('parent_user_id', $this->user->id)->where('role', 'OP Manager')->get();
-    		  $this->data['estimators'] = User::where('parent_user_id', $this->user->id)->where('role', 'Estimator')->get();
+    public function get_crew() {
+    		$this->data['architects'] = $this->tenant->companies->where('type', 'Architect');
+    		  $this->data['struct_eng'] = $this->tenant->companies->where('type', 'Structural/Engineer');
+    		  $this->data['owners'] = $this->tenant->persons;
+    		  $this->data['op_manager'] = User::where('parent_user_id', $this->tenant->id)->where('role', 'OP Manager')->get();
+    		  $this->data['estimators'] = User::where('parent_user_id', $this->tenant->id)->where('role', 'Estimator')->get();
     }
 
      

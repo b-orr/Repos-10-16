@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Industry;
+use Response;
 use App\Category;
 
 class GuestController extends Controller
@@ -36,5 +37,10 @@ class GuestController extends Controller
     			  return redirect('login');
     		}
         
+    }
+    
+    public function forbidden() {
+    	 echo 'This page is forbidden';
+    	 
     }
 }

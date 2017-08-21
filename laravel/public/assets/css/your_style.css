@@ -366,7 +366,7 @@ smart-style-3 body,body.smart-style-3 {
 }
 
 .breadcrumb li {
-  color: black !important;
+  /*color: black !important;*/
   font-weight: bold;
 }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Fields;
 use App\FieldsValues;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class AdminFieldsController extends Controller
     
     public $data;
     public $user;
+    public $tenant;
     
     public function __construct()
     {
@@ -19,7 +21,8 @@ class AdminFieldsController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                  $this->data['user']=$this->user= Auth::user();
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
            
                 return $next($request);
         });
@@ -32,7 +35,7 @@ class AdminFieldsController extends Controller
     
     public function index()
     {
-        $this->data['lists'] = $this->user->fields;
+        $this->data['lists'] = $this->tenant->fields;
         return view('admin/fields/list', $this->data);
     }
 
@@ -41,7 +44,7 @@ class AdminFieldsController extends Controller
     {
         $this->validate($request, [ 'name' => 'required']);
           
-        $this->user->fields()->save(new Fields($request->all()));
+        $this->tenant->fields()->save(new Fields($request->all()));
         
         return redirect('/admin/fields');
     }
@@ -49,7 +52,7 @@ class AdminFieldsController extends Controller
     
     public function edit($fields)
     {
-        $this->data['field']=$this->user->fields()->find($fields);
+        $this->data['field']=$this->tenant->fields()->find($fields);
     
         
          if(!empty($this->data['field'])){
@@ -62,7 +65,7 @@ class AdminFieldsController extends Controller
     
     public function update(Request $request, $fields)
     {
-        $this->user->fields()->find($fields)->update($request->all());
+        $this->tenant->fields()->find($fields)->update($request->all());
         
         return redirect('/admin/fields');
     }
@@ -70,7 +73,7 @@ class AdminFieldsController extends Controller
      
     public function destroy($fields)
     {
-        $this->user->fields()->find($fields)->delete();
+        $this->tenant->fields()->find($fields)->delete();
         
         return redirect('/admin/fields');
     }

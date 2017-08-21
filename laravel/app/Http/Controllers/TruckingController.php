@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\TruckingEquipment;
@@ -9,13 +10,17 @@ use App\Truckings;
 
 class TruckingController extends Controller
 {
+    public $data;
     public $user;
+    public $tenant;
+    
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
-                    $this->user= Auth::user();
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
                     return $next($request);
             });
         $this->data['site_area']='Projects';
@@ -39,7 +44,7 @@ class TruckingController extends Controller
      */
     public function create()
     {
-        $this->data['categories'] = $this->user->categories()->get();
+        $this->data['categories'] = $this->tenant->categories()->get();
         
         return view('equipment.project.newtrucking', $this->data);
     }
@@ -59,7 +64,7 @@ class TruckingController extends Controller
         //                             'shipped_to' => 'required'
         //                         ]);
 
-        $trucking = $this->user->projects->find($id)->truckings()->save(new Truckings($request->all()));
+        $trucking = $this->tenant->projects->find($id)->truckings()->save(new Truckings($request->all()));
 
         foreach ($request->equipment as $key => $e) {
             $truckingData = new TruckingEquipment();
@@ -82,7 +87,7 @@ class TruckingController extends Controller
     public function show($id, $truckingId)
     {
         // dd($id, $truckingId);
-        $this->data['truck'] = $this->user->projects->find($id)->truckings()->with('equipment', 'equipment.regionEquipment')->find($truckingId);
+        $this->data['truck'] = $this->tenant->projects->find($id)->truckings()->with('equipment', 'equipment.regionEquipment')->find($truckingId);
 
         return view('equipment.project.approvetruck', $this->data);
     }

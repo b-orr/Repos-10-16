@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Regions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,7 @@ class AdminRegionsController extends Controller
     
     public $data;
     public $user;
+    public $tenant;
     
     public function __construct()
     {
@@ -18,7 +20,8 @@ class AdminRegionsController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
                 return $next($request);
         });
         
@@ -29,7 +32,7 @@ class AdminRegionsController extends Controller
     
     public function index()
     {
-        $this->data['lists'] = $this->user->regions;
+        $this->data['lists'] = $this->tenant->regions;
         return view('admin/region/list', $this->data);
     }
  
@@ -38,7 +41,7 @@ class AdminRegionsController extends Controller
     {
         $this->validate($request, [ 'name' => 'required']);
           
-        $this->user->regions()->save(new Regions($request->all()));
+        $this->tenant->regions()->save(new Regions($request->all()));
         
         return redirect('/admin/regions');
     }
@@ -46,7 +49,7 @@ class AdminRegionsController extends Controller
     
     public function edit($regions)
     {
-        $this->data['region']=$this->user->regions()->find($regions);
+        $this->data['region']=$this->tenant->regions()->find($regions);
         
          if(!empty($this->data['region'])){
          	return view('admin/region/edit', $this->data);
@@ -58,7 +61,7 @@ class AdminRegionsController extends Controller
     
     public function update(Request $request, $regions)
     {
-        $this->user->regions()->find($regions)->update($request->all());
+        $this->tenant->regions()->find($regions)->update($request->all());
         
         return redirect('/admin/regions');
     }
@@ -66,7 +69,7 @@ class AdminRegionsController extends Controller
      
     public function destroy($regions)
     {
-        $this->user->regions()->find($regions)->delete();
+        $this->tenant->regions()->find($regions)->delete();
         
         return redirect('/admin/regions');
     }

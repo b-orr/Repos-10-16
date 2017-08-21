@@ -305,20 +305,25 @@
 
 					<!-- Suggestion: populate this list with fetch and push technique -->
 					<ul class="dropdown-menu">
+					
+					@foreach($tenant->regions AS $region)
 						<li>
-							<a href="javascript:void(0);">Colorado Office</a>
+							<a href="javascript:void(0);">{{ $region->name }}</a>
 						</li>
-						<li>
-							<a href="javascript:void(0);">Hawaii Office</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">Texas Office</a>
-						</li>
+					 @endforeach
 					</ul>
 					<!-- end dropdown-menu-->
 
 				</div>
 				@endif
+				
+				<div class="project-context hidden-xs">
+				
+									<span class="label">Profile:</span>
+									<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>{{ $tenant->company }} - {{ $user->name }} {{ $user->last_name }}</strong></span>
+				
+									 				
+								</div>
 				<!-- collapse menu button -->
 				<div id="hide-menu" class="btn-header pull-right">
 					<span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>

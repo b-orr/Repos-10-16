@@ -12,6 +12,7 @@ class AdminUsersController extends Controller
 {
     public $data;
     public $user;
+    public $tenant;
     
     public function __construct()
     {
@@ -19,7 +20,8 @@ class AdminUsersController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->data['user']=$this->user= Auth::user();
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
                 return $next($request);
         });
         
@@ -30,10 +32,10 @@ class AdminUsersController extends Controller
     
     public function index()
     {
-        $this->data['lists'] = User::where('parent_user_id', $this->user->id)->get();
+        $this->data['lists'] = User::where('parent_user_id', $this->tenant->id)->get();
          
         
-        $this->data['regions'] =  $this->user->regions;
+        $this->data['regions'] =  $this->tenant->regions;
         return view('admin/users/list', $this->data);
     }
 
@@ -49,7 +51,7 @@ class AdminUsersController extends Controller
               
           ]);
         
-        $request->request->add(['parent_user_id' => $this->user->id]);
+        $request->request->add(['parent_user_id' => $this->tenant->id]);
        	User::create($request->all());      
         return redirect('/admin/users');
     }
@@ -57,9 +59,9 @@ class AdminUsersController extends Controller
     
     public function edit($user)
     {
-        $this->data['list']=User::where('parent_user_id', $this->user->id)->where('id', $user)->first();
+        $this->data['list']=User::where('parent_user_id', $this->tenant->id)->where('id', $user)->first();
         
-        $this->data['regions'] =  $this->user->regions;
+        $this->data['regions'] =  $this->tenant->regions;
          if(!empty($this->data['list'])){
          	return view('admin/users/edit', $this->data);
          }else {
@@ -78,7 +80,7 @@ class AdminUsersController extends Controller
      
     public function destroy($user_id)
     {
-        $user = User::where('parent_user_id', $this->user->id)->where('id', $user_id)->first();
+        $user = User::where('parent_user_id', $this->tenant->id)->where('id', $user_id)->first();
         
         $user->delete();
         

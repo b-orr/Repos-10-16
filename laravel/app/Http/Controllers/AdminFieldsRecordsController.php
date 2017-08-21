@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FieldsRecords;
+use App\User;
 use App\Fields;
 use App\FieldsValues;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class AdminFieldsRecordsController extends Controller
 {
     public $data;
     public $user;
+    public $tenant;
     
     public function __construct()
     {
@@ -19,7 +21,8 @@ class AdminFieldsRecordsController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
                 return $next($request);
         });
         
@@ -30,7 +33,7 @@ class AdminFieldsRecordsController extends Controller
     public function store(Request $request)
     {
           
-        $this->user->fields()->find($request->fields_id)->fieldRecords()->save(new FieldsRecords($request->all()));
+        $this->tenant->fields()->find($request->fields_id)->fieldRecords()->save(new FieldsRecords($request->all()));
         
         return redirect()->back();
     }
@@ -39,7 +42,7 @@ class AdminFieldsRecordsController extends Controller
     public function destroy($field)
     {
     	 $field = explode('|', $field);
-        $this->user->fields()->find($field[0])->fieldRecords()->find($field[1])->delete();
+        $this->tenant->fields()->find($field[0])->fieldRecords()->find($field[1])->delete();
         
         return redirect()->back();
         

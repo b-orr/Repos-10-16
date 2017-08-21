@@ -8,7 +8,7 @@
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'GuestController@index');
-
+Route::get('/forbidden', 'GuestController@forbidden');
 /*
 |--------------------------------------------------------------------------
 | Super admin

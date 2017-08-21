@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Category;
 use App\SubCategories;
 use Illuminate\Http\Request;
@@ -10,13 +11,17 @@ use App\RegionEquipment;
 
 class CategoryController extends Controller
 {
+    public $data;
     public $user;
+    public $tenant;
+    
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
-                    $this->user= Auth::user();
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
                     return $next($request);
             });
         $this->data['site_area']='Equipment';
@@ -29,9 +34,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $this->data['categories'] = $this->user->categories()->with('subcategories', 'subcategories.equipment')->get();
+      $this->data['categories'] = $this->tenant->categories()->with('subcategories', 'subcategories.equipment')->get();
       
-      $this->data['userData'] = $this->user->id;
+      $this->data['userData'] = $this->tenant->id;
         return view('equipment.management.eqmanagement', $this->data);
     }
 

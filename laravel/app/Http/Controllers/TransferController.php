@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Transfers;
@@ -17,13 +18,17 @@ class TransferController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public $data;
     public $user;
+    public $tenant;
+    
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
-                    $this->user= Auth::user();
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
                     return $next($request);
             });
         $this->data['site_area']='Projects';
@@ -31,8 +36,8 @@ class TransferController extends Controller
     }
     public function index($id)
     {
-        $this->data['transfers'] = $this->user->projects->find($id)->transfers()->get();
-        $this->data['truckings'] = $this->user->projects->find($id)->truckings()->get();
+        $this->data['transfers'] = $this->tenant->projects->find($id)->transfers()->get();
+        $this->data['truckings'] = $this->tenant->projects->find($id)->truckings()->get();
         // dd($this->data['truckings']);
         return view('equipment.project.overview', $this->data);
     }
@@ -44,8 +49,8 @@ class TransferController extends Controller
      */
     public function create($id)
     {
-        $this->data['project'] = $this->user->projects->find($id)->select('id', 'name')->first();
-        $this->data['categories'] = $this->user->categories()->get();
+        $this->data['project'] = $this->tenant->projects->find($id)->select('id', 'name')->first();
+        $this->data['categories'] = $this->tenant->categories()->get();
         return view('equipment.project.newtransfer', $this->data);
     }
 
@@ -57,7 +62,7 @@ class TransferController extends Controller
      */
     public function store($id, Request $request)
     {
-        $transfer = $this->user->projects->find($id)->transfers()->save(new Transfers($request->all()));
+        $transfer = $this->tenant->projects->find($id)->transfers()->save(new Transfers($request->all()));
 
         foreach ($request->equipment as $key => $e) {
             $transferData = new TransferEquipment();
@@ -81,10 +86,10 @@ class TransferController extends Controller
     public function show($id, $transferId)
     {
         //
-        $this->data['transfer'] = $this->user->projects->find($id)->transfers()->with('equipment', 'equipment.regionEquipment')->find($transferId);
+        $this->data['transfer'] = $this->tenant->projects->find($id)->transfers()->with('equipment', 'equipment.regionEquipment')->find($transferId);
         // dd($this->data['transfer']);
-        $this->data['project'] = $this->user->projects->find($id)->select('id', 'name')->first();
-        $this->data['categories'] = $this->user->categories()->get();
+        $this->data['project'] = $this->tenant->projects->find($id)->select('id', 'name')->first();
+        $this->data['categories'] = $this->tenant->categories()->get();
 
         return view('equipment.project.approvetransfer', $this->data);
     }
@@ -109,7 +114,7 @@ class TransferController extends Controller
      */
     public function update(Request $request, $id, $transferId)
     {
-        $this->user->projects->find($id)->transfers()->find($transferId)->update($request->all());
+        $this->tenant->projects->find($id)->transfers()->find($transferId)->update($request->all());
 
         return redirect('project/'.$id.'/equipment');
     }
