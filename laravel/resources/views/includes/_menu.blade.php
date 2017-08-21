@@ -40,7 +40,7 @@
 								<a href="{{ url('project/'.Request::segment(2).'/equipment') }}" title="Admin"><span class="menu-item-parent needHidden">Overview</span></a>
 							</li>
 							<li class="">
-								<a href="{{ url('project/'.Request::segment(2).'/equipment/forecasting') }}" title="Projects"><span class="menu-item-parent needHidden">Forecasting</span></a>
+								<a href="{{ url('project/'.Request::segment(2).'/forecasting') }}" title="Projects"><span class="menu-item-parent needHidden">Forecasting</span></a>
 							</li>
 							<li class="">
 								<a href="{{ url('project/'.Request::segment(2).'/equipment/truckinglog') }}" title="Equipment"><span class="menu-item-parent needHidden">Trucking Log</span></a>

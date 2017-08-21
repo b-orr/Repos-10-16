@@ -458,10 +458,6 @@
 			</div><!-- /.modal-dialog -->
 		</div>	
 		<!-- END MODALS -->
-		<!--================================================== -->
-
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
 		<!-- PAGE FOOTER -->
 		@include('../../includes/_footer')
