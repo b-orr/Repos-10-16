@@ -346,17 +346,17 @@
 										<!-- end widget content -->
 							</article>
 						</div>
-						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
-							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
-								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
-								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+						<div class="bordered" id="rightMenu1">
+							<div class="header">
+								<h2 class="no-padding font-md">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
 							</div>
 							<div class="menu-body padding-5">
 								<a class="btn btn-success btn-block">
-									<span style="font-size: 12px; font-weight: bold;">Save</span>
+									<span class="buttonText">Save</span>
 								</a>
 								<a class="btn btn-success btn-block">
-									<span style="font-size: 12px; font-weight: bold;">Cancel</span>
+									<span class="buttonText">Cancel</span>
 								</a>
 							</div>
 						</div>

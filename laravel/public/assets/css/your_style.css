@@ -364,3 +364,54 @@ smart-style-3 body,body.smart-style-3 {
     border-radius: 0;
   }
 }
+
+.breadcrumb li {
+  color: black !important;
+  font-weight: bold;
+}
+
+#rightMenu1{
+  position: absolute; 
+  right: 0px; 
+  width: 20%; 
+  margin-top: -2px; 
+  padding-top: 2px; 
+  border-top: transparent;
+  
+}
+#rightMenu1 .header{
+    background-color: #404040; 
+    min-height: 34px; 
+    border-color: #383838;
+}
+
+#rightMenu1 .header h2{
+  color: white; 
+  line-height: 34px; 
+  font-weight: 400; 
+  letter-spacing: 0; 
+  margin: 0px 0px 0px 10px; 
+  display: inline;
+}
+#rightMenu1 .header label{
+  margin-top: 6px; 
+  margin-right: 3px;
+}
+
+#rightMenu1 .menu-body .buttonText{
+  font-size: 12px; 
+  font-weight: bold;
+}
+
+#rightMenu1 .menu-body .legendLabel{
+  font-size: 12px; 
+  text-decoration: underline; 
+  font-weight: bold;
+}
+
+#rightMenu1 .menu-body .formElementsLabel{
+  font-size: 12px; 
+  font-weight: bold; 
+  margin-bottom: 0px;
+}
+

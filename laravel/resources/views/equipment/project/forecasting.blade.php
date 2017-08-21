@@ -39,6 +39,7 @@
 		.fa-plus, .fa-minus {
 			font-size: 10px;
 		}
+		
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -48,7 +49,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">{{$project->name}}</li><li style="color: black;">Equipment</li><li style="color: black;">Forecast</li>
+					<li>Home</li><li>Projects</li><li>{{$project->name}}</li><li>Equipment</li><li>Forecast</li>
 				</ol>
 
 			</div>
@@ -174,18 +175,18 @@
 										<!-- end widget content -->
 							</article>
 						</div>
-						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
-							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
-								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
-								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+						<div class="bordered" id="rightMenu1" style="">
+							<div class="header" style="">
+								<h2 class="no-padding font-md" style="">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
 							</div>
 							<div class="menu-body padding-5">
 								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/forecasting/create')}}">
-									<span style="font-size: 12px; font-weight: bold;">Add Requirement</span>
+									<span class="buttonText">Add Requirement</span>
 								</a>
 								<legend></legend>
-								<label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Search</label><br>
-								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Category</label>
+								<label class="legendLabel">Search</label><br>
+								<label class="formElementsLabel">Category</label>
 								<select type="text" name="search" class="form-control">
 									<option>HV</option>
 									<option>HV</option>
