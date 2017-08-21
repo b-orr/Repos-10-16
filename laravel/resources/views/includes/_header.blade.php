@@ -301,14 +301,14 @@
 				<div class="project-context hidden-xs">
 
 					<span class="label">Area:</span>
-					<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>Washington office <i class="fa fa-angle-down"></i> </strong></span>
+					<span class="project-selector dropdown-toggle" data-toggle="dropdown"><strong>{{ Session::get('region') }} <i class="fa fa-angle-down"></i> </strong></span>
 
 					<!-- Suggestion: populate this list with fetch and push technique -->
 					<ul class="dropdown-menu">
 					
 					@foreach($tenant->regions AS $region)
 						<li>
-							<a href="javascript:void(0);">{{ $region->name }}</a>
+							<a href="{{ url('region/set/' . $region->id) }}">{{ $region->name }}</a>
 						</li>
 					 @endforeach
 					</ul>

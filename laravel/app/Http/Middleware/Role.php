@@ -24,7 +24,10 @@ class Role
     
         $user = User::findTenant(Auth::user());
     
-
+				if(!session()->has('region')){
+				     session(['region' => @$user->regions->first()->name]);
+				     session(['region_id' => @$user->regions->first()->id]);
+				}
     		
     		 //$prm = new Permissions;
     		 //dd($prm->doIHaveAccess());

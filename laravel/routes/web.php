@@ -42,6 +42,8 @@ Route::get('home', 'ProjectController@index');
 
 Route::resource('admin/regions', 'AdminRegionsController', [ 'as' => 'Admin - Regions' ]);
 
+Route::get('region/set/{id}', 'RegionsController@set_region');
+
 /*
 |--------------------------------------------------------------------------
 | Fields
