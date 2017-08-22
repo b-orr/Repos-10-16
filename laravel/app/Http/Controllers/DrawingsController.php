@@ -15,6 +15,7 @@ use EddTurtle\DirectUpload\InvalidRegionException;
 use EddTurtle\DirectUpload\Region;
 use EddTurtle\DirectUpload\Signature;
 use Aws\Lambda\LambdaClient;
+use Aws\S3\S3Client;
 
 use DB;
 
@@ -26,6 +27,8 @@ class DrawingsController extends Controller
         public $data;
         public $user;
 
+
+
 	public function __construct()
     {
         $this->middleware('auth');
@@ -36,7 +39,10 @@ class DrawingsController extends Controller
                 $this->data['projects'] = $this->user->projects->where('status', 'Award');
                 return $next($request);
         });
-        
+
+                  
+      
+
         
         $this->data['site_area']='Admin';
         
@@ -73,7 +79,8 @@ class DrawingsController extends Controller
        
         $this->data['drawings'] = $this->user->projects->find($id)->folders->find($folder_id)->drawings;
 
-       
+        
+        
                             
         return view('drawings.drawingList', $this->data);
        
@@ -162,10 +169,7 @@ class DrawingsController extends Controller
 
         //dd($fileLocation->location);
 
-        
-        
-           
-            $file = 'split-2.pdf';
+            /*$file = 'split-2.pdf';
             
             $folder = substr($file, 0, -4);        
             
@@ -179,12 +183,62 @@ class DrawingsController extends Controller
             $exec = 'pdftk ' . $input_path . $file . ' burst output  ' . $output_path . '\pg_%04d.pdf' ;
 
                  
-            exec($exec);
+            exec($exec);*/
 
-     
+            /*
+
+                $client = LambdaClient::factory(array(
+                    'profile' => '<profile in your aws credentials file>',
+                    'region'  => 'us-east-1'
+                ));
+
+            */
+
+            $key = getenv('AWS_KEY');
+            $secret = getenv('AWS_SECRET');
+            $region = getenv('AWS_REGION');
+
+            $LambdaClient = LambdaClient::factory(array(
+                'credentials' => array(
+                    'key'    => $key,
+                    'secret' => $secret,
+                ),
+                'region' => $region
+            ));
+
+            $S3Client = S3Client::factory(array(
+                    'credentials' => array(
+                    'key'    => $key,
+                    'secret' => $secret,
+                ),
+                'region' => $region
+            ));
+
+
+            
+            $args = [
+                "bucketName"=>"pronovosrubixcube/split/test_folder", 
+                "folderName"=>"", 
+                "pdffileName"=>"page00001"
+            ];
+
+            //$args = array('pronovosrubixcube/split/test_folder', '', 'page00001');
+
+
+           $payload = json_encode($args);
+
+           //dd($payload);
+            
+            
+            $result = $LambdaClient->invoke([
+
+                'FunctionName' => 'pdf2Thumb',
+                'Payload' => $payload
+            
+            ]);
+
             
 
-       
     return redirect('project/' . $id . '/folders/' . $folder_id . '/drawings');
 
     }
