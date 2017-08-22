@@ -1,78 +1,5 @@
-@include('includes._header') @include('includes._menu_list')
+@include('includes._header') @include('includes._menu_estimate')
 <div id="main" role="main">
-<style>
- .Hide-Column{
- 	display: none;
- }
-
-.vertical-line{
-	border-right: 2px solid #f1f1f1;
- 
-}
-
-
-
-.table-bordered-1 td, .table-bordered-1 th {
-    border-bottom: 1px solid #F7F9F8;
-}
-
-
-.grid-table-1 tr th {
-    
-
-
-    font-size: 12px;
-    font-weight: normal;
-    color: #8a8a8d;
-    padding: 10px 15px 10px 3px;
-}
-
-
-
-.grid-table{
-	
-
-     margin-bottom: 20px;
- }
- 
-     /*.grid-table tr td {
-         padding: 5px;
-     }*/
-     .grid-table tr td {
-         padding: 5px;
-         padding-top: 10px;
-         border-bottom: 1px solid #f1f1f1;
-         margin-bottom: 23px;
-         padding-bottom: 11px;
-     }
- 
-     .grid-table tr th {
-         font-size: 12px;
-         font-weight: normal;
-         color: #8a8a8d;
-         padding-left: 5px;
-         border-bottom: 1px solid #f1f1f1;
-     }
- 
- /*.grid-table tr th {
-         font-size: 12px;
-         font-weight: normal;
-         color: #8a8a8d;
-         padding-left: 5px;
-     }*/
- 
- .grid-table-1 {
-     margin-bottom: 20px;
-     width: 2500px;
- }
- 
-     .grid-table-1 tr td {
-         width: 2%;
-     }
- 
- 
- 
-</style>
     <!-- RIBBON -->
     <div id="ribbon" style="background-color: white;">
         <span class="ribbon-button-alignment"> 
@@ -83,8 +10,9 @@
         <!-- breadcrumb -->
         <ol class="breadcrumb">
             <li style="color: black;">Home</li>
-            <li style="color: black;">Bid Results</li>
-            <li style="color: black;">{{ $project->name }}</li>
+            <li style="color: black;">Estimating</li>
+             <li style="color: black;">{{ $project->name }}</li>
+              <li style="color: black;">Bid Results</li>
         </ol>
         <!-- end breadcrumb -->
         <!-- You can also add more buttons to the
@@ -102,24 +30,13 @@
     <!-- MAIN CONTENT -->
     <div id="content">
     
-    	<form action="{{ url('/estimate/' . $project->id) }}" method="POST"   >
+    	<form action="{{ url('/estimate/'.$project->id.'/bids') }}"  method="POST"   >
     	
     	{{ csrf_field() }}
-    	{{ method_field('PUT') }}
-    	
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        
-       <button type="button" onclick="window.location='{{ url('estimate/' . $project->id) }}'" class="btn  ">Back to Bid</button>   <h1>Bid Results: {{ $project->name }}</h1>
-                
-                              
-        </article>
-         
-        
-        
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <article class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
             <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
                 <header>
-                    <h2 class="font-md">Bid Information</h2>
+                    <h2 class="font-md">New Bid Information</h2>
                 </header>
                 <!-- widget div-->
                 <div>
@@ -131,201 +48,571 @@
                     <!-- widget content -->
                     <div class="widget-body">
                         <div class="row">
-                                                         
-                            <div class="col-md-2">
+                        <div class="col-md-6">
+                        
+                        <div class="row">
+                          <div class="col-md-5">
+                              <div class="form-group">
+                               
+                              </div>
+                          </div>
+                           <div class="col-md-1">Retain Values <br /><br /></div>
+                          <div class="col-md-6">
+                            
+                          </div>
+                          </div>
+                          
+                          
+                        
+                          <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <strong>Bid Date:  </strong>
+                                </div>
+                            </div>
+                             <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                            <div class="col-md-6">
+                             <div class="form-group">
+                                <div class="input-group">
+                                																<input type="text" required name="bid_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy" value="{{ date('d/m/Y') }}">
+                                																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                															</div></div>
+                            </div>
+                            </div>
+                              <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <strong>Client:  </strong>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select name="client" id="" class="form-control">
+                                    	<option value="1" >Some Client</option>
+                                     
+                                    
+                                    </select>
+                                </div>
+                            </div>
+                       </div>
+                         <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <strong>Scope: </strong>
+                                </div>
+                            </div>
+                               <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                   <select name="scope"  class="form-control">
+                               				<option>[Select One]</option>
+                               				<option>Formwork Modified</option>
+                               				<option>Horizontal &amp; Vertical Form</option>
+                               				<option>Horizontal Form Only</option>
+                               				<option>Package</option>
+                               				<option>Package Modified</option>
+                               				<option>Vertical Form Only</option>
+                               
+                               			</select>
+                                </div>
+                            </div>
+                            </div>
+                              <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <strong>Bid Type:  </strong>
+                                </div>
+                            </div>
+                               <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                   <select name="bid_type" class="form-control" >
+                       				<option>[Select One]</option>
+                       				<option>Budget</option>
+                       				<option>Final</option>
+                       				<option>ROM</option>
+                       				<option>Test Bid Type</option>
+                       
+                       			</select>                               </div>
+                            </div>
+                      </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <strong>Drawing Stage:  </strong>
+                                </div>
+                            </div>
+                               <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="drawing_stage" value=""  />
+                                </div>
+                            </div>
+                            </div>  <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <strong>Start Date: </strong>
+                                </div>
+                            </div>
+                               <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                            <div class="col-md-6"> <div class="form-group">
+                                <div class="input-group">
+                                																<input type="text" required name="start_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                															</div></div>
+                            </div>
+                            </div> 
+                            
+                            
+                             <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <strong>Man Day Cost:  </strong>
+                                </div>
+                            </div>
+                               <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="man_day_cost" value=""  />
+                                </div>
+                            </div>
+                        </div></div>
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                  
-                                    <strong>Bid date </strong>
-                               <div class="input-group">
-                                   																<input type="text" name="mydate" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
-                                   																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                   															</div>
-                               </div>
-                                    
                                 </div>
-                                                        
-                             
-                            
-                            
-                                 
-                             
+                            </div>
+                             <div class="col-md-1">Retain Values <br /><br /></div>
+                            <div class="col-md-6">
+                              
+                            </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Total Bid:  </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6">
+                               <div class="form-group">
+                                  <input type="text" id="bid" class="form-control" name="bid" value=""  /></div>
+                              </div>
+                              </div>
+                                <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Profit:  </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <input type="text" id="profit" class="form-control" name="profit" value=""  /></div>
+                                  </div>
+                              </div>
+                          
+                           <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Profit % on Cost: </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <span id="profit_cost">0</span>%<input type="hidden" id="h_profit_cost" name="profit_cost" value="" />
+                                  </div>
+                              </div>
+                              </div>
+                                <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Total CSF:  </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <input type="text" id="csf" class="form-control" name="csf" value=""  style="width: 50%; display: inline; margin-right: 10px;" /> $<span id="total_csf">0</span>/CSF<input type="hidden" id="h_total_csf" name="total_csf" value="" /> </div>                              </div>
+                              </div>
+                        
+                          <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Total SF:  </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <input type="text" id="sf" class="form-control" name="sf" value=""  style="width: 50%; display: inline; margin-right: 10px;" /> $<span id="total_sf">0</span>/SF <input type="hidden" id="h_total_sf" name="total_sf" value="" />
+                                  </div>
+                              </div>
+                              </div>  <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Total CY: </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6"> <div class="form-group">
+                                    <input type="text" id="cy" class="form-control" name="cy" value=""   style="width: 50%; display: inline; margin-right: 10px;" /> $<span id="total_cy">0</span>/CY<input type="hidden" id="h_total_cy" name="total_cy" value="" /> </div>
+                              </div>
+                              </div>  <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Lower Bidder:  </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <input type="text" id="lower_bidder" class="form-control" name="lower_bidder" value=""  />
+                                  </div>
+                              </div>
+                               </div>  <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <strong>Price:  </strong>
+                                  </div>
+                              </div>
+                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <input type="text" id="price" class="form-control" name="price" value=""   style="width: 40%; display: inline; margin-right: 10px;" /> Need $<span id="total_need">0</span><input type="hidden" id="h_total_need" name="total_need" value="" /> on Cost 
+                                  </div>
+                              </div>
+                          </div></div>
+                        
                         </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                        <div class="bid_table  mCustomScrollbar _mCS_1" style="overflow: scroll;">
-                        
-                        <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px; width: 2116px;" dir="ltr">
-                        
-                        
-                                                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$HiddenField1" id="ContentPlaceHolder1_HiddenField1" style="">
-                        
-                                                                    <div>
-                        	<table class="grid-table" cellspacing="0" id="ContentPlaceHolder1_grdBidResult" style="border-collapse:collapse;">
-                        		<tbody><tr>
-                        			<th scope="col">Client</th><th scope="col">Scope</th><th scope="col">Bid Type</th><th scope="col">Drwg Stage</th><th scope="col">Start Date</th><th class="vertical-line" scope="col">MD Cost</th><th class="line-space" scope="col">Total Bid</th><th scope="col">Profit</th><th scope="col">Profit % on Cost</th><th scope="col">Total CSF</th><th scope="col">Total SF</th><th scope="col">Total CY</th><th scope="col">$/CSF</th><th scope="col">$/SF</th><th scope="col">$/CY</th><th scope="col">Lower Bidder</th><th scope="col">Price</th><th scope="col">Needed % on Cost</th>
-                        		</tr><tr>
-                        			<td>
-                                                                                    <select name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$ddlClient" id="ContentPlaceHolder1_grdBidResult_ddlClient_0" class="form-control" style="color: grey; width: 110px;">
-                        				<option value="0" style="color:grey;">[Select One]</option>
-                        				<option value="412" style="color: black;">Beck</option>
-                        
-                        			</select>
-                                                                                </td><td>
-                                                                                    <select name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$ddlScope" id="ContentPlaceHolder1_grdBidResult_ddlScope_0" class="form-control" style="color: grey; width: 110px;">
-                        				<option value="0" style="color:grey">[Select One]</option>
-                        				<option value="147" style="color: black;">Formwork Modified</option>
-                        				<option value="138" style="color: black;">Horizontal &amp; Vertical Form</option>
-                        				<option value="143" style="color: black;">Horizontal Form Only</option>
-                        				<option value="118" style="color: black;">Package</option>
-                        				<option value="148" style="color: black;">Package Modified</option>
-                        				<option value="149" style="color: black;">Vertical Form Only</option>
-                        
-                        			</select>
-                                                                                </td><td>
-                                                                                    <select name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$ddlBidType" id="ContentPlaceHolder1_grdBidResult_ddlBidType_0" class="form-control" style="color: grey; width: 110px;">
-                        				<option value="0" style="color:grey">[Select One]</option>
-                        				<option value="119" style="color: black;">Budget</option>
-                        				<option value="120" style="color: black;">Final</option>
-                        				<option value="101" style="color: black;">ROM</option>
-                        				<option value="232" style="color: black;">Test Bid Type</option>
-                        
-                        			</select>
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtDrwgStage" type="text" id="ContentPlaceHolder1_grdBidResult_txtDrwgStage_0" class="form-control remove">
-                                                                                </td><td>
-                                                                                    <div class="input-group date" data-date="25-11-2015" data-date-format="mm/dd/yyyy">
-                                                                                        <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtStartDate" type="text" readonly="readonly" id="ContentPlaceHolder1_grdBidResult_txtStartDate_0" class="form-control date" style="background-color:White;">
-                                                                                        <span class="input-group-btn add-on">
-                                                                                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </td><td class="vertical-line">
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtMDCost" type="text" id="ContentPlaceHolder1_grdBidResult_txtMDCost_0" class="form-control dolNum">
-                                                                                </td><td class="line-space">
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtTotalBid" type="text" id="ContentPlaceHolder1_grdBidResult_txtTotalBid_0" class="form-control">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtProfit" type="text" id="ContentPlaceHolder1_grdBidResult_txtProfit_0" class="form-control">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtProfitOnCost" type="text" readonly="readonly" id="ContentPlaceHolder1_grdBidResult_txtProfitOnCost_0" class="form-control form-control-1">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtTotalCSF" type="text" id="ContentPlaceHolder1_grdBidResult_txtTotalCSF_0" class="form-control ">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtTotalSF" type="text" id="ContentPlaceHolder1_grdBidResult_txtTotalSF_0" class="form-control">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtTotalCY" type="text" id="ContentPlaceHolder1_grdBidResult_txtTotalCY_0" class="form-control">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtCSF" type="text" readonly="readonly" id="ContentPlaceHolder1_grdBidResult_txtCSF_0" class="form-control form-control-1">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtSF" type="text" readonly="readonly" id="ContentPlaceHolder1_grdBidResult_txtSF_0" class="form-control form-control-1">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtCY" type="text" readonly="readonly" id="ContentPlaceHolder1_grdBidResult_txtCY_0" class="form-control form-control-1">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtLowerBidder" type="text" id="ContentPlaceHolder1_grdBidResult_txtLowerBidder_0" class="form-control remove">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtPrice" type="text" id="ContentPlaceHolder1_grdBidResult_txtPrice_0" class="form-control remove">
-                                                                                </td><td>
-                                                                                    <input name="ctl00$ContentPlaceHolder1$grdBidResult$ctl02$txtNeeded" type="text" readonly="readonly" id="ContentPlaceHolder1_grdBidResult_txtNeeded_0" class="form-control form-control-1">
-                                                                                </td>
-                        		</tr>
-                        	</tbody></table>
-                        </div>
-                        
-                        
-                        
-                                                                </div><div id="mCSB_1_scrollbar_horizontal" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_horizontal" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 30px; display: block; width: 847px; max-width: 1329px; left: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div> 
-                                                                
-                                                                <div class="add_link">
-                                                                                                            <span id="ContentPlaceHolder1_btnSpanHide"><a href="#"><i class="fa fa-plus"></i>
-                                                                                                                </a><a onclick="return Validate();" id="ContentPlaceHolder1_lnkbtnAddRow" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$lnkbtnAddRow','')">ADD LINE</a></span>
-                                                                                                        </div><div class="add_link">
-                                                                                                                                                    <span><a href="#"><i class="fa fa-save"></i>
-                                                                                                                                                        </a><a onclick="return ValidateBidDateOnSave();" id="ContentPlaceHolder1_lnkbtnSaveBid" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$lnkbtnSaveBid','')">SAVE BID</a>
-                                                                                                                                                    </span>
-                                                                                                        
-                                                                                                                                                </div>
-                                                                 </div>
-                                                                
-                                                             
-                        </div>
-                    </div></div>
-                    
-                    <!-- end widget content -->
-                </div>
-                <!-- end widget div -->
-            </div>
+                         
+                         <br /><br />
+                         *Use <input type="checkbox" disabled name="" value="" /> to retain values for multiple entries upon committing 
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </div></div>
         </article>
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
-        <h2>Previous Results</h2>
-        </article>
-         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-             <div class="jarviswidget  "   id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
-                 <header>
-                     <h2 class="font-md">BID DATE : 8/19/2017</h2>
-                 </header>
-                 <!-- widget div-->
-                 <div>
-                     <!-- widget edit box -->
-                                         <!-- end widget edit box -->
-                     <!-- widget content -->
-                     <div class="widget-body">
-                         <div class="row"> <div class="col-md-12">
-         <div class="bid_table mCustomScrollbar _mCS_2" style="overflow: scroll;"><div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px; width: 2500px;" dir="ltr"><table class="grid-table-1"><tbody><tr class="table-bordered-1"><th> </th><th class="Hide-Column">BidInformationId</th><th>Client</th><th>Scope</th><th>Bid Type</th><th>Drwg Stage</th><th>MD Cost</th><th>Total Bid</th><th>Profit</th><th>Profit % on Cost</th><th>Total CSF</th><th>Total SF</th><th>Total CY</th><th>SCSF</th><th>SSF</th><th>SCY</th><th>Lower Bidder</th><th>Price</th><th>Needed % on Cost</th><th>Start Date</th></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr></tbody></table></div><div id="mCSB_2_scrollbar_horizontal" class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_horizontal" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 30px; display: block; width: 717px; max-width: 1329px; left: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-        </div></div></div></div></div></article>
+         <article class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+         
+         								<!-- Widget ID (each widget will need unique ID)-->
+         								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+         									<!-- widget options:
+         										usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+         										
+         										data-widget-colorbutton="false"	
+         										data-widget-editbutton="false"
+         										data-widget-togglebutton="false"
+         										data-widget-deletebutton="false"
+         										data-widget-fullscreenbutton="false"
+         										data-widget-custombutton="false"
+         										data-widget-collapsed="true" 
+         										data-widget-sortable="false"
+         										
+         									-->
+         									<header>
+         										<span class="widget-icon"> <i class="fa fa-arrows-v"></i> </span>
+         										<h2 class="font-md">Actions</h2>
+         									</header>
+         
+         									
+         										<!-- widget content -->
+         										<div class="widget-body">
+         											<div class="widget-body-toolbar">
+         											
+         											<div class="row">
+         												 
+         												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right"  >
+         													
+         													<button class="btn btn-success btn-block "  type="submit" style="padding-right: 0px; padding-left: 2px; height: auto;">
+         														Commit results
+         													</button>
+         													
+         												</div>
+         												
+         											</div> 
+         											<br />
+         											<div class="row">
+         												 
+         												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right"  >
+         													
+         													<button class="btn btn-success btn-block " onclick="window.history.back();" style="padding-right: 0px; padding-left: 2px; height: auto;">
+         														Back
+         													</button>
+         													
+         												</div>
+         												
+         											</div>
+         											 
+         										</div>
+         										</div>
+         										<!-- end widget content -->
+         										
+         								</div>
+         								<!-- end widget -->
+         							
+         							</article>
+         							
+         							
+         							<article class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
+         							    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+         							        <header>
+         							            <h2 class="font-md">Past Bid Result</h2>
+         							        </header>
+         							        <!-- widget div-->
+         							        <div>
+         							<?php $date=0; ?>
+         							
+         							
+         							<article style="display: none;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         							    <div class="jarviswidget  " id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+         							        <header>
+         							           
+         							        </header>
+         							        <!-- widget div-->
+         							        <div>
+         							
+         							@foreach($project->bids as $bid)
+         							
+         					
+         							@if($bid->bid_date != $date)
+         							
+         							<?php $date=$bid->bid_date; ?>
+         							</div></div>
+         							</article>
+         							 
+         							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         							    <div class="jarviswidget  " id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+         							        <header>
+         							            <h2 class="font-md">{{ $bid->bid_date }} Results</h2>
+         							        </header>
+         							        <!-- widget div-->
+         							        <div>
+         							        
+         							        
+         							        @endif
+         							            <!-- widget edit box -->
+         							            <div class="jarviswidget-editbox">
+         							                <!-- This area used as dropdown edit box -->
+         							            </div>
+         							            <!-- end widget edit box -->
+         							            <!-- widget content -->
+         							            <div class="widget-body">
+         							                <div class="row">
+         							                <div class="col-md-6">
+         							                
+         							                 
+         							                  
+         							                  
+         							                
+         							                  <div class="row">
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                            <strong>Bid Date:  </strong>
+         							                        </div>
+         							                    </div>
+         							                     
+         							                    <div class="col-md-6">
+         							                     <div class="form-group">
+         							                        <div class="input-group">
+         							                        
+         							                        {{ $bid->bid_date }}
+         							                        																 </div>
+         							                    </div>
+         							                    </div></div>
+         							                      <div class="row">
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                            <strong>Client:  </strong>
+         							                        </div>
+         							                    </div>
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                        
+         							                            {{ $bid->client }}
+         							                        </div>
+         							                    </div>
+         							               </div>
+         							                 <div class="row">
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                            <strong>Scope: </strong>
+         							                        </div>
+         							                    </div>
+         							                       
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                          {{ $bid->scope }}
+         							                        </div>
+         							                    </div>
+         							                    </div>
+         							                      <div class="row">
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                            <strong>Bid Type:  </strong>
+         							                        </div>
+         							                    </div>
+         							                       
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                           {{ $bid->bid_type }}                              </div>
+         							                    </div>
+         							              </div>
+         							                <div class="row">
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                            <strong>Drawing Stage:  </strong>
+         							                        </div>
+         							                    </div>
+         							                       
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                           {{ $bid->drawing_stage }}
+         							                        </div>
+         							                    </div>
+         							                    </div>  <div class="row">
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                            <strong>Start Date: </strong>
+         							                        </div>
+         							                    </div>
+         							                       
+         							                    <div class="col-md-6"> <div class="form-group">
+         							                        {{ $bid->start_date }}</div>
+         							                    </div>
+         							                    </div> 
+         							                    
+         							                    
+         							                     <div class="row">
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                            <strong>Man Day Cost:  </strong>
+         							                        </div>
+         							                    </div>
+         							                       
+         							                    <div class="col-md-6">
+         							                        <div class="form-group">
+         							                          {{ $bid->man_day_cost }}
+         							                        </div>
+         							                    </div>
+         							                </div></div>
+         							                <div class="col-md-6">
+         							                   
+         							                    <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Total Bid:  </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6">
+         							                       <div class="form-group">
+         							                         {{ $bid->bid }}
+         							                      </div>
+         							                      </div></div>
+         							                        <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Profit:  </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                             {{ $bid->profit }}</div>
+         							                          </div>
+         							                      </div>
+         							                  
+         							                   <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Profit % on Cost: </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <span id="profit_cost">{{ $bid->profit_cost }}</span>%
+         							                          </div>
+         							                      </div>
+         							                      </div>
+         							                        <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Total CSF:  </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              {{ $bid->csf }} $<span id="total_csf">{{ $bid->total_csf }}</span>/CSF </div>                              </div>
+         							                      </div>
+         							                
+         							                  <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Total SF:  </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                           {{ $bid->sf }} $<span id="total_sf">{{ $bid->total_sf }}</span>/SF          							                          </div>
+         							                      </div>
+         							                      </div>  <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Total CY: </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6"> <div class="form-group">
+         							                           {{ $bid->cy }} $<span id="total_cy">{{ $bid->total_cy }}</span>/CY  </div>
+         							                      </div>
+         							                      </div>  <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Lower Bidder:  </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              {{ $bid->lower_bidder }}
+         							                          </div>
+         							                      </div>
+         							                       </div>  <div class="row">
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                              <strong>Price:  </strong>
+         							                          </div>
+         							                      </div>
+         							                         
+         							                      <div class="col-md-6">
+         							                          <div class="form-group">
+         							                            {{ $bid->price }} Need $<span id="total_need">{{ $bid->total_need }}</span>  on Cost 
+         							                          </div>
+         							                      </div>
+         							                  </div></div>
+         							                
+         							                </div>
+         							                 
+         							                 
+         							                <!-- end widget content -->
+         							            </div>
+         							            <!-- end widget div -->
+         							            <hr />
+         							           
+         							     
+         					 
+         @endforeach 
+         </div></div>
+         </article>
+         </div></div></article>
         
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-             <div class="jarviswidget  " id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
-                 <header>
-                     <h2 class="font-md">BID DATE : 8/19/2017</h2>
-                 </header>
-                 <!-- widget div-->
-                 <div>
-                     <!-- widget edit box -->
-                                         <!-- end widget edit box -->
-                     <!-- widget content -->
-                     <div class="widget-body">
-                         <div class="row"> <div class="col-md-12">
-         <div class="bid_table mCustomScrollbar _mCS_2" style="overflow: scroll;"><div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px; width: 2500px;" dir="ltr"><table class="grid-table-1"><tbody><tr class="table-bordered-1"><th> </th><th class="Hide-Column">BidInformationId</th><th>Client</th><th>Scope</th><th>Bid Type</th><th>Drwg Stage</th><th>MD Cost</th><th>Total Bid</th><th>Profit</th><th>Profit % on Cost</th><th>Total CSF</th><th>Total SF</th><th>Total CY</th><th>SCSF</th><th>SSF</th><th>SCY</th><th>Lower Bidder</th><th>Price</th><th>Needed % on Cost</th><th>Start Date</th></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr></tbody></table></div><div id="mCSB_2_scrollbar_horizontal" class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_horizontal" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 30px; display: block; width: 717px; max-width: 1329px; left: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-        </div></div></div></div></div></article>
-        
-        
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-             <div class="jarviswidget  " id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
-                 <header>
-                     <h2 class="font-md">BID DATE : 8/19/2017</h2>
-                 </header>
-                 <!-- widget div-->
-                 <div>
-                     <!-- widget edit box -->
-                                         <!-- end widget edit box -->
-                     <!-- widget content -->
-                     <div class="widget-body">
-                         <div class="row"> <div class="col-md-12">
-         <div class="bid_table mCustomScrollbar _mCS_2" style="overflow: scroll;"><div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px; width: 2500px;" dir="ltr"><table class="grid-table-1"><tbody><tr class="table-bordered-1"><th> </th><th class="Hide-Column">BidInformationId</th><th>Client</th><th>Scope</th><th>Bid Type</th><th>Drwg Stage</th><th>MD Cost</th><th>Total Bid</th><th>Profit</th><th>Profit % on Cost</th><th>Total CSF</th><th>Total SF</th><th>Total CY</th><th>SCSF</th><th>SSF</th><th>SCY</th><th>Lower Bidder</th><th>Price</th><th>Needed % on Cost</th><th>Start Date</th></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr></tbody></table></div><div id="mCSB_2_scrollbar_horizontal" class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_horizontal" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 30px; display: block; width: 717px; max-width: 1329px; left: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-        </div></div></div></div></div></article>
-        
-        
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-             <div class="jarviswidget  " id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
-                 <header>
-                     <h2 class="font-md">BID DATE : 8/19/2017</h2>
-                 </header>
-                 <!-- widget div-->
-                 <div>
-                     <!-- widget edit box -->
-                                         <!-- end widget edit box -->
-                     <!-- widget content -->
-                     <div class="widget-body">
-                         <div class="row"> <div class="col-md-12">
-         <div class="bid_table mCustomScrollbar _mCS_2" style="overflow: scroll;"><div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px; width: 2500px;" dir="ltr"><table class="grid-table-1"><tbody><tr class="table-bordered-1"><th> </th><th class="Hide-Column">BidInformationId</th><th>Client</th><th>Scope</th><th>Bid Type</th><th>Drwg Stage</th><th>MD Cost</th><th>Total Bid</th><th>Profit</th><th>Profit % on Cost</th><th>Total CSF</th><th>Total SF</th><th>Total CY</th><th>SCSF</th><th>SSF</th><th>SCY</th><th>Lower Bidder</th><th>Price</th><th>Needed % on Cost</th><th>Start Date</th></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr><tr class="table-bordered-1"><td><span><i class="fa fa-pencil btn-Bid-Edit EditRow" title="Edit Row" aria-hidden="true" onclick="EditValue();"></i></span>
-         </td><td class="Hide-Column">588</td><td></td><td>Horizontal Form Only</td><td>ROM</td><td>test</td><td>$ 4,455.00/MD</td><td>$ 555</td><td>$ 889</td><td>-266.17%</td><td>445 CSF</td><td>555 SF</td><td>55 CY</td><td>$1.25/CSF</td><td>$1.00/SF</td><td>$10.09/CY</td><td>555</td><td>555</td><td></td><td>4/27/2017</td></tr></tbody></table></div><div id="mCSB_2_scrollbar_horizontal" class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_horizontal" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 30px; display: block; width: 717px; max-width: 1329px; left: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-        </div></div></div></div></div></article>
         </form>
     </div>
     <!-- END MAIN CONTENT -->
@@ -489,6 +776,73 @@ $('#timepicker').timepicker();
         /* END TABLETOOLS */
 
     })
+    
+    
+    
+    $( "#profit, #bid" ).keyup(function() {
+       
+      bid =  parseFloat($( "#bid" ).val());
+      profit =  parseFloat($( "#profit" ).val());
+      
+      profit_cost = profit/(bid-profit);
+      
+      $( "#profit_cost" ).html(profit_cost.toFixed(2))
+      $( "#h_profit_cost" ).val(profit_cost.toFixed(2))
+      
+    });
+    
+    
+    $( "#csf" ).keyup(function() {
+       
+      bid =  parseFloat($( "#bid" ).val());
+      csf =  parseFloat($( "#csf" ).val());
+      
+      total_csf = bid/csf;
+      
+      $( "#total_csf" ).html(total_csf.toFixed(2))
+      $( "#h_total_csf" ).val(total_csf.toFixed(2))
+      
+    });
+    
+    $( "#sf" ).keyup(function() {
+       
+      bid =  parseFloat($( "#bid" ).val());
+      sf =  parseFloat($( "#sf" ).val());
+      
+      total_sf = bid/sf;
+      
+      $( "#total_sf" ).html(total_sf.toFixed(2))
+      $( "#h_total_sf" ).val(total_sf.toFixed(2))
+      
+    });
+    
+    
+    $( "#cy" ).keyup(function() {
+       
+      bid =  parseFloat($( "#bid" ).val());
+      cy =  parseFloat($( "#cy" ).val());
+      
+      total_cy = bid/cy;
+      
+      $( "#total_cy" ).html(total_cy.toFixed(2))
+      $( "#h_total_cy" ).val(total_cy.toFixed(2))
+      
+    });
+    
+    $( "#price" ).keyup(function() {
+       
+      price =  parseFloat($( "#price" ).val());
+      bid =  parseFloat($( "#bid" ).val());
+      profit =  parseFloat($( "#profit" ).val());
+      
+      total_need = (price-(bid-profit))/(bid-profit);
+      
+      $( "#total_need" ).html(total_need.toFixed(2))
+      $( "#h_total_need" ).val(total_need.toFixed(2))
+      
+    });
+    
+    
 </script>
 <!-- Your GOOGLE ANALYTICS CODE Below -->
 <!-- Your GOOGLE ANALYTICS CODE Below -->

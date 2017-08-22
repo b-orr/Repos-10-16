@@ -41,6 +41,11 @@ class Projects extends Model
       return $this->hasMany('App\Folders', 'pj_project_id');
     }
     
+    public function bids()
+    {
+      return $this->hasMany('App\Bids', 'pj_project_id');
+    }
+    
     
     public function architect()
     {

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Projects;
-use App\Bid;
+use App\Bids;
 
 class BidController extends Controller
 {
@@ -34,19 +34,21 @@ class BidController extends Controller
     {
     
     		$this->data['project'] = $this->tenant->projects->find($project_id);
+     
+ 
         return view('estimate.bid.overview', $this->data);
     }
 
-  
-    public function create()
-    {
-        //
-    }
-
    
-    public function store(Request $request)
+   
+    public function store($project_id,Request $request)
     {
-        //
+          
+        $request->request->add(['pj_project_id' => $project_id]); 
+        
+        $this->tenant->projects()->find($project_id)->bids()->save(new Bids($request->all()));
+        
+        return redirect()->back();
     }
 
   

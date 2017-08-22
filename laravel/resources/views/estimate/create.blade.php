@@ -1,4 +1,4 @@
-@include('includes._header') @include('includes._menu_list')
+@include('includes._header') @include('includes._menu_estimate')
 <div id="main" role="main">
     <!-- RIBBON -->
     <div id="ribbon" style="background-color: white;">
