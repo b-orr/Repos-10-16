@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Persons;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,7 @@ class PersonsController extends Controller
 {
     public $data;
     public $user;
+    public $tenant;
     
     public function __construct()
     {
@@ -17,7 +19,8 @@ class PersonsController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
                 return $next($request);
         });
         
@@ -36,7 +39,7 @@ class PersonsController extends Controller
         												      
         												        'email' => 'required|email']);
           
-        $this->user->persons()->save(new Persons($request->all()));
+        $this->tenant->persons()->save(new Persons($request->all()));
         
         return redirect('/contacts');
     }
@@ -44,7 +47,7 @@ class PersonsController extends Controller
     
     public function edit($persons)
     {
-        $this->data['person']=$this->user->persons()->find($persons);
+        $this->data['person']=$this->tenant->persons()->find($persons);
         
          if(!empty($this->data['person'])){
          	return view('contacts/persons/edit', $this->data);
@@ -56,7 +59,7 @@ class PersonsController extends Controller
     
     public function update(Request $request, $persons)
     {
-        $this->user->persons()->find($persons)->update($request->all());
+        $this->tenant->persons()->find($persons)->update($request->all());
         
         return redirect('/contacts');
     }
@@ -64,7 +67,7 @@ class PersonsController extends Controller
      
     public function destroy($persons)
     {
-        $this->user->persons()->find($persons)->delete();
+        $this->tenant->persons()->find($persons)->delete();
         
         return redirect('/contacts');
     }

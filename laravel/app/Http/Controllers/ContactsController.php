@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Persons;
 use App\Companies;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ class ContactsController extends Controller
 {
     public $data;
     public $user;
+    public $tenant;
     
     public function __construct()
     {
@@ -18,7 +20,8 @@ class ContactsController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
                 return $next($request);
         });
         
@@ -29,8 +32,8 @@ class ContactsController extends Controller
     
     public function index()
     {
-        $this->data['persons'] = $this->user->persons;
-        $this->data['companies'] = $this->user->companies;
+        $this->data['persons'] = $this->tenant->persons;
+        $this->data['companies'] = $this->tenant->companies;
         
         return view('contacts/list', $this->data);
     }

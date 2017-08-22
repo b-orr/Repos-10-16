@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\RegionEquipment;
 
 class AjaxCallsController extends Controller
 {
+    public $data;
     public $user;
+    public $tenant;
+    
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
-                    $this->user= Auth::user();
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
                     return $next($request);
             });
      
@@ -25,10 +30,10 @@ class AjaxCallsController extends Controller
         $catID = $_GET['category'];
         $subID = $_GET['subcategory'];
         if($subID != 0){
-        	$this->data['categories'] = $this->user->categories()->where('id', $catID)->with('subcategories', 'subcategories.equipment')->get();
+        	$this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories', 'subcategories.equipment')->get();
         }
         else {
-        	$this->data['categories'] = $this->user->categories()->where('id', $catID)->with('subcategories')->get();
+        	$this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories')->get();
         }
         return response()->json($this->data);
     }
@@ -38,10 +43,10 @@ class AjaxCallsController extends Controller
         $catID = $_GET['category'];
         $subID = $_GET['subcategory'];
         if($subID != 0){
-            $this->data['categories'] = $this->user->categories()->where('id', $catID)->with('subcategories', 'subcategories.equipment')->get();
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories', 'subcategories.equipment')->get();
         }
         else {
-            $this->data['categories'] = $this->user->categories()->where('id', $catID)->with('subcategories')->get();
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories')->get();
         }
         return response()->json($this->data);
     }

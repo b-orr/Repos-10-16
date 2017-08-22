@@ -250,30 +250,30 @@
 										<!-- end widget div -->
 							</article>
 						</div>
-						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
-							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
-								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
-								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+						<div class="bordered" id="rightMenu1">
+							<div class="header">
+								<h2 class="no-padding font-md">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
 							</div>
 							<div class="menu-body padding-5">
 								
 								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/equipment/create')}}">
-									<span style="font-size: 12px; font-weight: bold;">New Transfer</span>
+									<span class="buttonText">New Transfer</span>
 								</a>
 								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/trucking/create')}}">
-									<span style="font-size: 12px; font-weight: bold;">New Trucking Request</span>
+									<span class="buttonText">New Trucking Request</span>
 								</a>
 								<legend>Inventory Search</legend>
-								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
+								<label class="formElementsLabel">Status</label>
 								<select class="form-control">
 									<option>Active</option>
 									<option>Damaged</option>
 								</select>
-								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Owner</label>
+								<label class="formElementsLabel">Owner</label>
 								<select class="form-control">
 									<option>McClone</option>	
 							</select>
-								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
+								<label class="formElementsLabel">Status</label>
 								<input type="text" name="search" class="form-control">
 								<!-- <label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Filters</label><br>
 								<select type="text" name="search" class="form-control">
@@ -458,10 +458,6 @@
 			</div><!-- /.modal-dialog -->
 		</div>	
 		<!-- END MODALS -->
-		<!--================================================== -->
-
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
 		<!-- PAGE FOOTER -->
 		@include('../../includes/_footer')

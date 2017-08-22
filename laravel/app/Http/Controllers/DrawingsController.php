@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Storage;
 use App\Drawings;
 use App\Folders;
@@ -26,6 +27,7 @@ class DrawingsController extends Controller
         public $drawings;
         public $data;
         public $user;
+        public $tenant;
 
 
 
@@ -35,8 +37,9 @@ class DrawingsController extends Controller
         $this->middleware('role:super,tenant');
         
         $this->middleware(function ($request, $next) {
-                $this->user= Auth::user();
-                $this->data['projects'] = $this->user->projects->where('status', 'Award');
+                $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                $this->data['user'] = $this->user= Auth::user();
+                $this->data['projects'] = $this->tenant->projects->where('status', 'Award');
                 return $next($request);
         });
 
@@ -66,7 +69,7 @@ class DrawingsController extends Controller
         $this->data['project_id'] = $id;
         $this->data['folder_id'] = $folder_id;
         
-        $this->data['user'] = $this->user= Auth::user();
+      
         $this->data['upload'] = new Signature(
             "AKIAIXALNCV24MHDDXXQ",
             "CT3rGoSc/vY3hK33b0T5gBIsWtPv9AupvQc3ceF1",
@@ -77,7 +80,7 @@ class DrawingsController extends Controller
         $this->data['UploadedFiles'] = DB::table('drw_uploads')->where('folder_id',$folder_id)->get();
 
        
-        $this->data['drawings'] = $this->user->projects->find($id)->folders->find($folder_id)->drawings;
+        $this->data['drawings'] = $this->tenant->projects->find($id)->folders->find($folder_id)->drawings;
 
         
         

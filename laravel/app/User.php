@@ -33,6 +33,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+    
+    public static function findTenant($user)
+    {   
+       return $user->parent_user_id==0?$user:User::find($user->parent_user_id);
+    }
+    
+    
     public function setPasswordAttribute($password)
     {   
        $this->attributes['password'] = bcrypt($password);

@@ -8,7 +8,7 @@
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'GuestController@index');
-
+Route::get('/forbidden', 'GuestController@forbidden');
 /*
 |--------------------------------------------------------------------------
 | Super admin
@@ -41,6 +41,8 @@ Route::get('home', 'ProjectController@index');
 */
 
 Route::resource('admin/regions', 'AdminRegionsController', [ 'as' => 'Admin - Regions' ]);
+
+Route::get('region/set/{id}', 'RegionsController@set_region');
 
 /*
 |--------------------------------------------------------------------------
@@ -171,10 +173,10 @@ Route::get('project/{id}/trucking/getEqWeight', 'AjaxCallsController@equipmentWe
 //truckings
 Route::resource('project/{id}/trucking', 'TruckingController', [ 'as' => 'Equipment - Truckings']);
 
+//forecasting
+Route::resource('project/{id}/forecasting', 'ForecastingController', [ 'as' => 'Equipment - Forecasting' ]);
 
 
-
-Route::get('project/{id}/equipment/forecasting', 'ProjectEquipmentController@forecasting')->name('Equipment - Forecasting');
 Route::get('project/{id}/equipment/truckinglog', 'ProjectEquipmentController@truckinglog')->name('Equipment - Trucking Log');
 Route::get('project/{id}/equipment/rental', 'ProjectEquipmentController@rental')->name('Equipment - Rental');
 

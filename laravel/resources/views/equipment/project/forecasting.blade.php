@@ -1,35 +1,45 @@
-@include('../../includes/_header')
+@include('../includes/_header')
 
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
-		
+
 		<!-- END NAVIGATION -->
 
-@include('../../includes/_menu')
+@include('../includes/_menu')
 		<!-- MAIN PANEL -->
 	<style type="text/css">
-		.main-parent{
+		/* .main-parent{
 			background-color: background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);;
 			font-weight: bolder;
 		}
 		.fchild{
 			background-color: #e6e6e6;
 			font-weight: bold;
+		} */
+
+		.main-parent{
+			background-color: #c0c0c0;
+			font-weight: bolder;
 		}
-		.rotate {
-		  /* FF3.5+ */
-		  -moz-transform: rotate(-90.0deg);
-		  /* Opera 10.5 */
-		  -o-transform: rotate(-90.0deg);
-		  /* Saf3.1+, Chrome */
-		  -webkit-transform: rotate(-90.0deg);
-		  /* IE6,IE7 */
-		  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.083);
-		  /* IE8 */
-		  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
-		  /* Standard */
-		  transform: rotate(-90.0deg);
+		.fchild{
+			background-color: #e6e6e6;
+			font-weight: bold;
 		}
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+			padding: 2px 10px;
+		}
+
+		tr {
+			height:25px !important;
+		}
+		.up_5 {
+			position: relative;
+			top: -5px;
+		}
+		.fa-plus, .fa-minus {
+			font-size: 10px;
+		}
+		
 	</style>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -37,75 +47,56 @@
 			<!-- RIBBON -->
 			<div id="ribbon" style="background-color: white;">
 
-				<span class="ribbon-button-alignment"> 
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span> 
-				</span>
-
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: black;">Home</li><li style="color: black;">Projects</li><li style="color: black;">1001 Broadway</li><li style="color: black;">Equipment</li><li style="color: black;">Forecast</li>
+					<li>Home</li><li>Projects</li><li>{{$project->name}}</li><li>Equipment</li><li>Forecast</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
-			
-			
+
+
 
 			<!-- MAIN CONTENT -->
-			<div id="content" style="padding-left: 0px;">
+			<div id="content" style="padding: 0px 0px 0px 2px;">
 				<!-- end row -->
-				<section id="widget-grid" style="padding-left: 0px;">
-				
-					<!-- row -->
-					<div class="row col-lg-12" style="padding-left: 0px;">
-					<div class="col-lg-10" style="padding-left: 4px;">
-						<article class="col-lg-12" style="margin-left: 10px;">
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
-								<!-- widget options:
+				<section id="widget-grid">
+					
+					<div class="row no-margin">
+							
+						<div id="contentMain" class="col-md-9" style="width: 80%; padding: 0px 2px 0px 0px; margin-right: 2px;">
+							<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+							
+								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" data-widget-togglebutton="false">
+									<!-- widget options:
 									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-									
-									data-widget-colorbutton="false"	
+
+									data-widget-colorbutton="false"
 									data-widget-editbutton="false"
 									data-widget-togglebutton="false"
 									data-widget-deletebutton="false"
 									data-widget-fullscreenbutton="false"
 									data-widget-custombutton="false"
-									data-widget-collapsed="true" 
+									data-widget-collapsed="true"
 									data-widget-sortable="false"
-									
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
-									<h2>Required needs list </h2>			
-									
-								</header>
 
-								<!-- widget div-->
-								<div>
-									
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-									</div>
-									<!-- end widget edit box -->
-									
-									<!-- widget content -->
-									<div class="widget-body">
-										<table class="table table-bordered">
+									-->
+
+
+									<!-- added buttons -->
+
+									<header>
+										<h2>Forecasting</h2>
+									</header><!-- widget div-->
+
+
+									<div>
+
+										<!-- widget content -->
+										<div class="widget-body no-padding">
+											<!-- main page content here -->
+
+											<table class="table table-bordered">
 											<thead>
 												<th colspan="3" style="text-align: right; height: 55px;"></th>
 												<th class="rotate" style="width:50px;font-size: 8px;">Main Beam 3' 99''</th>
@@ -154,7 +145,8 @@
 												<th></th>
 											</thead>
 											<tbody>
-											<?php for($i = 1; $i<=10; $i++){ ?>
+
+											@for($i = 1; $i<=10; $i++)
 												<tr>
 													<td>Block25</td>
 													<td>L1</td>
@@ -172,203 +164,67 @@
 													<td>017</td>
 													<td>017</td>
 												</tr>
-												<?php } ?>
+											@endfor
 											</tbody>
 										</table>
+											<!-- end main page content -->
+										</div>
 									</div>
-									<!-- end widget content -->
-									
-								</div>
-								<!-- end widget div -->
-								
-							</div>
-						</article>
-					</div>
-						<!-- NEW WIDGET START -->
-					<div class="col-lg-2" style="padding: 0px 0px; margin: 0px 0px;">
-						
-						<article style="margin-left: 10px; width: 100%;">
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-16" data-widget-sortable="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-deletebutton="false">
-								<!-- widget options:
-									usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-									
-									data-widget-colorbutton="false"	
-									data-widget-editbutton="false"
-									data-widget-togglebutton="false"
-									data-widget-deletebutton="false"
-									data-widget-fullscreenbutton="false"
-									data-widget-custombutton="false"
-									data-widget-collapsed="true" 
-									data-widget-sortable="false"
-									
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-lock"></i> </span>
-									<h2>Actions </h2>			
-									
-								</header>
 
-								<!-- widget div-->
-								<div>
-									
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-									</div>
-									<!-- end widget edit box -->
-									
-									<!-- widget content -->
-									<div class="widget-body col-lg-12" style="padding-left: 0px;">
-									<a href="{{ url('project/equipment/newrequirement') }}" class="btn btn-success col-lg-12" style="padding-left: 9px;">Add Requirement</a><br><br><br>
-									<label>Category</label>
-									<select class="form-control">
-										<option>HV</option>
-										<option>HV</option>
-									</select>
-									</div>
-									<!-- end widget content -->
-									
 								</div>
-								<!-- end widget div -->
-								
+										<!-- end widget content -->
+							</article>
+						</div>
+						<div class="bordered" id="rightMenu1" style="">
+							<div class="header" style="">
+								<h2 class="no-padding font-md" style="">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
 							</div>
-						</article>
+							<div class="menu-body padding-5">
+								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/forecasting/create')}}">
+									<span class="buttonText">Add Requirement</span>
+								</a>
+								<legend></legend>
+								<label class="legendLabel">Search</label><br>
+								<label class="formElementsLabel">Category</label>
+								<select type="text" name="search" class="form-control">
+									<option>HV</option>
+									<option>HV</option>
+									<option>HV</option>
+								</select>
+							</div>
+						</div>
 					</div>
-					</div>
-
-					<!-- end row -->
-				
 				</section>
 
 				<!--
-					The ID "widget-grid" will start to initialize all widgets below 
-					You do not need to use widgets if you dont want to. Simply remove 
-					the <section></section> and you can use wells or panels instead 
+					The ID "widget-grid" will start to initialize all widgets below
+					You do not need to use widgets if you dont want to. Simply remove
+					the <section></section> and you can use wells or panels instead
 					-->
-				
+
 			</div>
 			<!-- END MAIN CONTENT -->
 
 		</div>
 		<!-- END MAIN PANEL -->
 
-		<!-- PAGE FOOTER -->
+		<!-- MODALS -->
 		
+		<!-- END MODALS -->
+
+		<!-- PAGE FOOTER -->
+		@include('../includes/_footer')
 		<!-- END PAGE FOOTER -->
 
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
-		Note: These tiles are completely responsive,
-		you can add as many as you like
-		-->
-		<!-- MODALS -->
-			
-		<!-- END MODALS -->
-		<!--================================================== -->
-
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
-
-		@include('../../includes/_footer')
-
-		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
 
 		<script type="text/javascript">
-			
 			$(document).ready(function() {
-			
-
-			pageSetUp();
-		
-
+				pageSetUp();
 			    "use strict";
-			
-			    var date = new Date();
-			    var d = date.getDate();
-			    var m = date.getMonth();
-			    var y = date.getFullYear();
-			
-			    var hdr = {
-			        left: 'title',
-			        center: 'month,agendaWeek,agendaDay',
-			        right: 'prev,today,next'
-			    };
-			
-			    var initDrag = function (e) {
-			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-			        // it doesn't need to have a start or end
-			
-			        var eventObject = {
-			            title: $.trim(e.children().text()), // use the element's text as the event title
-			            description: $.trim(e.children('span').attr('data-description')),
-			            icon: $.trim(e.children('span').attr('data-icon')),
-			            className: $.trim(e.children('span').attr('class')) // use the element's children as the event class
-			        };
-			        // store the Event Object in the DOM element so we can get to it later
-			        e.data('eventObject', eventObject);
-			
-			        // make the event draggable using jQuery UI
-			        e.draggable({
-			            zIndex: 999,
-			            revert: true, // will cause the event to go back to its
-			            revertDuration: 0 //  original position after the drag
-			        });
-			    };
-			
-			    var addEvent = function (title, priority, description, icon) {
-			        title = title.length === 0 ? "Untitled Event" : title;
-			        description = description.length === 0 ? "No Description" : description;
-			        icon = icon.length === 0 ? " " : icon;
-			        priority = priority.length === 0 ? "label label-default" : priority;
-			
-			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
-			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-			
-			        $("#event-container").effect("highlight", 800);
-			
-			        initDrag(html);
-			    };
-			
-			    /* initialize the external events
-				 -----------------------------------------------------------------*/
-			
-			    $('#external-events > li').each(function () {
-			        initDrag($(this));
-			    });
-			
-			    $('#add-event').click(function () {
-			        var title = $('#title').val(),
-			            priority = $('input:radio[name=priority]:checked').val(),
-			            description = $('#description').val(),
-			            icon = $('input:radio[name=iconselect]:checked').val();
-			
-			        addEvent(title, priority, description, icon);
-			    });
-			
-			    /* initialize the calendar
-				 -----------------------------------------------------------------*/
-						
-		
-		})
+			})
 
 		</script>
-
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-				_gaq.push(['_trackPageview']);
-			
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
-
 	</body>
 
 </html>_

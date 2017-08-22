@@ -11,15 +11,17 @@ use App\Bid;
 class BidController extends Controller
 {
     public $data;
-		public $user;
+    public $user;
+    public $tenant;
 		 
 		public function __construct()
 		{
 			 $this->middleware('auth');
 			 $this->middleware('role:super,tenant');
 			 $this->middleware(function ($request, $next) {
-			             $this->user= Auth::user();
-			             $this->data['projects'] = $this->user->projects->where('status', '<>', 'Award')->where('status', '<>', 'Archive');
+			             $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+			             $this->data['user'] = $this->user= Auth::user();
+			             $this->data['projects'] = $this->tenant->projects->where('status', '<>', 'Award')->where('status', '<>', 'Archive');
 			             return $next($request);
 			     });
 			 
@@ -31,7 +33,7 @@ class BidController extends Controller
     public function index($project_id)
     {
     
-    		$this->data['project'] = $this->user->projects->find($project_id);
+    		$this->data['project'] = $this->tenant->projects->find($project_id);
         return view('estimate.bid.overview', $this->data);
     }
 

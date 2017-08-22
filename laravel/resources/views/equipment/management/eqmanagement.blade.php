@@ -213,42 +213,41 @@
 										<!-- end widget content -->
 							</article>
 						</div>
-						<div class="bordered" id="rightMenu1" style="position: absolute; right: 0px; width: 20%; margin-top: -2px; padding-top: 2px; border-top: transparent;">
-							<div class="header" style="background-color: #404040; min-height: 34px; border-color: #383838;">
-								<h2 class="no-padding font-md" style="color: white; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0px 0px 0px 10px; display: inline;">Actions</h2>
-								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName" style="margin-top: 6px; margin-right: 3px;"></label>
+						<div class="bordered" id="rightMenu1">
+							<div class="header">
+								<h2 class="no-padding font-md">Actions</h2>
+								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
 							</div>
 							<div class="menu-body padding-5">
 								<div class="row col-lg-12 no-padding no-margin">
-									<div class="col-lg-6" style="padding: 0px 2px 5px 0px;">
+									<div class="col-lg-6 no-padding" style="padding: 0px 2px 5px 0px;">
 										<button class="btn btn-primary btn-block" onclick="expand();">Expand All</button>
 									</div>
 									<div class="col-lg-6 no-padding">
 										<button class="btn btn-primary btn-block" onclick="collapse();">Collapse All</button>
 									</div>
 								</div>
-								<legend style="margin: 10px 0px; padding: 5px 0px 0px 0px; " ></legend>
+								<legend></legend>
 								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#addEquipmentModal">
-									<span style="font-size: 12px; font-weight: bold;">Add Equipment</span>
+									<span class="buttonText">Add Equipment</span>
 								</button>
 								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#categoryModal">
-									<span style="font-size: 12px; font-weight: bold;">Add Category</span>
+									<span class="buttonText">Add Category</span>
 								</button>
 								<button class="btn btn-success btn-block" data-toggle="modal" data-target="#subCategoryModal">
-									<span style="font-size: 12px; font-weight: bold;">Add Sub-Category</span>
+									<span class="buttonText">Add Sub-Category</span>
 								</button>
 								<legend></legend>
-								<label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Search</label><br>
-								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Quick seach</label>
+								<label class="legendLabel" style="">Search</label><br>
+								<label class="formElementsLabel" style="">Quick seach</label>
 								<input type="text" name="search" class="form-control">
-								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Status</label>
 								<legend></legend>
 								<!-- <label style="font-size: 12px; text-decoration: underline; font-weight: bold;">Filters</label><br>
 								<select type="text" name="search" class="form-control">
 									<option>Active</option>
 									<option>Damaged</option>
 								</select> -->
-								<label style="font-size: 12px; font-weight: bold; margin-bottom: 0px;">Owner</label>
+								<label class="formElementsLabel">Owner</label>
 								<select type="text" name="search" class="form-control">
 									<option>McClone</option>
 									<option>Other</option>

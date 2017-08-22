@@ -3,41 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Category;
-use App\SubCategories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\RegionEquipment;
 
-class CategoryController extends Controller
+class ForecastingController extends Controller
 {
-    public $data;
-    public $user;
-    public $tenant;
-    
+
+		public $data;
+		public $user;
+		public $tenant;
+		
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
         $this->middleware(function ($request, $next) {
                     $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
-                    $this->data['user'] = $this->user= Auth::user();
+                    $this->data['user'] = $this->user = Auth::user();
+                    $this->data['projects'] = $this->tenant->projects;
                     return $next($request);
             });
-        $this->data['site_area']='Equipment';
-    }
+        $this->data['site_area']='Projects';
 
+     
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-      $this->data['categories'] = $this->tenant->categories()->with('subcategories', 'subcategories.equipment')->get();
-      
-      $this->data['userData'] = $this->tenant->id;
-        return view('equipment.management.eqmanagement', $this->data);
+        $this->data['project'] = Auth::user()->projects()->find($id)->select('id', 'name')->first();
+        return view('equipment.project.forecasting', $this->data);
     }
 
     /**
@@ -47,7 +45,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('equipment.project.newrequirement', $this->data);
     }
 
     /**
@@ -58,11 +56,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request, [ 'name' => 'required']);
-
-      Category::create($request->all());
-
-      return redirect('/equipment/eqmanagement');
+        //
     }
 
     /**
@@ -109,6 +103,4 @@ class CategoryController extends Controller
     {
         //
     }
-
-
 }
