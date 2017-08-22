@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Requirements;
+use App\RequirementEquipment;
 
 class ForecastingController extends Controller
 {
@@ -45,6 +47,7 @@ class ForecastingController extends Controller
      */
     public function create()
     {
+        $this->data['categories'] = $this->tenant->categories()->get();
         return view('equipment.project.newrequirement', $this->data);
     }
 
@@ -54,9 +57,20 @@ class ForecastingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
+        // dd($request);
+        $requirement = $this->tenant->projects()->find($id)->requirements()->save(new Requirements($request->all()));
+
+        foreach ($request->equipment as $key => $e) {
+            $requirementData = new RequirementEquipment();
+            $requirementData->equipment_id = $e['equipment_id'];
+            $requirementData->requirement_id = $requirement->id;
+            $requirementData->quantity = $e['quantity'];
+            $requirementData->save();
+        }
+
+        return redirect('project/'.$id.'/forecasting');
     }
 
     /**

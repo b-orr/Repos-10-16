@@ -174,6 +174,9 @@ Route::get('project/{id}/trucking/getEqWeight', 'AjaxCallsController@equipmentWe
 Route::resource('project/{id}/trucking', 'TruckingController', [ 'as' => 'Equipment - Truckings']);
 
 //forecasting
+Route::get('project/{id}/forecasting/getSubAjax', 'AjaxCallsController@reqSubCategories');
+Route::get('project/{id}/forecasting/getEqWeight', 'AjaxCallsController@equipmentWeightReq');
+
 Route::resource('project/{id}/forecasting', 'ForecastingController', [ 'as' => 'Equipment - Forecasting' ]);
 
 
