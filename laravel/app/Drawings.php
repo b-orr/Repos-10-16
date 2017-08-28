@@ -11,7 +11,7 @@ class Drawings extends Model
     
     
     protected $fillable = [
-        'drawing_name', 'description', 'revisited_num', 'drawing_date'
+        'drawing_name', 'description', 'revisited_num', 'drawing_date', 'image_org', 'image_thumb', 'drw_upload_id'
     ];
 
 
@@ -19,21 +19,10 @@ class Drawings extends Model
     {
       return $this->belongsTo('App\Folders');
     }
-
-
-
-    // method for uploading file
-    public function uploadFIle() {
-        	// code
+    
+    public function Uploads()
+    {
+      return $this->hasOne('App\Uploads', 'id', 'drw_upload_id');
     }
 
-    
-    public function findUploads() {
-            
-            $uploads = DB::table('drw_uploads')
-                ->get();
-
-            return $uploads;       
-        }   
-    
 }

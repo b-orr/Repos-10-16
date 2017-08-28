@@ -1,133 +1,22 @@
 @include('../includes/_header')
 
+
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
 		<!-- END NAVIGATION -->
 
 @include('../includes/_menu')
-	<style type="text/css">
-			.bs-glyphicons {
-				padding-left: 0;
-				padding-bottom: 1px;
-				margin-bottom: 20px;
-				list-style: none;
-				overflow: hidden;
-			}
-			.bs-glyphicons li {
-				float: left;
-				width: 25%;
-				height: 150px;
-				padding: 10px;
-				margin: 0 -1px -1px 0;
-				font-size: 17px;
-				line-height: 1.4;
-				text-align: center;
-				border: 1px solid #ddd;
-			}
-
-			.bs-glyphicons .glyphicon {
-				margin-top: 5px;
-				margin-bottom: 10px;
-				font-size: 75px;
-			}
-			.bs-glyphicons .glyphicon-class {
-				display: block;
-				text-align: center;
-			}
-			.bs-glyphicons li:hover {
-				background-color: rgba(86,61,124,.1);
-			}
-		
-			.bs-glyphicon {
-				padding-left: 0;
-				padding-bottom: 1px;
-				margin-bottom: 20px;
-				list-style: none;
-				overflow: hidden;
-				columns: 2;
-				-webkit-columns: 2;
-			    -moz-columns: 2;
-			}
-			.bs-glyphicon li {
-				float: left;
-				width: 100%;
-				height: 50px;
-				margin: 0 -1px -1px 0;
-				font-size: 17px;
-				line-height: 1.4;
-				text-align: center;
-				border: 1px solid #ddd;
-				display: block;
-			}
-			.bs-glyphicon li :hover{
-				background-color: lightblue;
-			}
-			.bs-glyphicon .glyphicon {
-				margin-top: 5px;
-				margin-bottom: 10px;
-				font-size: 35px;
-			}
-
-			.li-inside {
-				padding-left: 30%;
-				text-align: left;
-			}
-			.li-inside-text{
-				padding-bottom: 30%;
-			}
-			.folder-li{
-				display: flex; 
-				flex-direction: column;
-			}
-			.glyphicon-class{
-				font-weight: bold;
-			}
-			.folder-data{
-				display: flex;
-			 	justify-content: space-around;
-			 	align-items: center; 
-			 	padding: 0 50px;
-			}
-			.folder-info{
-				font-size: 15px;
-			}
-			.folder-last-change{
-				font-size: 11px;
-			}
-		@media (max-width: 1150px){
-			.bs-glyphicons li {
-				width: 33%;
-			}
-
-		}
-		@media (max-width: 710px){
-			.bs-glyphicons li {
-				width: 50%;
-			}
-
-		}
-		@media (max-width: 489px){
-			.bs-glyphicons li {
+		<style type="text/css">
+			.iv-container {
 				width: 100%;
 			}
-		}
-		@media (max-width: 1366px) {
-			.folder-data{
-			 	padding: 0 25px;
+			.iv-large-image {
+				width: 100%;
 			}
-			.folder-info{
-				font-size: 12px;
-			}
-			.folder-last-change{
-				font-size: 10px;
-			}
-		}
-
-	</style>
-
-
+		</style>
 		<!-- MAIN PANEL -->
+			<link href="{{ url('assets/css/imageviewer.css')}}"  rel="stylesheet" type="text/css" />
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
@@ -141,7 +30,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Projects</li><li>1001 Broadway</li><li>Drawings</li>
+					<li>Home</li><li>Projects</li><li>{{ $project->name }}</li><li>Drawings</li><li>Contract Documents</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -161,98 +50,133 @@
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
-				
+				<div class="row col-lg-12">
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
-				
-				
-					<div class="row">
-							<div class="col-sm-12">
-								<article class="col-lg-12">
-									<div class="jarviswidget jarviswidget-color-darken" id="wid-id-22" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
-										<header>
-										<span class="widget-icon"> <i class="fa fa-comments"></i> </span>
-											<h2>All Folders</h2>
-										</header>
-										<div class="row">
-											<div class="widget-body">
-												
-												<ul class="bs-glyphicons" id="folderList">
-													@foreach($folders as $key => $value)
-													<a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/drawings') }}" class="txt-color-darken" style="z-index:1000">
-														<li class="folder-li" style="">
-														<div class="row" style="display:inline">
-															<h4 class="glyphicon-class " style="display:inline">{{ $value->folder_name }}</h4><form action="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id) }}" method="POST"  style="display: inline;"><a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o pull-right" style="position:relative;margin-right:10px;bottom:1px;"></i></a>{{ method_field('DELETE') }} {{ csrf_field() }}</form><a href="{{ url('project/' . $value->pj_project_id . '/folders/' . $value->id . '/edit') }}"><i class="fa fa-edit pull-right"></i></a>
-														</div>
-															<div class="folder-data" style="">
-																<span class="glyphicon glyphicon-folder-close"></span>
-																<div>
-																	<p class="folder-info" style="">Waiting:<span class="drawings-number">{{ $value->uploads->count() }}</span></p>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number">{{ $value->drawings->count() }}</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>{{ $value->last_user->name }}
-																<br>
-																<small><i>{{ date('F d, Y', strtotime($value->updated_at))}}</i></small></p>
-																</div>													
-															</div>
-														</li>
-													</a>
-													@endforeach
-													
-													
+							
+					<!-- row -->
+						<article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
 
-												</ul>
-					
-											</div>
-											
-											<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default btn-lg btn-block">
-												Create new folder
-											</button>
-											<br>
+								<!-- Widget ID (each widget will need unique ID)-->
+								<div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+									<!-- widget options:
+										usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+										
+										data-widget-colorbutton="false"	
+										data-widget-editbutton="false"
+										data-widget-togglebutton="false"
+										data-widget-deletebutton="false"
+										data-widget-fullscreenbutton="false"
+										data-widget-custombutton="false"
+										data-widget-collapsed="true" 
+										data-widget-sortable="false"
+										
+									-->
+									<header>
+										<span class="widget-icon"> <i class="fa fa-arrows-v"></i> </span>
+										<h2 class="font-md">Architectural</h2>
+									</header>
+
+									<!-- widget div-->
+									<div>
+										
+										<!-- widget edit box -->
+										<div class="jarviswidget-editbox">
+											<!-- This area used as dropdown edit box -->
+
 										</div>
+										<!-- end widget edit box -->
+										
+										<!-- widget content -->
+										<div class="widget-body no-padding">
+											<form class="smart-form">
+											<header>
+												<div class="row">
+													<section class="col col-2">
+															<label class="label">Drawing Name</label>
+															<label class="strong">
+																{{ $drawings->drawing_name }} - {{ $drawings->description }}
+															</label>
+													</section>
+													<section class="col col-2">
+															<label class="label">Release Description</label>
+															<label class="strong">
+																{{ $drawings->uploads->release_desc }}
+															</label>
+													</section>
+													<section class="col col-2">
+															<label class="label">Revision Number</label>
+															<label class="strong">
+															{{ $drawings->revisited_num }}
+															</label>
+													</section>
+													<section class="col col-2">
+															<label class="label">Date</label>
+															<label class="strong">
+															{{ date('m/d/Y', strtotime($drawings->updated_at ))}}
+															</label>
+													</section>
+													<section class="col col-2">
+															<label class="label">Discipline</label>
+															<label class="strong">
+															Architectural
+															</label>
+													</section>
+													<div class="col-xs-12 col-sm-6 col-md-7 col col-2" style="padding-left: 2px;">
+														<a class="btn btn-success btn-lg" href="javascript:void(0);">Edit</a>
+													</div>
+												</div>
+											</header>
+											<div id="image-gallery" class="cf" style="width: 100%; height: auto; ">
+												<img id="panImage" src="{{url('drawings/' . $drawings->image_org.'.jpg')}}" style="width: 100%; height: auto; "></img>
+											</div>
+
+										</div>
+										<!-- end widget content -->
+										
 									</div>
-								</article>
-								
-							</div>
-						</div>
-				
-				
+									<!-- end widget div -->
+									
+								</div>
+								<!-- end widget -->
+							<br><br><br>
+							<br><br><br>
+							<br><br><br>
+
+							</article>
+
+						
 				</section>
+				</div>
 				<!-- end widget grid -->
-					<!-- end widget grid -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-sm">
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h4 class="modal-title" id="myModalLabel">Create New Folder</h4>
+								<h4 class="modal-title" id="myModalLabel">Drawing Upload Info</h4>
 							</div>
-
-									@if (count($errors) > 0)
-									    <div class="alert alert-danger">
-									        <ul>
-									            @foreach ($errors->all() as $error)
-									                <li>{{ $error }}</li>
-									            @endforeach
-									        </ul>
-									    </div>
-									@endif
 							
 									<div class="modal-body">
-										<form   role="form" method="POST" action="{{ url('project/' . $project_id->id . '/folders' ) }}">
-										{{ csrf_field() }}
-										<input type="hidden" name="pj_project_id" value="{{ $project_id->id }}">
-										<input type="hidden" name="last_change_user_id" value="{{ $project_id->user_id }}">
+										<form class="smart-form">
 										<div class="row"  style="display: flex; justify-content: center;">
-											<div class="col-md-10">
+											<div class="col-md-6">
 												<div class="form-group">
-													<label class="input">Name</label>
-													<input type="text" class="form-control" name="folder_name" required style="padding-left: 5px;" />
-												</div><br>
+													<label class="input">Release Description</label>
+													<input type="text" class="form-control" required style="padding-left: 5px;" />
+												</div>
 												<div class="form-group">
-													<label class="input">Description</label>
-													<input type="text" class="form-control" name="folder_description" required style="padding-left: 5px;" />
+													<label class="input">Release Date</label>
+													<input id="dateselect_filter" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
+												</div>
+												<section>
+												<div class="form-group">
+													<label class="input">File input</label>
+													<div class="input input-file" style="margin-right: -7px;">
+														<span class="button"><input type="file" id="file" name="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text">
+													</div>
 												</div>
 												</section>
 											</div>
@@ -262,8 +186,8 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">
 											Cancel
 										</button>
-										<button type="submit" id="createFolder-1" class="btn btn-primary" >
-											Create
+										<button type="button" class="btn btn-primary">
+											Upload
 										</button>
 									</div>
 								</form>
@@ -271,15 +195,129 @@
 						</div><!-- /.modal-dialog -->
 					</div><!-- /.modal -->
 
+					<!-- end widget grid -->
+				<div class="modal fade " id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" >
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Drawing Upload Info</h4>
+							</div>
+							
+									<div class="modal-body">
+										<form class="smart-form">
+										<div class="row padding-10 bordered">
+											<div class="col-lg-4">
+												<img src="{{url('drawings/' . $drawings->image_thumb.'.png')}}">
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group smart-form ">
+														<label class="label">File input</label>
+														<div class="input input-file">
+															<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+														</div>
+														<label class="label">Get Title</label>
+														<div class="input input-file">
+															<span class="button">Get Title</span><input type="text">
+														</div>
+														<label class="input">Date</label>
+														<div class="input input-file">
+															<input id="dateselect_filter" type="text" class="datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
+														</div>
+														<label class="input">Discipline</label>
+														<div class="input input-file">
+															<input type="text" required style="padding-left: 5px;" />
+														</div>
+														<br>
+													</div>
+											</div>
+
+										</div>
+										<div class="row padding-10 bordered">
+											<div class="col-lg-4">
+												<img src="{{url('drawings/' . $drawings->image_thumb.'.png')}}">
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group smart-form ">
+														<label class="label">File input</label>
+														<div class="input input-file">
+															<span class="button" data-toggle="modal" href="#myModal2">Get Number</span><input type="text">
+														</div>
+														<label class="label">Get Title</label>
+														<div class="input input-file">
+															<span class="button">Get Title</span><input type="text">
+														</div>
+														<label class="input">Date</label>
+														<div class="input input-file">
+															<input id="dateselect_filter" type="text" class="datepicker" data-dateformat="mm/dd/yy" style="padding-left: 5px;">
+														</div>
+														<label class="input">Discipline</label>
+														<div class="input input-file">
+															<input type="text" required style="padding-left: 5px;" />
+														</div>
+														<br>
+													</div>
+											</div>
+											
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">
+											Cancel
+										</button>
+										<button type="button" class="btn btn-primary">
+											Upload
+										</button>
+									</div>
+								</form>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+
+					<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 30px; margin-left: -12%;">
+					<div class="modal-dialog " >
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Drawing Number</h4>
+							</div>
+							
+									<div class="modal-body txt-center" style="display: flex; justify-content: center; align-items: center;">
+										<form class="smart-form" style="align-items: center;">
+										<div class="row padding-10">
+											<div class="col-lg-4">
+												 
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<label class="checkbox">
+												<input type="checkbox" name="checkbox" checked="checked">
+												<i></i>Apply to all succeeding pages</label>
+											
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary" data-dismiss="modal"  >
+											Apply Area
+										</button>
+									</div>
+								</form>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
 			</div>
 			<!-- END MAIN CONTENT -->
 
 		</div>
 		<!-- END MAIN PANEL -->
 
-		@include('../includes/_footer')
+			@include('../includes/_footer')
 		
-
+		<script src="{{url('assets/js/plugin/imageviewer/imageviewer.js')}}"></script>
 		<script type="text/javascript">
 		
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
@@ -287,7 +325,27 @@
 		$(document).ready(function() {
 			
 			pageSetUp();
-			
+
+			$('#panImage').ImageViewer();
+
+			$('#dt_basic').dataTable({
+					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+						"t"+
+						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+					"autoWidth" : true,
+			        "oLanguage": {
+					    "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+					}
+				});
+			$('#dt_basic1').dataTable({
+					"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+						"t"+
+						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+					"autoWidth" : true,
+			        "oLanguage": {
+					    "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+					}
+				});
 			/*
 			 * Autostart Carousel
 			 */
@@ -350,29 +408,7 @@
 				s.parentNode.insertBefore(ga, s);
 			})();
 
-			
-			//create new folder append here
-			$('#createFolder').on('click', function() {
-				var htmlstr = '<a href="drawingList.php" class="txt-color-darken">';
-				htmlstr += 	'<li class="folder-li" style="">';
-				htmlstr += 		'<h4 class="glyphicon-class " style="">New Folder</h4>';
-				htmlstr += 		'<div class="folder-data" style="">';
-				htmlstr += 			'<span class="glyphicon glyphicon-folder-close"></span>';
-				htmlstr += 			'<div>';
-				htmlstr += 				'<p class="folder-info" style="">Drawings:<span class="drawings-number"> 0</span></p>';
-				htmlstr += 				'<p class="folder-last-change" style="">Last change:<br>N/A';
-				htmlstr += 			'<br>';
-				htmlstr += 			'<small><i></i></small></p>';
-				htmlstr += 			'</div>';												
-				htmlstr += 		'</div>';
-				htmlstr += 	'</li>';
-				htmlstr += '</a>';
-
-				$('#folderList').append(htmlstr);	
-			});
-			
-			//create new folder ends here
-
+		
 			/*
 			 * Smart Notifications
 			 */
@@ -592,7 +628,10 @@
 				});
 		
 				e.preventDefault();
-			});		
+			});			
+
+		
+		}
 
 		</script>
 

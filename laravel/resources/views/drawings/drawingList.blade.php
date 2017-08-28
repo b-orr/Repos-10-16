@@ -106,34 +106,16 @@
 													</tr>
 												</thead>
 												<tbody>
+												
+												@foreach($drawings AS $val)
 												<tr>
-														<td>A001 - Cover Sheet</td>
-														<td>CD Set</td>
-														<td>0</td>
-														<td>04/10/2017</td>
-														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
+														<td>{{ $val->drawing_name }} - {{ $val->description }}</td>
+														<td>{{ $val->uploads->release_desc }}</td>
+														<td>{{ $val->revisited_num }}</td>
+														<td>{{ date('m/d/Y', strtotime($val->updated_at ))}}</td>
+														<td><a href="{{ url('project/' . $project_id .'/folders/' .$folder_id . '/drawingView/' .$val->id)}}"><i class="fa fa-pencil"></i></a></td>
 													</tr>
-													<tr>
-														<td>A002 - Sheet Index</td>
-														<td>Addendum #1</td>
-														<td>1</td>
-														<td>05/10/2017</td>
-														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
-													</tr>
-													<tr>
-														<td>A010 - Project Details</td>
-														<td>CD Set</td>
-														<td>0</td>
-														<td>04/10/2017</td>
-														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
-													</tr>
-													<tr>
-														<td>A011 - Code Information</td>
-														<td>Addendum #2</td>
-														<td>2</td>
-														<td>05/15/2017</td>
-														<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
-													</tr>
+											 @endforeach
 												</tbody>
 											</table>
 											<br><br>
@@ -196,8 +178,24 @@
 											<div class="padding-10 bordered" id="uploadedFile-{{$value->id}}">
 												<p>
 													{{ $value->filename}}<span class="txt-color-green"></span>
-													<span class="txt-color-green"><i class="fa fa-check"></i></span>
-													<a class="btn btn-danger btn-xs pull-right" href="{{ url('project/' . $project_id .'/folders/' .$folder_id . '/processFile/' .$value->id)}}" style="margin: 0;">Process Now</a>
+												
+													
+													@if($value->processed==0)
+													
+													<span id="silent_call{{$value->id}}">
+														<span class="txt-color-green"><i class="fa fa-check"></i></span>
+													<a class="btn btn-danger btn-xs pull-right" href="#" onclick="silent_call('{{ url('project/' . $project_id .'/folders/' .$folder_id . '/processFile/' .$value->id)}}', {{$value->id}})" style="margin: 0;">Process Now</a></span>
+													@else
+													
+													@if($value->processed==2)
+													<br/><br/>Your request is processing, refresh your page shortly to view the results. Aprox. time 5-10 minutes
+													@endif
+													
+													@if($value->processed==1)
+													<br/><br/>File successfully processed
+													@endif
+													<a class="btn btn-success btn-xs pull-right" href="{{ url('project/' . $project_id .'/folders/' .$folder_id . '/thumbnailView/' .$value->id)}}" style="margin: 0;">Page View</a>
+													@endif
 												</p>
 											</div>
 											<br>
@@ -263,27 +261,7 @@
 												</tr>
 											</thead>
 											<tbody>
-											<tr>
-													<td>S001 - General Notes</td>
-													<td>CD Set</td>
-													<td>0</td>
-													<td>04/10/2017</td>
-													<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
-												</tr>
-												<tr>
-													<td>S002 - General Notes</td>
-													<td>Addendum #1</td>
-													<td>1</td>
-													<td>05/10/2017</td>
-													<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
-												</tr>
-												<tr>
-													<td>S003 - Foundation Details</td>
-													<td>CD Set</td>
-													<td>0</td>
-													<td>04/10/2017</td>
-													<td><a href="viewDrawing.php"><i class="fa fa-pencil"></i></a></td>
-												</tr>
+									 
 											</tbody>
 										</table>
 										<br><br>
@@ -320,7 +298,7 @@
 												</div>
 												<div class="form-group">
 													<label class="input" style="font-weight: bold;" id="releaseDate_label">Release Date</label>
-													<input id="releaseDate" type="text" class="form-control datepicker" data-dateformat="mm/dd/yy" value="" style="padding-left: 5px;">
+													<input id="releaseDate" type="text" class="form-control datepicker" data-dateformat="dd/mm/yy" value="" style="padding-left: 5px;">
 												</div>
 												<section>
 												<div class="form-group">
@@ -807,6 +785,13 @@
 		
 		
 		 <script>
+		 
+		 function silent_call(url, id) {
+		 
+		 	$.get(url);
+		 	$('#silent_call'+id).html('<br/><br/>Your request is processing, refresh your page shortly to view the results. Aprox. time 5-10 minutes');
+		 	
+		 }
 //        $(document).ready(function () {
 //
 //            // Assigned to variable for later use.

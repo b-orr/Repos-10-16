@@ -108,6 +108,10 @@ Route::resource('estimate/{project_id}/bids', 'BidController', [ 'as' => 'Estima
 Route::post('project/{project_id}/folders/{folder_id}/saveFile', 'UploadsController@saveToDB');
  
 Route::get('project/{id}/folders/{folder_id}/processFile/{file_id}', 'DrawingsController@processFile');
+Route::get('project/{id}/folders/{folder_id}/thumbnailView/{file_id}', 'DrawingsController@thumbnailView');
+Route::get('project/{id}/folders/{folder_id}/drawingView/{drawing_id}', 'DrawingsController@drawingView');
+
+
 Route::resource('project/{id}/folders/{folder_id}/drawings', 'DrawingsController', [ 'as' => 'Drawings - Drawings' ]);
 
 Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings - Folder' ]);
