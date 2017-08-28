@@ -76,12 +76,7 @@ class DrawingsController extends Controller
        
     }
 
-    
-    public function show($location)
-    {
-        $this->data['site_area'] = 'Drawings';
-        return view('project/1/folders/17/drawings/' . $location , $this->data);
-    }
+   
 
   	public function thumbnailView($id, $folder_id, $file_id) {
   		
@@ -138,7 +133,7 @@ class DrawingsController extends Controller
         	$im->writeImage('drawings/thumb_' . $img_name .$i.'.png');
         	
         	
-        	$tesserac="/usr/local/bin/tesseract '/Applications/MAMP/htdocs/pronovos/laravel/public/drawings/thumb_" . $img_name .$i.".png' stdout";
+        	$tesserac=env('TESSERACT') . " '".env('DRAWINGS_LOCATION')."public/drawings/thumb_" . $img_name .$i.".png' stdout";
  
  					$string =  trim(`{$tesserac}`);
  	 
