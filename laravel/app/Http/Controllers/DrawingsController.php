@@ -41,6 +41,8 @@ class DrawingsController extends Controller
 	            return $next($request);
 	    });
 	
+	
+	 
 	    
 	    $this->data['site_area']='Admin';
 	    
@@ -133,7 +135,7 @@ class DrawingsController extends Controller
         	$im->writeImage('drawings/thumb_' . $img_name .$i.'.png');
         	
         	
-        	$tesserac=env('TESSERACT') . " '".env('DRAWINGS_LOCATION')."public/drawings/thumb_" . $img_name .$i.".png' stdout";
+        	$tesserac=env('TESSERACT') . " '".public_path()."/drawings/thumb_" . $img_name .$i.".png' stdout";
  
  					$string =  trim(`{$tesserac}`);
  	 
