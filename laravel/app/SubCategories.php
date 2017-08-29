@@ -22,4 +22,8 @@ class SubCategories extends Model
       return $this->hasMany('App\RegionEquipment', 'sub_category_id');
   }
 
+  public function inventory()
+  {
+      return $this->hasMany('App\Inventory', 'sub_category_id');
+  }
 }

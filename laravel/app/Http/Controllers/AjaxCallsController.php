@@ -90,4 +90,17 @@ class AjaxCallsController extends Controller
 
         return response()->json($this->data);
     }
+
+    public function inventorySubCategories()
+    {
+        $catID = $_GET['category'];
+        $subID = $_GET['subcategory'];
+        if($subID != 0){
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories', 'subcategories.equipment')->get();
+        }
+        else {
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories')->get();
+        }
+        return response()->json($this->data);
+    }
 }
