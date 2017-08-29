@@ -194,7 +194,7 @@
 													@if($value->processed==1)
 													<br/><br/>File successfully processed
 													@endif
-													<a class="btn btn-success btn-xs pull-right" href="{{ url('project/' . $project_id .'/folders/' .$folder_id . '/thumbnailView/' .$value->id)}}" style="margin: 0;">Page View</a>
+													<a class="btn btn-success btn-xs pull-right" href="{{ url('project/' . $project_id .'/folders/' .$folder_id . '/thumbnailView/' .$value->id)}}" style="margin: 0;">Thumbnail View</a>
 													@endif
 												</p>
 											</div>
