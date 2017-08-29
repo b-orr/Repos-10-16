@@ -331,9 +331,9 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">
 											Cancel
 										</button>
-										<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload" >
+									<!--	<button type="button" class="btn btn-primary" data-dismiss="modal" id="pdfUpload" >
 											Upload
-										</button>
+										</button>-->
 									</div>
 							</div><!-- /.modal-content -->
 						</div><!-- /.modal-dialog -->
