@@ -5,60 +5,19 @@
 
 
 <style>
-
-	.table {
-		border: 1px solid black;
+	#upper_table {
+		position: relative;
+		left: 10px;
 	}
-	.table th {
-		background-color: gray;
-		width: 20%;
-		border-bottom: 2px solid black;
+	#upper_table th, #upper_table td {
+		width:250px;
+		font-size: 18px;
 	}
-	#white {
-		background-color: white;
-	}
-	.table td {
-		border-right: 1px solid black;
-		border-bottom: 1px solid black;
-		padding-left: 5px;
-		text-align: left;
-	}
-	#table_1 {
-		border: 1px solid black;
-	}
-	.name th{
-		background-color: gray;
-		width: 20%;
-		border-bottom: 2px solid black;
-	}
-	.header th{
-		background-color: white;
-		width: 20%;
-		border-bottom: 1px solid black;
-	}
-	#table_1 td {
-		border-right: 1px solid black;
-		border-bottom: 1px solid black;
-		padding-left: 5px;
-		text-align: left;
-	}
-	#table_2 {
-		border: 1px solid black;
-	}
-	#table_2 td {
-		text-align: right;
-		border-right: 1px solid black;
-		border-bottom: 1px solid black;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-left: 5px;
-		text-align: left;
-	}
-	.lower_table {
+	#lower_table {
 		width: 1000px;
 		border:1px solid black;
 	}
-	.lower_table th {
+	#lower_table th {
 		text-align: left;
 		padding-left: 15px;
 		border-bottom: 2px solid black;
@@ -66,17 +25,13 @@
 		width: 200px;
 		height: 30px;
 	}
-	.lower_table td {
+	#lower_table td {
 		padding-left: 5px;
 		text-align: left;
 		border-right: 1px solid black;
 		border-bottom: 1px solid black;
 		height: 25px;
 	}
-	.pic {
-		max-width: 100%;
-	}
-	
 </style>
 		<!-- MAIN PANEL -->
 	
@@ -133,376 +88,173 @@
 					<div class="row no-margin">
 						
 						<!-- NEW WIDGET START -->
-					<div id="content no-padding">
+						<div id="content no-padding">
 
-					<!-- new view start -->
-					<div class="col-lg-10 col-sm-10 col-md-10">
-						<!-- start row 1 -->
-						<div class="row">
-							<div class="col-lg-8 col-sm-8 col-md-8">
-								<table id="table_1">
-									<thead>
-										<tr class="name">
-											<th>Project Team</th>
-											<th></th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										<tr class="header">
-											<th>Company</th>
-											<th>Title</th>
-											<th>Name</th>
-											<th>Phone</th>
-											<th>Email</th>
-											
-										</tr>
-									</thead>
-									<tbody>
-										
-											<tr>
-												<td>Skanska</td>
-												<td>Project Manager</td>
-												<td>Jeff Thomas</td>
-												<td>206-548-8468</td>
-												<td>Jeff.thomas@email.com</td>
-												
-											</tr>
-											<tr>
-												<td>Skanska</td>
-												<td>Superintendant</td>
-												<td>Bob Devill</td>
-												<td>206-612-5425</td>
-												<td>bobd@email.com</td>
-												
-											</tr>
+				<h1>{{ $project->name }}</h1>
+				<!-- row -->
+				
+				<div class="row">
+				
+					
+					<div class="col-sm-5 col-md-5 col-lg-5">
 
-											<tr>
-												<td>McClone</td>
-												<td>Project Engineer</td>
-												<td>Kevin Bobson</td>
-												<td>206-548-1582</td>
-												<td>kbobson@email.com</td>
-												
-											</tr>
-										
-									</tbody>
-								</table>						
+					<div id="calendar_text">
+						<h2><b>Project Team</b></h2>
+						<table id="upper_table">
+							<thead>
+								<tr>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Project Manager</td>
+									<td>Jeff Thomas</td>
+								</tr>
+								<tr>
+									<td>Superintendent</td>
+									<td>Bob DeVille</td>
+								</tr>
+								<tr>
+									<td>PE</td>
+									<td>Kevin Bobson</td>
+								</tr>
+							</tbody>
+						</table>
+						
+
+					</div>
+					<br><br><br>
+
+				
+						<!-- new widget -->
+						<div class="jarviswidget jarviswidget-color-blueDark">
+				
+							<!-- widget options:
+							usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+							data-widget-colorbutton="false"
+							data-widget-editbutton="false"
+							data-widget-togglebutton="false"
+							data-widget-deletebutton="false"
+							data-widget-fullscreenbutton="false"
+							data-widget-custombutton="false"
+							data-widget-collapsed="true"
+							data-widget-sortable="false"
+				
+							-->
+							<header>
+								<span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
+								<h2> Daily Report Calendar </h2>
+								<div class="widget-toolbar">
+									<!-- add: non-hidden - to disable auto hide -->
+									<div class="btn-group">
+										<button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
+											Showing <i class="fa fa-caret-down"></i>
+										</button>
+										<ul class="dropdown-menu js-status-update pull-right">
+											<li>
+												<a href="javascript:void(0);" id="mt">Month</a>
+											</li>
+											<li>
+												<a href="javascript:void(0);" id="ag">Agenda</a>
+											</li>
+											<li>
+												<a href="javascript:void(0);" id="td">Today</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</header>
+				
+							<!-- widget div-->
+							<div>
+				
+								<div class="widget-body no-padding">
+									<!-- content goes here -->
+									<div class="widget-body-toolbar">
+				
+										<div id="calendar-buttons">
+				
+											<div class="btn-group">
+												<a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
+												<a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+											</div>
+										</div>
+									</div>
+									<div id="calendar"></div>
+				
+									<!-- end content -->
+								</div>
+				
 							</div>
-
-							<div class="col-lg-4 col-sm-4 col-md-4">
-								<table id="table_2">
-									<thead>
-										<tr class="name">
-											<th>Project Address</th>
-											
-										</tr>
-										
-									</thead>
-									<tbody>
-										
-											<tr>
-												<td style="position:relative;text-align:center;">
-													924 Howell Street<br>
-													Seattle, Washington 98101<br>
-													United States
-												</td>
-											</tr>
-											
-										
-									</tbody>
-								</table>						
-							</div>
-
+							<!-- end widget div -->
 						</div>
-
-						<!--end row 1 -->
-						<br><br>
-						<!--start row 2 -->
-						<div class="row">
-							<div class="col-lg-12 col-sm-12 col-md-12">
-								<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
-
-								<header style=" background-color: #404040;">
-										<span class="widget-icon"> <i class="fa fa-comments" style="color: white;"></i> </span>
-										<h2 style="color: white;">Notifications</h2>
-
-								</header>
-
-								<div>
-
-									
-									<div class="widget-body">
-										<!-- widget body start -->
-											<table class="lower_table">
-												<thead>
-													<tr>
-														<th colspan="5" style="background-color:red; border-bottom:1px solid black;">Unresolved Issues - you have 6 unresolved issues</th>
-														
-													</tr>
-													<tr>
-														<th>Days Overdue</th>
-														<th>Task</th>
-														<th>Form</th>
-														<th>Location</th>
-														<th>Resolution Date</th>
-														
-													</tr>
-												</thead>
-												<tbody>
-													<?php for($i = 1; $i<=3; $i++){; ?>
-														<tr>
-															<td>0 Days</td>
-															<td>Gang Box Unorganized</td>
-															<td>Safety Inspection</td>
-															<td>All Areas</td>
-															<td>04/08/2017</td>
-															
-														</tr>
-														<tr>
-															<td>0 Days</td>
-															<td>Lace Shores</td>
-															<td>Falsework Inspection</td>
-															<td>Level 2 - GL 1/B</td>
-															<td>04/08/2017</td>
-															
-														</tr>
-													<?php }; ?>
-												</tbody>
-											</table>
-
-											<br>
-												<table class="lower_table">
-												<thead>
-													
-													<tr>
-														<th colspan="5">Drawing Uploads</th>
-														
-														
-													</tr>
-												</thead>
-												<tbody>
-													
-														<tr>
-															<td colspan="5">No Current Pending Uploads</td>
-															
-															
-														</tr>
-														
-													
-												</tbody>
-											</table>
-											
-											<br>
-
-											<table class="lower_table">
-												<thead>
-													<tr>
-														<th colspan="5">Equipment</th>
-														
-													</tr>
-													<tr>
-														<th style="background-color:white; border-bottom:1px solid black;">Type</th>
-														<th colspan="2" style="background-color:white; border-bottom:1px solid black;">From</th>
-														<th colspan="2" style="background-color:white; border-bottom:1px solid black;">Date</th>
-														
-													</tr>
-												</thead>
-												<tbody>
-													
-												</tbody>
-											</table>
-
-											
-
-										<!-- widget body end -->
-									</div>
-								</div>
+						<!-- end widget -->
+				
 					</div>
-							</div>		
+
+					
+
+					<div class="col-sm-5 col-md-5 col-lg-5">
+
+					<div id="camera_text">
+						<h2><b>Equipment</b></h2>
+						<table id="upper_table">
+							<thead>
+								<tr>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="2">No Deliveries Currently Scheduled</td>
+									
+								</tr>
+								<tr>
+									<td colspan="2"><i class="fa fa-warning" style="color:red"></i> YOU HAVE 1 UNREVIEWED EQUIPMENT FORECAST</td>
+								</tr>
+								
+							</tbody>
+						</table>
+						
+						<br><br><br>
+						<h2><b>Jobsite Camera</b></h2>
+					</div>
+
+						<div class="video_stream">
+							<img src="../job/includes/site_camera.jpg" alt="">
 						</div>
-						<!--end row 2 -->
-
-						<!-- start row 3 -->
-					<div class="row">
-							<div class="col-lg-4 col-sm-4 col-md-4">
-								<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
-
-								<header style=" background-color: #404040;">
-										
-										<h2 style="color: white;">Weather</h2>
-
-								</header>
-
-								<div>
-
-									
-									<div class="widget-body">
-										<img class="pic" src="{{ url('assets/img/overview_pic/weather.jpg') }}" alt="">
-									</div>
-								</div>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-sm-4 col-md-4">
-								<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
-
-								<header style=" background-color: #404040;">
-										
-										<h2 style="color: white;">Jobsite Camera</h2>
-
-								</header>
-
-								<div>
-
-									
-									<div class="widget-body">
-										<img class="pic" src="{{ url('assets/img/overview_pic/jobsitecamera.jpg') }}" alt="">
-									</div>
-								</div>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-sm-4 col-md-4">
-								<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
-
-								<header style=" background-color: #404040;">
-										
-										<h2 style="color: white;">Project Photo</h2>
-
-								</header>
-
-								<div>
-
-									
-									<div class="widget-body">
-										<img class="pic" src="{{ url('assets/img/overview_pic/projectphoto.jpg') }}" alt="">
-									</div>
-								</div>
-								</div>
-							</div>
 					</div>
-
-					<!-- end row 3-->
-
-					<!-- start row 4 -->
-					<div class="row">
-							<div class="col-lg-4 col-sm-4 col-md-4">
-								<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
-
-								<header style=" background-color: #404040;">
-										
-										<h2 style="color: white;">Preformance Metrix 1 (content TBD)</h2>
-
-								</header>
-
-								<div>
-
-									
-									<div class="widget-body">
-										<img class="pic" src="{{ url('assets/img/overview_pic/pm1.jpg') }}" alt="">
-									</div>
-								</div>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-sm-4 col-md-4">
-								<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
-
-								<header style=" background-color: #404040;">
-										
-										<h2 style="color: white;">Preformance Metrix 2 (content TBD)</h2>
-
-								</header>
-
-								<div>
-
-									
-									<div class="widget-body">
-										<img class="pic" src="{{ url('assets/img/overview_pic/pm2.jpg') }}" alt="">
-									</div>
-								</div>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-sm-4 col-md-4">
-								<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
-
-								<header style=" background-color: #404040;">
-										
-										<h2 style="color: white;">Preformance Metrix 3 (content TBD)</h2>
-
-								</header>
-
-								<div>
-
-									
-									<div class="widget-body">
-										<img class="pic" src="{{ url('assets/img/overview_pic/pm3.jpg') }}" alt="">
-									</div>
-								</div>
-								</div>
-							</div>
-					</div>
-
-					<!-- end row 4-->
-
-					</div>
-
-					<div class="col-lg-2 col-sm-2 col-md-2">
-						<div>
+					<div class="col-sm-5 col-md-5 col-lg-2">
 						<!-- new widget -->
 						<div class="jarviswidget jarviswidget-color-blueDark">
 							<header>
 								<h2> Actions </h2>
 							</header>
-									
-							<!-- widget div -->
+				
+							<!-- widget div-->
 							<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
-								<!-- <div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-									<a href="../job/printinfo.php"><button class="btn btn-warning form-control" data-target="#categoryModal">Print Info Sheet</button></a>
-								</div>
-								<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
-									<button class="btn btn-warning form-control" onclick="window.location='{{ url('/project/' . $project->id . '/edit') }}'">Edit Project Info</button>
-								</div> -->
-
-								<h5>Search Project Team</h5>
-								<div class="form-group">
-									
-								<label for="name">Name</label>
-								<input class="form-control" type="text" name="name">
-								<br>
-								<label for="company">Company</label>
-								<select class="form-control" name="company" id="">
-									<option value="1">Company 1</option>
-									<option value="2">Company 2</option>
-									<option value="3">Company 3</option>
-								</select>
-								<br>
-								<label for="title">Title</label>
-								<select class="form-control" name="title" id="">
-									<option value="1">Title 1</option>
-									<option value="2">Title 2</option>
-									<option value="3">Title 3</option>
-								</select>
-								
-								</div>
-							</div>
-									
+														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
+															<a href="../job/printinfo.php"><button class="btn btn-warning form-control" data-target="#categoryModal">Print Info Sheet</button></a>
+														</div>
+														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
+															<button class="btn btn-warning form-control" onclick="window.location='{{ url('/project/' . $project->id . '/edit') }}'">Edit Project Info</button>
+														</div>
+														
+													</div>
+				
 							<!-- end widget div -->
 						</div>
 						<!-- end widget -->
-									
+				
 						
-					</div> 
 					</div>
-
-					
-
-					<!-- new view end -->
+				</div>
 				
-				
-				
+				<!-- end row -->
 
 		
 						<!-- WIDGET END -->
@@ -511,9 +263,61 @@
 				
 					<!-- end row -->
 				
-
-					
-					
+					<!-- row -->
+				
+					<!--text-->
+					<div class="row">
+				
+						<!-- a blank row to get started -->
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<h2><b>DRAWINGS</b></h2>
+							<h4><b><i class="fa fa-warning" style="color:red"></i>&nbsp;&nbsp;ADDENDUM 3 HAS 38 PAGES PENDING PROCESSING</b></h4>
+						</div>
+							
+					</div>
+				
+					<!-- end row -->
+					<br><br>
+					<div class="row">
+				
+						<!-- a blank row to get started -->
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<h5><b>Unresolved issues</b></h5>
+							<table id="lower_table">
+								<thead>
+									<tr>
+										<th>Task</th>
+										<th>Form</th>
+										<th>Issuer</th>
+										<th>Location</th>
+										<th>Resolution Date</th>
+										<th>Days Overdue</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php for($i = 1; $i<=3; $i++){; ?>
+										<tr>
+											<td>Gang Box Unorganized</td>
+											<td>Safety Inspection</td>
+											<td>Dann Cabot</td>
+											<td>All Areas</td>
+											<td>04/08/2017</td>
+											<td>0 Days</td>
+										</tr>
+										<tr>
+											<td>Lace Shores</td>
+											<td>Falsework Inspection</td>
+											<td>Rick Clark</td>
+											<td>Level 2 - GL 1/B</td>
+											<td>04/08/2017</td>
+											<td>0 Days</td>
+										</tr>
+									<?php }; ?>
+								</tbody>
+							</table>
+						</div>
+							
+					</div>
 					<br><br><br> 
 				</div>	</div>
 					<!-- end row -->

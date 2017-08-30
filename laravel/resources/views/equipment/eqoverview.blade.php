@@ -61,7 +61,7 @@
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
 
 							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false"" id="wid-id-0">
+							<div class="jarviswidget" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" id="wid-id-0">
 
 								<header style=" background-color: #404040;">
 										<span class="widget-icon"> <i class="fa fa-comments" style="color: white;"></i> </span>

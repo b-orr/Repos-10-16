@@ -244,6 +244,7 @@ class DrawingsController extends Controller
 
     return redirect('project/' . $id . '/folders/' . $folder_id . '/drawings');
 
+    
     }
 
 
