@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\TruckingEquipment;
 use App\Truckings;
+use App\Inventory;
 
 class TruckingController extends Controller
 {
@@ -88,7 +89,6 @@ class TruckingController extends Controller
     {
         // dd($id, $truckingId);
         $this->data['truck'] = $this->tenant->projects->find($id)->truckings()->with('equipment', 'equipment.regionEquipment')->find($truckingId);
-
         return view('equipment.project.approvetruck', $this->data);
     }
 
@@ -110,9 +110,41 @@ class TruckingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $truckingId)
     {
-        //
+        if($request->approved == 0){
+            $this->tenant->projects->find($id)->truckings()->find($truckingId)->update($request->all());
+        }
+        elseif ($request->approved == 1) {
+
+            $truck = Truckings::find($truckingId);
+            $truck->approved = 1;
+            $truck->save();
+
+            $truck = $this->tenant->projects->find($id)->truckings()->with('equipment', 'equipment.regionEquipment')->find($truckingId);
+            foreach ($truck->equipment as $key => $e) {
+                $invData = new Inventory();
+                $invData->equipment_id = $e['equipment_id'];
+                $invData->quantity = $e['quantity'];
+                $invData->project_id = $id;
+                $invData->reason = "Need";
+                $invData->owner = 1;
+                $invData->manager = 1;
+                $invData->purchased_from = 0;
+                $invData->purchase_price = 0;
+                $invData->company_id_number = 0;
+                $invData->sub_category_id = $e->regionEquipment->sub_category_id;
+                $invData->save();
+            }
+
+        }
+        elseif ($request->approved == 2) {
+            $truck = Truckings::find($truckingId);
+            $truck->approved = 2;
+            $truck->save();
+        }
+
+        return redirect('project/'.$id.'/equipment');
     }
 
     /**

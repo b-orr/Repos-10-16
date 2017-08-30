@@ -51,6 +51,19 @@ class AjaxCallsController extends Controller
         return response()->json($this->data);
     }
 
+    public function reqSubCategories()
+    {
+        $catID = $_GET['category'];
+        $subID = $_GET['subcategory'];
+        if($subID != 0){
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories', 'subcategories.equipment')->get();
+        }
+        else {
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories')->get();
+        }
+        return response()->json($this->data);
+    }
+
     public function equipmentWeight()
     {
         $eqID = $_GET['equipment'];
@@ -66,6 +79,28 @@ class AjaxCallsController extends Controller
 
         $this->data['weight'] = RegionEquipment::select('weight')->find($eqID);
 
+        return response()->json($this->data);
+    }
+
+    public function equipmentWeightReq()
+    {
+        $eqID = $_GET['equipment'];
+
+        $this->data['weight'] = RegionEquipment::select('weight')->find($eqID);
+
+        return response()->json($this->data);
+    }
+
+    public function inventorySubCategories()
+    {
+        $catID = $_GET['category'];
+        $subID = $_GET['subcategory'];
+        if($subID != 0){
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories', 'subcategories.equipment')->get();
+        }
+        else {
+            $this->data['categories'] = $this->tenant->categories()->where('id', $catID)->with('subcategories')->get();
+        }
         return response()->json($this->data);
     }
 }

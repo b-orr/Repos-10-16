@@ -109,7 +109,7 @@
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Truck Status</b></label>
 														<div class="col-md-9">
-															<select class="form-control" name="size_truck">
+															<select class="form-control" name="status">
 																<option value="Draft">Draft</option>
 																<option value="To Send">To Send</option>
 															</select>
@@ -299,7 +299,7 @@
 													<div class="form-group">
 														<label class="col-lg-3 control-label"><b>Comments</b></label>
 														<div class="col-lg-9">
-															<textarea class="form-control" name="comments"> </textarea>
+															<textarea class="form-control" name="comments"></textarea>
 														</div>
 													</div>
 													

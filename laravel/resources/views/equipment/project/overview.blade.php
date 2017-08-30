@@ -105,11 +105,20 @@
 													<td><a href="newtransfer.php">From Yard 330 - 05/18/2017 12pm</a></td>
 													<td>
 														@foreach($truckings as $key => $t)
+															@if($t->status == "Draft")
 															<a href="{{url('project/'.Request::segment(2).'/trucking/'.$t->id)}}">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
 															<br>
+															@endif
 														@endforeach
 													</td>
-													<td><a href="approvetruck.php">From Yard 330 - 06/16/2017</a></td>
+													<td>
+														@foreach($truckings as $key => $t)
+															@if($t->status == "To Send")
+															<a href="{{url('project/'.Request::segment(2).'/trucking/'.$t->id)}}">@if($t->shipped_to == 0) WA Yard @else NY Yard @endif - {{$t->pickup_date}}</a>
+															<br>
+															@endif
+														@endforeach
+													</td>
 												</tr>
 												<tr>
 													<th>Scheduled Out-Bound Trucks</th>
@@ -176,15 +185,15 @@
 
 												<?php 
 														$count = 1;
-														$num = 1;
-														while ($count <= 3 ) { ?>
+														$num = 1;?>
+														@foreach($inventory as $key => $c)
 															<tr class="main-parent" data_id="<?php echo $num; ?>">
 																<td style="width:10px !important;">
 																	<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
 																		<i class="fa fa-plus level_1_<?php echo$num; ?>"></i>
 																		<i class="fa fa-minus hide level_1_<?php echo$num; ?>"></i>
 																	</button> 
-																	<span class="description-name">HV</span>
+																	<span class="description-name">{{$c->name}}</span>
 																</td>
 
 																<td style="width:50px !important;"></td>
@@ -196,15 +205,15 @@
 															</tr>
 												<?php 
 															$count1 = 1;
-															$num1 = 1;
-															while ($count1 <= 3 ) { ?>
+															$num1 = 1;?>
+															@foreach($c->subcategories as $key1 => $s)
 																<tr class="hide first-child-<?php echo $num; ?> fchild">
 																	<td style="width:10px !important; padding-left: 20px;">
 																		<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
 																			<i class="fa fa-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
 																			<i class="fa fa-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
 																		</button> 
-																	<span class="description-name">Main Beams</span>
+																	<span class="description-name">{{$s->name}}</span>
 																	</td>
 																	<td style="width:50px !important;" ></td>
 																	<td style="width:60px !important;" ></td>
@@ -215,11 +224,11 @@
 																</tr>
 												<?php 
 															$count2 = 1;
-															$num2 = 1;
-															while ($count2 <= 6 ) { ?>
+															$num2 = 1;?>
+															@foreach($s->inventory as $key2 => $i)
 																<tr class="hide second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
 																	<td style="width:10px !important; padding-left: 40px;">
-																		Main Beams 3' 9''
+																		{{$i->equipment->name}}
 																	</td>
 																	<td style="width:60px !important;" ></td>
 																	<td style="width:15px !important;"></td>
@@ -229,16 +238,18 @@
 																	<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
 																</tr>
 
-															<?php $count2++; } ?>
+															<?php $count2++;?>
+															@endforeach
 														
 
 															<?php $count1++;
-																$num1++; } ?>
+																$num1++;?>
+																@endforeach
 
 														<?php
 														$num++;
-														$count = $count + 1;
-														 } ?>	
+														$count = $count + 1;?>	
+														 @endforeach
 												</tbody>
 											
 											</table>

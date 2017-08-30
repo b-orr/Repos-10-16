@@ -91,7 +91,7 @@
 									<!-- added buttons -->
 
 									<header>
-										<h2>New Trucking Request</h2>
+										<h2>Review Trucking Request</h2>
 									</header><!-- widget div-->
 
 
@@ -100,8 +100,9 @@
 										<!-- widget content -->
 										<div class="widget-body no-padding">
 											<!-- main page content here -->
-										<form class="form-horizontal">
+										<form class="form-horizontal" method="post" action="{{url('project/'.Request::segment(2).'/trucking/'.$truck->id)}}" id="truckPost">
 											{{ csrf_field() }}
+											{{ method_field('PUT') }}
 											<br>
 											<div class="row">
 												<div class="col-lg-1"> </div>
@@ -109,14 +110,15 @@
 													<div class="form-group">
 														<label class="col-md-3 control-label"><b>Truck Status</b></label>
 														<div class="col-md-9">
-															<select class="form-control" name="size_truck">
-																<option value="Draft">Draft</option>
-																<option value="To Send">To Send</option>
+															<select class="form-control" name="status" id="status">
+																<option value="Draft" @if($truck->status == "Draft") selected="true" @endif>Draft</option>
+																<option value="To Send" @if($truck->status == "To Send") selected="true" @endif>To Send</option>
 															</select>
 														</div>
 													</div>
 												</div>
 												<div class="col-lg-5">
+												<input type="hidden" id="approved" name="approved" @if($truck->status == "Draft") value="0" @endif>
 												</div>
 												<div class="col-lg-1"> </div>
 											</div>
@@ -133,7 +135,7 @@
 														</div>
 														<label class="col-md-2 control-label"><b>Requested Time</b></label>
 														<div class="col-md-3">
-															<input type="text" class="form-control" name="requested_time">
+															<input type="text" class="form-control" name="requested_time" value="{{$truck->requested_time}}">
 														</div>
 													</div>
 												</div>
@@ -299,7 +301,7 @@
 													<div class="form-group">
 														<label class="col-lg-3 control-label"><b>Comments</b></label>
 														<div class="col-lg-9">
-															<textarea class="form-control" name="comments"> </textarea>
+															<textarea class="form-control" name="comments"> {{$truck->comments}} </textarea>
 														</div>
 													</div>
 													
@@ -361,9 +363,11 @@
 								 <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
 							</div>
 							<div class="menu-body padding-5">
-								<label class="btn btn-success btn-block" for="submitForm">
+								<label class="btn btn-success btn-block save" for="submitForm">
 									<span class="buttonText">Save</span>
 								</label>
+								<a class="btn btn-success btn-block approve">Approve</a>
+								<a class="btn btn-success btn-block reject">Reject</a>
 								<a class="btn btn-success btn-block" href="{{url('project/'.Request::segment(2).'/equipment')}}">
 									<span class="buttonText">Cancel</span>
 								</a>
@@ -392,6 +396,25 @@
 			$(document).ready(function() {
 				pageSetUp();
 			    "use strict";
+
+			    var check = $('#status').val();
+			    if(check == "To Send"){
+			    	$('.save').addClass('hide');
+			    }
+			    else {
+			    	$('.approve').addClass('hide');
+			    	$('.reject').addClass('hide');
+			    }
+
+			    $('.approve').on('click', function() {
+			    	$('#approved').val(1);
+			    	$('#truckPost').submit();
+			    })
+
+			    $('.reject').on('click', function() {
+			    	$('#approved').val(2);
+			    	$('#truckPost').submit();
+			    })
 			})
 
 		</script>

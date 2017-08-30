@@ -44,4 +44,9 @@ class RegionEquipment extends Model
   {
       return $this->hasMany('App\TruckingEquipment', 'equipment_id');
   }
+
+  public function inventory()
+  {
+      return $this->hasMany('App\Inventory', 'equipment_id');
+  }
 }

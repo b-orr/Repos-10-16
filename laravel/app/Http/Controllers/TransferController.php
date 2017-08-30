@@ -37,8 +37,16 @@ class TransferController extends Controller
     public function index($id)
     {
         $this->data['transfers'] = $this->tenant->projects->find($id)->transfers()->get();
-        $this->data['truckings'] = $this->tenant->projects->find($id)->truckings()->get();
+        $this->data['truckings'] = $this->tenant->projects->find($id)->truckings()->where('approved', '=', 0)->get();
         // dd($this->data['truckings']);
+
+        $this->data['inventory'] = $this->tenant->categories()
+                                    ->with('subcategories', 'subcategories.inventory', 'subcategories.inventory.equipment')
+                                    ->whereHas('subcategories.inventory', function($q) use ($id)
+                                    {
+                                        $q->where('project_id', '=', $id);
+                                    })
+                                    ->get();
         return view('equipment.project.overview', $this->data);
     }
 

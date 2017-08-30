@@ -187,9 +187,9 @@
 															<div class="folder-data" style="">
 																<span class="glyphicon glyphicon-folder-close"></span>
 																<div>
-																	<p class="folder-info" style="">Waiting:<span class="drawings-number">{{ $process_drawings[$value->id] }}</span></p>
-																	<p class="folder-info" style="">Drawings:<span class="drawings-number">0</span></p>
-																	<p class="folder-last-change" style="">Last change:<br>{{ $user_name[$value->id]->name }}
+																	<p class="folder-info" style="">Waiting:<span class="drawings-number">{{ $value->uploads->count() }}</span></p>
+																	<p class="folder-info" style="">Drawings:<span class="drawings-number">{{ $value->drawings->count() }}</span></p>
+																	<p class="folder-last-change" style="">Last change:<br>{{ $value->last_user->name }}
 																<br>
 																<small><i>{{ date('F d, Y', strtotime($value->updated_at))}}</i></small></p>
 																</div>													

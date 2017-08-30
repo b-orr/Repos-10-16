@@ -720,7 +720,7 @@
 
 			    	$.ajax({
 			    		type: "GET",
-            			url: "getSubAjax",
+            			url: "/inventory/getSubAjax",
             			data: {
             				category: id,
             				subcategory: sub

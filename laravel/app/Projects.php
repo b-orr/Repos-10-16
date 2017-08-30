@@ -83,5 +83,14 @@ class Projects extends Model
         return $this->hasMany('App\Truckings', 'project_id');
     }
     
+    public function requirements()
+    {
+        return $this->hasMany('App\Requirements', 'project_id');
+    }
+
+    public function inventory()
+    {
+        return $this->hasMany('App\Inventory', 'project_id');
+    }
      
 }

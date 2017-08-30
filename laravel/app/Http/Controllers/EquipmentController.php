@@ -45,10 +45,6 @@ class EquipmentController extends Controller
     {
       return view('equipment.allocation', $this->data);
     }
-    public function inventory()
-    {
-      return view('equipment.inventory', $this->data);
-    }
 
     //project equipment functions
 
