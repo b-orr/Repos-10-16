@@ -55,7 +55,7 @@
 		text-align: left;
 	}
 	.lower_table {
-		width: 1000px;
+		width: 100%;
 		border:1px solid black;
 	}
 	.lower_table th {
