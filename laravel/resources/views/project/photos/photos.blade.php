@@ -12,7 +12,6 @@
 			background-color: #e6e6e6;
 			font-weight: bold;
 		} */
-
 		.main-parent{
 			background-color: #c0c0c0;
 			font-weight: bolder;
@@ -24,7 +23,6 @@
 		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
 			padding: 2px 10px;
 		}
-
 		tr {
 			height:25px !important;
 		}
@@ -38,7 +36,6 @@
 		img {
 			padding-left: 10px;
 		}
-
 		button {
 			font-size: 10px;
 		}
@@ -70,9 +67,7 @@
 
 				<!-- You can also add more buttons to the
 				ribbon for further usability
-
 				Example below:
-
 				<span class="ribbon-button-alignment pull-right">
 				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
 				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
@@ -101,7 +96,6 @@
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
 								data-widget-colorbutton="false"
 								data-widget-editbutton="false"
 								data-widget-togglebutton="false"
@@ -110,7 +104,6 @@
 								data-widget-custombutton="false"
 								data-widget-collapsed="true"
 								data-widget-sortable="false"
-
 								-->
 
 
@@ -137,7 +130,7 @@
 												<div class="widget-body col-lg-10 table-1" id="table-1" style="margin-top: 3px;">
 													<div class="row bordered" style="margin-left: 0px; margin-right: 0px; background-color: #404040; color: white;">
 														<div class="col-lg-4" style="display: flex; align-items: center;">
-																<h5></h5>
+																<h7>Photos</h7>
 														</div>
 														<div class="col-lg-5"></div>
 														
@@ -155,18 +148,10 @@
 															@foreach($folders as $key => $f)
 																<tr class="main-parent" data_id="<?php echo $num; ?>">
 																	<td style="width:10px !important;">
-																		<!-- <button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
+																		 <button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width: 12px; padding-top: 0px;" data_id="<?php echo $num;?>" data_level="1">
 																			<i class="up_5 glyphicon glyphicon-plus level_1_<?php echo$num; ?>"></i>
 																			<i class="up_5 glyphicon glyphicon-minus hide level_1_<?php echo$num; ?>"></i>
-																		</button>  -->
-																		<button class="button btn btn-success btn-xs btn-circle" style="height: 12px; width:12px; padding-top:0px;" data_id="<?php echo $num;?>" data_level="1">
-																			<span style="font-size:12px !important;" class="level_1_<?php echo$num;?>">
-																				<i class="up_5 glyphicon glyphicon-plus"></i>
-																			</span>
-																			<span style="font-size:12px !important;" class="hide level_1_<?php echo$num;?>">
-																				<i class="up_5 glyphicon glyphicon-minus"></i>
-																			</span>
-																		</button>
+																		</button>  
 																		<span class="description-name">{{$f->name}}</span>
 																	</td>
 
@@ -198,25 +183,10 @@
 																		<td style="width:10px !important; padding-left: 40px;">
 																			<div class="row">
 																				<div class="col-lg-2">
-																					<img src="../photos/includes/img-1.jpg" alt="" height="90" width="90"><br>
+																					<img src="http://images.all-free-download.com/images/graphiclarge/water_waterfall_nature_214751.jpg" alt="" height="90" width="90"><br>
 																					<p>This is some text</p>																				
 																				</div>
-																				<div class="col-lg-2">
-																					<img src="../photos/includes/img-1.jpg" alt="" height="90" width="90"><br>
-																					<p>This is some text</p>																				
-																				</div>
-																				<div class="col-lg-2">
-																					<img src="../photos/includes/img-1.jpg" alt="" height="90" width="90"><br>
-																					<p>This is some text</p>																				
-																				</div>
-																				<div class="col-lg-2">
-																					<img src="../photos/includes/img-1.jpg" alt="" height="90" width="90"><br>
-																					<p>This is some text</p>																				
-																				</div>
-																				<div class="col-lg-2">
-																					<img src="../photos/includes/img-1.jpg" alt="" height="90" width="90"><br>
-																					<p>This is some text</p>																				
-																				</div>
+																				
 																				
 																			</div>
 																			
@@ -266,6 +236,13 @@
 																 New SubFolder
 															</button>
 														</div>
+														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
+															<button type="button" data-toggle="modal" data-target="#photoModal" class="btn btn-success btn-block"> 
+																<!-- photo MODAL -->
+																 Add Image
+															</button>
+														</div>
+														
 														<br>
 														<div class="row col-lg-12" style="margin: 0px 0px 5px 0px;">
 															<button type="button" data-toggle="modal" data-target="#subFolderModal" class="btn btn-success btn-block">
@@ -371,7 +348,7 @@
 			<div class="modal fade" id="newFolderModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog ">
 					<div class="modal-content">
-						<form method="post" action="{{ url('project/photos') }}">
+						<form method="post" action="{{ url('project/'.Request::segment(2).'/folder')  }}">
 							{{ csrf_field() }}
 							<div class="modal-header" style="background-color: #404040;">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -410,7 +387,7 @@
 							</button>
 							<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">New SubFolder</h4>
 						</div>
-					<form method="post" action="{{ url('project/photos/subfolders') }}">
+					<form method="post" action="{{ url('project/'.Request::segment(2).'/subfolder') }}">
 					{{csrf_field()}}
 						<div class="modal-body">
 							
@@ -426,10 +403,11 @@
 										<label class="select" style="font-weight: bold;">Select Folder</label>
 										<select class="form-control" name="folder_id">
 													<option value="0">Pick a category </option> 
+													
 												@foreach($folders as $key => $f)
 													<option value="{{$f->id}}">{{$f->name}}</option>
 												@endforeach
-											</select>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -446,6 +424,58 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div>
+			<!-- TEST MODAL -->
+			<div class="modal fade" id="photoModal" tabindex="1" files="true"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog ">
+					<div class="modal-content">
+						 	<div class="modal-header" style="background-color: #404040;">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel" style="color: white; font-weight: bold;">Add Image</h4>
+							</div>
+							<form method="post" action="{{ url('project/'.Request::segment(2).'/photos') }}" enctype="multipart/form-data">
+						<!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+							{{ csrf_field() }}
+							
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											
+											<input type="file" name="photo" class="form-control">
+											
+											<select class="form-control folder_name" name="folder_id">
+													<option value="0">Pick Folder </option> 
+												@foreach($folders as $key => $f)
+													<option value="{{$f->id}}">{{$f->name}}</option>
+												@endforeach
+											</select>
+											<select class="form-control sub_folder" name="subfolder">
+													<option value="0">Pick Sub Folder </option> 
+												<!--TEST  -->
+												@foreach($folders as $key => $f)
+													<option value="{{$f->id}}">{{$f->name}}</option>
+												@endforeach 
+												<!--TEST  -->
+											</select>
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Cancel
+								</button>
+								<button type="submit" class="btn btn-success">
+									Create
+								</button>
+							</div>
+						</form>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div>
+			<!-- END OF TEST MODAL -->
 		<!-- END MODALS -->
 		<!--================================================== -->
 
@@ -455,7 +485,7 @@
 		@include('includes._footer')
 
 		<script src="../assets/js/plugin/dropzone/dropzone.min.js"></script>
-
+				
 		<script type="text/javascript">
 			function expand() {
 				$('.s-children').removeClass('hide');
@@ -466,22 +496,20 @@
 				$('.f-children').addClass('hide');
 			}
 			$(document).ready(function() {
-
-
 			pageSetUp();
-			Dropzone.autoDiscover = false;
-			$("#mydropzone").dropzone({
-				//url: "/file/post",
-				addRemoveLinks : true,
-				maxFilesize: 0.5,
-				dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
-				dictResponseError: 'Error uploading file!'
-			});
+			// Dropzone.autoDiscover = false;
+			// $("#mydropzone").dropzone({
+			// 	//url: "/file/post",
+			// 	addRemoveLinks : true,
+			// 	maxFilesize: 0.5,
+			// 	dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
+			// 	dictResponseError: 'Error uploading file!'
+			// });
 
 			$('#saveandadd').on('click', function() {
 				$('#newCategory')[0].reset();
 			});
-
+			
 			$('.button').on('click', function() {
 				var id = $(this).attr('data_id');
 
@@ -490,37 +518,42 @@
 				if(level == 1){
 					$('.first-child-'+id).toggleClass('hide');
 					$('.level_1_'+id).toggleClass('hide');
+					if($('.level_1_'+id).first().hasClass('hide')){
+						$('.level_1_'+id).parent().removeClass('btn-success').addClass('btn-warning');
+					}
+					else{
+						$('.level_1_'+id).parent().removeClass('btn-warning').addClass('btn-success');
+					}
 					$('.second-child-'+id).addClass('hide');
 				}
 				else if(level == 2){
 					var id2 = $(this).attr('parent_data_id');
-					$('.level_2_'+id2+'_'+id).toggleClass('hide');
 					$('.second-child-'+id2+'-'+id).toggleClass('hide');
+					$('.level_2_'+id2+'_'+id).toggleClass('hide');
+					if($('.level_2_'+id2+'_'+id).first().hasClass('hide')){
+						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-success').addClass('btn-warning');
+					}
+					else{
+						$('.level_2_'+id2+'_'+id).parent().removeClass('btn-warning').addClass('btn-success');
+					}
 				}
 				else{
 				}
 				$('.inner_' + id).toggleClass('hide');
 			});
-
-
-
 			    "use strict";
-
 			    var date = new Date();
 			    var d = date.getDate();
 			    var m = date.getMonth();
 			    var y = date.getFullYear();
-
 			    var hdr = {
 			        left: 'title',
 			        center: 'month,agendaWeek,agendaDay',
 			        right: 'prev,today,next'
 			    };
-
 			    var initDrag = function (e) {
 			        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
 			        // it doesn't need to have a start or end
-
 			        var eventObject = {
 			            title: $.trim(e.children().text()), // use the element's text as the event title
 			            description: $.trim(e.children('span').attr('data-description')),
@@ -529,7 +562,6 @@
 			        };
 			        // store the Event Object in the DOM element so we can get to it later
 			        e.data('eventObject', eventObject);
-
 			        // make the event draggable using jQuery UI
 			        e.draggable({
 			            zIndex: 999,
@@ -537,43 +569,73 @@
 			            revertDuration: 0 //  original position after the drag
 			        });
 			    };
-
 			    var addEvent = function (title, priority, description, icon) {
 			        title = title.length === 0 ? "Untitled Event" : title;
 			        description = description.length === 0 ? "No Description" : description;
 			        icon = icon.length === 0 ? " " : icon;
 			        priority = priority.length === 0 ? "label label-default" : priority;
-
 			        var html = $('<li><span class="' + priority + '" data-description="' + description + '" data-icon="' +
 			            icon + '">' + title + '</span></li>').prependTo('ul#external-events').hide().fadeIn();
-
 			        $("#event-container").effect("highlight", 800);
-
 			        initDrag(html);
 			    };
-
 			    /* initialize the external events
 				 -----------------------------------------------------------------*/
-
 			    $('#external-events > li').each(function () {
 			        initDrag($(this));
 			    });
-
 			    $('#add-event').click(function () {
 			        var title = $('#title').val(),
 			            priority = $('input:radio[name=priority]:checked').val(),
 			            description = $('#description').val(),
 			            icon = $('input:radio[name=iconselect]:checked').val();
-
 			        addEvent(title, priority, description, icon);
 			    });
-
 			    /* initialize the calendar
 				 -----------------------------------------------------------------*/
+				// ****************** Ajax for folder subfolder ********************* //
+				 $(document).on('change','.folder_name',function(){
+					 console.log("odbrano folder name");
 
+					var cat_id=$(this).val();
+					 console.log(cat_id);
+					var div=$(this).parent();
 
+					var op=" ";
+
+					$.ajax({
+						type:'get',
+						url:'{!!URL::to(',sub_folder:')!!}',
+						data:{'id':cat_id},
+						success:function(data){
+							console.log('success');
+
+							console.log(data);
+							console.log('success2');
+							console.log(data.length);
+							op+='<option value="0" selected disabled>Folder</option>';
+							for(var i=0;i<data.length;i++){
+							op+='<option value="'+data[i].id+'">'+data[i].folder_id+'</option>';
+						}
+
+						div.find('.sub_folder').html(" ");
+						div.find('.sub_folder').append(op);
+						},
+						error:function(){
+							console.log('error');
+						}
+					});
+				});
+
+				$(document).on('change','.sub_folder',function () {
+					var prod_id=$(this).val();
+
+					var a=$(this).parent();
+					console.log(prod_id);
+					var op="";
+				});
+				//*******************Eend of Ajax for folder subfolder ************************//
 		})
-
 		</script>
 
 		<!-- Your GOOGLE ANALYTICS CODE Below -->
@@ -581,7 +643,6 @@
 			var _gaq = _gaq || [];
 				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
 				_gaq.push(['_trackPageview']);
-
 			(function() {
 				var ga = document.createElement('script');
 				ga.type = 'text/javascript';
@@ -590,7 +651,6 @@
 				var s = document.getElementsByTagName('script')[0];
 				s.parentNode.insertBefore(ga, s);
 			})();
-
 		</script>
 
 	</body>

@@ -22,7 +22,7 @@
 						<a href="{{ url('project/'.Request::segment(2)) .'/folders' }}"><i class="fa fa-lg fa-fw fa-pencil" style="color: #404040;"></i> <span class="menu-item-parent">Drawings</span></a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-picture-o" style="color: #404040;"></i> <span class="menu-item-parent">Photos</span></a>
+						<a href="{{ url('project/'.Request::segment(2).'/photos') }}"><i class="fa fa-lg fa-fw fa-picture-o" style="color: #404040;"></i> <span class="menu-item-parent">Photos</span></a>
 					</li>
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">RFI's</span></a>

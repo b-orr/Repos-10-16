@@ -15,7 +15,19 @@ class PhotosSubFolderController extends Controller
      */
     public function index()
     {
-        //
+        $this->data['folders'] = PhotosFolders::with('subfolders')->get();
+        $this->data['folders'] = PhotosSubFolders::all();
+        // dd($this->data['folders']);
+        return view('project.photos.photos', $this->data);
+    }
+    public function findSubfolder(Request $request){
+
+
+        //if our chosen id and products table prod_cat_id col match the get first 100 data 
+
+        //$request->id here is the id of our chosen option id
+        $data=PhotosSubFolder::select('productname','id')->where('prod_cat_id',$request->id)->take(100)->get();
+        return response()->json($data);//then sent this data to ajax success
     }
 
     /**
@@ -34,7 +46,7 @@ class PhotosSubFolderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id,Request $request)
     {
      $this->validate($request, [ 'name' => 'required']);
    // dd($request->all());
@@ -42,7 +54,7 @@ class PhotosSubFolderController extends Controller
       $subfolders = new PhotosSubFolders();
       PhotosSubFolders::create($request->all());
 
-      return redirect('/project/photos');
+      return redirect('project/'.$id.'/photos');
     }
 
     /**
