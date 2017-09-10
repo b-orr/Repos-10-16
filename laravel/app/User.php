@@ -84,4 +84,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Category', 'user_id');
     }
+
+    public function notes() {
+        return $this->hasMany('App\Notes', 'user_id');
+  }
 }

@@ -92,5 +92,17 @@ class Projects extends Model
     {
         return $this->hasMany('App\Inventory', 'project_id');
     }
+
+    public function notes() {
+        
+        return $this->hasMany('App\Notes', 'pj_project_id');
+    }
+
+    
+        
+    public function mailing_list() {
+
+        return $this->hasMany('App\NoteMailingList', 'pj_project_id');
+    }
      
 }

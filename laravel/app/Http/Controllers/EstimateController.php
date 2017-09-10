@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Projects;
-
+use App\Persons;
 
 class EstimateController extends Controller
 {
@@ -22,6 +22,7 @@ class EstimateController extends Controller
                     $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
                     $this->data['user'] = $this->user= Auth::user();
                     $this->data['projects'] = $this->tenant->projects->where('status', '<>', 'Award')->where('status', '<>', 'Archive');
+                    
                     return $next($request);
             });
         
@@ -34,6 +35,7 @@ class EstimateController extends Controller
    public function index()
    {
        
+      
        return view('estimate.list', $this->data);
    }
 
@@ -42,8 +44,10 @@ class EstimateController extends Controller
    {
    	
    	 $this->get_Crew();
+
+     
    	 
-      return view('estimate.create', $this->data);
+    return view('estimate.create', $this->data);
    }
 
    
@@ -66,9 +70,15 @@ class EstimateController extends Controller
    public function show($id)
    {
    			 
+
+
        $this->data['project'] = $this->tenant->projects->find($id);
        
-    
+       $this->data['notes'] = $this->tenant->projects->find($id)->notes()->orderBy('id', 'DESC')->get();
+
+              
+
+
      	if($this->data['project']->status=='Award'){
      	
      		return  redirect('/project/'. $id);
@@ -84,7 +94,13 @@ class EstimateController extends Controller
 			 $this->get_Crew();
 		
        $this->data['project'] = $this->tenant->projects->find($id);
-         
+
+       $this->data['notes'] = $this->tenant->projects->find($id)->notes()->orderBy('id', 'DESC')->get();;
+
+       $this->data['contactList'] = $this->tenant->projects->find($id)->mailing_list()->get();
+
+
+       
        return view('estimate.edit', $this->data);
    }
 

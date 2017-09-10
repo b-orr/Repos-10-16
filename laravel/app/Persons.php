@@ -18,5 +18,11 @@ class Persons extends Model
   {
   	return $this->belongsTo('App\User', 'user_id');
   }
+
+  public function projects() {
+      	
+      	return $this->hasMany('App\Projects', 'user_id');
+      }
+  
 }
 

@@ -317,7 +317,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                    																<input type="text" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                    																<input id="str_date" type="text" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                     																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     															</div>
                                 </div>
@@ -362,7 +362,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                    																<input type="text" name="est_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                    																<input id="est_date" type="text" name="est_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                     																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     															</div>
                                 </div>
@@ -402,7 +402,7 @@
                                           </div>
                                       </div>
                                       <div class="col-md-3">
-                                          0.0 wks
+                                          <span id="wks_count">0.0</span> wks
                                       </div>
                                       
                                       
@@ -662,24 +662,46 @@
                 
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                 
+                
+                
+                
+                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button type="submit" class="btn btn-primary  pull-right">Save info</button>
+                <br style="clear: both;">
+                <br style="clear: both;">
+                <br style="clear: both;">
+                </article>
+                
+                </form>
+               <!--
                 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
                         <header>
                             <h2 class="font-md">Project Notes</h2>
                         </header>
-                        <!-- widget div-->
+                        <!-- widget div -->
+<!--
                         <div>
                             <!-- widget edit box -->
-                            <div class="jarviswidget-editbox">
+<!--                            <div class="jarviswidget-editbox">
                                 <!-- This area used as dropdown edit box -->
-                            </div>
+ <!--                           </div>
                             <!-- end widget edit box -->
                             <!-- widget content -->
+ <!--                           <form action="{{ url('/estimate/'.$projects[0]->id.'/notes') }}" method="POST"> 
                             <div class="widget-body">
                             
                              <div class="row">
                               <div class="col-md-12">
-                                <textarea   class="form-control" name="notes" style="height: 50px;"  ></textarea>
+                                <textarea   class="form-control" name="note" style="height: 50px;"  ></textarea>
                               </div>
                               
                                 <br /><br />  <br /><br />
@@ -698,7 +720,7 @@
                                           <strong>Add Recipients</strong>
                                           
                                             <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
-                                            	<option value="0" style="">[Select One]</option>
+                                              <option value="0" style="">[Select One]</option>
                                              
                                             
                                             </select>
@@ -719,30 +741,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </form>
                             <!-- end widget content -->
-                        </div>
+                      <!--  </div> 
                         <!-- end widget div -->
-                    </div>
-                </article>
-                
-                
-                
-                
-                
-                
-                 
-                
-                
-                 
-                
-                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <button type="submit" class="btn btn-primary  pull-right">Save info</button>
-                <br style="clear: both;">
-                <br style="clear: both;">
-                <br style="clear: both;">
-                </article>
-                
-                </form>
+                  <!--  </div>
+                </article> -->
             </div>
             <!-- END MAIN CONTENT -->
             <br style="clear: both;">
@@ -754,7 +758,36 @@
             $(document).ready(function() {
         
                 pageSetUp();
-        
+                //counting weeks
+                function count_weeks() {
+                      var one_week = 1000*60*60*24*7;
+                        
+                        var start_date = $('#str_date').datepicker({ dateFormat: 'mm-dd-yyyy' }).val();
+                        var est_date = $('#est_date').datepicker({ dateFormat: 'mm-dd-yyyy' }).val();
+                        
+                        var dateAr1 = start_date.split('/');
+                        var dateAr2 = est_date.split('/');
+                        
+                        var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[1] + '-' + dateAr1[0]).getTime();
+                        var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[1] + '-' + dateAr2[0]).getTime();
+                        
+                        
+                        
+                        //var wks = Math.floor((est_date - start_date + 1) / (1000 * 60 * 60 * 24) / 7);
+                        var diff = Math.abs(newEstDate - newStartDate);
+
+                        var wks = (diff / one_week).toFixed(1);
+                        
+                        return wks;
+
+              }
+
+              var wks = count_weeks();
+              
+              if (wks != 'NaN') {
+                $('#wks_count').text(wks);
+              };                  
+              //counting weeks
                 /* // DOM Position key index //
         
                 l - Length changing (dropdown)
@@ -819,6 +852,17 @@
                     }
         
                 });
+
+                //counting_weeks start
+                  
+                
+                $('#est_date').on('change', function() {
+                   
+                   var wks = count_weeks();
+                  
+                  $('#wks_count').text(wks);
+                }); 
+              //counting_weeks end
         
                 // custom toolbar
                 $("div.toolbar").html('<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');

@@ -265,8 +265,8 @@
                                 </div>
                                 <div class="col-md-3">
                                 
-                                 <div class="form-group">
-                                    {{ date('d/m/Y', strtotime($project->start_date)) }}   
+                                 <div class="form-group" >
+                                    <span id="str_date">{{ date('d/m/Y', strtotime($project->start_date)) }}</span>
                                     
                                     </div>
                                     
@@ -310,7 +310,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                    {{ date('d/m/Y', strtotime($project->est_date)) }}
+                                    <span id="est_date">{{ date('d/m/Y', strtotime($project->est_date)) }}</span>
                                     </div>
                                 </div>
                                 
@@ -348,7 +348,7 @@
                                           </div>
                                       </div>
                                       <div class="col-md-3">
-                                          0.0 wks
+                                         <span id="wks_count">0.0</span> wks
                                       </div>
                                       
                                       
@@ -583,12 +583,15 @@
                              <div class="row">
                             
                               <div class="col-md-12" style="padding-right: 40px;">
-                                <strong>
-                                2017/07/06 - Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff
-                                </strong>    <hr />                                 
-                                <strong>
-                                2017/07/06 - Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff
-                                </strong>                  </div>
+                              @if($notes)
+                                  @foreach($notes as $key => $note)
+                                    <strong>
+                                    {{ date('Y/m/d',strtotime($note->created_at)) }} - {{ $note->note}}
+                                    </strong>    
+                                    <br/><br/>
+                                  @endforeach
+                                @endif
+                              </div>
                             </div>  
                                  
                             </div>
@@ -627,7 +630,37 @@
             $(document).ready(function() {
         
                 pageSetUp();
-        
+            //counting weeks
+                function count_weeks() {
+                      var one_week = 1000*60*60*24*7;
+                        
+                        var start_date = $('#str_date').text();
+                        var est_date = $('#est_date').text();
+                        
+                        var dateAr1 = start_date.split('/');
+                        var dateAr2 = est_date.split('/');
+                        
+                        var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[1] + '-' + dateAr1[0]).getTime();
+                        var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[1] + '-' + dateAr2[0]).getTime();
+                        
+                        
+                        
+                        //var wks = Math.floor((est_date - start_date + 1) / (1000 * 60 * 60 * 24) / 7);
+                        var diff = Math.abs(newEstDate - newStartDate);
+
+                        var wks = (diff / one_week).toFixed(1);
+                        
+                        return wks;
+
+              }
+
+                        
+              var wks = count_weeks();
+              
+              if (wks != 'NaN') {
+                $('#wks_count').text(wks);
+              }; 
+              //counting weeks
                 /* // DOM Position key index //
         
                 l - Length changing (dropdown)

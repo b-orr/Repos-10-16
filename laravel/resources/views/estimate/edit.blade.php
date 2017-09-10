@@ -320,7 +320,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                    																<input type="text"  value="{{ date('d/m/Y', strtotime($project->start_date)) }}" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                    																<input id="str_date" type="text"  value="{{ date('d/m/Y', strtotime($project->start_date)) }}" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                     																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     															</div>
                                 </div>
@@ -365,7 +365,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                    																<input type="text"  value="{{ date('d/m/Y', strtotime($project->est_date)) }}" name="est_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                    																<input id="est_date" type="text"  value="{{ date('d/m/Y', strtotime($project->est_date)) }}" name="est_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
                                     																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     															</div>
                                 </div>
@@ -405,7 +405,7 @@
                                           </div>
                                       </div>
                                       <div class="col-md-3">
-                                          0.0 wks
+                                          <span id="wks_count">0.0</span> wks
                                       </div>
                                       
                                       
@@ -665,68 +665,7 @@
                 
                 
                 
-                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
-                        <header>
-                            <h2 class="font-md">Project Notes</h2>
-                        </header>
-                        <!-- widget div-->
-                        <div>
-                            <!-- widget edit box -->
-                            <div class="jarviswidget-editbox">
-                                <!-- This area used as dropdown edit box -->
-                            </div>
-                            <!-- end widget edit box -->
-                            <!-- widget content -->
-                            <div class="widget-body">
-                            
-                             <div class="row">
-                              <div class="col-md-12">
-                                <textarea   class="form-control" name="notes" style="height: 50px;"  ></textarea>
-                              </div>
-                              
-                                <br /><br />  <br /><br />
-                              <div class="col-md-12" style="padding-right: 40px;">
-                                <strong>
-                                2017/07/06 - Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff
-                                </strong>    <br /><br />
-                                
-                                <strong>
-                                2017/07/06 - Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff Text and a stuff
-                                </strong>                  </div>
-                            </div>  <br /><br />
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                          <strong>Add Recipients</strong>
-                                          
-                                            <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
-                                            	<option value="0" style="">[Select One]</option>
-                                             
-                                            
-                                            </select>
-                                            
-                                            <br />
-                                            
-                                            <a href="#"  class="btn btn-success  pull-right"><b > Add To Current Recipients </b></a>
-                                           
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                    <strong>Current Recipients</strong>
-                                    
-                                    <br /><br />
-                                     <a href="#"  class="btn btn-success  pull-right"><b > Save note</sup></b></a> 
-                                     <a href="#"  class="btn btn-success  pull-right" style="margin-right: 10px;"><b > Save @ Email Note</sup></b></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end widget content -->
-                        </div>
-                        <!-- end widget div -->
-                    </div>
-                </article>
+                
                 
                 
                 
@@ -746,6 +685,92 @@
                 </article>
                 
                 </form>
+    
+                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+                        <header>
+                            <a name="note"></a>
+                            <h2 class="font-md">Project Notes</h2>
+                        </header>
+                        <!-- widget div-->
+                        <div>
+                            <!-- widget edit box -->
+                            <div class="jarviswidget-editbox">
+                                <!-- This area used as dropdown edit box -->
+                            </div>
+
+                            <!-- end widget edit box -->
+                            <!-- widget content -->
+                            
+                            <form id="note_form" action="{{ url('/estimate/'.$projects[0]->id.'/notes') }}" method="POST"> 
+                            <input id="project_id" name="pj_project_id" type="hidden" value="{{ $project->id}}">
+                            {{ csrf_field() }}
+                            <span id="form_put"><input type="hidden" value="PUT"></span>
+                            <div class="widget-body">
+                            
+                             <div class="row">
+                              <div class="col-md-12">
+                                <textarea  id="note_input" class="form-control" name="note" style="height: 50px;"  ></textarea>
+                              </div>
+                              
+                              <button type="submit" id="submit_note_form" class="hide"></button>
+                                <br /><br />  <br /><br />
+                              </form>
+                              <div class="col-md-12" style="padding-right: 40px;">
+                                @if($notes)
+                                  @foreach($notes as $key => $note)
+                                    <strong>
+                                    {{ date('Y/m/d',strtotime($note->created_at)) }} - <span id="note-{{$note->id}}">{{ $note->note}}</span>, {{ $note->user->name}}<a style="margin-left:10px;"><i class="fa fa-edit edit_button" data-id="{{ $note->id }}"></i></a>
+                                    <form action="{{ url('/estimate/'.$projects[0]->id.'/notes/' .$note->id) }}" method="POST"  style="display: inline;">
+                                <a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o"></i></a>
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                 
+                                </form>
+                                    </strong>    
+                                    <br>
+                                    <br/><br/>
+                                  @endforeach
+                                @endif
+                                </div>
+                            </div>  <br /><br />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                          <strong>Add Recipients</strong>
+                                          
+                                            <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
+                                              <option value="0" style="">[Select One]</option>
+                                             @if($contactList)
+                                               @foreach($contactList as $key => $list)
+                                                <option value="{{ $list->id }}">{{$list->person->last_name}}, {{$list->person->first_name}}</option>
+                                               @endforeach
+                                             @endif
+                                            
+                                            </select>
+                                            
+                                            <br />
+                                            
+                                            <a href="#"  class="btn btn-success  pull-right"><b > Add To Current Recipients </b></a>
+                                           
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                    <strong>Current Recipients</strong>
+                                    
+                                    <br /><br />
+                                     <label for="submit_note_form" class="btn btn-success  pull-right"><b > Save note</sup></b></label> 
+                                     <a href="#"  class="btn btn-success  pull-right" style="margin-right: 10px;"><b > Save @ Email Note</sup></b></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- end widget content -->
+                        </div>
+                        <!-- end widget div -->
+                    </div>
+                </article>
             </div>
             <!-- END MAIN CONTENT -->
             <br style="clear: both;">
@@ -755,9 +780,40 @@
         @include('includes._footer')
         <script>
             $(document).ready(function() {
+
+
         
                 pageSetUp();
-        
+                //counting weeks
+                function count_weeks() {
+                      var one_week = 1000*60*60*24*7;
+                        
+                        var start_date = $('#str_date').datepicker({ dateFormat: 'mm-dd-yyyy' }).val();
+                        var est_date = $('#est_date').datepicker({ dateFormat: 'mm-dd-yyyy' }).val();
+                        
+                        var dateAr1 = start_date.split('/');
+                        var dateAr2 = est_date.split('/');
+                        
+                        var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[1] + '-' + dateAr1[0]).getTime();
+                        var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[1] + '-' + dateAr2[0]).getTime();
+                        
+                        
+                        
+                        //var wks = Math.floor((est_date - start_date + 1) / (1000 * 60 * 60 * 24) / 7);
+                        var diff = Math.abs(newEstDate - newStartDate);
+
+                        var wks = (diff / one_week).toFixed(1);
+                        
+                        return wks;
+
+              }
+
+              var wks = count_weeks();
+              
+              if (wks != 'NaN') {
+                $('#wks_count').text(wks);
+              }; 
+              //counting weeks
                 /* // DOM Position key index //
         
                 l - Length changing (dropdown)
@@ -822,6 +878,33 @@
                     }
         
                 });
+
+              //edit button start
+
+              $('.edit_button').on('click', function() {
+                  var id = $(this).attr('data-id');
+                  var project_id = $('#project_id').val();
+                  var note = $('#note-'+id).text();
+
+                  $('#form_put input').attr("name", "_method")
+                  $('#note_input').text(note);
+                  $("#note_form").attr("action", "{{ url('/estimate/' .  $projects[0]->id . '/notes') }}" + '/' + id);
+                  //$("#note_form").attr("action", "http://pronovos.dev/estimate/" + project_id + "/notes/" + id);
+              
+              });
+
+              //edit button end
+
+              //counting_weeks start
+                  
+                
+                $('#est_date').on('change', function() {
+                   
+                   var wks = count_weeks();
+                  
+                  $('#wks_count').text(wks);
+                }); 
+              //counting_weeks end
         
                 // custom toolbar
                 $("div.toolbar").html('<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
