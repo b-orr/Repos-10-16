@@ -583,14 +583,14 @@
                              <div class="row">
                             
                               <div class="col-md-12" style="padding-right: 40px;">
-                              @if($notes)
-                                  @foreach($notes as $key => $note)
+                              
+                                  @foreach($project->notes as $key => $note)
                                     <strong>
                                     {{ date('Y/m/d',strtotime($note->created_at)) }} - {{ $note->note}}
                                     </strong>    
                                     <br/><br/>
                                   @endforeach
-                                @endif
+                               
                               </div>
                             </div>  
                                  

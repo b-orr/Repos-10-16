@@ -74,7 +74,7 @@ class EstimateController extends Controller
 
        $this->data['project'] = $this->tenant->projects->find($id);
        
-       $this->data['notes'] = $this->tenant->projects->find($id)->notes()->orderBy('id', 'DESC')->get();
+       
 
               
 
@@ -95,9 +95,8 @@ class EstimateController extends Controller
 		
        $this->data['project'] = $this->tenant->projects->find($id);
 
-       $this->data['notes'] = $this->tenant->projects->find($id)->notes()->orderBy('id', 'DESC')->get();;
-
-       $this->data['contactList'] = $this->tenant->projects->find($id)->mailing_list()->get();
+ 
+      
 
 
        

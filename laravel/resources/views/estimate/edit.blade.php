@@ -702,7 +702,7 @@
                             <!-- end widget edit box -->
                             <!-- widget content -->
                             
-                            <form id="note_form" action="{{ url('/estimate/'.$projects[0]->id.'/notes') }}" method="POST"> 
+                            <form id="note_form" action="{{ url('/estimate/'.$project->id.'/notes') }}" method="POST"> 
                             <input id="project_id" name="pj_project_id" type="hidden" value="{{ $project->id}}">
                             {{ csrf_field() }}
                             <span id="form_put"><input type="hidden" value="PUT"></span>
@@ -717,21 +717,21 @@
                                 <br /><br />  <br /><br />
                               </form>
                               <div class="col-md-12" style="padding-right: 40px;">
-                                @if($notes)
-                                  @foreach($notes as $key => $note)
+                             
+                                  @foreach($project->notes as $key => $note)
                                     <strong>
-                                    {{ date('Y/m/d',strtotime($note->created_at)) }} - <span id="note-{{$note->id}}">{{ $note->note}}</span>, {{ $note->user->name}}<a style="margin-left:10px;"><i class="fa fa-edit edit_button" data-id="{{ $note->id }}"></i></a>
-                                    <form action="{{ url('/estimate/'.$projects[0]->id.'/notes/' .$note->id) }}" method="POST"  style="display: inline;">
+                                    {{ date('Y/m/d',strtotime($note->created_at)) }} <small>[{{ $note->user->name}}]</small> </strong>     - <span id="note-{{$note->id}}">{{ $note->note}}</span><a style="margin-left:10px;"><i class="fa fa-edit edit_button" data-id="{{ $note->id }}"></i></a>
+                                    <form action="{{ url('/estimate/'.$project->id.'/notes/' .$note->id) }}" method="POST"  style="display: inline;">
                                 <a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o"></i></a>
                                     {{ method_field('DELETE') }}
                                     {{ csrf_field() }}
                                  
                                 </form>
-                                    </strong>    
-                                    <br>
+                                   
+                                 
                                     <br/><br/>
                                   @endforeach
-                                @endif
+                             
                                 </div>
                             </div>  <br /><br />
                                 <div class="row">
@@ -741,11 +741,11 @@
                                           
                                             <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
                                               <option value="0" style="">[Select One]</option>
-                                             @if($contactList)
-                                               @foreach($contactList as $key => $list)
-                                                <option value="{{ $list->id }}">{{$list->person->last_name}}, {{$list->person->first_name}}</option>
+                                            
+                                               @foreach($tenant->persons as $key => $list)
+                                                <option value="{{ $list->id }}">{{$list->last_name}}, {{$list->first_name}}</option>
                                                @endforeach
-                                             @endif
+                                            
                                             
                                             </select>
                                             
@@ -757,8 +757,12 @@
                                     </div>
                                     
                                     <div class="col-md-6">
-                                    <strong>Current Recipients</strong>
-                                    
+                                    <strong>Current Recipients</strong> <br />
+                                  
+                                   @foreach($project->mailing_list as $key => $list)
+                                     {{ $list->id }} {{$list->person->last_name}}, {{$list->person->first_name}}  <br />
+                                   @endforeach
+                                                                             
                                     <br /><br />
                                      <label for="submit_note_form" class="btn btn-success  pull-right"><b > Save note</sup></b></label> 
                                      <a href="#"  class="btn btn-success  pull-right" style="margin-right: 10px;"><b > Save @ Email Note</sup></b></a>
@@ -888,7 +892,7 @@
 
                   $('#form_put input').attr("name", "_method")
                   $('#note_input').text(note);
-                  $("#note_form").attr("action", "{{ url('/estimate/' .  $projects[0]->id . '/notes') }}" + '/' + id);
+                  $("#note_form").attr("action", "{{ url('/estimate/' .  $project->id . '/notes') }}" + '/' + id);
                   //$("#note_form").attr("action", "http://pronovos.dev/estimate/" + project_id + "/notes/" + id);
               
               });
