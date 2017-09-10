@@ -49,17 +49,13 @@ class PhotosController extends Controller
        public function store($id, Request $request)
     {   
                 
-        // $file = $request->input('file');
-        // $tmpfile = (string) $file;
-
-        //Set Filename 
-        // $filename = "Nature.jpg";
-
-        // //Set Directory
-        // $directory = "photos";
-        // //Put on S3 Bucket:
-        // //Storage::disk('s3')->put($directory.'/'.$filename , $file);
-          
+                
+		     $image = $request->file('photo');
+		    
+		    $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+		    Storage::put('photos/' . $imageFileName , file_get_contents($image), 'public');
+		    
+              /*   
 
     $p = 'test name';
     
@@ -71,6 +67,8 @@ class PhotosController extends Controller
         $img->save();
         
       return redirect('project/'. $id . '/photos');
+      
+      */
     }
   
    
