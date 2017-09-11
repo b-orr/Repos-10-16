@@ -128,7 +128,7 @@
 												</div>
 											</header>
 											<div id="image-gallery" class="cf" style="width: 100%; height: auto; ">
-												<img id="panImage" src="{{url('drawings/' . $drawings->image_org.'.jpg')}}" style="width: 100%; height: auto; "></img>
+												<img id="panImage" src="{{ 'https://s3.amazonaws.com/pronovosrubixcube' . $drawings->image_org }}" style="width: 100%; height: auto; "></img>
 											</div>
 
 										</div>
@@ -210,7 +210,7 @@
 										<form class="smart-form">
 										<div class="row padding-10 bordered">
 											<div class="col-lg-4">
-												<img src="{{url('drawings/' . $drawings->image_thumb.'.png')}}">
+												<img src="{{ 'https://s3.amazonaws.com/pronovosrubixcube' . $drawings->image_thumb }}">
 											</div>
 											<div class="col-lg-6">
 												<div class="form-group smart-form ">
@@ -237,7 +237,7 @@
 										</div>
 										<div class="row padding-10 bordered">
 											<div class="col-lg-4">
-												<img src="{{url('drawings/' . $drawings->image_thumb.'.png')}}">
+												<img src="{{ 'https://s3.amazonaws.com/pronovosrubixcube' .  $drawings->image_thumb }}">
 											</div>
 											<div class="col-lg-6">
 												<div class="form-group smart-form ">

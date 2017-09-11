@@ -109,7 +109,7 @@
 												
 												@foreach($drawings AS $val)
 												<tr>
-														<td>{{ $val->drawing_name }} - {{ $val->description }}</td>
+														<td><!--{{ $val->drawing_name }} - -->{{ $val->description }}</td>
 														<td>{{ $val->uploads->release_desc }}</td>
 														<td>{{ $val->revisited_num }}</td>
 														<td>{{ date('m/d/Y', strtotime($val->updated_at ))}}</td>
@@ -193,8 +193,9 @@
 													
 													@if($value->processed==1)
 													<br/><br/>File successfully processed
-													@endif
 													<a class="btn btn-success btn-xs pull-right" href="{{ url('project/' . $project_id .'/folders/' .$folder_id . '/thumbnailView/' .$value->id)}}" style="margin: 0;">Thumbnail View</a>
+													@endif
+													
 													@endif
 												</p>
 											</div>
@@ -358,7 +359,14 @@
 			pageSetUp();
 			
 		 
-						
+					
+					
+					function randomIntFromInterval(min,max)
+					{
+					    return Math.floor(Math.random()*(max-min+1)+min);
+					}	
+					
+					
 						  s3counter=0;			
 						     			
 						  
@@ -371,7 +379,7 @@
 									var myDropzone = this;
 									var fileName = myDropzone.files[s3counter].name
 	                   				 	
-	                   				$('input[name="key"]').val('drawings/' + fileName)
+	                $('input[name="key"]').val('drawings/' + randomIntFromInterval(10000000000, 100000000000) + '.pdf')
 									$('#releaseDescTake').val($('#releaseDescription').val());
 									$('#releaseDateTake').val($('#releaseDate').val());
 								},
@@ -789,7 +797,21 @@
 		 function silent_call(url, id) {
 		 
 		 	$.get(url);
-		 	$('#silent_call'+id).html('<br/><br/>Your request is processing, refresh your page shortly to view the results. Aprox. time 5-10 minutes');
+		 	
+		 	
+		 	$('#silent_call'+id).html('<br/><br/><img src="https://c.s-microsoft.com/en-us/CMSImages/minifindstore_spin.gif?version=45117834-d17e-3a16-5765-62399907b530" height="20px">  Please wait, document is processing...'  )
+		 	
+		 	
+		 	
+		 	window.setInterval(function(){
+		 	
+				 	$.get( "{{ url('lambda_status/' .  $project_id .'/' . $folder_id ) }}/" + id, function( data ) {
+				 	  	$('#silent_call'+id).html('<br/><br/>' + data)
+				 	});
+				 	
+		 	}, 3000);
+		 	
+		 ;
 		 	
 		 }
 //        $(document).ready(function () {
