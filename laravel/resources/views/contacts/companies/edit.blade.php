@@ -100,6 +100,19 @@
 																									</div>
 																								</div>
 																							</div>
+																							<div class="row">
+																								<div class="col-md-5 col-md-offset-1">
+																									<div class="form-group">
+																										<h4><b>General Contractor\Client:</b></h4>
+																									</div>
+																								</div>
+																								<div class="col-md-5">
+																									<div class="form-group">
+																										<input type="hidden" value="0" name="client_bool">
+																										<input style="position:relative;left: -47%" type="checkbox" value="1" class="form-control" name="client_bool" @if($company->client_bool == '1') checked @endif/>
+																									</div>
+																								</div>
+																							</div>
 																							<br>
 																							<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 																							<!-- widget options:

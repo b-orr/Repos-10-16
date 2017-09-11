@@ -7,17 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Projects;
 use App\Persons;
-use App\NoteMailingList;
+use App\AddedClients;
 
-class NotesMailingController extends Controller
+class AddedClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function __construct()
+
+    
+public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('role:super,tenant');
@@ -34,7 +31,11 @@ class NotesMailingController extends Controller
    
     }
 
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
@@ -58,24 +59,23 @@ class NotesMailingController extends Controller
      */
     public function store($id, Request $request)
     {
-        
-       $con_array = array();
-       $contacts =$this->tenant->projects->find($id)->mailing_list()->get();
-       foreach ($contacts as $key => $value) {
-            array_push($con_array, $value->person_id);
-        }      
-    
-       $this->validate($request, ['person_id' => 'required']);
+       $client_array = array();
+       $clients =$this->tenant->projects->find($id)->client_list()->get();
+      
+       foreach ($clients as $key => $value) {
+            array_push($client_array, $value->client_id);
+        } 
+       
+       $this->validate($request, ['client_id' => 'required']);
         
        $request->request->add(['pj_project_id' => $id]);
        
-       if(!in_array($request->person_id, $con_array)) {
-            $this->tenant->projects->find($id)->mailing_list()->save(new NoteMailingList($request->all()));
+       if(!in_array($request->client_id, $client_array)) {
+            $this->tenant->projects->find($id)->client_list()->save(new AddedClients($request->all()));
        } 
-       
-       
+    
+        return redirect('estimate/' . $id .'/edit#client');
 
-       return redirect('/estimate/' . $id . '/edit#person');
     }
 
     /**
@@ -118,9 +118,9 @@ class NotesMailingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $contact_id)
+    public function destroy($id, $client_id)
     {
-        NoteMailingList::destroy($contact_id);
+        AddedClients::destroy($client_id);
 
         return redirect('estimate/' . $id .'/edit#person');
     }
