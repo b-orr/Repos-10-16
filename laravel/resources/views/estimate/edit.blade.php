@@ -648,8 +648,8 @@
                                    @endforeach
                                                                              
                                     <br /><br />
-                                     <label for="submit_note_form" class="btn btn-success  pull-right"><b > Save note</sup></b></label> 
-                                     <a href="#"  class="btn btn-success  pull-right" style="margin-right: 10px;"><b > Save @ Email Note</sup></b></a>
+                                     <!--<label for="submit_note_form" class="btn btn-success  pull-right"><b > Save note</sup></b></label> 
+                                     <a href="#"  class="btn btn-success  pull-right" style="margin-right: 10px;"><b > Save @ Email Note</sup></b></a>-->
                                     </div>
                                 </div>
                             </div>
