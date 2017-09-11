@@ -185,7 +185,11 @@ class DrawingsController extends Controller
 	    
 	    foreach ($words as $word) {
 	       $word = trim($word);
-	       if (strlen($word) > $longestWordLength && strlen($word)<6) {
+	       if ( strtolower(substr($word, 0, 1)) === 'a' || 
+	       			strtolower(substr($word, 0, 1)) === 'c' ||
+	       			strtolower(substr($word, 0, 1)) === 's' || 
+	       			strtolower(substr($word, 0, 1)) === '0' || 
+	       			strpos($word, '-') !== false) {
 	          $longestWordLength = strlen($word);
 	          $longestWord = $word;
 	       }
