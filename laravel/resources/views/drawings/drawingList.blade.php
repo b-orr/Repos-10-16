@@ -177,7 +177,7 @@
 												
 											<div class="padding-10 bordered" id="uploadedFile-{{$value->id}}">
 												<p>
-													{{ $value->filename}}<span class="txt-color-green"></span>
+													{{ $value->release_desc}} - {{ $value->filename}}<span class="txt-color-green"></span>
 												
 													
 													@if($value->processed==0)

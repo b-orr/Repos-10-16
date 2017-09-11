@@ -185,17 +185,56 @@ class DrawingsController extends Controller
 	    
 	    foreach ($words as $word) {
 	       $word = trim($word);
-	       if ( strtolower(substr($word, 0, 1)) === 'a' || 
-	       			strtolower(substr($word, 0, 1)) === 'c' ||
-	       			strtolower(substr($word, 0, 1)) === 's' || 
-	       			strtolower(substr($word, 0, 1)) === '0' || 
-	       			strpos($word, '-') !== false) {
+ 
+	       if ( $longestWord=='' && (
+	       			strtolower(substr($word, 0, 2)) === 'a0' || 
+   						strtolower(substr($word, 0, 2)) === 'c0' ||
+   						strtolower(substr($word, 0, 2)) === 's0' || 
+   						strtolower(substr($word, 0, 2)) === 'a1' || 
+							strtolower(substr($word, 0, 2)) === 'c1' ||
+							strtolower(substr($word, 0, 2)) === 's1' || 
+	       			strtolower(substr($word, 0, 1)) === '0' 
+	       			) )
+	       			 {
 	          $longestWordLength = strlen($word);
 	          $longestWord = $word;
 	       }
 	    }
 	    
- 
+ 		 
+ 		 if ( $longestWord==''){
+ 		 	foreach ($words as $word) {
+ 		 		       $word = trim($word);
+	 							$word = str_replace('shee', '', strtolower($word));
+	 		       if ( $longestWord=='' && (
+	 		       			strtolower(substr($word, 0, 1)) === 'a' || 
+	 	  						strtolower(substr($word, 0, 1)) === 'c' ||
+	 	  						strtolower(substr($word, 0, 1)) === 's' 
+	 		       			) )
+	 		       			 {
+	 		          $longestWordLength = strlen($word);
+	 		          $longestWord = $word;
+	 		       }
+	 		    }
+	 	
+ 		 
+ 		 }
+ 		 
+ 		 
+ 		 if ( $longestWord==''){
+ 		  	foreach ($words as $word) {
+ 		  	 $word = trim($word);
+ 		  	 		$word = str_replace('shee', '', strtolower($word));
+ 		  	 		$word = str_replace('no', '', strtolower($word));
+ 		  	 		$word = str_replace('nu', '', strtolower($word));
+ 		  	   if (strlen($word) > $longestWordLength) {
+ 		  	      $longestWordLength = strlen($word);
+ 		  	      $longestWord = $word;
+ 		  	   }
+ 		  	}
+ 		 
+ 		  
+ 		  }
 	    
 	    $proj = new Projects;
 	    
