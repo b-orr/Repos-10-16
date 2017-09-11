@@ -737,9 +737,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                          <a name="person"></a>
                                           <strong>Add Recipients</strong>
-                                          
-                                            <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
+                                          <form action="{{ url('/estimate/' . $project->id . '/mailing/')}}" method="POST">
+                                          {{ csrf_field() }}
+                                            <select name="person_id" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
                                               <option value="0" style="">[Select One]</option>
                                             
                                                @foreach($tenant->persons as $key => $list)
@@ -751,8 +753,8 @@
                                             
                                             <br />
                                             
-                                            <a href="#"  class="btn btn-success  pull-right"><b > Add To Current Recipients </b></a>
-                                           
+                                            <button type="submit" href="#"  class="btn btn-success  pull-right"><b > Add To Current Recipients </b></button>
+                                            </form>
                                         </div>
                                     </div>
                                     
@@ -760,7 +762,12 @@
                                     <strong>Current Recipients</strong> <br />
                                   
                                    @foreach($project->mailing_list as $key => $list)
-                                     {{ $list->id }} {{$list->person->last_name}}, {{$list->person->first_name}}  <br />
+                                     {{ $list->id }} {{$list->person->last_name}}, {{$list->person->first_name}}  <form action="{{ url('/estimate/'.$project->id.'/mailing/' . $list->id) }}" method="POST"  style="display: inline;">
+                                <a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o"></i></a>
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                 
+                                </form><br />
                                    @endforeach
                                                                              
                                     <br /><br />

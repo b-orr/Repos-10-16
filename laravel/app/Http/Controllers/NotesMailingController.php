@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use App\Projects;
+use App\Persons;
+use App\NoteMailingList;
 
 class NotesMailingController extends Controller
 {
@@ -11,6 +16,25 @@ class NotesMailingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:super,tenant');
+        $this->middleware(function ($request, $next) {
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
+                    $this->data['projects'] = $this->tenant->projects->where('status', '<>', 'Award')->where('status', '<>', 'Archive');
+                    
+                    return $next($request);
+            });
+        
+        $this->data['site_area']='Estimating';
+        
+   
+    }
+
+
     public function index()
     {
         //
@@ -32,9 +56,26 @@ class NotesMailingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
+        
+       $con_array = array();
+       $contacts =$this->tenant->projects->find($id)->mailing_list()->get();
+       foreach ($contacts as $key => $value) {
+            array_push($con_array, $value->person_id);
+        }      
+    
+       $this->validate($request, ['person_id' => 'required']);
+        
+       $request->request->add(['pj_project_id' => $id]);
+       
+       if(!in_array($request->person_id, $con_array)) {
+            $this->tenant->projects->find($id)->mailing_list()->save(new NoteMailingList($request->all()));
+       } 
+       
+       
+
+       return redirect('/estimate/' . $id . '/edit#person');
     }
 
     /**
@@ -77,8 +118,10 @@ class NotesMailingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $contact_id)
     {
-        //
+        NoteMailingList::destroy($contact_id);
+
+        return redirect('estimate/' . $id .'/edit#person');
     }
 }
