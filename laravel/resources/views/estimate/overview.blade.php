@@ -522,10 +522,14 @@
                             <!-- widget content -->
                             <div class="widget-body">
                                 <div class="row">
-                                     
-                                    
+                                                                       
                                     <div class="col-md-12">
-                                  
+                                        @foreach($project->client_list as $key => $client)
+                                          <strong>
+                                          {{ $client->company->name}}
+                                          </strong>    
+                                          <br/><br/>
+                                        @endforeach
                                     
                                     </div>
                                 </div>

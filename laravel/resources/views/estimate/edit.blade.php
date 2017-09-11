@@ -320,9 +320,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                    																<input id="str_date" type="text"  value="{{ date('d/m/Y', strtotime($project->start_date)) }}" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
-                                    																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    															</div>
+      																<input id="str_date" type="text"  value="{{ date('d/m/Y', strtotime($project->start_date)) }}" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+      																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+      															</div>
                                 </div>
                                 
                                 
@@ -341,7 +341,7 @@
                                          	<option value="0" style="">[Select One]</option>
                                        		
                                        		@foreach($owners as $owner)
-                                       		<option {{ $project->owner==$owner->id?'selected':'' }} value="{{ $owner->id }}" style="">{{ $owner->first_name }} {{ $owner->last_name }} - {{ $owner->company_association }}</option>
+                                       		 <option {{ $project->owner==$owner->id?'selected':'' }} value="{{ $owner->id }}" style="">{{ $owner->first_name }} {{ $owner->last_name }} - {{ $owner->company_association }}</option>
                                        		@endforeach
                                          
                                          </select>
@@ -593,10 +593,18 @@
                         </div>
                 </article>
                 
+                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button type="submit" class="btn btn-primary  pull-right">Save info</button>
+                <br style="clear: both;">
+                <br style="clear: both;">
+                <br style="clear: both;">
+                </article>
                 
+                </form>
                 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
                         <header>
+                        <a name="client"></a>
                             <h2 class="font-md">Add Client</h2>
                         </header>
                         <!-- widget div-->
@@ -612,21 +620,36 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                           <strong> Client</strong>
-                                          
-                                            <select name="ctl00$ContentPlaceHolder1$ddlWrapUp" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
-                                            	<option value="0" style="">[Select One]</option>
-                                             
-                                            
-                                            </select>
-                                            <br />
-                                            <a href="#" class="btn btn-success  pull-right"><b > +  Add Client </b></a>
+                                          <form id="note_form" action="{{ url('/estimate/'.$project->id.'/client') }}" method="POST"> 
+                                            {{ csrf_field() }}
+                                              <select name="client_id" class="form-control">
+                                                    <option value="" style="">[Select One]</option>
+                                                      @foreach($clients as $key => $client)
+                                                          <option value="{{$client->id}}">{{ $client->name}}</option>
+                                                      @endforeach                                            
+                                              </select>
+                                              <br />
+                                              <button type="submit" class="btn btn-success  pull-right"><b > +  Add Client </b></button>
+                                            </form>
                                            
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-6">
+                                    <strong>Current Clients</strong> <br />
                                   
-                                    
+                                   @foreach($project->client_list as $key => $client)
+                                     {{ $client->id }} {{ $client->company->name}} <form action="{{ url('/estimate/'.$project->id.'/client/' .$client->id) }}" method="POST"  style="display: inline;">
+                                <a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o"></i></a>
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                 
+                                </form><br />
+                                   @endforeach
+                                                                             
+                                    <br /><br />
+                                     <label for="submit_note_form" class="btn btn-success  pull-right"><b > Save note</sup></b></label> 
+                                     <a href="#"  class="btn btn-success  pull-right" style="margin-right: 10px;"><b > Save @ Email Note</sup></b></a>
                                     </div>
                                 </div>
                             </div>
@@ -677,14 +700,7 @@
                 
                  
                 
-                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <button type="submit" class="btn btn-primary  pull-right">Save info</button>
-                <br style="clear: both;">
-                <br style="clear: both;">
-                <br style="clear: both;">
-                </article>
                 
-                </form>
     
                 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="jarviswidget jarviswidget-color-darken" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
@@ -742,7 +758,7 @@
                                           <form action="{{ url('/estimate/' . $project->id . '/mailing/')}}" method="POST">
                                           {{ csrf_field() }}
                                             <select name="person_id" id="ContentPlaceHolder1_ddlWrapUp" class="form-control" style="">
-                                              <option value="0" style="">[Select One]</option>
+                                              <option value="" style="">[Select One]</option>
                                             
                                                @foreach($tenant->persons as $key => $list)
                                                 <option value="{{ $list->id }}">{{$list->last_name}}, {{$list->first_name}}</option>

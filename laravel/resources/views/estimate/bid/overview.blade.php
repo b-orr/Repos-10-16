@@ -30,6 +30,7 @@
     <!-- MAIN CONTENT -->
     <div id="content">
     
+      
     	<form action="{{ url('/estimate/'.$project->id.'/bids') }}"  method="POST"   >
     	
     	{{ csrf_field() }}
@@ -89,7 +90,9 @@
                                 <div class="form-group">
                                     <select name="client" id="" class="form-control">
                                     	<option value="1" >Some Client</option>
-                                     
+                                      @foreach($project->client_list as $key => $client)
+                                        <option value="{{$client->company->id}}">{{ $client->company->name }}</option>
+                                      @endforeach
                                     
                                     </select>
                                 </div>

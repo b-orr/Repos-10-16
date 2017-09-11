@@ -95,6 +95,8 @@ Route::resource('estimate/{project_id}/notes', 'NotesController', [ 'as' => 'Est
 
 Route::resource('estimate/{project_id}/mailing', 'NotesMailingController', [ 'as' => 'Estimating - Mailing' ]);
 
+Route::resource('estimate/{project_id}/client', 'AddedClientController', [ 'as' => 'Estimating - Client' ]);
+
 
 /*
 |--------------------------------------------------------------------------
