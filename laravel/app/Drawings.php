@@ -11,7 +11,7 @@ class Drawings extends Model
     
     
     protected $fillable = [
-        'drawing_name', 'description', 'revisited_num', 'drawing_date', 'image_org', 'image_thumb', 'drw_upload_id'
+        'drawing_name', 'description', 'revisited_num', 'drawing_date', 'image_org', 'image_thumb', 'drw_upload_id', 'drw_discipline_id'
     ];
 
 
