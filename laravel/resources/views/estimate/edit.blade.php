@@ -29,7 +29,7 @@
     <!-- MAIN CONTENT -->
     <div id="content">
     
-    	<form action="{{ url('/estimate/' . $project->id) }}" method="POST"   >
+    	<form action="{{ url('/estimate/' . $project->id) }}" method="POST">
     	
     	{{ csrf_field() }}
     	{{ method_field('PUT') }}
@@ -620,7 +620,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                           <strong> Client</strong>
-                                          <form id="note_form" action="{{ url('/estimate/'.$project->id.'/client') }}" method="POST"> 
+                                          <form  action="{{ url('/estimate/'.$project->id.'/client') }}" method="POST"> 
                                             {{ csrf_field() }}
                                               <select name="client_id" class="form-control">
                                                     <option value="" style="">[Select One]</option>
