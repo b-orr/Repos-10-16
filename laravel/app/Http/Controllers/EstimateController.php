@@ -53,12 +53,17 @@ class EstimateController extends Controller
    
    public function store(Request $request)
    {
+
+
        $this->validate($request, [ 'name' => 'required',
        														 'bid_date' => 'required',
        														 'bid_time' => 'required',
        														 'start_date' => 'required',
-       														 'duration_start' => 'required',
-       														 'bid_username' => 'required']);
+       														 //'duration_start' => 'required', // iskomentirano, javuvase greska
+       														 'bid_username' => 'required'
+                                   ]);
+
+
         
        $request->request->add(['submited_user_id' => $this->tenant->id]); 
        $this->tenant->projects()->save(new Projects($request->all()));
