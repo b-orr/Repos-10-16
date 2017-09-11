@@ -696,7 +696,7 @@
  <!--                           </div>
                             <!-- end widget edit box -->
                             <!-- widget content -->
- <!--                           <form action="{{ url('/estimate/'.$projects[0]->id.'/notes') }}" method="POST"> 
+ <!--                           <form action="" method="POST"> 
                             <div class="widget-body">
                             
                              <div class="row">
