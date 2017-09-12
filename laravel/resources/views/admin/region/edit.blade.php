@@ -74,8 +74,52 @@
 																			<div class="row">
 																				<div class="col-md-12">
 																					<div class="form-group">
-																						<label class="input" style="font-weight: bold;">Name</label>
+																						<label class="input" style="font-weight: bold;">Area Location</label>
 																						<input type="text" name="name" value="{{ $region->name }}" class="form-control">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-12">
+																					<div class="form-group">
+																						<label class="input" style="font-weight: bold;">Area Address</label>
+																						<input type="text" name="address" value="{{ $region->address }}" class="form-control">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-12">
+																					<div class="form-group">
+																						<label class="input" style="font-weight: bold;">City</label>
+																						<input type="text" name="city" value="{{ $region->city }}" class="form-control">
+																					</div>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-12">
+																					<div class="form-group">
+																						<label class="input" style="font-weight: bold;">State</label>
+																						 <select name="state" id="" class="form-control location" style="">
+												                                           	<option  style="">[Select One]</option>
+												                                           	<option {{ $region->state=='CA'?'selected':'' }}  style="color: rgb(0, 0, 0);">CA</option>
+												                                           	<option {{ $region->state=='CO'?'selected':'' }}   style="color: rgb(0, 0, 0);">CO</option>
+												                                           	<option {{ $region->state=='HI'?'selected':'' }}   style="color: rgb(0, 0, 0);">HI</option>
+												                                           	<option {{ $region->state=='NCA'?'selected':'' }}   style="color: rgb(0, 0, 0);">NCA</option>
+												                                           	<option {{ $region->state=='NV'?'selected':'' }}   style="color: rgb(0, 0, 0);">NV</option>
+												                                           	<option {{ $region->state=='OR'?'selected':'' }}  style="color: rgb(0, 0, 0);">OR</option>
+												                                           	<option {{ $region->state=='SCA'?'selected':'' }}   style="color: rgb(0, 0, 0);">SCA</option>
+												                                           	<option {{ $region->state=='TX'?'selected':'' }}   style="color: rgb(0, 0, 0);">TX</option>
+												                                           	<option {{ $region->state=='WA'?'selected':'' }}   style="color: rgb(0, 0, 0);">WA</option>
+												                                           
+												                                        </select>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-12">
+																					<div class="form-group">
+																						<label class="input" style="font-weight: bold;">Phone</label>
+																						<input type="text" name="phone" value="{{ $region->phone }}" class="form-control">
 																					</div>
 																				</div>
 																			</div>

@@ -909,10 +909,10 @@
               //edit button start
 
               $('.edit_button').on('click', function() {
+                  $('#note_input').text('')
                   var id = $(this).attr('data-id');
                   var project_id = $('#project_id').val();
                   var note = $('#note-'+id).text();
-
                   $('#form_put input').attr("name", "_method")
                   $('#note_input').text(note);
                   $("#note_form").attr("action", "{{ url('/estimate/' .  $project->id . '/notes') }}" + '/' + id);
