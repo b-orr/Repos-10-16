@@ -123,6 +123,32 @@
 																					</div>
 																				</div>
 																			</div>
+																			<div class="row">
+																			<div class="col-md-5">
+																				<div class="form-group">
+																					<h4>Yard Toggle Switch: <sup>*</sup></h4>
+																				</div>
+																			</div>
+																			<div class="col-md-7">
+																				<div class="form-group">
+																					<input type="hidden" value="0" name="yard_toggle_switch" class="form-control" />
+																					<input type="checkbox" value="1" name="yard_toggle_switch" class="form-control" @if($region->yard_toggle_switch == '1') checked @endif />
+																				</div>
+																			</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-5">
+																				<div class="form-group">
+																					<h4>Active: <sup>*</sup></h4>
+																				</div>
+																			</div>
+																			<div class="col-md-7">
+																				<div class="form-group">
+																					<input type="hidden" value="0" name="active" class="form-control" />
+																					<input type="checkbox" value="1" name="active" class="form-control" @if($region->active == '1') checked @endif/>
+																				</div>
+																			</div>
+																		</div>
 																		 
 																		</div>
 																		<div class="modal-footer">
