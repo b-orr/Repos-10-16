@@ -114,7 +114,7 @@
 												<div class="form-group">
 													<label class="col-md-4 control-label">EIN</label>
 													<div class="col-md-8">
-														<input class="form-control" name="ein" type="text" value="{{$tenant->ein}}">
+														<input class="form-control" id="ein" name="ein" type="text" value="{{$tenant->ein}}">
 													</div>
 												</div>
 
@@ -178,6 +178,7 @@
 
 		<script type="text/javascript">
 			$(document).ready(function() {
+			$("#ein").mask("99-9999999", {placeholder:"  -       "});
 				pageSetUp();
 			    "use strict";
 			})
