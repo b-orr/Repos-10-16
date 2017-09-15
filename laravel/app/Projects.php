@@ -105,4 +105,8 @@ class Projects extends Model
         return $this->hasMany('App\NoteMailingList', 'pj_project_id');
     }
      
+    public function transferEquipment()
+    {
+        return $this->hasMany('App\TransferEquipment', 'project_id');
+    }
 }

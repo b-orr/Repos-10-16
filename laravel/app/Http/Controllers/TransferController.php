@@ -40,13 +40,8 @@ class TransferController extends Controller
         $this->data['truckings'] = $this->tenant->projects->find($id)->truckings()->where('approved', '=', 0)->get();
         // dd($this->data['truckings']);
 
-        $this->data['inventory'] = $this->tenant->categories()
-                                    ->with('subcategories', 'subcategories.inventory', 'subcategories.inventory.equipment')
-                                    ->whereHas('subcategories.inventory', function($q) use ($id)
-                                    {
-                                        $q->where('project_id', '=', $id);
-                                    })
-                                    ->get();
+        $this->data['inventory'] = $this->tenant->projects->find($id)->inventory()->with('subcategory', 'subcategory.category')->get();
+                                    // dd($this->data['inventory']);
         return view('equipment.project.overview', $this->data);
     }
 
@@ -71,15 +66,19 @@ class TransferController extends Controller
     public function store($id, Request $request)
     {
         $transfer = $this->tenant->projects->find($id)->transfers()->save(new Transfers($request->all()));
-
-        foreach ($request->equipment as $key => $e) {
-            $transferData = new TransferEquipment();
-            $transferData->equipment_id = $e['equipment_id'];
-            $transferData->transfer_id = $transfer->id;
-            $transferData->quantity = $e['quantity'];
-            $transferData->total_weight = $e['total_weight'];
-            $transferData->tracking_number = $e['tracking_number'];
-            $transferData->save();
+        if (isset($request->equipment)) {
+            foreach ($request->equipment as $key => $e) {
+                $transferData = new TransferEquipment();
+                $transferData->equipment_id = $e['equipment_id'];
+                $transferData->project_id = $id;
+                $transferData->transfer_id = $transfer->id;
+                $transferData->name = $e['name'];
+                $transferData->quantity = $e['quantity'];
+                $transferData->weight = $e['weight'];
+                $transferData->total_weight = $e['total_weight'];
+                $transferData->tracking_number = $e['tracking_number'];
+                $transferData->save();
+            }
         }
         
         return redirect('project/'.$id.'/equipment');

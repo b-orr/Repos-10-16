@@ -320,16 +320,17 @@
 												<tbody id="eqBody" style="text-align: center;">
 													<tr>
 														<td><a class="btn btn-xs btn-success btn-block" data-toggle="modal" data-target="#myModal">Search</a></td>
-														<td><input type="text" placeholder="Search" name="searchDesc" style="width: 100%" class="form-control"></td>
-														<td><input type="text" name="rental" style="width: 100%" class="form-control"></td>
+														<td><input type="text" placeholder="Search" id="searchDesc" name="searchDesc" style="width: 100%" class="form-control"></td>
+														<input type="hidden" id="eqValueToCommit">
+														<td><input type="number" id="quantity" style="width: 100%" class="form-control calcWeight"></td>
 														<td> 1.1 </td>
-														<td><input type="text" name="weightEQ" style="width: 100%" class="form-control"></td>
+														<td><input type="number" id="weightEQ" style="width: 100%" class="form-control calcWeight"></td>
 														<td>
-															<a class="button btn btn-xs btn-success btn-circle">
+															<a class="button btn btn-xs btn-success btn-circle" id="commitEquipment">
 																<i class="fa fa-plus"></i>
 															</a>
 														</td>
-														<td></td>
+														<td id="totalWeightColumn"></td>
 													</tr>
 												</tbody>
 											</table>
@@ -436,51 +437,68 @@
 				pageSetUp();
 			    "use strict";
 
-			    var addedEquipmentCount = 0;
 			    $('#addEquipmentToTransfer').on('click', function() {
-			    	addedEquipmentCount++;
 			    	var eqValue = $('#pickEquipment').val();
 			    	var eqText = $('#pickEquipment :selected').text();
 			    	if(eqValue != 0){
 			    		var weight = 0;
-			    		//ajax get weight of equipment
-			    		$.ajax({
-				    		type: "GET",
-	            			url: "getEqWeight",
-	            			data: {
-	            				equipment: eqValue
-	            			}
-				    		, 
-					    	success : function(data) {
-					    		weight = data.weight.weight;
-					    		var htmlstr = '<tr>';
-				    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][equipment_id]" value="'+eqValue+'">';
-				    			htmlstr += '<input type="hidden" class="total-weight-input" name="equipment['+addedEquipmentCount+'][total_weight]">';
-				    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][tracking_number]" value="asdasdasd">';
-								htmlstr += '<td></td>';
-								htmlstr += '<td>'+eqText+'</td>';
-								htmlstr += '<td>';
-								htmlstr += '	<input type="number" name="equipment['+addedEquipmentCount+'][quantity]" style="width: 100%" class="form-control input-xs enter-quantity">';
-								htmlstr += '</td>';
-								htmlstr += '<td></td>';
-								htmlstr += '<input type="hidden" id="equipment-weight" value="'+weight+'">';
-								htmlstr += '<td class="equipment-weight">'+weight+'</td>';
-								htmlstr += '<td>';
-								htmlstr += '	<a>';
-								htmlstr += '		<i class="fa fa-minus"></i>';
-								htmlstr += '	</a>';
-								htmlstr += '</td>';
-								htmlstr += '<td class="total-weight"></td>';
-								htmlstr +='</tr>';
-
-								$('#eqBody').append(htmlstr);
-					    	}
-					    });
+			    		
+			    		$('#searchDesc').val(eqText);
+			    		$('#eqValueToCommit').val(eqValue);
+				    		
 
 			    		
 			    	}
 			    });
+			     $('.calcWeight').on('keyup', function() {
+			    	var units = $('#quantity').val();
+			    	var weight = $('#weightEQ').val();
 
+			    	if(units != '' && weight != '' ){
+			    		$('#totalWeightColumn').text(units*weight);
+			    	}
+			    })
+			    var addedEquipmentCount = 0;
+			    $('#commitEquipment').on('click', function() {
+
+			    	var eqValue = $('#eqValueToCommit').val();
+			    	var eqText = $('#searchDesc').val();
+			    	var qtty = $('#quantity').val();
+			    	var eqweight = $('#weightEQ').val();
+			    	var totalWeight = $('#totalWeightColumn').text();
+
+			    	if(eqText != ''){
+			    			addedEquipmentCount++;
+
+			    			var htmlstr = '<tr>';
+			    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][equipment_id]" value="'+eqValue+'">';
+			    			htmlstr += '<input type="hidden" class="total-weight-input" name="equipment['+addedEquipmentCount+'][total_weight]" value="'+totalWeight+'">';
+			    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][name]" value="'+eqText+'">';
+							htmlstr += '<td></td>';
+							htmlstr += '<td>'+eqText+'</td>';
+							htmlstr += '<td>';
+							htmlstr += '	<input type="hidden" name="equipment['+addedEquipmentCount+'][quantity]" value="'+qtty+'">'+qtty+'';
+							htmlstr += '</td>';
+							htmlstr += '<td></td>';
+							htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][weight]" value="'+eqweight+'">';
+							htmlstr += '<td class="equipment-weight">'+eqweight+'</td>';
+							htmlstr += '<td>';
+							htmlstr += '	<a>';
+							htmlstr += '		<i class="fa fa-minus"></i>';
+							htmlstr += '	</a>';
+							htmlstr += '</td>';
+							htmlstr += '<td class="total-weight">'+totalWeight+'</td>';
+							htmlstr +='</tr>';
+
+							$('#eqBody').append(htmlstr);
+
+				 	$('#eqValueToCommit').val('');
+					$('#searchDesc').val('');
+					$('#quantity').val('');
+					$('#weightEQ').val('');
+					$('#totalWeightColumn').text('');
+				}
+			    })
 			    $('.pick').on('change', function() {
 			    	
 			    	

@@ -9,7 +9,7 @@ class TruckingEquipment extends Model
     protected $table = 'eq_trucking_equipment';
 
     protected $fillable = [
-        'truck_id', 'equipment_id', 'quantity', 'total_weight'
+        'truck_id', 'equipment_id', 'project_id', 'name', 'weight', 'quantity', 'total_weight'
     ];
 
  	public function trucking()
