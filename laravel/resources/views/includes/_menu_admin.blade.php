@@ -8,7 +8,9 @@
 				-->
 
 				<ul class="main-Menu">
-					
+					<li>
+						<a href="{{ url('admin/company') }}"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Company Information</span></a>
+					</li>
 					<li class="active">
 						<a href="{{ url('admin/regions') }}"><i class="fa fa-lg fa-fw fa-list-alt" style="color: #404040;"></i> <span class="menu-item-parent">Regions</span></a>
 					</li>

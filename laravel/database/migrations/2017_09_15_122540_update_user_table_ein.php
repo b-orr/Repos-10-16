@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RegionUpdate2 extends Migration
+class UpdateUserTableEin extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class RegionUpdate2 extends Migration
      */
     public function up()
     {
-        Schema::table('regions', function (Blueprint $table) {
-            $table->boolean('yard_toggle_switch');
-            $table->boolean('active');
-            
+        Schema::table('users', function (Blueprint $table)
+        {
+            $table->string('ein', 15)->after('zip');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -27,9 +25,8 @@ class RegionUpdate2 extends Migration
      */
     public function down()
     {
-       Schema::table('regions', function($table) {
-            $table->dropColumn('yard_toggle_switch');
-            $table->dropColumn('active');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('ein');
         });
     }
 }
