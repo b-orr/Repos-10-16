@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
+use Intervention\Image\Image;
+use File;
+use Storage;
 
 class AdminCompanyController extends Controller
 {
@@ -90,6 +94,13 @@ class AdminCompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $image = $request->file('logo');
+
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+
+        Storage::put('logos/' . $imageFileName , file_get_contents($image), 'public');
+
         User::findTenant(Auth::user())->update($request->all());
         
         return redirect('admin/company');

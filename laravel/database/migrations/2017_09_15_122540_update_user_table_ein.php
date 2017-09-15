@@ -16,6 +16,7 @@ class UpdateUserTableEin extends Migration
         Schema::table('users', function (Blueprint $table)
         {
             $table->string('ein', 15)->after('zip');
+            $table->string('logo')->after('ein');
         });
     }
     /**
@@ -27,6 +28,7 @@ class UpdateUserTableEin extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('ein');
+            $table->dropColumn('logo');
         });
     }
 }

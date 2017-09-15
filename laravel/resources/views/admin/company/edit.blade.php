@@ -95,7 +95,7 @@
 										<div class="widget-body no-padding">
 										<Br>
 											<!-- main page content here -->
-											<form class="form-horizontal" method="post" action="{{url('admin/company/'.$tenant->id)}}">
+											<form class="form-horizontal" method="post" action="{{url('admin/company/'.$tenant->id)}}" enctype="multipart/form-data">
 											{{ method_field('PUT') }}
 											{{ csrf_field() }}
 											<div class="col-lg-6" style="text-align: left;" >
