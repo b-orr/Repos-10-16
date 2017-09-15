@@ -89,7 +89,7 @@
 														</button>
 														<div class="col-lg-6 picture">
 															<span class="label pull-left bg-color-darken page-counter" style="">{{ $i++ }}</span>
-															<img class="drawingImages" src="{{url('drawings/'.$val->image_thumb.'.png')}}" style="width: 100%;">
+															<img class="drawingImages" src="{{  'https://s3.amazonaws.com/pronovosrubixcube' . $val->image_org }}" style="width: 100%;">
 														</div>
 														<div class="col-lg-6">
 															<div class="form-group smart-form">

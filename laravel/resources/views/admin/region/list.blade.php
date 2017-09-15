@@ -80,8 +80,18 @@
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone">Regions</th>
+													<th data-hide="phone" colspan="7">Regions</th>
 													<th data-hide="phone,tablet" style="width: 60px;">Action</th>	
+												</tr>
+												<tr>
+													<th data-hide="phone">Area Location</th>
+													<th data-hide="phone">Area Address</th>
+													<th data-hide="phone">City</th>
+													<th data-hide="phone">State</th>
+													<th data-hide="phone">Phone</th>
+													<th data-hide="phone">Yard Toggle Switch</th>
+													<th data-hide="phone">Active</th>
+													<th></th>														
 												</tr>
 											</thead>
 											<tbody>
@@ -89,6 +99,12 @@
 											@foreach($lists AS $list)
 												<tr>
 													<td>{{ $list->name }}</td>
+													<td>{{ $list->address }}</td>
+													<td>{{ $list->city }}</td>
+													<td>{{ $list->state }}</td>
+													<td>{{ $list->phone }}</td>
+													<td style="text-align:center">@if($list->yard_toggle_switch == '1') YES @else NO @endif</td>
+													<td style="text-align:center">@if($list->active == '1') YES @else NO @endif</td>
 													<td><a href="{{ url('/admin/regions/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
 													
 													
@@ -161,7 +177,7 @@
 								<div class="row">
 									<div class="col-md-5">
 										<div class="form-group">
-											<h4>Area Name: <sup>*</sup></h4>
+											<h4>Office/Area Location Name: <sup>*</sup></h4>
 										</div>
 									</div>
 									<div class="col-md-7">
@@ -170,6 +186,92 @@
 										</div>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>Office/Area Address: <sup></sup></h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<input type="text" name="address" class="form-control" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>City: <sup></sup></h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<input type="text" name="city" class="form-control" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>State: <sup>*</sup></h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<select name="state" id="" class="form-control location" style="">
+	                                           	<option style="">[Select One]</option>
+	                                           	<option style="color: rgb(0, 0, 0);">CA</option>
+	                                           	<option style="color: rgb(0, 0, 0);">CO</option>
+	                                           	<option style="color: rgb(0, 0, 0);">HI</option>
+	                                           	<option style="color: rgb(0, 0, 0);">NCA</option>
+	                                           	<option style="color: rgb(0, 0, 0);">NV</option>
+	                                           	<option style="color: rgb(0, 0, 0);">OR</option>
+	                                           	<option style="color: rgb(0, 0, 0);">SCA</option>
+	                                           	<option style="color: rgb(0, 0, 0);">TX</option>
+	                                           	<option style="color: rgb(0, 0, 0);">WA</option>
+                                            </select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>Phone: <sup>*</sup></h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<input type="text" name="phone" class="form-control" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>Yard Toggle Switch: <sup>*</sup></h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<input type="hidden" value="0" name="yard_toggle_switch" class="form-control" />
+											<input type="checkbox" value="1" name="yard_toggle_switch" class="form-control" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<h4>Active: <sup>*</sup></h4>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<input type="hidden" value="0" name="active" class="form-control" />
+											<input type="checkbox" value="1" name="active" class="form-control" />
+										</div>
+									</div>
+								</div>
+
 								<br>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">

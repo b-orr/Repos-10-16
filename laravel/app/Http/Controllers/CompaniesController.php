@@ -33,6 +33,8 @@ class CompaniesController extends Controller
    
     public function store(Request $request)
     {
+
+
         $this->validate($request, [ 'name' => 'required']);
           
         $this->tenant->companies()->save(new Companies($request->all()));
@@ -55,6 +57,8 @@ class CompaniesController extends Controller
     
     public function update(Request $request, $companies)
     {
+
+        
         $this->tenant->companies()->find($companies)->update($request->all());
         
         return redirect('/contacts');

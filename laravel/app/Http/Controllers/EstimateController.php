@@ -53,12 +53,17 @@ class EstimateController extends Controller
    
    public function store(Request $request)
    {
+
+
        $this->validate($request, [ 'name' => 'required',
        														 'bid_date' => 'required',
        														 'bid_time' => 'required',
        														 'start_date' => 'required',
-       														 'duration_start' => 'required',
-       														 'bid_username' => 'required']);
+       														 //'duration_start' => 'required', // iskomentirano, javuvase greska
+       														 'bid_username' => 'required'
+                                   ]);
+
+
         
        $request->request->add(['submited_user_id' => $this->tenant->id]); 
        $this->tenant->projects()->save(new Projects($request->all()));
@@ -115,6 +120,7 @@ class EstimateController extends Controller
    public function get_Crew() {
    		$this->data['architects'] = $this->tenant->companies->where('type', 'Architect');
 		  $this->data['struct_eng'] = $this->tenant->companies->where('type', 'Structural/Engineer');
+      $this->data['clients'] = $this->tenant->companies->where('client_bool', '1');
 		  $this->data['owners'] = $this->tenant->persons;
 		  $this->data['op_manager'] = User::where('parent_user_id', $this->tenant->id)->where('role', 'OP Manager')->get();
 		  $this->data['estimators'] = User::where('parent_user_id', $this->tenant->id)->where('role', 'Estimator')->get();

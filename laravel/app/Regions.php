@@ -9,7 +9,7 @@ class Regions extends Model
     protected $table = 'regions';
 
     protected $fillable = [
-        'user_id', 'name',
+        'user_id', 'name','address','city','state','phone','yard_toggle_switch','active',
     ];
 
 

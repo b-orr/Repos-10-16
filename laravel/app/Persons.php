@@ -22,7 +22,7 @@ class Persons extends Model
   public function projects() {
       	
       	return $this->hasMany('App\Projects', 'user_id');
-      }
+  }
   
 }
 

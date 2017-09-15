@@ -95,6 +95,8 @@ Route::resource('estimate/{project_id}/notes', 'NotesController', [ 'as' => 'Est
 
 Route::resource('estimate/{project_id}/mailing', 'NotesMailingController', [ 'as' => 'Estimating - Mailing' ]);
 
+Route::resource('estimate/{project_id}/client', 'AddedClientController', [ 'as' => 'Estimating - Client' ]);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -106,7 +108,11 @@ Route::resource('estimate/{project_id}/mailing', 'NotesMailingController', [ 'as
 
 //Route::get('drawings/layout', 'DrawingsController@layout')->name('Drawings - Layout');
 //Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
- 
+
+Route::get('lambda/{id}/{filename}/{folder_id}/{project_id}/{file_id}/{page_nb}', 'DrawingsController@lambda');
+
+Route::get('lambda_status/{project_id}/{folder_id}/{file_id}', 'DrawingsController@lambda_status');
+
 Route::post('project/{project_id}/folders/{folder_id}/saveFile', 'UploadsController@saveToDB');
  
 Route::get('project/{id}/folders/{folder_id}/processFile/{file_id}', 'DrawingsController@processFile');
