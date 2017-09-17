@@ -307,9 +307,11 @@
 					<ul class="dropdown-menu">
 					
 					@foreach($tenant->regions AS $region)
-						<li>
-							<a href="{{ url('region/set/' . $region->id) }}">{{ $region->name }}</a>
-						</li>
+						@if($region->active == '1')
+							<li>
+								<a href="{{ url('region/set/' . $region->id) }}">{{ $region->name }}</a>
+							</li>
+						@endif
 					 @endforeach
 					</ul>
 					<!-- end dropdown-menu-->
