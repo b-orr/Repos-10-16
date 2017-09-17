@@ -242,7 +242,7 @@
 
 				<ul class="dropdown-menu">
 					<li>
-						<a href="{{ url('/admin/regions') }}">Admin</a>
+						<a href="{{ url('/admin/company') }}">Admin</a>
 					</li>
 					<li>
 						<a href="{{ url('/project') }}">Projects</a>

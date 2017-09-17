@@ -9,7 +9,7 @@ class TransferEquipment extends Model
     protected $table = 'eq_transfer_equipment';
 
     protected $fillable = [
-        'transfer_id', 'rental_id', 'equipment_id', 'quantity', 'total_weight', 'tracking_number'
+        'transfer_id', 'rental_id', 'equipment_id', 'project_id', 'quantity', 'name', 'weight', 'total_weight', 'tracking_number'
     ];
 
  	public function transfer()
@@ -21,4 +21,9 @@ class TransferEquipment extends Model
   	{
   		return $this->belongsTo('App\regionEquipment', 'equipment_id');
   	}
+
+    public function project()
+    {
+      return $this->belongsTo('App\Projects', 'project_id');
+    }
 }

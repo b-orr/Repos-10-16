@@ -29,7 +29,7 @@ class CompanyUpdate extends Migration
         public function down()
         {
             Schema::table('con_companies', function($table) {
-                  $table->boolean('client_bool');
+                  $table->dropColumn('client_bool');
             
             });
         }

@@ -319,22 +319,25 @@
 															</select>
 														</td>
 														<td><a class="btn btn-xs btn-success btn-block" data-toggle="modal" data-target="#myModal">Search</a></td>
-														<td><input type="text" id="searchDesc" placeholder="Search" style="width: 100%" class="form-control"></td>
-														<td><input type="text" id="quantity" style="width: 100%" class="form-control"></td>
-														<td></td>
-														<td><input type="text" id="weightEQ" style="width: 100%" class="form-control"></td>
 														<td>
-															<select style="width: 100%;" class="form-control">
-																<option></option>
-																<option></option>
+														<input type="text" id="searchDesc" placeholder="Search" style="width: 100%" class="form-control">
+														<input type="hidden" id="eqValueToCommit">
+														</td>
+														<td><input type="text" id="quantity" style="width: 100%" class="form-control calcWeight"></td>
+														<td></td>
+														<td><input type="text" id="weightEQ" style="width: 100%" class="form-control calcWeight"></td>
+														<td>
+															<select style="width: 100%;" class="form-control" id="track_num">
+																<option value="1">1</option>
+																<option value="2">2</option>
 															</select>
 														</td>
 														<td style="text-align: center;">
-															<button class="button btn btn-xs btn-success btn-circle">
+															<a class="button btn btn-xs btn-success btn-circle" id="commitEquipment">
 																<i class="fa fa-plus"></i>
-															</button>
+															</a>
 														</td>
-														<td></td>
+														<td id="totalWeightColumn"></td>
 													</tr>
 
 												</tbody>
@@ -659,68 +662,91 @@
 
 				pageSetUp();
 			    "use strict";
-			    var addedEquipmentCount = 0;
 			    $('#addEquipmentToTransfer').on('click', function() {
-			    	addedEquipmentCount++;
 			    	var eqValue = $('#pickEquipment').val();
 			    	var eqText = $('#pickEquipment :selected').text();
 			    	if(eqValue != 0){
-			    		var weight = 0;
-			    		//ajax get weight of equipment
-			    		$.ajax({
-				    		type: "GET",
-	            			url: "getEqWeight",
-	            			data: {
-	            				equipment: eqValue
-	            			}
-				    		, 
-					    	success : function(data) {
-					    		weight = data.weight.weight;
-					    		var htmlstr = '<tr>';
-				    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][equipment_id]" value="'+eqValue+'">';
-				    			htmlstr += '<input type="hidden" class="total-weight-input" name="equipment['+addedEquipmentCount+'][total_weight]">';
-				    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][tracking_number]" value="">';
-								htmlstr += '<td></td>';
-								htmlstr += '<td></td>';
-								htmlstr += '<td></td>';
-								htmlstr += '<td>'+eqText+'</td>';
-								htmlstr += '<td>';
-								htmlstr += '	<input type="number" name="equipment['+addedEquipmentCount+'][quantity]" style="width: 100%" class="form-control input-xs enter-quantity">';
-								htmlstr += '</td>';
-								htmlstr += '<td></td>';
-								htmlstr += '<input type="hidden" id="equipment-weight" value="'+weight+'">';
-								htmlstr += '<td class="equipment-weight">'+weight+'</td>';
-								htmlstr += '<td></td>';
-								htmlstr += '<td>';
-								htmlstr += '	<a>';
-								htmlstr += '		<i class="fa fa-minus"></i>';
-								htmlstr += '	</a>';
-								htmlstr += '</td>';
-								htmlstr += '<td class="total-weight"></td>';
-								htmlstr +='</tr>';
-
-								$('#eqBody').append(htmlstr);
-					    	}
-					    });
-
-			    		
+			    		$('#searchDesc').val(eqText);
+			    		$('#eqValueToCommit').val(eqValue);
 			    	}
 			    });
+
+			    var addedEquipmentCount = 0;
+
+			    $('#commitEquipment').on('click', function() {
+
+			    	var eqValue = $('#eqValueToCommit').val();
+			    	var eqText = $('#searchDesc').val();
+			    	var tracking = $('#track_num').val();
+			    	var qtty = $('#quantity').val();
+			    	var eqweight = $('#weightEQ').val();
+			    	var totalWeight = $('#totalWeightColumn').text();
+
+			    	if(eqText != ''){
+			    	addedEquipmentCount++;
+			    		var htmlstr = '<tr>';
+			    		if(eqValue == 0){
+		    				htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][equipment_id]" value="0">';
+			    		} 
+			    		else {
+		    				htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][equipment_id]" value="'+eqValue+'">';
+			    		}
+		    			htmlstr += '<input type="hidden" class="total-weight-input" name="equipment['+addedEquipmentCount+'][total_weight]" value="'+totalWeight+'">';
+		    			htmlstr += '<input type="hidden" name="equipment['+addedEquipmentCount+'][tracking_number]" value="'+tracking+'">';
+						htmlstr += '<td><input type="hidden" name="equipment['+addedEquipmentCount+'][name]" value="'+eqText+'"></td>';
+						htmlstr += '<td></td>';
+						htmlstr += '<td></td>';
+						htmlstr += '<td>'+eqText+'</td>';
+						htmlstr += '<td>';
+						htmlstr += '	<input type="hidden" value="'+qtty+'" name="equipment['+addedEquipmentCount+'][quantity]" > '+qtty+'';
+						htmlstr += '</td>';
+						htmlstr += '<td></td>';
+						htmlstr += '<input type="hidden" id="weight" name="equipment['+addedEquipmentCount+'][weight]" value="'+eqweight+'">';
+						htmlstr += '<td class="equipment-weight">'+eqweight+'</td>';
+						htmlstr += '<td>'+tracking+'</td>';
+						htmlstr += '<td>';
+						htmlstr += '	<a>';
+						htmlstr += '		<i class="fa fa-minus"></i>';
+						htmlstr += '	</a>';
+						htmlstr += '</td>';
+						htmlstr += '<td class="total-weight">'+totalWeight+'</td>';
+						htmlstr +='</tr>';
+
+						$('#eqBody').append(htmlstr);
+
+						eqValue = 0;
+						eqText = '';
+						tracking = 0;
+						qtty = 0;
+						eqweight = 0;
+						$('#eqValueToCommit').val('');
+						$('#searchDesc').val('');
+						$('#track_num').val('');
+						$('#quantity').val('');
+						$('#weightEQ').val('');
+						$('#totalWeightColumn').text('');
+			    	}
+			    		
+			    	
+			    })
+
+			    $('.calcWeight').on('keyup', function() {
+			    	var units = $('#quantity').val();
+			    	var weight = $('#weightEQ').val();
+
+			    	if(units != '' && weight != '' ){
+			    		$('#totalWeightColumn').text(units*weight);
+			    	}
+			    })
 
 			    $('.pick').on('change', function() {
 			    	
 			    	
 			    	var id = $('#pickCategory').val();
 			    	var sub = $('#pickSubcategory').val();
-			    	$.ajaxSetup({
-			            headers: {
-			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-			            }
-			        });
-
 			    	$.ajax({
 			    		type: "GET",
-            			url: "/inventory/getSubAjax",
+            			url: "getSubAjax",
             			data: {
             				category: id,
             				subcategory: sub

@@ -109,4 +109,8 @@ class Projects extends Model
 
     }
      
+    public function transferEquipment()
+    {
+        return $this->hasMany('App\TransferEquipment', 'project_id');
+    }
 }

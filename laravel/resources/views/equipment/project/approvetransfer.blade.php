@@ -337,18 +337,33 @@
 														<td></td>
 													</tr>
 													@foreach($transfer->equipment as $key => $e)
-														<tr>
-															<td style="text-align: center;">@if($e->rental_id != 0)<input type="checkbox" id="rental" style="height: 20px; width: 20px;">@endif</td>
-															<td></td>
-															<td></td>
-															<td>{{$e->regionEquipment->name}}</td>
-															<td>{{$e->quantity}}</td>
-															<td></td>
-															<td><input type="text" value="{{$e->regionEquipment->weight}}" id="weightEQ" style="width: 100%" class="form-control input-xs" disabled="true"></td>
-															<td>{{$e->tracking_number}}
-															</td>
-															<td>{{$e->total_weight}}</td>
-														</tr>
+														@if($e->equipment_id != 0)
+															<tr>
+																<td style="text-align: center;">@if($e->rental_id != 0)<input type="checkbox" id="rental" style="height: 20px; width: 20px;">@endif</td>
+																<td></td>
+																<td></td>
+																<td>{{$e->regionEquipment->name}}</td>
+																<td>{{$e->quantity}}</td>
+																<td></td>
+																<td>{{$e->regionEquipment->weight}}</td>
+																<td>{{$e->tracking_number}}
+																</td>
+																<td>{{$e->total_weight}}</td>
+															</tr>
+														@else
+															<tr>
+																<td style="text-align: center;">@if($e->rental_id != 0)<input type="checkbox" id="rental" style="height: 20px; width: 20px;">@endif</td>
+																<td></td>
+																<td></td>
+																<td>{{$e->name}}</td>
+																<td>{{$e->quantity}}</td>
+																<td></td>
+																<td>{{$e->weight}}</td>
+																<td>{{$e->tracking_number}}
+																</td>
+																<td>{{$e->total_weight}}</td>
+															</tr>
+														@endif
 													@endforeach
 												</tbody>
 											</table>
