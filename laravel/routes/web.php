@@ -139,9 +139,9 @@ Route::resource('project/{id}/folders', 'FolderController', [ 'as' => 'Drawings 
 | Photos
 |--------------------------------------------------------------------------
 */
-
-Route::resource('project/{id}/photos', 'PhotosController');
 Route::get('project/{id}/findsubfolder','PhotosSubFolderController@findSubfolder');//ajax dynamic dropdown
+Route::resource('project/{id}/photos', 'PhotosController');
+
 
 Route::resource('project/{id}/folder', 'PhotosFolderController');
 Route::resource('project/{id}/subfolder', 'PhotosSubFolderController');

@@ -105,7 +105,7 @@
 								data-widget-collapsed="true"
 								data-widget-sortable="false"
 								-->
-
+	
 
 								<!-- added buttons -->
 
@@ -181,13 +181,17 @@
 																while ($count2 <= 1 ) { ?>
 																	<tr class="hide s-children second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
 																		<td style="width:10px !important; padding-left: 40px;">
-																			<div class="row">
-																				<div class="col-lg-2">
-																					<img src="http://images.all-free-download.com/images/graphiclarge/water_waterfall_nature_214751.jpg" alt="" height="90" width="90"><br>
-																					<p>This is some text</p>																				
+																			<div class="superbox col-sm-12">
+																			
+																				 @for ($i = 0; $i < 1; $i++)
+    																			<div class="superbox-list">
+																					<?php
+																					$image = '1505126487.jpg';
+     																					echo('Test photo');
+																						 echo '<img src="https://s3.amazonaws.com/pronovosrubixcube/photos/'.$image.'" width="160" height="100">';
+																					?>
 																				</div>
-																				
-																				
+																				@endfor 
 																			</div>
 																			
 																		</td>
@@ -349,7 +353,9 @@
 				<div class="modal-dialog ">
 					<div class="modal-content">
 						<form method="post" action="{{ url('project/'.Request::segment(2).'/folder')  }}">
+
 							{{ csrf_field() }}
+							<input type="hidden" name="project_id" value="{{Request::segment(2)}}" >
 							<div class="modal-header" style="background-color: #404040;">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
@@ -454,8 +460,8 @@
 											<select class="form-control sub_folder" name="subfolder">
 													<option value="0">Pick Sub Folder </option> 
 												<!--TEST  -->
-												@foreach($folders as $key => $f)
-													<option value="{{$f->id}}">{{$f->name}}</option>
+												@foreach($f->subfolders as $key1 => $sf)
+													<option value="{{$sf->id}}">{{$sf->name}}</option>
 												@endforeach 
 												<!--TEST  -->
 											</select>
@@ -605,17 +611,19 @@
 
 					$.ajax({
 						type:'get',
-						url:'{!!URL::to(',sub_folder:')!!}',
+						url:'{!!URL::to('project/'.Request::segment(2).'/findsubfolder')!!}',
 						data:{'id':cat_id},
 						success:function(data){
 							console.log('success');
 
 							console.log(data);
 							console.log('success2');
-							console.log(data.length);
+							console.log(data.subcategories);
+							console.log('success3');
+							
 							op+='<option value="0" selected disabled>Folder</option>';
-							for(var i=0;i<data.length;i++){
-							op+='<option value="'+data[i].id+'">'+data[i].folder_id+'</option>';
+							for(var i=0;i<data.subcategories.length;i++){
+							op+='<option value="'+data.subcategories[i]+'">'+data.subcategories[i].name+'</option>';
 						}
 
 						div.find('.sub_folder').html(" ");

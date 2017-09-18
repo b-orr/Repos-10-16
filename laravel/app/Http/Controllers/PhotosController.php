@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\PhotosFolders;
 use App\Photos;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
@@ -20,10 +22,25 @@ class PhotosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public $data;
+    public $user;
+    public $tenant;
+    public function __construct()
     {
+        $this->middleware('auth');
+        $this->middleware('role:super,tenant');
+        $this->middleware(function ($request, $next) {
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
+                    return $next($request);
+            });
+     
+    }
+    public function index($id)
+    {
+        $this->data['folders'] = $this->tenant->projects()->find($id)->photosFolders()->with('subfolders')->get();
+       // dd($this->data['folders']);
         
-        $this->data['folders'] = PhotosFolders::with('subfolders','subfolders')->get();
         
         //dd($this->data['subfolders']->subfolders);
         return view('project.photos.photos', $this->data);
@@ -50,25 +67,22 @@ class PhotosController extends Controller
     {   
                 
                 
-		     $image = $request->file('photo');
+		    $image = $request->file('photo');
 		    
 		    $imageFileName = time() . '.' . $image->getClientOriginalExtension();
 		    Storage::put('photos/' . $imageFileName , file_get_contents($image), 'public');
-		    
-              /*   
 
-    $p = 'test name';
-    
+            
         $img = new Photos([
-            'photo_name' => $p, //ova e za test za da pomine na query ne funkcionira bidejki zema NULL
-            // 'photo_name' => $request->input('photo')->getClientOriginalName(), 
+            
+            'photo_name' => $request->input('photo')->getClientOriginalName(), 
             'subfolder_id'=> $request->input('subfolder'),
         ]);
         $img->save();
         
       return redirect('project/'. $id . '/photos');
       
-      */
+    
     }
   
    
