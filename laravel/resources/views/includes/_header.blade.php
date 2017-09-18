@@ -184,9 +184,9 @@
 		<!-- HEADER -->
 		<header id="header" class="">
 			<div id="logo-group">
-
+<?php //dd($tenant->logo) ?>
 				<!-- PLACE YOUR LOGO HERE -->
-				<span id="logo"> <img src="{{ url('/assets/img/logo.png') }}" alt="SmartAdmin"> </span>
+				<span id="logo"> @if($tenant->logo == "") <img src="{{ url('/assets/img/logo.png') }}" alt="SmartAdmin"> @else <img src="https://s3.amazonaws.com/pronovosrubixcube/logos/{{$tenant->logo}}" alt="SmartAdmin"> @endif </span>
 				<!-- END LOGO PLACEHOLDER -->
 
 				<!-- Note: The activity badge color changes when clicked and resets the number to 0

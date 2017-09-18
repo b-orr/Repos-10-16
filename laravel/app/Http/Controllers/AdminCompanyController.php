@@ -95,12 +95,14 @@ class AdminCompanyController extends Controller
     public function update(Request $request, $id)
     {
 
-        if($request->file('logo') != null){
-            $image = $request->file('logo');
+        // dd($request['logo'] = );
+        if($request->file('picture') != null){
+            $image = $request->file('picture');
 
             $imageFileName = time() . '.' . $image->getClientOriginalExtension();
 
             Storage::put('logos/' . $imageFileName , file_get_contents($image), 'public');
+        $request['logo'] = $imageFileName;
         }
         
 

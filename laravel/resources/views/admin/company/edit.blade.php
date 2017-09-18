@@ -121,8 +121,9 @@
 												<div class="form-group">
 													<label class="col-md-4 control-label">Company Logo</label>
 													<div class="col-md-8">
-														<input class="form-control" name="logo" type="file" >
+														<input class="form-control" name="picture" type="file" >
 													</div>
+													<input type="hidden" name="logo">
 												</div>
 
 											</div>
