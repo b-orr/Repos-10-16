@@ -205,10 +205,9 @@
 											</div>
 											
 											<div class="col-lg-6">
-												<label class="col-md-4 control-label">Company Name</label>
-												<div class="col-md-8">
-													<input class="form-control" name="company" type="text" value="{{$tenant->company}}">
-												</div>
+												<label class="col-md-2 control-label">Logo</label>
+												<div class="col-md-10">
+													@if($tenant->logo == "") <img src="{{ url('/assets/img/logo.png') }}" alt="SmartAdmin"> @else <img src="https://s3.amazonaws.com/pronovosrubixcube/logos/{{$tenant->logo}}" alt="SmartAdmin"> @endif												</div>
 											</div>
 												<button type="submit" class="hide" id="submitForm"></button>
 											</form>
