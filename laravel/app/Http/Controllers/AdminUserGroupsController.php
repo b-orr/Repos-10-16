@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UserGroups;
+use App\UserGroupsValues;
 use Illuminate\Http\Request;
 use App\Permissions;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +37,9 @@ class AdminUserGroupsController extends Controller
     public function index()
     {
  
-        $this->data['lists'] = $this->prm->getList();
+        $this->data['lists'] = $this->tenant->groups;
+
+         
         
         return view('admin/usergroups/list', $this->data);
     }
@@ -44,48 +48,76 @@ class AdminUserGroupsController extends Controller
 		public function store(Request $request)
     {
        $this->validate($request, [
-              'title' => 'required', 
               'name' => 'required',
-              'last_name' => 'required',
-              'email' => 'required|email|unique:users',
-              'password' => 'required',
-              
           ]);
         
-        $request->request->add(['parent_user_id' => $this->tenant->id]);
-       	User::create($request->all());      
-        return redirect('/admin/users');
+      	$group = $this->tenant->groups()->save(new UserGroups($request->all())); 
+
+        foreach ($request->values as $key => $value) {
+          foreach ($value as $key2 => $value2) {
+ 
+            $col['name']=$key2;
+            $col['value']=$value2;
+            $group->groupValues()->save(new UserGroupsValues( $col)); 
+          }  
+        }  
+        return redirect('/admin/user_groups');
+    }
+
+
+    public function create()
+    {
+
+       $this->data['lists'] = $this->prm->getList();
+       $this->data['prm'] = $this->prm;
+
+       return view('admin/usergroups/create', $this->data);
     }
 
     
-    public function edit($user)
+    public function edit($group)
     {
-        $this->data['list']=User::where('parent_user_id', $this->tenant->id)->where('id', $user)->first();
+
+        $this->data['lists'] = $this->prm->getList();
+        $this->data['prm'] = $this->prm;
+
+        $this->data['group']=$this->tenant->groups()->find($group);
         
-        $this->data['regions'] =  $this->tenant->regions;
-         if(!empty($this->data['list'])){
-         	return view('admin/users/edit', $this->data);
+        
+         if(!empty($this->data['group'])){
+         	return view('admin/usergroups/edit', $this->data);
          }else {
-         	return redirect('/admin/users');
+         	return redirect('/admin/user_groups');
          }
     }
 
     
-    public function update(Request $request, $user)
+    public function update(Request $request, $group)
     {
-        User::find($user)->update($request->all());
+         $this->validate($request, [
+              'name' => 'required',
+          ]);
         
-        return redirect('/admin/users');
+        $this->tenant->groups()->find($group)->update($request->all()); 
+
+        $this->tenant->groups()->find($group)->groupValues()->delete();
+        foreach ($request->values as $key => $value) {
+          foreach ($value as $key2 => $value2) {
+ 
+            $col['name']=$key2;
+            $col['value']=$value2;
+            $this->tenant->groups()->find($group)->groupValues()->save(new UserGroupsValues( $col)); 
+          }  
+        }  
+        return redirect('/admin/user_groups/' . $group . '/edit');
     }
 
      
-    public function destroy($user_id)
+    public function destroy($group)
     {
-        $user = User::where('parent_user_id', $this->tenant->id)->where('id', $user_id)->first();
+        $this->tenant->groups()->find($group)->delete();
         
-        $user->delete();
-        
-        return redirect('/admin/users');
+        return redirect('/admin/user_groups');
     }
     
 }

@@ -29,6 +29,18 @@ class Permissions
   		return $list;
    
   	}
+
+
+    public function translate($value)
+    {
+      if($value=='index')
+        return 'view';
+
+      if($value=='destroy')
+        return 'delete';
+
+      return $value;
+    }
   	
   	public function doIHaveAccess() {
   		return  \Request::route()->getName();

@@ -1,11 +1,11 @@
 @include('includes._header')
 @include('includes._menu_admin')
 
-<!-- MAIN PANEL -->
-		<div id="main" role="main">
+
+<div id="main" role="main">
 
 			<!-- RIBBON -->
-			<div id="ribbon" style="background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);">
+			<div id="ribbon">
 
 				<span class="ribbon-button-alignment"> 
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
@@ -15,7 +15,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li style="color: #4d4d4d;">Admin</li><li style="color: #4d4d4d;">User Groups</li>
+					<li>Admin</li><li>User Groups</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -34,18 +34,17 @@
 			<!-- END RIBBON -->
 
 			<!-- MAIN CONTENT -->
-			<div id="content">
-
-				
-				<!-- widget grid -->
+			<div id="content">				<!-- widget grid -->
 				<section id="widget-grid" class="">
 				
 					<!-- row -->
 					<div class="row no-margin">
-					<article class="col-sm-10 col-md-10 col-lg-6">
+				
+						<!-- NEW WIDGET START -->
+						<article class="col-xs-12 col-sm-6 col-md-6 col-lg-10 no-padding">
 				
 							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-blueDark"  id="wid-id-1"  data-widget-fullscreenbutton="false" data-widget-deletebutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-togglebutton="false">
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 				
@@ -61,7 +60,7 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Groups </h2>
+									<h2>User Groups</h2>
 				
 								</header>
 				
@@ -77,147 +76,93 @@
 				
 									<!-- widget content -->
 									<div class="widget-body no-padding">
-				
-										<form class="smart-form">
-											<fieldset>
-												<section>
-													<label class="select select-multiple">
-														<select multiple="">
-															<option value="1">Engineering Group</option>
-															<option value="2">Project Manager</option>
-														</select>
-													</label>
-												</section>
-											</fieldset>
-										</form>
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
-						</article>
-						<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2 pull-right">
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false">	
-								<header>
-									<h2 class="font-md">Actions</h2>
-								</header>	
-			
-								<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
-														
-									<div class="row col-lg-12" style="margin: 0px;">
-										<button class="btn btn-success form-control" data-target="#groupModal" data-toggle="modal">NEW GROUP</button>
-									</div>
-									<br>
-									<div class="row col-lg-12" style="margin: 0px;">
-										<button class="btn btn-success form-control" disabled="disabled">EDIT GROUP</button>
-									</div>
-								</div>
-							</div>
-						</article>
-						<!-- NEW WIDGET START -->
-						<article class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-colorbutton="false"  data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-
-								-->
-								<header>
-									<h2>Site Permission Preview </h2>
-									 
-				
-								</header>
-
-								<!-- widget div-->
-								<div>
-
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-
-									</div>
-									<!-- end widget edit box -->
-
-									<!-- widget content -->
-									<div class="widget-body">
-						 
-						 
-						 @foreach($lists AS $list=>$key)
-										<table class="table table-bordered" style="border-style: groove;border-width: 2px;">
-											<tbody>
+										
+										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+											<thead>			                
 												<tr>
-												<td id="switch-1" style="width: 8%;">
-													<span class="onoffswitch">
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" checked>
-														<label class="onoffswitch-label" for="{{ $list }}"> 
-												<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
-												<span class="onoffswitch-switch"></span> </label> 
-												</span></td>
-													<td>{{ $list }}</td>
+													<th data-hide="phone" colspan="2">User Groups</th>
+													<th data-hide="phone,tablet" style="width: 60px;">Action</th>	
+												</tr>
+												<tr>
+													<th data-hide="phone">Name</th>
+												 
+													<th data-hide="phone">Date Added</th>
+												 
+													<th></th>														
+												</tr>
+											</thead>
+											<tbody>
+											
+											@foreach($lists AS $list)
+												<tr>
+													<td>{{ $list->name }}</td>
+											 
+													<td>{{ date('m/d/Y', strtotime($list->updated_at ))}}</td>
+											 
+													<td><a href="{{ url('/admin/user_groups/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
+						
+													
+													<form action="{{ url('/admin/user_groups/' . $list->id) }}" method="POST"  style="display: inline;">
+													<a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o"></i></a>
+													    {{ method_field('DELETE') }}
+													    {{ csrf_field() }}
+													 
+													</form>
 													
 													
-													@if(!empty($key))
-													@foreach($key AS $k=>$v)
-													<td class="center_radio" style="width: 8%;">{{ ucfirst($k) }} <input type="checkbox" name="{{ $list }}" checked></td>
-												 @endforeach	
-													@endif	
+													 
 													
-													</tr>
+													</td>
+												</tr>
+									 @endforeach
 											</tbody>
 										</table>
-										 
-								@endforeach		
-										
-										<br>
-										 
-										 
+
 									</div>
 									<!-- end widget content -->
-
+				
 								</div>
 								<!-- end widget div -->
-
+				
 							</div>
 							<!-- end widget -->
-
+				
 						</article>
 
+								<article class="col-xs-12 col-sm-6 col-md-6 col-lg-2 pull-right">
+						<div class="jarviswidget jarviswidget-color-darken" id="wd-id-2" data-widget-editbutton="false"
+						data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-togglebutton="false"
+						data-widget-fullscreenbutton="false">
+						<header>
+							<h2 class="font-md">Actions</h2>
+						</header>
+							<div class="widget-body" style="display: flex;justify-content: center; flex-direction: column;">
+								<div class="row col-lg-12" style="margin:0px;">
+									<button class="btn btn-success form-control" onclick="window.location = '{{ url('admin/user_groups/create') }}'">NEW GROUP</button>
+								</div>
+						 
+							 
+							 
+							 
+							</div>
+						</div>
+						</article>
 
 						<!-- WIDGET END -->
-						
-					</div>
-				
+
 					<!-- end row -->
 				
 					<!-- end row -->
 				
 				</section>
-
-			</div>
+				 
 			<!-- END MAIN CONTENT -->
 
 		</div>
-		<!-- END MAIN PANEL -->
-
 
 @include('includes._footer')
 
-
-		<script>
+<script>
 			
 		$(document).ready(function() {
 			
@@ -273,10 +218,7 @@
 				});
 	
 			/* END BASIC */
-			$('#dt_basic_filter label').append('<a class="btn btn-default btn-primary" href="javascript:void(0);" data-toggle="modal" data-target="#groupModal"><i class="fa fa-plus"></i> Add Group</a>');
-	
-			/* END BASIC */
-			
+		 
 			/* COLUMN FILTER  */
 		    var otable = $('#datatable_fixed_column').DataTable({
 		    	//"bFilter": false,
@@ -323,7 +265,7 @@
 	    
 			/* COLUMN SHOW - HIDE */
 			$('#datatable_col_reorder').dataTable({
-				"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
+				"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-xs-3 asdasdasd'r><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
 						"t"+
 						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
 				"autoWidth" : true,
@@ -393,26 +335,16 @@
 			/* END TABLETOOLS */
 		
 		})
+ 
 
 		</script>
-
+		 
 
 		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-			_gaq.push(['_trackPageview']);
+		 
 
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		 
 
 	</body>
 
