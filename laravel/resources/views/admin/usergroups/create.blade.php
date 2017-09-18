@@ -36,10 +36,9 @@
 			<!-- MAIN CONTENT -->
 			<div id="content">
 
-			<form action="{{ url('/admin/user_groups/' . $group->id) }}" method="POST"  >
+			<form action="{{ url('/admin/user_groups/') }}" method="POST"  >
 				
 									    {{ csrf_field() }}	
-									    {{ method_field('PUT') }}
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
 				
@@ -92,7 +91,7 @@
 										</div>
 										<div class="col-md-8">
 											<div class="form-group">
-												<input type="text" name="name" class="form-control" required value="{{ $group->name }}" />
+												<input type="text" name="name" class="form-control" required />
 											</div>
 										</div>
 									</div>
@@ -116,7 +115,7 @@
 								<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
 														
 									<div class="row col-lg-12" style="margin: 0px;">
-										<button class="btn btn-success form-control"  type="submit">Update</button>
+										<button class="btn btn-success form-control"  type="submit">Create</button>
 									</div>
 								 
 								</div>
@@ -164,7 +163,7 @@
 
 
 						 
-						 <?php $level=''; $toggle=''; ?>
+						 <?php $level=''; ?>
 						 @foreach($lists AS $list=>$key)
 
 						 <?php $list_clean = explode(' - ', $list); ?>
@@ -190,51 +189,34 @@
 													
 													
 													@if(!empty($key))
-													<?php $full_checked=''; ?>
 													@foreach($key AS $k=>$v)
 													<td class="center_radio {{ str_replace(' ', '_', $list) }}" style="width: 8%;">{{ ucfirst( $prm->translate($k)) }} 
 
-
-														<?php
-														$checked='';
-														
-														 foreach ($group->groupValues as $key => $value) {
-															if($value->name==str_replace(' ', '_', $list).'_' . $k && $value->value==1){
-																$checked='checked';
-																$full_checked='checked';
-															}
-														} ?>
-
 														<input type="hidden"  name="values[name][{{ str_replace(' ', '_', $list).'_' . $k }}]" value="0">
-														<input type="checkbox" name="values[name][{{ str_replace(' ', '_', $list).'_' . $k }}]" value="1" {{$checked}}></td>
+														<input type="checkbox" name="values[name][{{ str_replace(' ', '_', $list).'_' . $k }}]" value="1" checked></td>
 												
 												 @endforeach	
 													@endif	
 														<td id="switch-1" style="width: 8%;">
 													<span class="onoffswitch">
 
+
+
 														@if(!empty($key))
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" {{$full_checked}}  onchange="$('.{{ str_replace(' ', '_', $list) }}').find(':checkbox').toggleCheckbox(); $('.{{ str_replace(' ', '_', $list) }}').toggle()">
+														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" checked onchange="$('.{{ str_replace(' ', '_', $list) }}').find(':checkbox').toggleCheckbox(); $('.{{ str_replace(' ', '_', $list) }}').toggle()">
 														@else
 
-														<?php
-														$checked='';
-														
-														 foreach ($group->groupValues as $key => $value) {
-															if($value->name==str_replace(' ', '_', $list) && $value->value==1){
-																$checked='checked';
-																 
-															}
-														} ?>
+														 
 
 														<input type="hidden"  name="values[name][{{ str_replace(' ', '_', $list) }}]" value="0">
-														<input type="checkbox" name="values[name][{{ str_replace(' ', '_', $list) }}]" class="onoffswitch-checkbox" value="1" id="{{ $list }}" {{$checked}} >
+														<input type="checkbox" name="values[name][{{ str_replace(' ', '_', $list) }}]" class="onoffswitch-checkbox" value="1" id="{{ $list }}" checked >
 														@endif	
 
-														@if($full_checked=='')
-														<?php $toggle.='<script type="text/javascript">$(\'.'.  str_replace(' ', '_', $list) .'\').toggle()</script>';  ?>
-															
-														@endif
+
+
+
+
+
 														<label class="onoffswitch-label" for="{{ $list }}"> 
 												<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
 												<span class="onoffswitch-switch"></span> </label> 
@@ -476,13 +458,14 @@
 				s.parentNode.insertBefore(ga, s);
 			})();
 
+
 			$.fn.toggleCheckbox = function() {
 			    this.attr('checked', !this.attr('checked'));
 			    this.trigger('change');
 			}
+
 		</script>
-{!!$toggle!!}
+
 	</body>
- 
 
 </html>

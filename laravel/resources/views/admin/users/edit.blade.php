@@ -144,9 +144,12 @@
 																				<div class="col-md-6">
 																					<div class="form-group" style="border-style: groove; border-width: 2px;">
 																						<ul class="checkbox"> 
-																							<li>
-																								<input type="checkbox" id="cb7" value="Admin" /><label for="cb7">Admin</label>
-																							</li> 
+					<li>
+						@foreach($tenant->groups as $val) 
+						<input type="radio" id="group_{{ $val->id }}" name="group_id" value="{{ $val->id }}" {{ $list->group_id==$val->id?'checked':'' }} />
+						<label for="group_{{ $val->id }}">{{ $val->name }}</label>
+						@endforeach
+					</li> 
 																							 
 																						</ul> 
 																					</div>
