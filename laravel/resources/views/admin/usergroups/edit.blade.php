@@ -212,7 +212,24 @@
 													@endif	
 														<td id="switch-1" style="width: 8%;">
 													<span class="onoffswitch">
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" {{$full_checked}} onchange="$('.{{ str_replace(' ', '_', $list) }}').toggle()">
+
+														@if(!empty($key))
+														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" {{$full_checked}}  onchange="$('.{{ str_replace(' ', '_', $list) }}').find(':checkbox').toggleCheckbox(); $('.{{ str_replace(' ', '_', $list) }}').toggle()">
+														@else
+
+														<?php
+														$checked='';
+														
+														 foreach ($group->groupValues as $key => $value) {
+															if($value->name==str_replace(' ', '_', $list) && $value->value==1){
+																$checked='checked';
+																 
+															}
+														} ?>
+
+														<input type="hidden"  name="values[name][{{ str_replace(' ', '_', $list) }}]" value="0">
+														<input type="checkbox" name="values[name][{{ str_replace(' ', '_', $list) }}]" class="onoffswitch-checkbox" value="1" id="{{ $list }}" {{$checked}} >
+														@endif	
 
 														@if($full_checked=='')
 														<?php $toggle.='<script type="text/javascript">$(\'.'.  str_replace(' ', '_', $list) .'\').toggle()</script>';  ?>
@@ -459,6 +476,10 @@
 				s.parentNode.insertBefore(ga, s);
 			})();
 
+			$.fn.toggleCheckbox = function() {
+			    this.attr('checked', !this.attr('checked'));
+			    this.trigger('change');
+			}
 		</script>
 {!!$toggle!!}
 	</body>

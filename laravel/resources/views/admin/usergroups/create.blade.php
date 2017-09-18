@@ -199,7 +199,24 @@
 													@endif	
 														<td id="switch-1" style="width: 8%;">
 													<span class="onoffswitch">
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" checked onchange="$('.{{ str_replace(' ', '_', $list) }}').toggle()">
+
+
+
+														@if(!empty($key))
+														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" checked onchange="$('.{{ str_replace(' ', '_', $list) }}').find(':checkbox').toggleCheckbox(); $('.{{ str_replace(' ', '_', $list) }}').toggle()">
+														@else
+
+														 
+
+														<input type="hidden"  name="values[name][{{ str_replace(' ', '_', $list) }}]" value="0">
+														<input type="checkbox" name="values[name][{{ str_replace(' ', '_', $list) }}]" class="onoffswitch-checkbox" value="1" id="{{ $list }}" checked >
+														@endif	
+
+
+
+
+
+
 														<label class="onoffswitch-label" for="{{ $list }}"> 
 												<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
 												<span class="onoffswitch-switch"></span> </label> 
@@ -440,6 +457,12 @@
 				var s = document.getElementsByTagName('script')[0];
 				s.parentNode.insertBefore(ga, s);
 			})();
+
+
+			$.fn.toggleCheckbox = function() {
+			    this.attr('checked', !this.attr('checked'));
+			    this.trigger('change');
+			}
 
 		</script>
 

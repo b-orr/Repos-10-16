@@ -115,6 +115,7 @@ class AdminUserGroupsController extends Controller
      
     public function destroy($group)
     {
+        $this->tenant->groups()->find($group)->groupValues()->delete();
         $this->tenant->groups()->find($group)->delete();
         
         return redirect('/admin/user_groups');
