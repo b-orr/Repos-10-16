@@ -26,9 +26,9 @@ class Fields extends Model
 		public $placeholder_order=0;
 		
     public function user()
-		{
-		   return $this->belongsTo('App\User');
-		}
+	{
+	   return $this->belongsTo('App\User');
+	}
 
     public function fieldValues()
     {

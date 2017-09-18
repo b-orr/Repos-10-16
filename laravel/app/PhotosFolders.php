@@ -15,4 +15,7 @@ class PhotosFolders extends Model
   {
       return $this->hasMany('App\PhotosSubFolders', 'folder_id');
   }
+  public function project(){
+      return $this->belongsTo('App\Projects', 'project_id');
+  }
 }

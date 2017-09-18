@@ -108,6 +108,10 @@ class Projects extends Model
         return $this->hasMany('App\AddedClients', 'pj_project_id');
 
     }
+    
+    public function photosFolders(){
+        return $this->hasMany('App\PhotosFolders', 'project_id');
+    }
      
     public function transferEquipment()
     {

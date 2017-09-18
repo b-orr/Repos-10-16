@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\PhotosFolders;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\PhotosSubFolders;
 use Illuminate\Http\Request;
 
@@ -13,10 +15,23 @@ class PhotosFolderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public $data;
+    public $user;
+    public $tenant;
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:super,tenant');
+        $this->middleware(function ($request, $next) {
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
+                    return $next($request);
+            });
+     
+    }
+    public function index($id)
     {   
-        $this->data['folders'] = PhotosFolders::with('subfolders')->get();
-      //  dd($this->data['folders']->subfolders);
+        
         return view('project.photos.photos', $this->data);
     }
 

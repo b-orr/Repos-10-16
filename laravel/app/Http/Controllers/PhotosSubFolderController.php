@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\PhotosFolders;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\PhotosSubFolders;
 use Illuminate\Http\Request;
 
@@ -13,6 +15,20 @@ class PhotosSubFolderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $data;
+    public $user;
+    public $tenant;
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:super,tenant');
+        $this->middleware(function ($request, $next) {
+                    $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
+                    $this->data['user'] = $this->user= Auth::user();
+                    return $next($request);
+            });
+     
+    }
     public function index()
     {
         $this->data['folders'] = PhotosFolders::with('subfolders')->get();
@@ -20,14 +36,14 @@ class PhotosSubFolderController extends Controller
         // dd($this->data['folders']);
         return view('project.photos.photos', $this->data);
     }
-    public function findSubfolder(Request $request){
+    public function findSubfolder($project_id){
+        $id = $_GET['id'];
+        //dd($id);
+        $this->data['subcategories'] = $this->tenant->projects()->find($project_id)->photosFolders()->where('id', $id)->with('subfolders')->get();
+        
 
-
-        //if our chosen id and products table prod_cat_id col match the get first 100 data 
-
-        //$request->id here is the id of our chosen option id
-        $data=PhotosSubFolder::select('productname','id')->where('prod_cat_id',$request->id)->take(100)->get();
-        return response()->json($data);//then sent this data to ajax success
+        
+        return response()->json($this->data);//then sent this data to ajax success
     }
 
     /**
