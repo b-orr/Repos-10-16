@@ -67,15 +67,20 @@ class TruckingController extends Controller
 
         $trucking = $this->tenant->projects->find($id)->truckings()->save(new Truckings($request->all()));
 
-        foreach ($request->equipment as $key => $e) {
+        if(isset($request->equipment)){
+            foreach ($request->equipment as $key => $e) {
             $truckingData = new TruckingEquipment();
             $truckingData->equipment_id = $e['equipment_id'];
             $truckingData->truck_id = $trucking->id;
+            $truckingData->project_id = $id;
+            $truckingData->name = $e['name'];
+            $truckingData->weight = $e['weight'];
             $truckingData->quantity = $e['quantity'];
             $truckingData->total_weight = $e['total_weight'];
             $truckingData->save();
+            }
         }
-
+        
         return redirect('project/'.$id.'/equipment');
     }
 
@@ -123,18 +128,39 @@ class TruckingController extends Controller
 
             $truck = $this->tenant->projects->find($id)->truckings()->with('equipment', 'equipment.regionEquipment')->find($truckingId);
             foreach ($truck->equipment as $key => $e) {
-                $invData = new Inventory();
-                $invData->equipment_id = $e['equipment_id'];
-                $invData->quantity = $e['quantity'];
-                $invData->project_id = $id;
-                $invData->reason = "Need";
-                $invData->owner = 1;
-                $invData->manager = 1;
-                $invData->purchased_from = 0;
-                $invData->purchase_price = 0;
-                $invData->company_id_number = 0;
-                $invData->sub_category_id = $e->regionEquipment->sub_category_id;
-                $invData->save();
+                if($e->equipment_id != 0){
+                    $invData = new Inventory();
+                    $invData->equipment_id = $e['equipment_id'];
+                    $invData->name = $e['name'];
+                    $invData->quantity = $e['quantity'];
+                    $invData->weight = $e['weight'];
+                    $invData->project_id = $id;
+                    $invData->reason = "Need";
+                    $invData->owner = 1;
+                    $invData->manager = 1;
+                    $invData->purchased_from = 0;
+                    $invData->purchase_price = 0;
+                    $invData->company_id_number = 0;
+                    $invData->sub_category_id = $e->regionEquipment->sub_category_id;
+                    $invData->save();
+                }
+                else {
+                    $invData = new Inventory();
+                    $invData->equipment_id = 0;
+                    $invData->name = $e['name'];
+                    $invData->quantity = $e['quantity'];
+                    $invData->weight = $e['weight'];
+                    $invData->project_id = $id;
+                    $invData->reason = "Need";
+                    $invData->owner = 1;
+                    $invData->manager = 1;
+                    $invData->purchased_from = 0;
+                    $invData->purchase_price = 0;
+                    $invData->company_id_number = 0;
+                    $invData->sub_category_id = 0;
+                    $invData->save();
+                }
+                
             }
 
         }

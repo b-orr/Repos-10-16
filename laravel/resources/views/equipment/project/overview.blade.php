@@ -203,48 +203,7 @@
 																<td style="width:40px !important;"></td>
 																<td style="width:15px !important;"></td>
 															</tr>
-												<?php 
-															$count1 = 1;
-															$num1 = 1;?>
-															@foreach($c->subcategories as $key1 => $s)
-																<tr class="hide first-child-<?php echo $num; ?> fchild">
-																	<td style="width:10px !important; padding-left: 20px;">
-																		<button class="button btn btn-success btn-xs btn-circle" style="height: 18px; width: 18px; padding-top: 0px;" data_id="<?php echo $num1;?>" parent_data_id="<?php echo $num;?>" data_level="2">
-																			<i class="fa fa-plus level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
-																			<i class="fa fa-minus hide level_2_<?php echo$num; ?>_<?php echo$num1 ?>"></i>
-																		</button> 
-																	<span class="description-name">{{$s->name}}</span>
-																	</td>
-																	<td style="width:50px !important;" ></td>
-																	<td style="width:60px !important;" ></td>
-																	<td style="width:40px !important;" ></td>
-																	<td style="width:40px !important;" ></td>
-																	<td style="width:15px !important;" ></td>
-																	<td style="width:15px !important;"></td>
-																</tr>
-												<?php 
-															$count2 = 1;
-															$num2 = 1;?>
-															@foreach($s->inventory as $key2 => $i)
-																<tr class="hide second-child-<?php echo $num; ?>-<?php echo $num1; ?> second-child-<?php echo $num; ?>" data_main_parent="<?php echo $num; ?>">
-																	<td style="width:10px !important; padding-left: 40px;">
-																		{{$i->equipment->name}}
-																	</td>
-																	<td style="width:60px !important;" ></td>
-																	<td style="width:15px !important;"></td>
-																	<td style="width:15px !important;"></td>
-																	<td style="width:40px !important;" ></td>
-																	<td style="width:15px !important;" ></td>
-																	<td style="width:15px !important;"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></td>
-																</tr>
-
-															<?php $count2++;?>
-															@endforeach
-														
-
-															<?php $count1++;
-																$num1++;?>
-																@endforeach
+												
 
 														<?php
 														$num++;

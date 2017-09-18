@@ -29,10 +29,10 @@ class RegionUpdate extends Migration
     public function down()
     {
         Schema::table('regions', function($table) {
-            $table->string('address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('phone');
+            $table->dropColumn('address');
+            $table->dropColumn('city');
+            $table->dropColumn('state');
+            $table->dropColumn('phone');
         });
     }
 }

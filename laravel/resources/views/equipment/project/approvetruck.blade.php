@@ -334,6 +334,7 @@
 														<td></td>
 													</tr>
 													@foreach($truck->equipment as $key => $e)
+														@if($e->equipment_id != 0)
 														<tr>
 															<td></td>
 															<td>{{$e->regionEquipment->name}}</td>
@@ -343,6 +344,17 @@
 															<td></td>
 															<td>{{$e->total_weight}}</td>
 														</tr>
+														@else
+														<tr>
+															<td></td>
+															<td>{{$e->name}}</td>
+															<td>{{$e->quantity}}</td>
+															<td></td>
+															<td>{{$e->weight}}</td>
+															<td></td>
+															<td>{{$e->total_weight}}</td>
+														</tr>
+														@endif
 													@endforeach
 												</tbody>
 											</table>
