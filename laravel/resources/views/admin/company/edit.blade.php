@@ -112,6 +112,82 @@
 													</div>
 												</div>
 												<div class="form-group">
+													<label class="col-md-4 control-label">City</label>
+													<div class="col-md-8">
+														<input class="form-control" name="city" type="text" value="{{$tenant->city}}">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-4 control-label">State</label>
+													<div class="col-md-4">
+														<select name="state" class="form-control">
+						                                    <option value="AL" @if($tenant->state == "AL") selected="true" @endif>AL</option>
+						                                    <option value="AK" @if($tenant->state == "AK") selected="true" @endif>AK</option>
+						                                    <option value="AS" @if($tenant->state == "AS") selected="true" @endif>AS</option>
+						                                    <option value="AZ" @if($tenant->state == "AZ") selected="true" @endif>AZ</option>
+						                                    <option value="AR" @if($tenant->state == "AR") selected="true" @endif>AR</option>
+						                                    <option value="CA" @if($tenant->state == "CA") selected="true" @endif>CA</option>
+						                                    <option value="CO" @if($tenant->state == "CO") selected="true" @endif>CO</option>
+						                                    <option value="CT" @if($tenant->state == "CT") selected="true" @endif>CT</option>
+						                                    <option value="DE" @if($tenant->state == "DE") selected="true" @endif>DE</option>
+						                                    <option value="DC" @if($tenant->state == "DC") selected="true" @endif>DC</option>
+						                                    <option value="FL" @if($tenant->state == "FL") selected="true" @endif>FL</option>
+						                                    <option value="GA" @if($tenant->state == "GA") selected="true" @endif>GA</option>
+						                                    <option value="GU" @if($tenant->state == "GU") selected="true" @endif>GU</option>
+						                                    <option value="HI" @if($tenant->state == "HI") selected="true" @endif>HI</option>
+						                                    <option value="ID" @if($tenant->state == "ID") selected="true" @endif>ID</option>
+						                                    <option value="IL" @if($tenant->state == "IL") selected="true" @endif>IL</option>
+						                                    <option value="IN" @if($tenant->state == "IN") selected="true" @endif>IN</option>
+						                                    <option value="IA" @if($tenant->state == "IA") selected="true" @endif>IA</option>
+						                                    <option value="KS" @if($tenant->state == "KS") selected="true" @endif>KS</option>
+						                                    <option value="KY" @if($tenant->state == "KY") selected="true" @endif>KY</option>
+						                                    <option value="LA" @if($tenant->state == "LA") selected="true" @endif>LA</option>
+						                                    <option value="ME" @if($tenant->state == "ME") selected="true" @endif>ME</option>
+						                                    <option value="MD" @if($tenant->state == "MD") selected="true" @endif>MD</option>
+						                                    <option value="MH" @if($tenant->state == "MH") selected="true" @endif>MH</option>
+						                                    <option value="MA" @if($tenant->state == "MA") selected="true" @endif>MA</option>
+						                                    <option value="MI" @if($tenant->state == "MI") selected="true" @endif>MI</option>
+						                                    <option value="FM" @if($tenant->state == "FM") selected="true" @endif>FM</option>
+						                                    <option value="MN" @if($tenant->state == "MN") selected="true" @endif>MN</option>
+						                                    <option value="MS" @if($tenant->state == "MS") selected="true" @endif>MS</option>
+						                                    <option value="MO" @if($tenant->state == "MO") selected="true" @endif>MO</option>
+						                                    <option value="MT" @if($tenant->state == "MT") selected="true" @endif>MT</option>
+						                                    <option value="NE" @if($tenant->state == "NE") selected="true" @endif>NE</option>
+						                                    <option value="NV" @if($tenant->state == "NV") selected="true" @endif>NV</option>
+						                                    <option value="NH" @if($tenant->state == "NH") selected="true" @endif>NH</option>
+						                                    <option value="NJ" @if($tenant->state == "NJ") selected="true" @endif>NJ</option>
+						                                    <option value="NM" @if($tenant->state == "NM") selected="true" @endif>NM</option>
+						                                    <option value="NY" @if($tenant->state == "NY") selected="true" @endif>NY</option>
+						                                    <option value="NC" @if($tenant->state == "NC") selected="true" @endif>NC</option>
+						                                    <option value="ND" @if($tenant->state == "ND") selected="true" @endif>ND</option>
+						                                    <option value="MP" @if($tenant->state == "MP") selected="true" @endif>MP</option>
+						                                    <option value="OH" @if($tenant->state == "OH") selected="true" @endif>OH</option>
+						                                    <option value="OK" @if($tenant->state == "OK") selected="true" @endif>OK</option>
+						                                    <option value="OR" @if($tenant->state == "OR") selected="true" @endif>OR</option>
+						                                    <option value="PW" @if($tenant->state == "PW") selected="true" @endif>PW</option>
+						                                    <option value="PA" @if($tenant->state == "PA") selected="true" @endif>PA</option>
+						                                    <option value="PR" @if($tenant->state == "PR") selected="true" @endif>PR</option>
+						                                    <option value="RI" @if($tenant->state == "RI") selected="true" @endif>RI</option>
+						                                    <option value="SC" @if($tenant->state == "SC") selected="true" @endif>SC</option>
+						                                    <option value="SD" @if($tenant->state == "SD") selected="true" @endif>SD</option>
+						                                    <option value="TN" @if($tenant->state == "TN") selected="true" @endif>TN</option>
+						                                    <option value="TX" @if($tenant->state == "TX") selected="true" @endif>TX</option>
+						                                    <option value="UT" @if($tenant->state == "UT") selected="true" @endif>UT</option>
+						                                    <option value="VT" @if($tenant->state == "VT") selected="true" @endif>VT</option>
+						                                    <option value="VA" @if($tenant->state == "VA") selected="true" @endif>VA</option>
+						                                    <option value="VI" @if($tenant->state == "VI") selected="true" @endif>VI</option>
+						                                    <option value="WA" @if($tenant->state == "WA") selected="true" @endif>WA</option>
+						                                    <option value="WV" @if($tenant->state == "WV") selected="true" @endif>WV</option>
+						                                    <option value="WI" @if($tenant->state == "WI") selected="true" @endif>WI</option>
+						                                    <option value="WY" @if($tenant->state == "WY") selected="true" @endif>WY</option>
+						                                </select>
+													</div>
+													<label class="col-md-1 control-label">ZIP</label>
+													<div class="col-md-3">
+														<input class="form-control" name="zip" type="text" value="{{$tenant->zip}}">
+													</div>
+												</div>
+												<div class="form-group">
 													<label class="col-md-4 control-label">EIN</label>
 													<div class="col-md-8">
 														<input class="form-control" id="ein" name="ein" type="text" value="{{$tenant->ein}}">
@@ -127,7 +203,13 @@
 												</div>
 
 											</div>
-												
+											
+											<div class="col-lg-6">
+												<label class="col-md-4 control-label">Company Name</label>
+												<div class="col-md-8">
+													<input class="form-control" name="company" type="text" value="{{$tenant->company}}">
+												</div>
+											</div>
 												<button type="submit" class="hide" id="submitForm"></button>
 											</form>
 											<!-- end main page content -->
