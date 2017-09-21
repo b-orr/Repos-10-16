@@ -188,6 +188,12 @@
 													</div>
 												</div>
 												<div class="form-group">
+													<label class="col-md-4 control-label">Phone</label>
+													<div class="col-md-8">
+														<input class="form-control" id="phone" name="phone1" type="text" value="{{$tenant->phone1}}">
+													</div>
+												</div>
+												<div class="form-group">
 													<label class="col-md-4 control-label">EIN</label>
 													<div class="col-md-8">
 														<input class="form-control" id="ein" name="ein" type="text" value="{{$tenant->ein}}">
