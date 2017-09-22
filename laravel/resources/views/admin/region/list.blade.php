@@ -219,16 +219,9 @@
 									<div class="col-md-7">
 										<div class="form-group">
 											<select name="state" id="" class="form-control location" style="">
-	                                           	<option style="">[Select One]</option>
-	                                           	<option style="color: rgb(0, 0, 0);">CA</option>
-	                                           	<option style="color: rgb(0, 0, 0);">CO</option>
-	                                           	<option style="color: rgb(0, 0, 0);">HI</option>
-	                                           	<option style="color: rgb(0, 0, 0);">NCA</option>
-	                                           	<option style="color: rgb(0, 0, 0);">NV</option>
-	                                           	<option style="color: rgb(0, 0, 0);">OR</option>
-	                                           	<option style="color: rgb(0, 0, 0);">SCA</option>
-	                                           	<option style="color: rgb(0, 0, 0);">TX</option>
-	                                           	<option style="color: rgb(0, 0, 0);">WA</option>
+	                                           	@foreach($states as $key => $s)
+													<option value="{{$s->abbrv}}">{{$s->abbrv}}</option>
+												@endforeach
                                             </select>
 										</div>
 									</div>

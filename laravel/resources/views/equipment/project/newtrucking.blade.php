@@ -435,6 +435,7 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				pageSetUp();
+
 			    "use strict";
 
 			    $('#addEquipmentToTransfer').on('click', function() {

@@ -10,6 +10,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Intervention\Image\Image;
 use File;
 use Storage;
+use App\States;
 
 class AdminCompanyController extends Controller
 {
@@ -39,6 +40,7 @@ class AdminCompanyController extends Controller
      */
     public function index()
     {
+        $this->data['states'] = States::get();
         return view('admin.company.edit', $this->data);
     }
 

@@ -100,17 +100,9 @@
 																					<div class="form-group">
 																						<label class="input" style="font-weight: bold;">State</label>
 																						 <select name="state" id="" class="form-control location" style="">
-												                                           	<option  style="">[Select One]</option>
-												                                           	<option {{ $region->state=='CA'?'selected':'' }}  style="color: rgb(0, 0, 0);">CA</option>
-												                                           	<option {{ $region->state=='CO'?'selected':'' }}   style="color: rgb(0, 0, 0);">CO</option>
-												                                           	<option {{ $region->state=='HI'?'selected':'' }}   style="color: rgb(0, 0, 0);">HI</option>
-												                                           	<option {{ $region->state=='NCA'?'selected':'' }}   style="color: rgb(0, 0, 0);">NCA</option>
-												                                           	<option {{ $region->state=='NV'?'selected':'' }}   style="color: rgb(0, 0, 0);">NV</option>
-												                                           	<option {{ $region->state=='OR'?'selected':'' }}  style="color: rgb(0, 0, 0);">OR</option>
-												                                           	<option {{ $region->state=='SCA'?'selected':'' }}   style="color: rgb(0, 0, 0);">SCA</option>
-												                                           	<option {{ $region->state=='TX'?'selected':'' }}   style="color: rgb(0, 0, 0);">TX</option>
-												                                           	<option {{ $region->state=='WA'?'selected':'' }}   style="color: rgb(0, 0, 0);">WA</option>
-												                                           
+																						 @foreach($states as $key => $s)
+																						 	<option {{ $region->state == $s->abbrv?'selected':'' }}  style="color: rgb(0, 0, 0);">{{$s->abbrv}}</option>
+																						 @endforeach
 												                                        </select>
 																					</div>
 																				</div>

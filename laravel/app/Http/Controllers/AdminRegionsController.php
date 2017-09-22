@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Regions;
+use App\States;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,6 +33,7 @@ class AdminRegionsController extends Controller
     
     public function index()
     {
+        $this->data['states'] = States::get();
         $this->data['lists'] = $this->tenant->regions;
         return view('admin/region/list', $this->data);
     }
@@ -49,6 +51,8 @@ class AdminRegionsController extends Controller
     
     public function edit($regions)
     {
+        
+        $this->data['states'] = States::get();
         $this->data['region']=$this->tenant->regions()->find($regions);
         
          if(!empty($this->data['region'])){
