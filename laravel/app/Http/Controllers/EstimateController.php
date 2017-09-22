@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Projects;
 use App\Persons;
+use App\States;
 
 class EstimateController extends Controller
 {
@@ -45,7 +46,9 @@ class EstimateController extends Controller
    	
    	 $this->get_Crew();
 
-     
+     $this->data['states'] = States::get();
+
+          
    	 
     return view('estimate.create', $this->data);
    }
@@ -80,7 +83,7 @@ class EstimateController extends Controller
        $this->data['project'] = $this->tenant->projects->find($id);
        
        
-
+       $this->data['states'] = States::get();
               
 
 
@@ -100,7 +103,7 @@ class EstimateController extends Controller
 		
        $this->data['project'] = $this->tenant->projects->find($id);
 
- 
+       $this->data['states'] = States::get(); 
       
 
 
