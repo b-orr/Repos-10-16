@@ -179,6 +179,9 @@
 																							<li>
 																								<input type="radio" name="role" id="cb21" {{ $list->role=="Superintendent"?'checked':'' }} value="Superintendent" /><label for="cb21">Superintendent</label>
 																							</li>
+																							<li>
+																								<input type="radio" name="role" id="cb22" {{ $list->role=="Safety"?'checked':'' }} value="Safety" /><label for="cb22">Safety</label>
+																							</li>
 																						</ul> 
 																					</div>
 																				</div>

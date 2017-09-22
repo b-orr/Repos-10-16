@@ -188,7 +188,7 @@
 								<button type="button" class="close txt-color-white" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h3 class="modal-title" id="myModalLabel">USER DETAILS</h3>
+								<h3 class="modal-title" id="myModalLabel">User Details</h3>
 							</div>
 							<div class="modal-body">
 							
@@ -311,6 +311,9 @@
 											</li>
 											<li>
 												<input type="radio" name="role" id="cb21" value="Superintendent" /><label for="cb21">Superintendent</label>
+											</li>
+											<li>
+												<input type="radio" name="role" id="cb22" value="Safety" /><label for="cb22">Safety</label>
 											</li>
 										</ul> 
 									</div>
