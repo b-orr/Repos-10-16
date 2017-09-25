@@ -13,7 +13,10 @@ class RemoveMultipleRegionCompany extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('con_companies', function($table) {
+                  $table->dropColumn('multiple_region');
+            
+            });
     }
 
     /**

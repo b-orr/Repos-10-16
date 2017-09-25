@@ -273,18 +273,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-5 col-md-offset-1">
-										<div class="form-group">
-											<h4><b>Multiple Region:</b></h4>
-										</div>
-									</div>
-									<div class="col-md-5">
-										<div class="form-group">
-											<input style="position:relative;left: -45%" type="checkbox" class="form-control" name="multiple_region" value="1"/>
-										</div>
-									</div>
-								</div>
+								
 								<br>
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:

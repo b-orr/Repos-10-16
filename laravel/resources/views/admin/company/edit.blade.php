@@ -147,7 +147,7 @@
 													<label class="col-md-4 control-label">Multiple Region</label>
 													<div class="col-md-8">
 														<input type="hidden" value="0" name="multiple_region">
-															<input style="position:relative;left: -47%" type="checkbox" value="1" class="form-control" name="multiple_region" @if($tenant->multiple_region == '1') checked @endif/>
+														<input style="position:relative;left: -47%" type="checkbox" value="1" class="form-control" name="multiple_region" @if($tenant->multiple_region == '1') checked @endif/>
 													</div>
 												</div>
 												<div class="form-group">
