@@ -143,6 +143,16 @@
 																						<input type="text" name="email" value="{{ $user->email }}" readonly class="form-control">
 																					</div>
 																				</div>
+																				<div class="col-md-6">
+																					<div class="form-group">
+																						<label class="col-md-4 control-label" style="position:relative;font-weight: bold;top:5px;">Multiple Region</label>
+																						<div class="col-md-2">
+																							<input type="hidden" value="0" name="multiple_region">
+																							<input type="checkbox" value="1" class="form-control" name="multiple_region" @if($user->multiple_region == '1') checked @endif/>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="col-md-6"></div>
 																		 
 																			<!--	<div class="col-md-6">
 																					<div class="form-group">
