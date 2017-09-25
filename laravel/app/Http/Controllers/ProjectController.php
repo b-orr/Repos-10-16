@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Projects;
+use App\States;
 
 class ProjectController extends Controller
 {
@@ -42,6 +43,8 @@ class ProjectController extends Controller
     {
     	
        $this->get_crew();
+       $this->data['states'] = States::get();
+
     	 
        return view('project.create', $this->data);
     }
@@ -79,6 +82,8 @@ class ProjectController extends Controller
 		
 		
         $this->data['project'] = $this->tenant->projects->find($id);
+        $this->data['states'] = States::get();
+
           
         return view('project.edit', $this->data);
     }

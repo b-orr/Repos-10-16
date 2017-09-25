@@ -212,7 +212,7 @@
                                 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <strong>Bidding Use:  </strong>
+                                        <strong>Building Use:  </strong>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
