@@ -237,15 +237,15 @@
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="col-md-6 control-label" style="position:relative;font-weight: bold;top:5px;">Multiple Region</label>
-										<div class="col-md-6">
-											<input type="hidden" value="0" name="multiple_region">
-											<input type="checkbox" value="1" class="form-control" name="multiple_region"/>
-										</div>
+										<label class="input" style="font-weight: bold">Multiple Region</label>
+										<input type="hidden" value="0" name="multiple_region">
+										<input type="checkbox" value="1" style="text-align:left" class="form-control" name="multiple_region"/>
+										
 									</div>
 								</div>
 								<div class="col-md-6"></div>
-						 
+
+						 	</div>
 							<div>
 								<strong>
 									<legend>Modules</legend>

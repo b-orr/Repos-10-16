@@ -52,7 +52,8 @@ class AdminUsersController extends Controller
           ]);
         
         $request->request->add(['parent_user_id' => $this->tenant->id]);
-       	User::create($request->all());      
+       	User::create($request->all());
+
         return redirect('/admin/users');
     }
 
