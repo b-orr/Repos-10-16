@@ -14,7 +14,8 @@ class EstimateController extends Controller
     public $data;
     public $user;
     public $tenant;
-        
+
+            
     public function __construct()
     {
         $this->middleware('auth');
@@ -61,9 +62,9 @@ class EstimateController extends Controller
        $this->validate($request, [ 'name' => 'required',
        														 'bid_date' => 'required',
        														 'bid_time' => 'required',
-       														 'start_date' => 'required',
+       														 'start_date' => 'required'
        														 //'duration_start' => 'required', // iskomentirano, javuvase greska
-       														 'bid_username' => 'required'
+       														 //'bid_username' => 'required'
                                    ]);
 
 

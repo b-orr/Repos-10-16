@@ -491,12 +491,12 @@
                                  <div class="row">
                                      <div class="col-md-3">
                                          <div class="form-group">
-                                             <strong>Username: <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                             <strong>Username: </strong>
                                          </div>
                                      </div>
                                      <div class="col-md-3">
                                          <div class="form-group">
-                                             <input type="text" class="form-control" name="bid_username" value="{{ $project->bid_username }}"  required />
+                                             <input type="text" class="form-control" name="bid_username" value="{{ $project->bid_username }}"  />
                                          </div>
                                      </div>
                                      <div class="col-md-3">

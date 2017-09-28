@@ -489,12 +489,12 @@
                                  <div class="row">
                                      <div class="col-md-3">
                                          <div class="form-group">
-                                             <strong>Username: <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                             <strong>Username: </strong>
                                          </div>
                                      </div>
                                      <div class="col-md-3">
                                          <div class="form-group">
-                                             <input type="text" class="form-control" name="bid_username" value=""  required />
+                                             <input type="text" class="form-control" name="bid_username" value=""  >
                                          </div>
                                      </div>
                                      <div class="col-md-3">
@@ -757,11 +757,13 @@
                 function count_weeks() {
                       var one_week = 1000*60*60*24*7;
                         
-                        var start_date = $('#str_date').datepicker({ dateFormat: 'mm-dd-yyyy' }).val();
-                        var est_date = $('#est_date').datepicker({ dateFormat: 'mm-dd-yyyy' }).val();
+                        var start_date = $('#str_date').datepicker({ dateFormat: 'dd-mm-yyyy' }).val();
+                        var est_date = $('#est_date').datepicker({ dateFormat: 'dd-mm-yyyy' }).val();
+                        
                         
                         var dateAr1 = start_date.split('/');
                         var dateAr2 = est_date.split('/');
+                        
                         
                         var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[1] + '-' + dateAr1[0]).getTime();
                         var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[1] + '-' + dateAr2[0]).getTime();
@@ -814,6 +816,8 @@
                     "paging": false,
                     "searching": false
                 });
+
+                $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
         
                 /* END BASIC */
         

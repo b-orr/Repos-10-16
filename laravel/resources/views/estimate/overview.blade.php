@@ -107,7 +107,7 @@
                                    </div>
                                    <div class="col-md-3">
                                     <div class="form-group">
-                                       {{ date('d/m/Y', strtotime($project->bid_date)) }}
+                                       {{ date('m/d/Y', strtotime($project->bid_date)) }}
                                        </div>
                                    </div>
                                    
@@ -266,7 +266,7 @@
                                 <div class="col-md-3">
                                 
                                  <div class="form-group" >
-                                    <span id="str_date">{{ date('d/m/Y', strtotime($project->start_date)) }}</span>
+                                    <span id="str_date">{{ date('m/d/Y', strtotime($project->start_date)) }}</span>
                                     
                                     </div>
                                     
@@ -310,7 +310,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                    <span id="est_date">{{ date('d/m/Y', strtotime($project->est_date)) }}</span>
+                                    <span id="est_date">{{ date('m/d/Y', strtotime($project->est_date)) }}</span>
                                     </div>
                                 </div>
                                 
@@ -423,7 +423,7 @@
                                  <div class="row">
                                      <div class="col-md-3">
                                          <div class="form-group">
-                                             <strong>Username: <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                             <strong>Username: </strong>
                                          </div>
                                      </div>
                                      <div class="col-md-3">
@@ -590,7 +590,7 @@
                               
                                   @foreach($project->notes as $key => $note)
                                     <strong>
-                                    {{ date('Y/m/d',strtotime($note->created_at)) }} - {{ $note->note}}
+                                    {{ date('m/d/Y',strtotime($note->created_at)) }} - {{ $note->note}}
                                     </strong>    
                                     <br/><br/>
                                   @endforeach

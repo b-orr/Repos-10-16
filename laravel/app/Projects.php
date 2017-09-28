@@ -16,8 +16,7 @@ class Projects extends Model
 		
 		public function setBidDateAttribute($bid_date)
 		{   
-		
-	 
+			 
 		   $this->attributes['bid_date'] = date('Y-m-d', strtotime(str_replace('/', '-',$bid_date))); 
 		}
 		
@@ -31,6 +30,7 @@ class Projects extends Model
 		   $this->attributes['est_date'] = date('Y-m-d', strtotime(str_replace('/', '-',$est_date))); 
 		}
 
+        
     public function user()
 		{
 		   return $this->belongsTo('App\User');
