@@ -194,7 +194,7 @@
 																						<ul class="checkbox"> 
 																							<li>
 																							<input type="hidden" name="active" value="0" />
-																								<input type="checkbox" name="active" id="cb22" value="1" /><h5>Active/InActive</h5>
+																								<input type="checkbox" name="active" id="cb22" checked="true" value="1" /><h5>Active/InActive</h5>
 																							</li> 
 																						 
 																						</ul>

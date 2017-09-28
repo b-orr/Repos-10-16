@@ -53,7 +53,6 @@ class AdminUsersController extends Controller
               'name' => 'required',
               'last_name' => 'required',
               'email' => 'required|email|unique:users',
-              'password' => 'required',
               
           ]);
         
