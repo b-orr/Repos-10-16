@@ -39,7 +39,13 @@ class AdminUsersController extends Controller
         return view('admin/users/list', $this->data);
     }
 
-   
+    public function create(){
+    
+        $this->data['regions'] =  $this->tenant->regions;
+
+        return view('admin/users/add', $this->data);
+    }
+
     public function store(Request $request)
     {
        $this->validate($request, [
@@ -47,7 +53,6 @@ class AdminUsersController extends Controller
               'name' => 'required',
               'last_name' => 'required',
               'email' => 'required|email|unique:users',
-              'password' => 'required',
               
           ]);
         

@@ -145,7 +145,7 @@
 								<div class="widget-body" style=" display: flex; justify-content: center; flex-direction: column;">
 														
 									<div class="row col-lg-12" style="margin: 0px;">
-										<button class="btn btn-success form-control" data-target="#userModal" id="myModalBtn" data-toggle="modal">New User</button>
+										<a href="{{url('admin/users/create')}}" class="btn btn-success form-control">New User</a>
 									</div>
 								<hr>
 								<div class="row col-lg-12" style="margin: 0px;">

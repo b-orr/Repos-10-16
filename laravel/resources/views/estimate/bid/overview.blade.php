@@ -68,7 +68,7 @@
                           <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <strong>Bid Date:  </strong>
+                                    <strong>Bid Date: <span style="color: rgb(255,0,0);">*</span> </strong>
                                 </div>
                             </div>
                              <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
@@ -154,7 +154,7 @@
                             </div>  <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <strong>Start Date: </strong>
+                                    <strong>Start Date: <span style="color: rgb(255,0,0);">*</span> </strong>
                                 </div>
                             </div>
                                <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
@@ -198,7 +198,7 @@
                                       <strong>Total Bid:  </strong>
                                   </div>
                               </div>
-                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                                 <div class="col-md-1"></div>
                               <div class="col-md-6">
                                <div class="form-group">
                                   <input type="text" id="bid" class="form-control" name="bid" value=""  /></div>
@@ -210,7 +210,7 @@
                                       <strong>Profit:  </strong>
                                   </div>
                               </div>
-                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                                 <div class="col-md-1"></div>
                               <div class="col-md-6">
                                   <div class="form-group">
                                       <input type="text" id="profit" class="form-control" name="profit" value=""  /></div>
@@ -223,7 +223,7 @@
                                       <strong>Profit % on Cost: </strong>
                                   </div>
                               </div>
-                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                                 <div class="col-md-1"></div>
                               <div class="col-md-6">
                                   <div class="form-group">
                                       <span id="profit_cost">0</span>%<input type="hidden" id="h_profit_cost" name="profit_cost" value="" />
@@ -270,7 +270,7 @@
                                       <strong>Lower Bidder:  </strong>
                                   </div>
                               </div>
-                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                                 <div class="col-md-1"></div>
                               <div class="col-md-6">
                                   <div class="form-group">
                                       <input type="text" id="lower_bidder" class="form-control" name="lower_bidder" value=""  />
@@ -282,7 +282,7 @@
                                       <strong>Price:  </strong>
                                   </div>
                               </div>
-                                 <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
+                                 <div class="col-md-1"></div>
                               <div class="col-md-6">
                                   <div class="form-group">
                                       <input type="text" id="price" class="form-control" name="price" value=""   style="width: 40%; display: inline; margin-right: 10px;" /> Need $<span id="total_need">0</span><input type="hidden" id="h_total_need" name="total_need" value="" /> on Cost 
@@ -378,7 +378,7 @@
          							        <!-- widget div-->
          							        <div>
          							
-         							@foreach($project->bids as $bid)
+         							@foreach($bids as $bid)
          							
          					
          							@if($bid->bid_date != $date)
@@ -434,8 +434,9 @@
          							                    </div>
          							                    <div class="col-md-6">
          							                        <div class="form-group">
-         							                        
-         							                            {{ $bid->client }}
+         							                            @foreach($project->client_list as $key => $client)
+                                                    @if($bid->client == $client->company->id) {{ $client->company->name }} @endif</option>
+                                                  @endforeach
          							                        </div>
          							                    </div>
          							               </div>
