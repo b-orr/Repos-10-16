@@ -434,8 +434,9 @@
          							                    </div>
          							                    <div class="col-md-6">
          							                        <div class="form-group">
-         							                        
-         							                            {{ $bid->client }}
+         							                            @foreach($project->client_list as $key => $client)
+                                                    @if($bid->client == $client->company->id) {{ $client->company->name }} @endif</option>
+                                                  @endforeach
          							                        </div>
          							                    </div>
          							               </div>
