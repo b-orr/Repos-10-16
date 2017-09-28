@@ -35,7 +35,6 @@ class BidController extends Controller
     
     		$this->data['project'] = $this->tenant->projects->find($project_id);
                        
-     
  
         return view('estimate.bid.overview', $this->data);
     }
