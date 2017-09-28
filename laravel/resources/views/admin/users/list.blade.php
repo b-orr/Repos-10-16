@@ -84,23 +84,23 @@
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Last Name</th>
 													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>First Name</th>
-												 
-													<th data-hide="phone">Title</th>
-													<th data-hide="phone"><i class="text-muted hidden-md hidden-sm hidden-xs"></i>Access Type</th>
+													<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Last Name</th>
+												 	<th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>E-Mail</th>
+													<th data-hide="phone">User Role</th>
+													<th data-hide="phone"><i class="text-muted hidden-md hidden-sm hidden-xs"></i>Operational Region</th>
 													<th data-hide="phone,tablet">Action</th>	
 												</tr>
 											</thead>
 											<tbody>
-											
+										
 											@foreach($lists AS $list)
 												<tr>
-													<td>{{ $list->last_name }}</td>
 													<td>{{ $list->name }}</td>
-												 
+													<td>{{ $list->last_name }}</td>
+												 	<td>{{ $list->email}}</td>
 													<td>{{ $list->role }}</td>
-													<td>{{ @$list->accessRegion->name }}</td>
+													<td>{{ $list->accessRegion->name }}</td>
 													<td><a href="{{ url('/admin/users/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
 															
 															
