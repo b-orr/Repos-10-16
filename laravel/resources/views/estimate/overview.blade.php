@@ -400,7 +400,7 @@
                                  <div class="row">
                                      <div class="col-md-3">
                                          <div class="form-group">
-                                             <strong>Site Addresses:  <b><sup style="color: #FF0000;">*</sup></b></strong>
+                                             <strong>Site Addresses:  </strong>
                                          </div>
                                      </div>
                                      <div class="col-md-3">
