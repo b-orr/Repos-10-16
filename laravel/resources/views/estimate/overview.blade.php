@@ -644,8 +644,8 @@
                         var dateAr1 = start_date.split('/');
                         var dateAr2 = est_date.split('/');
                         
-                        var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[1] + '-' + dateAr1[0]).getTime();
-                        var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[1] + '-' + dateAr2[0]).getTime();
+                        var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[0] + '-' + dateAr1[1]).getTime();
+                        var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[0] + '-' + dateAr2[1]).getTime();
                         
                         
                         

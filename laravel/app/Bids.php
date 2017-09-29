@@ -21,11 +21,11 @@ class Bids extends Model
 		public function setBidDateAttribute($bid_date)
 		{ 
 		  
-		  $this->attributes['bid_date'] = date('Y-m-d', strtotime(str_replace('/', '-',$bid_date)));
+		  $this->attributes['bid_date'] = date('Y-m-d', strtotime(str_replace('/', '/',$bid_date)));
 		}
 		
 		public function setStartDateAttribute($start_date)
 		{   
-		  $this->attributes['start_date']= date('Y-m-d', strtotime(str_replace('/', '-',$start_date))); 
+		  $this->attributes['start_date']= date('Y-m-d', strtotime(str_replace('/', '/',$start_date))); 
 		}
 }
