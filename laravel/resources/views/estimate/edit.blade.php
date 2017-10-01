@@ -90,7 +90,7 @@
                                    </div>
                                    <div class="col-md-3">
                                        <div class="input-group">
-                                       																<input type="text" value="{{ date('d/m/Y', strtotime($project->bid_date)) }}" required name="bid_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                       																<input type="text" value="{{ date('m/d/Y', strtotime($project->bid_date)) }}" required name="bid_date" placeholder="" class="form-control datepicker" data-dateformat="mm/dd/yy">
                                        																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                        															</div>
                                    </div>
@@ -314,7 +314,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-      																<input id="str_date" type="text"  value="{{ date('d/m/Y', strtotime($project->start_date)) }}" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+      																<input id="str_date" type="text"  value="{{ date('m/d/Y', strtotime($project->start_date)) }}" name="start_date" required placeholder="" class="form-control datepicker" data-dateformat="mm/dd/yy">
       																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
       															</div>
                                 </div>
@@ -359,7 +359,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                    																<input id="est_date" type="text"  value="{{ date('d/m/Y', strtotime($project->est_date)) }}" name="est_date" required placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                    																<input id="est_date" type="text"  value="{{ date('m/d/Y', strtotime($project->est_date)) }}" name="est_date" required placeholder="" class="form-control datepicker" data-dateformat="mm/dd/yy">
                                     																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     															</div>
                                 </div>
@@ -815,8 +815,8 @@
                         var dateAr1 = start_date.split('/');
                         var dateAr2 = est_date.split('/');
                         
-                        var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[1] + '-' + dateAr1[0]).getTime();
-                        var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[1] + '-' + dateAr2[0]).getTime();
+                        var newStartDate = new Date(dateAr1[2] + '-' + dateAr1[0] + '-' + dateAr1[1]).getTime();
+                        var newEstDate = new Date(dateAr2[2] + '-' + dateAr2[0] + '-' + dateAr2[1]).getTime();
                         
                         
                         
