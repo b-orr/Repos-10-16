@@ -93,14 +93,13 @@
 												</tr>
 											</thead>
 											<tbody>
-										
-											@foreach($lists AS $list)
+											@foreach($lists as $key => $list)
 												<tr>
 													<td>{{ $list->name }}</td>
 													<td>{{ $list->last_name }}</td>
 												 	<td>{{ $list->email}}</td>
 													<td>{{ $list->role }}</td>
-													<td>{{ $list->accessRegion->name }}</td>
+													<td><?php if(isset($list->accessRegion)){ ?> {{ $list->accessRegion->name }} <?php } else { echo 'Not set'; }?></td>
 													<td><a href="{{ url('/admin/users/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
 															
 															
