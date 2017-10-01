@@ -235,7 +235,7 @@
 										<input type="password" name="password"   class="form-control">
 									</div>
 								</div>
-								<div class="col-md-6">
+								<!-- <div class="col-md-6">
 									<div class="form-group">
 										<label class="input" style="font-weight: bold">Multiple Region</label>
 										<input type="hidden" value="0" name="multiple_region">
@@ -243,7 +243,7 @@
 										
 									</div>
 								</div>
-								<div class="col-md-6"></div>
+								<div class="col-md-6"></div> -->
 
 						 	</div>
 							<div>

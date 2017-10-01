@@ -143,7 +143,7 @@
 																						<input type="text" name="email" value="{{ $user->email }}" readonly class="form-control">
 																					</div>
 																				</div>
-																				<div class="col-md-6">
+																				<!-- <div class="col-md-6">
 																					<div class="form-group">
 																						<label class="col-md-4 control-label" style="position:relative;font-weight: bold;top:5px;">Multiple Region</label>
 																						<div class="col-md-2">
@@ -152,7 +152,7 @@
 																						</div>
 																					</div>
 																				</div>
-																				<div class="col-md-6"></div>
+																				<div class="col-md-6"></div> -->
 																		 
 																			<!--	<div class="col-md-6">
 																					<div class="form-group">

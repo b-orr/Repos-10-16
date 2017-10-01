@@ -59,7 +59,8 @@ class SuperController extends Controller
                     'created_at' => $now,
                     'updated_at' => $now,
                     'yard_toggle_switch'=>'0',
-                    'active'=>'1'
+                    'active'=>'1',
+                    'dnd' => '1'
                 ]
             );
         

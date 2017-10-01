@@ -105,21 +105,17 @@
 													<td>{{ $list->phone }}</td>
 													<td style="text-align:center">@if($list->yard_toggle_switch == '1') YES @else NO @endif</td>
 													<td style="text-align:center">@if($list->active == '1') YES @else NO @endif</td>
-													<td><a href="{{ url('/admin/regions/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp; |   
+													<td><a href="{{ url('/admin/regions/'.$list->id.'/edit') }}"><i class="fa fa-edit"></i></a>&nbsp;  
 													
-													
-													
-													
-													
-													
-													
+													@if($list->dnd == '0')
+													|  
 													<form action="{{ url('/admin/regions/' . $list->id) }}" method="POST"  style="display: inline;">
 													<a href="#" onclick="if(confirm('Are you sure?')){ $(this).parent().submit()}"> &nbsp;<i class="fa fa-trash-o"></i></a>
 													    {{ method_field('DELETE') }}
 													    {{ csrf_field() }}
 													 
 													</form>
-													
+													@endif
 													
 													 
 													
