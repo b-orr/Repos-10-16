@@ -944,7 +944,7 @@
                     }
                 });
         
-        $('#timepicker').timepicker();
+        $('#timepicker').timepicker({defaultTime: '2:00 PM'});
                 /* END TABLETOOLS */
         
             })
