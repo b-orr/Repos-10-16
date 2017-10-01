@@ -93,8 +93,7 @@
 												</tr>
 											</thead>
 											<tbody>
-										
-											@foreach($lists AS $list)
+											@foreach($lists as $key => $list)
 												<tr>
 													<td>{{ $list->name }}</td>
 													<td>{{ $list->last_name }}</td>

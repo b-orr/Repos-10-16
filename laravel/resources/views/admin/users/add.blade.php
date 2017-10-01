@@ -110,7 +110,7 @@
 																						
 																						@foreach ($regions as $region)
 																						    <li>
-																						    	<input type="radio" name="region_id" id="cb{{ $region->id }}" value="{{ $region->id }}" /><label for="cb{{ $region->id }}">{{ $region->name }}</label>
+																						    	<input type="radio" name="region_id" id="cb{{ $region->id }}" value="{{ $region->id }}" required /><label for="cb{{ $region->id }}">{{ $region->name }}</label>
 																						    </li> 
 																						@endforeach
 																						
