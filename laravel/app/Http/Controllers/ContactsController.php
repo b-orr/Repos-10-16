@@ -34,7 +34,7 @@ class ContactsController extends Controller
     {
         $this->data['persons'] = $this->tenant->persons;
         $this->data['companies'] = $this->tenant->companies;
-        
+        //dd($this->data['companies']);
         return view('contacts/list', $this->data);
     }
  

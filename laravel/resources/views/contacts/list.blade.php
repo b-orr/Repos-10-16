@@ -296,7 +296,7 @@
 				
 								<!-- widget div-->
 								<div>
-				
+								
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
@@ -554,9 +554,16 @@
 											<h4><b>Company Association:</b><b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
+
 									<div class="col-md-7">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Company Name" required name="company_association" />
+											<select multiple name="company_association" id="" class="select2">
+												@foreach($companies as $key => $val)
+													<option value="{{$val->id}}">{{$val->name}}</option>
+												@endforeach
+												
+											</select>
+											<!-- <input type="text" class="form-control" placeholder="Company Name" required name="company_association" /> -->
 										</div>
 									</div>
 								</div>
