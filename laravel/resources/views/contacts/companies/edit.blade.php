@@ -86,7 +86,7 @@
 																							<div class="row">
 																								<div class="col-md-5 col-md-offset-1">
 																									<div class="form-group">
-																										<h4><b>Company Type:</b></h4>
+																										<h4><b>Companasdy Type:</b></h4>
 																									</div>
 																								</div>
 																								<div class="col-md-5">

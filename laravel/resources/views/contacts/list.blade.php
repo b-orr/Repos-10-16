@@ -273,7 +273,7 @@
 										</div>
 									</div>
 								</div>
-								
+								</form>
 								<br>
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:
@@ -440,7 +440,7 @@
 								</button>
 							</div>
 						</div><!-- /.modal-content -->
-					</div></form><!-- /.modal-dialog -->
+					</div><!-- /.modal-dialog -->
 				</div>
 				</div>
 				<div class="modal fade" id="personModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

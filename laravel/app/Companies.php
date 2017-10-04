@@ -9,10 +9,13 @@ class Companies extends Model
   protected $table = 'con_companies';
 
   protected $fillable = [
-      'user_id', 'name', 'type', 'location_name', 'phone', 'address', 'city', 'state', 'zip', 'client_bool'
+      'user_id', 'name', 'type','client_bool'
   ];
 
-   
+   public function locations()
+   {
+ 		return $this->hasMany('App\CompanyLocations', 'company_id');
+   }
 
   public function user()
   {
