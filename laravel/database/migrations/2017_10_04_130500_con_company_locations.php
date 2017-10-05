@@ -14,7 +14,7 @@ class ConCompanyLocations extends Migration
     public function up()
     {
         Schema::create('con_company_locations', function (Blueprint $table) {
-            $table->integer('id');
+            $table->increments('id');
             $table->integer('company_id');
             $table->string('location_name');
             $table->string('phone');
