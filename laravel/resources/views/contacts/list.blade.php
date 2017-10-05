@@ -557,7 +557,7 @@
 
 									<div class="col-md-7">
 										<div class="form-group">
-											<select multiple name="company_association" id="" class="select2">
+											<select multiple name="company_association" id="pick_company" class="select2">
 												@foreach($companies as $key => $val)
 													<option value="{{$val->id}}">{{$val->name}}</option>
 												@endforeach
@@ -567,7 +567,22 @@
 										</div>
 									</div>
 								</div>
+
 								<div class="row no-margin">
+								<div class="col-md-5">
+									<div class="form-group">
+										<h4><b>Office Location:</b></h4>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<select class="form-control" name="type" id="locations_dropdown">
+												
+										</select>
+									</div>
+								</div>
+								</div>
+								<!-- <div class="row no-margin">
 								<div class="col-md-5">
 									<div class="form-group">
 										<h4><b>Area Association:</b></h4>
@@ -595,8 +610,8 @@
 												<input type="checkbox" id="cb6" value="Northern CA" /><label for="cb6"><b>Northern CA</b></label>
 											</li>
 										</ul> 
-									</div>
-								</div>
+									</div> 
+								</div>-->
 							</div>
 							</div>
 							<div class="modal-footer">
@@ -700,7 +715,46 @@
 		            .draw();
 		            
 		    } );
-		    /* END COLUMN FILTER */   
+		    /* END COLUMN FILTER */
+
+		    //ajax
+
+		    $('#pick_company').on('change', function(){
+		    	
+		    	var id = $('#pick_company').val();
+
+		    	$.ajaxSetup({
+			            headers: {
+			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+			            }
+			        });
+
+		    	$.ajax({
+			    		type: "GET",
+            			url: "contacts/person/getLocationAjax",
+            			data: {
+            				companyID: id
+            				//subcategory: sub
+            			}
+			    		, 
+				    	success : function(data) {
+				    		console.log(data);
+		    				$('#locations_dropdown').empty();
+				    		var htmlstr = "<option value='#'>Not selected</option>";
+			    				
+			    				for (var m = 0; m < data.locations.length; m++) {
+			    					htmlstr += "<option value='"+data.locations[m].id+"'>"+ data.locations[m].location_name +"</option>";
+
+			    				}
+
+				    		$('#locations_dropdown').append(htmlstr);
+
+		   				}
+				});
+			});
+
+
+		    //ajax   
 	    
 			/* COLUMN SHOW - HIDE */
 			$('#datatable_col_reorder').dataTable({
