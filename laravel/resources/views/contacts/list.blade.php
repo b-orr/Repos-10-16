@@ -557,18 +557,19 @@
 
 									<div class="col-md-7">
 										<div class="form-group">
-											<select multiple name="company_association" id="pick_company" class="select2">
+											<select multiple name="company_association_1" id="pick_company" class="select2">
 												@foreach($companies as $key => $val)
-													<option value="{{$val->id}}">{{$val->name}}</option>
+													<option value="{{$val->id}}|{{$val->name}}">{{$val->name}}</option>
 												@endforeach
 												
 											</select>
+											<input type="hidden" name="company_association" id="real_company_association">
 											<!-- <input type="text" class="form-control" placeholder="Company Name" required name="company_association" /> -->
 										</div>
 									</div>
 								</div>
 
-								<div class="row no-margin">
+								<div class="row no-margin hide" id="office_location_div">
 								<div class="col-md-5">
 									<div class="form-group">
 										<h4><b>Office Location:</b></h4>
@@ -576,7 +577,7 @@
 								</div>
 								<div class="col-md-7">
 									<div class="form-group">
-										<select class="form-control" name="type" id="locations_dropdown">
+										<select class="form-control" name="office_location" id="locations_dropdown">
 												
 										</select>
 									</div>
@@ -721,8 +722,13 @@
 
 		    $('#pick_company').on('change', function(){
 		    	
+				
 		    	var id = $('#pick_company').val();
-
+		    	$('#real_company_association').val(id);
+		    	$('#pick_company').val([]);
+		    	if(id === null) {
+		    		id = '';
+		    	}
 		    	$.ajaxSetup({
 			            headers: {
 			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -738,12 +744,13 @@
             			}
 			    		, 
 				    	success : function(data) {
-				    		console.log(data);
+				    		//console.log(data);
+		    				$('#office_location_div').removeClass('hide');
 		    				$('#locations_dropdown').empty();
 				    		var htmlstr = "<option value='#'>Not selected</option>";
 			    				
 			    				for (var m = 0; m < data.locations.length; m++) {
-			    					htmlstr += "<option value='"+data.locations[m].id+"'>"+ data.locations[m].location_name +"</option>";
+			    					htmlstr += "<option value='"+data.locations[m].location_name+"'>"+ data.locations[m].location_name +"</option>";
 
 			    				}
 

@@ -33,11 +33,19 @@ class PersonsController extends Controller
    
     public function store(Request $request)
     {
+        //dd($request);
         $this->validate($request, [ 'first_name' => 'required', 
-        												        'last_name' => 'required',
-        												        'company_association' => 'required',
-        												      
-        												        'email' => 'required|email']);
+                                    'last_name' => 'required',
+                                    'company_association' => 'required',
+                                    'email' => 'required|email'
+                        ]);
+
+        
+
+       
+            list($ID,$Name) = explode('|', $request->company_association);
+            $request->request->add(['company_association' => $Name]);
+      
           
         $this->tenant->persons()->save(new Persons($request->all()));
         

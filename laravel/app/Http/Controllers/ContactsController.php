@@ -43,7 +43,18 @@ class ContactsController extends Controller
 
     public function getLocationAjax() {
         
-        $CompanyID = $_GET['companyID'];
+        $Company_data = $_GET['companyID'];
+
+        if($Company_data != '') {
+
+
+        $CompanyID = array();
+        
+        foreach($Company_data as $key => $compID) {
+            list($ID,$Name) = explode('|', $compID);
+            array_push($CompanyID, $ID);
+        }
+        
         
         $this->data['locations'] = array();
 
@@ -65,6 +76,11 @@ class ContactsController extends Controller
             $this->data['locations'] = [];
         } 
  
+        } else {
+
+            $this->data['locations'] = [];
+            
+        } 
         return response()->json($this->data);
    
     }
