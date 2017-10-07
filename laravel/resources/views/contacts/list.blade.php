@@ -255,8 +255,11 @@
 											<select class="form-control" name="type" id="category">
 												<option>Owner</option>
 												<option>Architect</option>
-												<option>Structural/Engineer</option>
-												<option>SubContractor</option>
+												<option>Structural Engineer</option>
+												<option>Civil Engineer</option>
+												<option>Mechanical</option>
+												<option>Electricians</option>
+												<option>General Contractor</option>
 											</select>
 										</div>
 									</div>
@@ -273,7 +276,6 @@
 										</div>
 									</div>
 								</div>
-								</form>
 								<br>
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
 								<!-- widget options:
@@ -291,7 +293,7 @@
 								-->
 								<header>
 									<h2><b>Locations</b></h2>
-										<a class="btn btn-default btn-success btn-xs pull-right" href="javascript:void(0);" style="margin: 5px 5px 2px 2px;"> NEW LOCATION </a>
+										<a id="addNewLocation" class="btn btn-default btn-success btn-xs pull-right" style="margin: 5px 5px 2px 2px;"> Add New Location </a>
 								</header>
 				
 								<!-- widget div-->
@@ -303,125 +305,119 @@
 				
 									</div>
 									<!-- end widget edit box -->
-				
+									
 									<!-- widget content -->
 									<div class="widget-body">
 										<div class="tabs-left">
-										<!--	<ul class="nav nav-tabs tabs-left" id="demo-pill-nav" >
+											<ul class="nav nav-tabs tabs-left" id="demo-pill-nav">
 												<li class="active">
-													<a href="#tab-o1" data-toggle="tab">Honolulu Office</a>
+													<a href="#tab-r1" data-toggle="tab">New Location</a>
 												</li>
-												<li>
-													<a href="#tab-o2" data-toggle="tab">Seattle Office</a>
-												</li>
-												<li>
-													<a href="#tab-o3" data-toggle="tab">Denver Office</a>
-												</li>
-											</ul>-->
-											<div class="tab-content">
-												<div class="tab-pane active col-lg-11" id="tab-o1">
-													<div class="row">
-														<div class="col-md-4">
-															<div class="form-group">
-																<h6>Location Name:</h6>
+											</ul>
+												<div class="tab-content locationsList">
+													<div class="tab-pane active col-lg-11" id="tab-r1">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="form-group">
+																	<h6>Location Name:</h6>
+																</div>
 															</div>
-														</div>
+																<div class="col-md-8">
+																	<div class="form-group">
+																		<input type="text" class="form-control" name="locations[0][location_name]"  />
+																	</div>
+																</div>
+															</div>
+														<div class="row">
+															<div class="col-md-4">
+																<div class="form-group">
+																	<h6>Phone:</h6>
+																</div>
+															</div>
 															<div class="col-md-8">
 																<div class="form-group">
-																	<input type="text" class="form-control" name="location_name"  />
+																	<input type="text" class="form-control" name="locations[0][phone]" />
 																</div>
 															</div>
 														</div>
-													<div class="row">
-														<div class="col-md-4">
-															<div class="form-group">
-																<h6>Phone:</h6>
+														<div class="row">
+															<div class="col-md-4">
+																<div class="form-group">
+																	<h6>Address:</h6>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="form-group">
+																	<input type="text" class="form-control" name="locations[0][address]" />
+																</div>
 															</div>
 														</div>
-														<div class="col-md-8">
-															<div class="form-group">
-																<input type="text" class="form-control" name="phone" />
+														<div class="row">
+															<div class="col-md-4">
+																<div class="form-group">
+																	<h6>City, State & Zip:</h6>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="form-group">
+																	<input type="text" class="form-control" name="locations[0][city]" />
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<select class="form-control" id="category" name="locations[0][state]">
+																		<option>CO</option>
+																		<option>WA</option>
+																		<option>HW</option>
+																		<option>N.CA</option>
+																		<option>NV</option>
+																		<option>S.CA</option>
+																		<option>OR</option>
+																		<option>TX</option>
+																		<option>CA</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<input type="text" class="form-control" name="locations[0][zip]" />
+																</div>
 															</div>
 														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-4">
-															<div class="form-group">
-																<h6>Address:</h6>
+														<div class="row">
+															<div class="col-md-4">
+																<div class="form-group">
+																	<h6>Area Association:</h6>
+																</div>
 															</div>
-														</div>
-														<div class="col-md-8">
-															<div class="form-group">
-																<input type="text" class="form-control" name="address" />
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-4">
-															<div class="form-group">
-																<h6>City, State & Zip:</h6>
-															</div>
-														</div>
-														<div class="col-md-4">
-															<div class="form-group">
-																<input type="text" class="form-control" name="city" />
-															</div>
-														</div>
-														<div class="col-md-2">
-															<div class="form-group">
-																<select class="form-control" id="category" name="state">
-																	<option>CO</option>
-																	<option>WA</option>
-																	<option>HW</option>
-																	<option>N.CA</option>
-																	<option>NV</option>
-																	<option>S.CA</option>
-																	<option>OR</option>
-																	<option>TX</option>
-																	<option>CA</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-md-2">
-															<div class="form-group">
-																<input type="text" class="form-control" name="zip" />
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-4">
-															<div class="form-group">
-																<h6>Area Association:</h6>
-															</div>
-														</div>
-														<div class="col-md-8">
-															<div class="form-group" style="border-style: groove; border-width: 2px;">
-																<ul class="checkbox">
-												 					 <li>
-												  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>
-												  					</li> 
-												 					 <li>
-												  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>
-												  					</li> 
-												  					<li>
-												 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>
-												 					</li> 
-												  					<li>
-												  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>
-												  					</li>
-												  					<li>
-												  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>
-												  					</li>
-												  					<li>
-												  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>
-												  					</li>
-																</ul>
+															<div class="col-md-8">
+																<div class="form-group" style="border-style: groove; border-width: 2px;">
+																	<ul class="checkbox">
+													 					 <li>
+													  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>
+													  					</li> 
+													 					 <li>
+													  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>
+													  					</li> 
+													  					<li>
+													 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>
+													 					</li> 
+													  					<li>
+													  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>
+													  					</li>
+													  					<li>
+													  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>
+													  					</li>
+													  					<li>
+													  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>
+													  					</li>
+																	</ul>
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												 
-												 
+													 
+												
 											</div>
 										</div>
 									</div>
@@ -439,6 +435,8 @@
 									<b>ADD COMPANY</b>
 								</button>
 							</div>
+
+						</form>
 						</div><!-- /.modal-content -->
 					</div><!-- /.modal-dialog -->
 				</div>
@@ -618,156 +616,122 @@
 			
 			pageSetUp();
 			
-			/* // DOM Position key index //
-		
-			l - Length changing (dropdown)
-			f - Filtering input (search)
-			t - The Table! (datatable)
-			i - Information (records)
-			p - Pagination (paging)
-			r - pRocessing 
-			< and > - div elements
-			<"#id" and > - div with an id
-			<"class" and > - div with a class
-			<"#id.class" and > - div with an id and class
-			
-			Also see: http://legacy.datatables.net/usage/features
-			*/	
-	
-			/* BASIC ;*/
-				var responsiveHelper_dt_basic = undefined;
-				var responsiveHelper_datatable_fixed_column = undefined;
-				var responsiveHelper_datatable_col_reorder = undefined;
-				var responsiveHelper_datatable_tabletools = undefined;
-				
-				var breakpointDefinition = {
-					tablet : 1024,
-					phone : 480
-				};
-	
-				$('.table').dataTable({
-					
-				});
-	
-			/* END BASIC */
-			
-			/* COLUMN FILTER  */
-		    var otable = $('#datatable_fixed_column').DataTable({
-		    	//"bFilter": false,
-		    	//"bInfo": false,
-		    	//"bLengthChange": false
-		    	//"bAutoWidth": false,
-		    	//"bPaginate": false,
-		    	//"bStateSave": true // saves sort state using localStorage
-				"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6 hidden-xs'f><'col-sm-6 col-xs-12 hidden-xs'<'toolbar'>>r>"+
-						"t"+
-						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-				"autoWidth" : true,
-				"oLanguage": {
-					"sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-				},
-				"preDrawCallback" : function() {
-					// Initialize the responsive datatables helper once.
-					if (!responsiveHelper_datatable_fixed_column) {
-						responsiveHelper_datatable_fixed_column = new ResponsiveDatatablesHelper($('#datatable_fixed_column'), breakpointDefinition);
-					}
-				},
-				"rowCallback" : function(nRow) {
-					responsiveHelper_datatable_fixed_column.createExpandIcon(nRow);
-				},
-				"drawCallback" : function(oSettings) {
-					responsiveHelper_datatable_fixed_column.respond();
-				}		
-			
-		    });
-		    
-		    // custom toolbar
-		    $("div.toolbar").html('<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
-		    	   
-		    // Apply the filter
-		    $("#datatable_fixed_column thead th input[type=text]").on( 'keyup change', function () {
-		    	
-		        otable
-		            .column( $(this).parent().index()+':visible' )
-		            .search( this.value )
-		            .draw();
-		            
-		    } );
-		    /* END COLUMN FILTER */   
-	    
-			/* COLUMN SHOW - HIDE */
-			$('#datatable_col_reorder').dataTable({
-				"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
-						"t"+
-						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
-				"autoWidth" : true,
-				"oLanguage": {
-					"sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-				},
-				"preDrawCallback" : function() {
-					// Initialize the responsive datatables helper once.
-					if (!responsiveHelper_datatable_col_reorder) {
-						responsiveHelper_datatable_col_reorder = new ResponsiveDatatablesHelper($('#datatable_col_reorder'), breakpointDefinition);
-					}
-				},
-				"rowCallback" : function(nRow) {
-					responsiveHelper_datatable_col_reorder.createExpandIcon(nRow);
-				},
-				"drawCallback" : function(oSettings) {
-					responsiveHelper_datatable_col_reorder.respond();
-				}			
-			});
-			
-			/* END COLUMN SHOW - HIDE */
-	
-			/* TABLETOOLS */
-			$('#datatable_tabletools').dataTable({
-				
-				// Tabletools options: 
-				//   https://datatables.net/extensions/tabletools/button_options
-				"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>"+
-						"t"+
-						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
-				"oLanguage": {
-					"sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
-				},		
-		        "oTableTools": {
-		        	 "aButtons": [
-		             "copy",
-		             "csv",
-		             "xls",
-		                {
-		                    "sExtends": "pdf",
-		                    "sTitle": "SmartAdmin_PDF",
-		                    "sPdfMessage": "SmartAdmin PDF Export",
-		                    "sPdfSize": "letter"
-		                },
-		             	{
-	                    	"sExtends": "print",
-	                    	"sMessage": "Generated by SmartAdmin <i>(press Esc to close)</i>"
-	                	}
-		             ],
-		            "sSwfPath": "js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
-		        },
-				"autoWidth" : true,
-				"preDrawCallback" : function() {
-					// Initialize the responsive datatables helper once.
-					if (!responsiveHelper_datatable_tabletools) {
-						responsiveHelper_datatable_tabletools = new ResponsiveDatatablesHelper($('#datatable_tabletools'), breakpointDefinition);
-					}
-				},
-				"rowCallback" : function(nRow) {
-					responsiveHelper_datatable_tabletools.createExpandIcon(nRow);
-				},
-				"drawCallback" : function(oSettings) {
-					responsiveHelper_datatable_tabletools.respond();
-				}
-			});
-			
-			/* END TABLETOOLS */
-		
-		})
+			var locationsCount = 1;
 
+			$('#addNewLocation').on('click', function() {
+				var buttonHtml = '<li class="active">';
+					buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab">New Location</a>';
+					buttonHtml +='</li>';
+
+				$('#demo-pill-nav li').removeClass('active');
+				$('.tab-pane').removeClass('active');
+				$('#demo-pill-nav').append(buttonHtml);
+
+				var htmlstr =	'<div class="tab-pane active col-lg-11" id="tab-o'+locationsCount+'">';
+				htmlstr +=	'	<div class="row">';
+				htmlstr +=	'		<div class="col-md-4">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<h6>Location Name:</h6>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'			<div class="col-md-8">';
+				htmlstr +=	'				<div class="form-group">';
+				htmlstr +=	'					<input type="text" class="form-control" name="locations['+locationsCount+'][location_name]"  />';
+				htmlstr +=	'				</div>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'	<div class="row">';
+				htmlstr +=	'		<div class="col-md-4">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<h6>Phone:</h6>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'		<div class="col-md-8">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][phone]" />';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'	</div>';
+				htmlstr +=	'	<div class="row">';
+				htmlstr +=	'		<div class="col-md-4">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<h6>Address:</h6>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'		<div class="col-md-8">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][address]" />';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'	</div>';
+				htmlstr +=	'	<div class="row">';
+				htmlstr +=	'		<div class="col-md-4">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<h6>City, State & Zip:</h6>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'		<div class="col-md-4">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][city]" />';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'		<div class="col-md-2">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<select class="form-control" id="category" name="locations['+locationsCount+'][state]">';
+				htmlstr +=	'					<option>CO</option>';
+				htmlstr +=	'					<option>WA</option>';
+				htmlstr +=	'					<option>HW</option>';
+				htmlstr +=	'					<option>N.CA</option>';
+				htmlstr +=	'					<option>NV</option>';
+				htmlstr +=	'					<option>S.CA</option>';
+				htmlstr +=	'					<option>OR</option>';
+				htmlstr +=	'					<option>TX</option>';
+				htmlstr +=	'					<option>CA</option>';
+				htmlstr +=	'				</select>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'		<div class="col-md-2">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][zip]" />';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'	</div>';
+				htmlstr +=	'	<div class="row">';
+				htmlstr +=	'		<div class="col-md-4">';
+				htmlstr +=	'			<div class="form-group">';
+				htmlstr +=	'				<h6>Area Association:</h6>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=	'		<div class="col-md-8">';
+				htmlstr +=	'			<div class="form-group" style="border-style: groove; border-width: 2px;">';
+				htmlstr +=	'				<ul class="checkbox">';
+				htmlstr +=	' 					 <li>';
+				htmlstr +=	'  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>';
+				htmlstr +=	'  					</li> ';
+				htmlstr +=	' 					 <li>';
+				htmlstr +=	'  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>';
+				htmlstr +=	'  					</li> ';
+				htmlstr +=	'  					<li>';
+				htmlstr +=	' 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>';
+				htmlstr +=	' 					</li> ';
+				htmlstr +=	'  					<li>';
+				htmlstr +=	'  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>';
+				htmlstr +=	'  					</li>';
+				htmlstr +=	'  					<li>';
+				htmlstr +=	'  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>';
+				htmlstr +=	'  					</li>';
+				htmlstr +=	'  					<li>';
+				htmlstr +=	'  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>';
+				htmlstr +=	'  					</li>';
+				htmlstr +=	'				</ul>';
+				htmlstr +=	'			</div>';
+				htmlstr +=	'		</div>';
+				htmlstr +=		'</div>';
+				htmlstr +=	'</div>';
+				$('.locationsList').append(htmlstr);
+				locationsCount++;
+			})
+		})
 		</script>
 
 

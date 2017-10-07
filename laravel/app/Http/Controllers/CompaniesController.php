@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Companies;
+use App\CompanyLocations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,11 +35,25 @@ class CompaniesController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request);
 
         $this->validate($request, [ 'name' => 'required']);
-          
-        $this->tenant->companies()->save(new Companies($request->all()));
         
+
+        $company =$this->tenant->companies()->save(new Companies($request->all()));
+        if (isset($request->locations)) {
+            foreach ($request->locations as $key => $l) {
+                $locationData = new CompanyLocations();
+                $locationData->company_id = $company->id;
+                $locationData->location_name = $l['location_name'];
+                $locationData->phone = $l['phone'];
+                $locationData->address = $l['address'];
+                $locationData->city = $l['city'];
+                $locationData->state = $l['state'];
+                $locationData->zip = $l['zip'];
+                $locationData->save();
+            }
+        }
         return redirect('/contacts');
     }
 
