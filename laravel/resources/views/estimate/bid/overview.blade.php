@@ -75,7 +75,7 @@
                             <div class="col-md-6">
                              <div class="form-group">
                                 <div class="input-group">
-                                																<input type="text" required name="bid_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy" value="{{ date('d/m/Y') }}">
+                                																<input type="text" required name="bid_date" placeholder="" class="form-control datepicker" data-dateformat="mm/dd/yy" value="{{ date('m/d/Y') }}">
                                 																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 															</div></div>
                             </div>
@@ -160,7 +160,7 @@
                                <div class="col-md-1"><input type="checkbox" name="" value="" /></div>
                             <div class="col-md-6"> <div class="form-group">
                                 <div class="input-group">
-                                																<input type="text" required name="start_date" placeholder="" class="form-control datepicker" data-dateformat="dd/mm/yy">
+                                																<input type="text" required name="start_date" placeholder="" class="form-control datepicker" data-dateformat="mm/dd/yy">
                                 																<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 															</div></div>
                             </div>

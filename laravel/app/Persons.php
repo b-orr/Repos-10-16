@@ -9,7 +9,7 @@ class Persons extends Model
   protected $table = 'con_persons';
 
   protected $fillable = [
-      'user_id', 'first_name', 'last_name', 'email', 'title', 'direct_line', 'cell_phone', 'company_association', 
+      'user_id', 'first_name', 'last_name', 'email', 'title', 'direct_line', 'cell_phone', 'company_association','office_location', 
   ];
 
    

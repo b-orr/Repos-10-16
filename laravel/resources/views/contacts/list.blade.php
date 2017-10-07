@@ -298,7 +298,7 @@
 				
 								<!-- widget div-->
 								<div>
-				
+								
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
@@ -552,13 +552,36 @@
 											<h4><b>Company Association:</b><b><sup style="color: #FF0000;">*</sup></b></h4>
 										</div>
 									</div>
+
 									<div class="col-md-7">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Company Name" required name="company_association" />
+											<select multiple name="company_association_1" id="pick_company" class="select2">
+												@foreach($companies as $key => $val)
+													<option value="{{$val->id}}|{{$val->name}}">{{$val->name}}</option>
+												@endforeach
+												
+											</select>
+											<input type="hidden" name="company_association" id="real_company_association">
+											<!-- <input type="text" class="form-control" placeholder="Company Name" required name="company_association" /> -->
 										</div>
 									</div>
 								</div>
-								<div class="row no-margin">
+
+								<div class="row no-margin hide" id="office_location_div">
+								<div class="col-md-5">
+									<div class="form-group">
+										<h4><b>Office Location:</b></h4>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<select class="form-control" name="office_location" id="locations_dropdown">
+												
+										</select>
+									</div>
+								</div>
+								</div>
+								<!-- <div class="row no-margin">
 								<div class="col-md-5">
 									<div class="form-group">
 										<h4><b>Area Association:</b></h4>
@@ -586,8 +609,8 @@
 												<input type="checkbox" id="cb6" value="Northern CA" /><label for="cb6"><b>Northern CA</b></label>
 											</li>
 										</ul> 
-									</div>
-								</div>
+									</div> 
+								</div>-->
 							</div>
 							</div>
 							<div class="modal-footer">
@@ -615,8 +638,62 @@
 		$(document).ready(function() {
 			
 			pageSetUp();
-			
 			var locationsCount = 1;
+		    // custom toolbar
+		    $("div.toolbar").html('<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
+		    	   
+		    // Apply the filter
+		    $("#datatable_fixed_column thead th input[type=text]").on( 'keyup change', function () {
+		    	
+		        otable
+		            .column( $(this).parent().index()+':visible' )
+		            .search( this.value )
+		            .draw();
+		            
+		    } );
+		    /* END COLUMN FILTER */
+
+		    //ajax
+
+		    $('#pick_company').on('change', function(){
+		    	
+				
+		    	var id = $('#pick_company').val();
+		    	$('#real_company_association').val(id);
+		    	$('#pick_company').val([]);
+		    	if(id === null) {
+		    		id = '';
+		    	}
+		    	$.ajaxSetup({
+			            headers: {
+			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+			            }
+			        });
+
+		    	$.ajax({
+			    		type: "GET",
+            			url: "contacts/person/getLocationAjax",
+            			data: {
+            				companyID: id
+            				//subcategory: sub
+            			}
+			    		, 
+				    	success : function(data) {
+				    		//console.log(data);
+		    				$('#office_location_div').removeClass('hide');
+		    				$('#locations_dropdown').empty();
+				    		var htmlstr = "<option value='#'>Not selected</option>";
+			    				
+			    				for (var m = 0; m < data.locations.length; m++) {
+			    					htmlstr += "<option value='"+data.locations[m].location_name+"'>"+ data.locations[m].location_name +"</option>";
+
+			    				}
+
+				    		$('#locations_dropdown').append(htmlstr);
+
+		   				}
+				});
+			});
 
 			$('#addNewLocation').on('click', function() {
 				var buttonHtml = '<li class="active">';
