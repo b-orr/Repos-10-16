@@ -204,17 +204,18 @@
 				
 				</section>
 				<div class="modal fade" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<form action="{{ url('/contacts/companies/') }}" method="POST"  >
-				
-									    {{ csrf_field() }}
-									    
+					<form id="companyForm" action="{{ url('/contacts/companies/') }}" method="POST"  >
+					
+				    {{ csrf_field() }}
+				    <span style="visibility: hidden;" id="methodFieldSpan">
+				    </span>
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header txt-color-white" style="background-color: #313131; ">
 								<button type="button" class="close txt-color-white" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h3 class="modal-title" id="myModalLabel"><b>ADD COMPANY</b></h3>
+								<h3 class="modal-title" id="myModalLabel"><b>Add Company</b></h3>
 							</div>
 							<div class="modal-body">
 							
@@ -240,7 +241,12 @@
 									</div>
 									<div class="col-md-5">
 										<div class="form-group">
-											<input type="text" class="form-control" name="name" required />
+											<input type="text" class="form-control" id="companyName" name="name" list="list" required />
+											<datalist id="list">
+												@foreach($companies as $key => $c)
+													<option value="{{$c->name}}">{{$c->id}}</option>
+												@endforeach
+											</datalist>
 										</div>
 									</div>
 								</div>
@@ -252,14 +258,14 @@
 									</div>
 									<div class="col-md-5">
 										<div class="form-group">
-											<select class="form-control" name="type" id="category">
-												<option>Owner</option>
-												<option>Architect</option>
-												<option>Structural Engineer</option>
-												<option>Civil Engineer</option>
-												<option>Mechanical</option>
-												<option>Electricians</option>
-												<option>General Contractor</option>
+											<select class="form-control" name="type" id="compCategory">
+												<option value="Owner">Owner</option>
+												<option value="Architect">Architect</option>
+												<option value="Structural Engineer">Structural Engineer</option>
+												<option value="Civil Engineer">Civil Engineer</option>
+												<option value="Mechanical">Mechanical</option>
+												<option value="Electricians">Electricians</option>
+												<option value="General Contractor">General Contractor</option>
 											</select>
 										</div>
 									</div>
@@ -272,7 +278,8 @@
 									</div>
 									<div class="col-md-5">
 										<div class="form-group">
-											<input style="position:relative;left: -45%" type="checkbox" class="form-control" name="client_bool" value="1"/>
+											<input type="hidden" name="client_bool" value="0">
+											<input style="position:relative;left: -45%" type="checkbox" class="form-control" name="client_bool" value="1" id="client_bool" />
 										</div>
 									</div>
 								</div>
@@ -310,114 +317,9 @@
 									<div class="widget-body">
 										<div class="tabs-left">
 											<ul class="nav nav-tabs tabs-left" id="demo-pill-nav">
-												<li class="active">
-													<a href="#tab-r1" data-toggle="tab">New Location</a>
-												</li>
-											</ul>
-												<div class="tab-content locationsList">
-													<div class="tab-pane active col-lg-11" id="tab-r1">
-														<div class="row">
-															<div class="col-md-4">
-																<div class="form-group">
-																	<h6>Location Name:</h6>
-																</div>
-															</div>
-																<div class="col-md-8">
-																	<div class="form-group">
-																		<input type="text" class="form-control" name="locations[0][location_name]"  />
-																	</div>
-																</div>
-															</div>
-														<div class="row">
-															<div class="col-md-4">
-																<div class="form-group">
-																	<h6>Phone:</h6>
-																</div>
-															</div>
-															<div class="col-md-8">
-																<div class="form-group">
-																	<input type="text" class="form-control" name="locations[0][phone]" />
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-4">
-																<div class="form-group">
-																	<h6>Address:</h6>
-																</div>
-															</div>
-															<div class="col-md-8">
-																<div class="form-group">
-																	<input type="text" class="form-control" name="locations[0][address]" />
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-4">
-																<div class="form-group">
-																	<h6>City, State & Zip:</h6>
-																</div>
-															</div>
-															<div class="col-md-4">
-																<div class="form-group">
-																	<input type="text" class="form-control" name="locations[0][city]" />
-																</div>
-															</div>
-															<div class="col-md-2">
-																<div class="form-group">
-																	<select class="form-control" id="category" name="locations[0][state]">
-																		<option>CO</option>
-																		<option>WA</option>
-																		<option>HW</option>
-																		<option>N.CA</option>
-																		<option>NV</option>
-																		<option>S.CA</option>
-																		<option>OR</option>
-																		<option>TX</option>
-																		<option>CA</option>
-																	</select>
-																</div>
-															</div>
-															<div class="col-md-2">
-																<div class="form-group">
-																	<input type="text" class="form-control" name="locations[0][zip]" />
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-4">
-																<div class="form-group">
-																	<h6>Area Association:</h6>
-																</div>
-															</div>
-															<div class="col-md-8">
-																<div class="form-group" style="border-style: groove; border-width: 2px;">
-																	<ul class="checkbox">
-													 					 <li>
-													  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>
-													  					</li> 
-													 					 <li>
-													  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>
-													  					</li> 
-													  					<li>
-													 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>
-													 					</li> 
-													  					<li>
-													  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>
-													  					</li>
-													  					<li>
-													  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>
-													  					</li>
-													  					<li>
-													  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>
-													  					</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
-													 
 												
+											</ul>
+											<div class="tab-content locationsList">
 											</div>
 										</div>
 									</div>
@@ -429,10 +331,10 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">
-									CANCEL
+									Cancel
 								</button>
 								<button type="submit" class="btn btn-success">
-									<b>ADD COMPANY</b>
+									<b id="submitText">Add Company</b>
 								</button>
 							</div>
 
@@ -654,6 +556,163 @@
 		    /* END COLUMN FILTER */
 
 		    //ajax
+
+		    $("#companyName").on('change', function () {
+			    var val = this.value;
+			    
+			   		$('#list option').filter(function() {
+			   			if(this.value === val){
+			   				var id = this.text;
+							$.ajax({
+								type: "GET",
+								url: "contacts/person/getCompanyInfoAjax",
+								data: {
+									companyID: id
+								},
+								success: function(data) {
+									var htmlstr = '<input type="hidden" name="company_id" value="'+data.companyInfo.id+'">';
+									htmlstr += '<input type="hidden" name="_method" value="PUT">';
+									$('#methodFieldSpan').empty().append(htmlstr);
+
+									$('#compCategory').val(data.companyInfo.type);
+									if(data.companyInfo.client_bool){
+										$('#client_bool').attr('checked', true);
+									}
+									else{
+										$('#client_bool').attr('checked', false);
+									}
+									var locationsCount = 0;
+									$('.locationsList').empty();
+									$('#demo-pill-nav').empty();
+
+									$('#submitText').text('Save');
+									for(var i=0;i<data.locationsInfo.length; i++){
+										var m = data.locationsInfo[i];
+										var buttonHtml = '<li class="active">';
+											buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab">'+m.location_name+'</a>';
+											buttonHtml +='</li>';
+
+										$('#demo-pill-nav li').removeClass('active');
+										$('.tab-pane').removeClass('active');
+										$('#demo-pill-nav').append(buttonHtml);
+
+										var htmlstr =	'<div class="tab-pane active col-lg-11" id="tab-o'+locationsCount+'">';
+										htmlstr +=	'	<div class="row">';
+										htmlstr +=	'		<div class="col-md-4">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<h6>Location Name:</h6>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'			<div class="col-md-8">';
+										htmlstr +=	'				<div class="form-group">';
+										htmlstr +=  ' 					<input type="hidden" name="locations['+locationsCount+'][id]" value="'+m.id+'">';
+										htmlstr +=	'					<input type="text" class="form-control" name="locations['+locationsCount+'][location_name]" value="'+m.location_name+'"  />';
+										htmlstr +=	'				</div>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'	<div class="row">';
+										htmlstr +=	'		<div class="col-md-4">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<h6>Phone:</h6>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'		<div class="col-md-8">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][phone]" value="'+m.phone+'" />';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'	</div>';
+										htmlstr +=	'	<div class="row">';
+										htmlstr +=	'		<div class="col-md-4">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<h6>Address:</h6>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'		<div class="col-md-8">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][address]" value="'+m.address+'" />';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'	</div>';
+										htmlstr +=	'	<div class="row">';
+										htmlstr +=	'		<div class="col-md-4">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<h6>City, State & Zip:</h6>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'		<div class="col-md-4">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][city]" value="'+m.city+'" />';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'		<div class="col-md-2">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<select class="form-control" id="category" name="locations['+locationsCount+'][state]">';
+										htmlstr +=	'					<option>CO</option>';
+										htmlstr +=	'					<option>WA</option>';
+										htmlstr +=	'					<option>HW</option>';
+										htmlstr +=	'					<option>N.CA</option>';
+										htmlstr +=	'					<option>NV</option>';
+										htmlstr +=	'					<option>S.CA</option>';
+										htmlstr +=	'					<option>OR</option>';
+										htmlstr +=	'					<option>TX</option>';
+										htmlstr +=	'					<option>CA</option>';
+										htmlstr +=	'				</select>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'		<div class="col-md-2">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][zip]" value="'+m.zip+'" />';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'	</div>';
+										htmlstr +=	'	<div class="row">';
+										htmlstr +=	'		<div class="col-md-4">';
+										htmlstr +=	'			<div class="form-group">';
+										htmlstr +=	'				<h6>Area Association:</h6>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=	'		<div class="col-md-8">';
+										htmlstr +=	'			<div class="form-group" style="border-style: groove; border-width: 2px;">';
+										htmlstr +=	'				<ul class="checkbox">';
+										htmlstr +=	' 					 <li>';
+										htmlstr +=	'  						<input type="checkbox" id="cb10" value="Colorado" /><label for="cb10"><b>Colorado</b></label>';
+										htmlstr +=	'  					</li> ';
+										htmlstr +=	' 					 <li>';
+										htmlstr +=	'  						<input type="checkbox" id="cb11" value="Washington" /><label for="cb11"><b>Washington</b></label>';
+										htmlstr +=	'  					</li> ';
+										htmlstr +=	'  					<li>';
+										htmlstr +=	' 						<input type="checkbox" id="cb12" value="Hawaii" /><label for="cb12"><b>Hawaii</b></label>';
+										htmlstr +=	' 					</li> ';
+										htmlstr +=	'  					<li>';
+										htmlstr +=	'  						<input type="checkbox" id="cb13" value="South Texas" /><label for="cb13"><b>South Texas</b></label>';
+										htmlstr +=	'  					</li>';
+										htmlstr +=	'  					<li>';
+										htmlstr +=	'  						<input type="checkbox" id="cb14" value="Northern CA" /><label for="cb14"><b>Northern CA</b></label>';
+										htmlstr +=	'  					</li>';
+										htmlstr +=	'  					<li>';
+										htmlstr +=	'  						<input type="checkbox" id="cb14" value="Southern CA" /><label for="cb14"><b>Southern CA</b></label>';
+										htmlstr +=	'  					</li>';
+										htmlstr +=	'				</ul>';
+										htmlstr +=	'			</div>';
+										htmlstr +=	'		</div>';
+										htmlstr +=		'</div>';
+										htmlstr +=	'</div>';
+										$('.locationsList').append(htmlstr);
+										locationsCount++;
+									}
+
+								}
+							})
+			   			}
+			   			else {
+			   				$('#methodFieldSpan').empty();
+			   				$('#demo-pill-nav').empty();
+			   				$('.locationsList').empty();
+			   			}
+			   		})
+			    
+			});
 
 		    $('#pick_company').on('change', function(){
 		    	

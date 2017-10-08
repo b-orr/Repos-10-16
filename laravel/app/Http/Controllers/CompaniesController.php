@@ -60,6 +60,7 @@ class CompaniesController extends Controller
     
     public function edit($companies)
     {
+
         $this->data['company']=$this->tenant->companies()->find($companies);
         
          if(!empty($this->data['company'])){
