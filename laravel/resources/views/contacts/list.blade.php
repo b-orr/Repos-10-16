@@ -614,7 +614,7 @@
 									</div> 
 								</div>-->
 							</div>
-							</div>
+							
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">
 									CANCEL
@@ -623,6 +623,7 @@
 									<b> ADD PERSON </b>
 								</button>
 								</f>
+							</div>
 							</div>
 						</div><!-- /.modal-content -->
 					</div></form><!-- /.modal-dialog -->
