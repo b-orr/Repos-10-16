@@ -174,7 +174,14 @@
 											<tbody>
 												<tr>
 											 
-													<td><br style="clear: both;"> <h4 style="font-weight: bold">{{ $list_clean[0] }}</h4></td>
+													<td><br style="clear: both;"> <h4 style="font-weight: bold">
+													<span class="onoffswitch">
+													<input type="checkbox" name="h4{{ $list_clean[0] }}" class="onoffswitch-checkbox" value="1" id="h4{{ $list_clean[0] }}" onchange="$('.{{ $list_clean[0] }}').prop('checked', $(this).is(':checked')).change();" checked> 
+													<label class="onoffswitch-label" for="h4{{ $list_clean[0] }}"> 
+													<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+													<span class="onoffswitch-switch"></span> </label> 
+													</span>
+													{{ $list_clean[0] }}</h4></td>
 													
 												 
 													
@@ -214,7 +221,7 @@
 													<span class="onoffswitch">
 
 														@if(!empty($key))
-														<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{ $list }}" {{$full_checked}}  onchange="$('.{{ str_replace(' ', '_', $list) }}').find(':checkbox').toggleCheckbox(); $('.{{ str_replace(' ', '_', $list) }}').toggle()">
+														<input type="checkbox" name="onoffswitch" class="{{ $list_clean[0] }} onoffswitch-checkbox" id="{{ $list }}" {{$full_checked}}  onchange="$('.{{ str_replace(' ', '_', $list) }}').find(':checkbox').toggleCheckbox(); $('.{{ str_replace(' ', '_', $list) }}').toggle()">
 														@else
 
 														<?php

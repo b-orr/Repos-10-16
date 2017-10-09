@@ -165,16 +165,16 @@ Route::resource('contacts/companies', 'CompaniesController', [ 'as' => 'Contacts
 |--------------------------------------------------------------------------
 */
 
-Route::get('equipment/overview', 'EquipmentController@index')->name('Equpment - Overview');
-Route::get('equipment/forecasting', 'EquipmentController@forecasting')->name('Equpment - Forecasting');
-Route::get('equipment/rental', 'EquipmentController@rental')->name('Equpment - Rental');
-Route::get('equipment/allocation', 'EquipmentController@allocation')->name('Equpment - Allocation');
-Route::get('project/approvetruck', 'EquipmentController@approvetruck')->name('Equpment - Approvetruck');
+Route::get('equipment/overview', 'EquipmentController@index')->name('Equipment - Overview');
+Route::get('equipment/forecasting', 'EquipmentController@forecasting')->name('Equipment - Forecasting');
+Route::get('equipment/rental', 'EquipmentController@rental')->name('Equipment - Rental');
+Route::get('equipment/allocation', 'EquipmentController@allocation')->name('Equipment - Allocation');
+Route::get('project/approvetruck', 'EquipmentController@approvetruck')->name('Equipment - Approvetruck');
 
 //equipment management
-Route::resource('/equipment/eqmanagement', 'CategoryController', [ 'as' => 'Equpment - Management' ]);
-Route::resource('/equipment/subcategories', 'SubCategoryController', [ 'as' => 'Equpment - Subcategories' ]);
-Route::resource('/equipment/regionequipment', 'RegionEquipmentController', [ 'as' => 'Equpment - Regions' ]);
+Route::resource('/equipment/eqmanagement', 'CategoryController', [ 'as' => 'Equipment - Management' ]);
+Route::resource('/equipment/subcategories', 'SubCategoryController', [ 'as' => 'Equipment - Subcategories' ]);
+Route::resource('/equipment/regionequipment', 'RegionEquipmentController', [ 'as' => 'Equipment - Regions' ]);
 
 //inventory
 Route::get('/equipment/getSubAjax', 'AjaxCallsController@inventorySubCategories');

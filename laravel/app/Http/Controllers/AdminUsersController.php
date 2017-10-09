@@ -52,6 +52,7 @@ class AdminUsersController extends Controller
               'title' => 'required', 
               'name' => 'required',
               'last_name' => 'required',
+              'password' => 'required',
               'email' => 'required|email|unique:users',
               
           ]);
@@ -78,6 +79,11 @@ class AdminUsersController extends Controller
     
     public function update(Request $request, $user)
     {
+    
+       
+    	if($request->password==''){
+    		$request->request->remove('password');    	
+    	}
         User::find($user)->update($request->all());
         
         return redirect('/admin/users');

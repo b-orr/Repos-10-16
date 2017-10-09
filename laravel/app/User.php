@@ -81,6 +81,10 @@ class User extends Authenticatable
         return $this->hasMany('App\UserGroups');
     }
 
+	public function permission()
+	{
+	    return $this->hasOne('App\UserGroups', 'id', 'group_id');
+	}
 
     public function projects()
     {
