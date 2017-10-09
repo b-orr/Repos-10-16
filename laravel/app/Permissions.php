@@ -53,8 +53,8 @@ class Permissions
   			$route = $route .'_' . $list_clean[2];
   		}
   		
-  		 
-  		if(isset($user->permission->groupValues->where('name', $route)->first()->value)){
+  	 
+  		if(!empty($user->permission) && isset($user->permission->groupValues->where('name', $route)->first()->value)){
   			return $user->permission->groupValues->where('name', $route)->first()->value;
   		}else {
   			return 1;
