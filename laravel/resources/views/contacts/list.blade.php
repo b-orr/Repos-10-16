@@ -516,9 +516,9 @@
 							</div>
 							
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">
+								<a href="{{ url('/contacts/')}}" type="button" class="btn btn-default">
 									CANCEL
-								</button>
+								</a>
 								<button type="submit" class="btn btn-success">
 									<b> ADD PERSON </b>
 								</button>
