@@ -41,8 +41,8 @@ class CompaniesController extends Controller
         
 
         $company =$this->tenant->companies()->save(new Companies($request->all()));
-        if (isset($request->locations)) {
-            foreach ($request->locations as $key => $l) {
+        if (isset($request->newlocations)) {
+            foreach ($request->newlocations as $key => $l) {
                 $locationData = new CompanyLocations();
                 $locationData->company_id = $company->id;
                 $locationData->location_name = $l['location_name'];

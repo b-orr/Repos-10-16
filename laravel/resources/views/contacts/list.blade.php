@@ -1,7 +1,17 @@
 
 @include('includes._header')
+
 @include('includes._menu_list')
 	<!-- MAIN PANEL -->
+		<style type="text/css">
+		#demo-pill-nav {
+			width: 18% !important;
+		}
+
+		#demo-pill-nav > li > a > input {
+			width: 100% !important;
+		}
+	</style>
 		<div id="main" role="main">
 
 			<!-- RIBBON -->
@@ -212,7 +222,7 @@
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header txt-color-white" style="background-color: #313131; ">
-								<button type="button" class="close txt-color-white" data-dismiss="modal" aria-hidden="true">
+								<button type="button" class="close txt-color-white" data-dismiss="modal" aria-hidden="true" id="closeCompanyModal">
 									&times;
 								</button>
 								<h3 class="modal-title" id="myModalLabel"><b>Add Company</b></h3>
@@ -330,7 +340,7 @@
 				
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">
+								<button type="button" class="btn btn-default" data-dismiss="modal" id="cancelComp" >
 									Cancel
 								</button>
 								<button type="submit" class="btn btn-success">
@@ -559,6 +569,20 @@
 
 		    //ajax
 
+		    $('#closeCompanyModal, #cancelComp').on('click', function() {
+		    	$('#companyName').val('');
+		    	$('#compCategory').val('Owner');
+		    	$('#client_bool').attr('checked', false);
+		    	$('#demo-pill-nav').empty();
+		    	$('.locationsList').empty();
+		    	$('#methodFieldSpan').empty();
+		    })
+
+		    $('.widget-body').on('change', '.cityInput', function() {
+		    	var id = $(this).attr('dataid');
+		    	$('#locationsInput-'+id).val($(this).val());
+		    })
+
 		    $("#companyName").on('change', function () {
 			    var val = this.value;
 			    
@@ -591,7 +615,7 @@
 									for(var i=0;i<data.locationsInfo.length; i++){
 										var m = data.locationsInfo[i];
 										var buttonHtml = '<li class="active">';
-											buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab">'+m.location_name+'</a>';
+											buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab"><input type="text" name="locations['+locationsCount+'][location_name]" id="locationsInput-'+locationsCount+'" value="'+m.location_name+'" dataID="'+locationsCount+'"></a>';
 											buttonHtml +='</li>';
 
 										$('#demo-pill-nav li').removeClass('active');
@@ -599,19 +623,7 @@
 										$('#demo-pill-nav').append(buttonHtml);
 
 										var htmlstr =	'<div class="tab-pane active col-lg-11" id="tab-o'+locationsCount+'">';
-										htmlstr +=	'	<div class="row">';
-										htmlstr +=	'		<div class="col-md-4">';
-										htmlstr +=	'			<div class="form-group">';
-										htmlstr +=	'				<h6>Location Name:</h6>';
-										htmlstr +=	'			</div>';
-										htmlstr +=	'		</div>';
-										htmlstr +=	'			<div class="col-md-8">';
-										htmlstr +=	'				<div class="form-group">';
-										htmlstr +=  ' 					<input type="hidden" name="locations['+locationsCount+'][id]" value="'+m.id+'">';
-										htmlstr +=	'					<input type="text" class="form-control" name="locations['+locationsCount+'][location_name]" value="'+m.location_name+'"  />';
-										htmlstr +=	'				</div>';
-										htmlstr +=	'			</div>';
-										htmlstr +=	'		</div>';
+										htmlstr += '<input type="hidden" value="'+m.id+'" name="locations['+locationsCount+'][id]">';
 										htmlstr +=	'	<div class="row">';
 										htmlstr +=	'		<div class="col-md-4">';
 										htmlstr +=	'			<div class="form-group">';
@@ -644,21 +656,15 @@
 										htmlstr +=	'		</div>';
 										htmlstr +=	'		<div class="col-md-4">';
 										htmlstr +=	'			<div class="form-group">';
-										htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][city]" value="'+m.city+'" />';
+										htmlstr +=	'				<input type="text" class="form-control cityInput" name="locations['+locationsCount+'][city]" value="'+m.city+'" dataID="'+locationsCount+'" />';
 										htmlstr +=	'			</div>';
 										htmlstr +=	'		</div>';
 										htmlstr +=	'		<div class="col-md-2">';
 										htmlstr +=	'			<div class="form-group">';
 										htmlstr +=	'				<select class="form-control" id="category" name="locations['+locationsCount+'][state]">';
-										htmlstr +=	'					<option>CO</option>';
-										htmlstr +=	'					<option>WA</option>';
-										htmlstr +=	'					<option>HW</option>';
-										htmlstr +=	'					<option>N.CA</option>';
-										htmlstr +=	'					<option>NV</option>';
-										htmlstr +=	'					<option>S.CA</option>';
-										htmlstr +=	'					<option>OR</option>';
-										htmlstr +=	'					<option>TX</option>';
-										htmlstr +=	'					<option>CA</option>';
+										for(var s=0; s<data.states.length; s++){
+											htmlstr += '<option value="'+data.states[s].abbrv+'">'+data.states[s].abbrv+'</option>';
+										}
 										htmlstr +=	'				</select>';
 										htmlstr +=	'			</div>';
 										htmlstr +=	'		</div>';
@@ -758,7 +764,7 @@
 
 			$('#addNewLocation').on('click', function() {
 				var buttonHtml = '<li class="active">';
-					buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab">New Location</a>';
+					buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab"><input type="text" name="newlocations['+locationsCount+'][location_name]" id="locationsInput-'+locationsCount+'" value="New Location" dataID="'+locationsCount+'"></a>';
 					buttonHtml +='</li>';
 
 				$('#demo-pill-nav li').removeClass('active');
@@ -766,18 +772,7 @@
 				$('#demo-pill-nav').append(buttonHtml);
 
 				var htmlstr =	'<div class="tab-pane active col-lg-11" id="tab-o'+locationsCount+'">';
-				htmlstr +=	'	<div class="row">';
-				htmlstr +=	'		<div class="col-md-4">';
-				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<h6>Location Name:</h6>';
-				htmlstr +=	'			</div>';
-				htmlstr +=	'		</div>';
-				htmlstr +=	'			<div class="col-md-8">';
-				htmlstr +=	'				<div class="form-group">';
-				htmlstr +=	'					<input type="text" class="form-control" name="locations['+locationsCount+'][location_name]"  />';
-				htmlstr +=	'				</div>';
-				htmlstr +=	'			</div>';
-				htmlstr +=	'		</div>';
+				
 				htmlstr +=	'	<div class="row">';
 				htmlstr +=	'		<div class="col-md-4">';
 				htmlstr +=	'			<div class="form-group">';
@@ -786,7 +781,7 @@
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-8">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][phone]" />';
+				htmlstr +=	'				<input type="text" class="form-control" name="newlocations['+locationsCount+'][phone]" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'	</div>';
@@ -798,7 +793,7 @@
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-8">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][address]" />';
+				htmlstr +=	'				<input type="text" class="form-control" name="newlocations['+locationsCount+'][address]" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'	</div>';
@@ -810,27 +805,77 @@
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-4">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][city]" />';
+				htmlstr +=	'				<input type="text" class="form-control cityInput" name="newlocations['+locationsCount+'][city]" dataID="'+locationsCount+'" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-2">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<select class="form-control" id="category" name="locations['+locationsCount+'][state]">';
-				htmlstr +=	'					<option>CO</option>';
-				htmlstr +=	'					<option>WA</option>';
-				htmlstr +=	'					<option>HW</option>';
-				htmlstr +=	'					<option>N.CA</option>';
-				htmlstr +=	'					<option>NV</option>';
-				htmlstr +=	'					<option>S.CA</option>';
-				htmlstr +=	'					<option>OR</option>';
-				htmlstr +=	'					<option>TX</option>';
-				htmlstr +=	'					<option>CA</option>';
+				htmlstr +=	'				<select class="form-control" id="category" name="newlocations['+locationsCount+'][state]">';
+				htmlstr +=	'	                <option value="AL">AL</option>';
+                htmlstr +=	'                    <option value="AK">AK</option>';
+                htmlstr +=	'                    <option value="AS">AS</option>';
+                htmlstr +=	'                    <option value="AZ">AZ</option>';
+                htmlstr +=	'                    <option value="AR">AR</option>';
+                htmlstr +=	'                    <option value="CA">CA</option>';
+                htmlstr +=	'                    <option value="CO">CO</option>';
+                htmlstr +=	'                    <option value="CT">CT</option>';
+                htmlstr +=	'                    <option value="DE">DE</option>';
+                htmlstr +=	'                    <option value="DC">DC</option>';
+                htmlstr +=	'                    <option value="FL">FL</option>';
+                htmlstr +=	'                    <option value="GA">GA</option>';
+                htmlstr +=	'                    <option value="GU">GU</option>';
+                htmlstr +=	'                    <option value="HI">HI</option>';
+                htmlstr +=	'                    <option value="ID">ID</option>';
+                htmlstr +=	'                    <option value="IL">IL</option>';
+                htmlstr +=	'                    <option value="IN">IN</option>';
+                htmlstr +=	'                    <option value="IA">IA</option>';
+                htmlstr +=	'                    <option value="KS">KS</option>';
+                htmlstr +=	'                    <option value="KY">KY</option>';
+                htmlstr +=	'                    <option value="LA">LA</option>';
+                htmlstr +=	'                    <option value="ME">ME</option>';
+                htmlstr +=	'                    <option value="MD">MD</option>';
+                htmlstr +=	'                    <option value="MH">MH</option>';
+                htmlstr +=	'                    <option value="MA">MA</option>';
+                htmlstr +=	'                    <option value="MI">MI</option>';
+                htmlstr +=	'                    <option value="FM">FM</option>';
+                htmlstr +=	'                    <option value="MN">MN</option>';
+                htmlstr +=	'                    <option value="MS">MS</option>';
+                htmlstr +=	'                    <option value="MO">MO</option>';
+                htmlstr +=	'                    <option value="MT">MT</option>';
+                htmlstr +=	'                    <option value="NE">NE</option>';
+                htmlstr +=	'                    <option value="NV">NV</option>';
+                htmlstr +=	'                    <option value="NH">NH</option>';
+                htmlstr +=	'                    <option value="NJ">NJ</option>';
+                htmlstr +=	'                    <option value="NM">NM</option>';
+                htmlstr +=	'                    <option value="NY">NY</option>';
+                htmlstr +=	'                    <option value="NC">NC</option>';
+                htmlstr +=	'                    <option value="ND">ND</option>';
+                htmlstr +=	'                    <option value="MP">MP</option>';
+                htmlstr +=	'                    <option value="OH">OH</option>';
+                htmlstr +=	'                    <option value="OK">OK</option>';
+                htmlstr +=	'                    <option value="OR">OR</option>';
+                htmlstr +=	'                    <option value="PW">PW</option>';
+                htmlstr +=	'                    <option value="PA">PA</option>';
+                htmlstr +=	'                    <option value="PR">PR</option>';
+                htmlstr +=	'                    <option value="RI">RI</option>';
+                htmlstr +=	'                    <option value="SC">SC</option>';
+                htmlstr +=	'                    <option value="SD">SD</option>';
+                htmlstr +=	'                    <option value="TN">TN</option>';
+                htmlstr +=	'                    <option value="TX">TX</option>';
+                htmlstr +=	'                    <option value="UT">UT</option>';
+                htmlstr +=	'                    <option value="VT">VT</option>';
+                htmlstr +=	'                    <option value="VA">VA</option>';
+                htmlstr +=	'                    <option value="VI">VI</option>';
+                htmlstr +=	'                    <option value="WA">WA</option>';
+                htmlstr +=	'                    <option value="WV">WV</option>';
+                htmlstr +=	'                    <option value="WI">WI</option>';
+                htmlstr +=	'                    <option value="WY">WY</option>';
 				htmlstr +=	'				</select>';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-2">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][zip]" />';
+				htmlstr +=	'				<input type="text" class="form-control" name="newlocations['+locationsCount+'][zip]" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'	</div>';
