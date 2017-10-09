@@ -6,6 +6,7 @@ use App\User;
 use App\Persons;
 use App\Companies;
 use App\CompanyLocations;
+use App\States;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
@@ -36,6 +37,7 @@ class ContactsController extends Controller
     {
         $this->data['persons'] = $this->tenant->persons;
         $this->data['companies'] = $this->tenant->companies;
+        $this->data['states'] = States::get();
         return view('contacts/list', $this->data);
     }
 
@@ -50,7 +52,7 @@ class ContactsController extends Controller
     public function getCompanyAjax()
     {
         $id = $_GET['companyID'];
-
+        $this->data['states'] = States::get();
         $this->data['companyInfo'] = $this->tenant->companies->find($id);
         $this->data['locationsInfo'] = $this->tenant->companies->find($id)->locations;
         return response()->json($this->data); 
