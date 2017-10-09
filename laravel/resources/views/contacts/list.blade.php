@@ -623,7 +623,7 @@
 										$('#demo-pill-nav').append(buttonHtml);
 
 										var htmlstr =	'<div class="tab-pane active col-lg-11" id="tab-o'+locationsCount+'">';
-										
+										htmlstr += '<input type="hidden" value="'+m.id+'" name="locations['+locationsCount+'][id]">';
 										htmlstr +=	'	<div class="row">';
 										htmlstr +=	'		<div class="col-md-4">';
 										htmlstr +=	'			<div class="form-group">';
@@ -764,7 +764,7 @@
 
 			$('#addNewLocation').on('click', function() {
 				var buttonHtml = '<li class="active">';
-					buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab"><input type="text" name="locations['+locationsCount+'][location_name]" id="locationsInput-'+locationsCount+'" value="New Location" dataID="'+locationsCount+'"></a>';
+					buttonHtml +=	'<a href="#tab-o'+locationsCount+'" data-toggle="tab"><input type="text" name="newlocations['+locationsCount+'][location_name]" id="locationsInput-'+locationsCount+'" value="New Location" dataID="'+locationsCount+'"></a>';
 					buttonHtml +='</li>';
 
 				$('#demo-pill-nav li').removeClass('active');
@@ -781,7 +781,7 @@
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-8">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][phone]" />';
+				htmlstr +=	'				<input type="text" class="form-control" name="newlocations['+locationsCount+'][phone]" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'	</div>';
@@ -793,7 +793,7 @@
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-8">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][address]" />';
+				htmlstr +=	'				<input type="text" class="form-control" name="newlocations['+locationsCount+'][address]" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'	</div>';
@@ -805,12 +805,12 @@
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-4">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control cityInput" name="locations['+locationsCount+'][city]" dataID="'+locationsCount+'" />';
+				htmlstr +=	'				<input type="text" class="form-control cityInput" name="newlocations['+locationsCount+'][city]" dataID="'+locationsCount+'" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-2">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<select class="form-control" id="category" name="locations['+locationsCount+'][state]">';
+				htmlstr +=	'				<select class="form-control" id="category" name="newlocations['+locationsCount+'][state]">';
 				htmlstr +=	'	                <option value="AL">AL</option>';
                 htmlstr +=	'                    <option value="AK">AK</option>';
                 htmlstr +=	'                    <option value="AS">AS</option>';
@@ -875,7 +875,7 @@
 				htmlstr +=	'		</div>';
 				htmlstr +=	'		<div class="col-md-2">';
 				htmlstr +=	'			<div class="form-group">';
-				htmlstr +=	'				<input type="text" class="form-control" name="locations['+locationsCount+'][zip]" />';
+				htmlstr +=	'				<input type="text" class="form-control" name="newlocations['+locationsCount+'][zip]" />';
 				htmlstr +=	'			</div>';
 				htmlstr +=	'		</div>';
 				htmlstr +=	'	</div>';

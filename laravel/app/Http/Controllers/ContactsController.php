@@ -38,7 +38,7 @@ class ContactsController extends Controller
         $this->data['persons'] = $this->tenant->persons;
         $this->data['companies'] = $this->tenant->companies;
         $this->data['states'] = States::get();
-        
+
         return view('contacts/list', $this->data);
     }
 
@@ -48,6 +48,20 @@ class ContactsController extends Controller
         foreach ($request->locations as $key => $l) {
             $this->tenant->companies->find($request->company_id)->locations->find($l['id'])->update($l);
         }
+        if(isset($request->newlocations)){
+            foreach ($request->newlocations as $key => $nl) {
+                $locationData = new CompanyLocations();
+                $locationData->company_id = $request->company_id;
+                $locationData->location_name = $nl['location_name'];
+                $locationData->phone = $nl['phone'];
+                $locationData->address = $nl['address'];
+                $locationData->city = $nl['city'];
+                $locationData->state = $nl['state'];
+                $locationData->zip = $nl['zip'];
+                $locationData->save();
+            }
+        }
+        
         return redirect('/contacts');
     }
     public function getCompanyAjax()
