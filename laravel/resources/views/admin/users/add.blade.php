@@ -133,7 +133,7 @@
 																							<li>
 																								@foreach($tenant->groups as $val) 
 																								<input type="radio" id="group_{{ $val->id }}" name="group_id" value="{{ $val->id }}" />
-																								<label for="group_{{ $val->id }}">{{ $val->name }}</label>
+																								<label for="group_{{ $val->id }}">{{ $val->name }}</label><br />
 																								@endforeach
 																							</li> 
 																							 
@@ -183,6 +183,18 @@
 																				<div class="col-md-6">
 																					<div class="form-group">
 																						<input type="text" name="email" class="form-control"  required />
+																					</div>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-6">
+																					<div class="form-group">
+																						<h4>Password: <b><sup style="color: #FF0000;">*</sup></b></h4>
+																					</div>
+																				</div>
+																				<div class="col-md-6">
+																					<div class="form-group">
+																						<input type="password" name="password" class="form-control"  required />
 																					</div>
 																				</div>
 																			</div>

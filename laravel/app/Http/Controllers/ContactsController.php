@@ -38,6 +38,7 @@ class ContactsController extends Controller
         $this->data['persons'] = $this->tenant->persons;
         $this->data['companies'] = $this->tenant->companies;
         $this->data['states'] = States::get();
+        
         return view('contacts/list', $this->data);
     }
 
@@ -55,6 +56,7 @@ class ContactsController extends Controller
         $this->data['states'] = States::get();
         $this->data['companyInfo'] = $this->tenant->companies->find($id);
         $this->data['locationsInfo'] = $this->tenant->companies->find($id)->locations;
+        
         return response()->json($this->data); 
     }
     public function getLocationAjax() {
@@ -69,6 +71,52 @@ class ContactsController extends Controller
         foreach($Company_data as $key => $compID) {
             list($ID,$Name) = explode('|', $compID);
             array_push($CompanyID, $ID);
+        }
+        
+        
+        $this->data['locations'] = array();
+
+        if($CompanyID != '') {
+
+
+            foreach($CompanyID as $key => $val) {
+                
+                $locations= $this->tenant->companies->find($val)->locations;
+                
+                    foreach($locations as $key => $value1) {
+                       array_push($this->data['locations'], $value1);
+                    }
+                
+            }
+        
+        } else {
+
+            $this->data['locations'] = [];
+        } 
+ 
+        } else {
+
+            $this->data['locations'] = [];
+            
+        } 
+        return response()->json($this->data);
+   
+    }
+
+    public function getLocationAjaxEdit($id) {
+        
+        $Company_data = $_GET['companyID'];
+
+        $this->data['companies'] = $this->tenant->companies;
+
+        if($Company_data != '') {
+
+
+        $CompanyID = array();
+        
+        foreach($Company_data as $key => $compID) {
+           // list($ID,$Name) = explode('|', $compID);
+            array_push($CompanyID, $compID);
         }
         
         
