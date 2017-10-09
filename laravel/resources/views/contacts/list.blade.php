@@ -89,11 +89,11 @@
 												</tr>
 											</thead>
 													<tbody>
-													
+											 
 													@foreach($persons AS $person)
 													
 														<tr>
-															<td>{{ $person->first_name }} {{ $person->last_name }} - {{ $person->company->name }}</td>
+															<td>{{ $person->first_name }} {{ $person->last_name }} - {{ @$person->company->name }}</td>
 															<td>{{ $person->direct_line }}</td>
 															<td> </td>
 															<td>{{ $person->email }}</td>
