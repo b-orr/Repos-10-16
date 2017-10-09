@@ -154,7 +154,8 @@ Route::resource('project/{id}/subfolder', 'PhotosSubFolderController');
 */
 
 Route::resource('contacts', 'ContactsController', [ 'as' => 'Contacts' ]);
-Route::get('/contacts/person/getLocationAjax', 'ContactsController@getLocationAjax');
+Route::get('/contacts/persons/{id}/getLocationAjaxEdit', 'ContactsController@getLocationAjaxEdit');
+Route::get('/contacts/persons/getLocationAjax', 'ContactsController@getLocationAjax');
 Route::get('/contacts/person/getCompanyInfoAjax', 'ContactsController@getCompanyAjax');
 Route::resource('contacts/persons', 'PersonsController', [ 'as' => 'Contacts - Persons' ]);
 Route::resource('contacts/companies', 'CompaniesController', [ 'as' => 'Contacts - Companies' ]);

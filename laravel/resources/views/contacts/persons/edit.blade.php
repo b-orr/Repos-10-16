@@ -153,11 +153,37 @@
 																				</div>
 																				<div class="col-md-7">
 																					<div class="form-group">
-																						<input type="text" class="form-control" placeholder="Company Name" required name="company_association" value="{{ $person->company_association }}"  />
+																						<select multiple name="company_association_1" id="pick_company" class="select2" >
+																							@foreach($companies as $key => $val)
+																								<option value="{{$val->id}}" @if($val->id == $person->company_association) selected @endif>{{$val->name}}</option>
+																							@endforeach
+																							<input type="hidden" name="company_association" id="real_company_association" value="{{$person->company_association}}">																							
+																						</select>
+																						<!-- <input type="text" class="form-control" placeholder="Company Name" required name="company_association" value="{{ $person->company_association }}"  /> -->
 																					</div>
 																				</div>
 																			</div>
-																			<div class="row no-margin">
+																			<div class="row no-margin" id="office_location_div">
+																			<div class="col-md-5">
+																				<div class="form-group">
+																					<h4><b>Office Location:</b></h4>
+																				</div>
+																			</div>
+																			<div class="col-md-7">
+																				<div class="form-group">
+
+																					<select class="form-control" name="office_location" id="locations_dropdown">
+																						
+																						@foreach($locations as $key => $val)
+
+																							<option value="{{$val->id}}" @if($val->id == $location->id) selected @endif>{{$val->location_name}}</option>
+																						
+																						@endforeach
+																					</select>
+																				</div>
+																			</div>
+																			</div>
+																			<!-- <div class="row no-margin">
 																			<div class="col-md-5">
 																				<div class="form-group">
 																					<h4><b>Area Association:</b></h4>
@@ -187,6 +213,7 @@
 																					</ul> 
 																				</div>
 																			</div>
+																			</div> -->
 																		<div class="modal-footer">
 																			 
 																			 <button type="button" class="btn btn-default" onclick="window.location='{{url('admin/users')}}'">
@@ -250,6 +277,56 @@
 			pageSetUp();
 			
 		 		});
+
+		 $('#pick_company').on('change', function(){
+		    	
+				
+		    	var id = $('#pick_company').val();
+		    	$('#real_company_association').val(id);
+		    	//$('#pick_company').val([]);
+		    	if(id === null) {
+		    		id = '';
+		    	}
+		    	$.ajaxSetup({
+			            headers: {
+			                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+			            }
+			        });
+
+		    	$.ajax({
+			    		type: "GET",
+            			url: "getLocationAjaxEdit",
+            			data: {
+            				companyID: id
+            				//subcategory: sub
+            			}
+			    		, 
+				    	success : function(data) {
+				    		
+		    				//$('#office_location_div').removeClass('hide');
+		    				$('#pick_company').empty();
+		    				$('#locations_dropdown').empty();
+		    				console.log(data);
+		    				var htmlstr_company;
+		    				for (var k = 0; k < data.companies.length; k++) {
+			    					htmlstr_company += "<option value='"+data.companies[k].id+"'>"+ data.companies[k].name +"</option>";
+
+			    				}
+
+				    		var htmlstr = "<option value='#'>Not selected</option>";
+			    				
+			    				for (var m = 0; m < data.locations.length; m++) {
+			    					htmlstr += "<option value='"+data.locations[m].id+"'>"+ data.locations[m].location_name +"</option>";
+
+			    				}
+
+			    			$('#pick_company').append(htmlstr_company)
+				    		$('#locations_dropdown').append(htmlstr);
+
+		   				}
+				});
+			});
+
 
 		</script>
 

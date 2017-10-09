@@ -23,6 +23,16 @@ class Persons extends Model
       	
       	return $this->hasMany('App\Projects', 'user_id');
   }
+
+  public function company() {
+
+        return $this->hasOne('App\Companies', 'id', 'company_association');
+  }
+
+  public function companyLocation() {
+        
+        return $this->hasOne('App\companyLocation', 'id' ,'office_location');
+  }
   
 }
 
