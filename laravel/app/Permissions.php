@@ -42,7 +42,24 @@ class Permissions
       return $value;
     }
   	
-  	public function doIHaveAccess() {
-  		return  \Request::route()->getName();
+  	public function doIHaveAccess($user) {
+  		$route =  \Request::route()->getName();
+  		
+  		$list_clean = explode('.', $route);
+  		
+  		$route = str_replace(' ', '_',  $list_clean[0]);
+  		
+  		if(isset($list_clean[2])){
+  			$route = $route .'_' . $list_clean[2];
+  		}
+  		
+  		 
+  		if(isset($user->permission->groupValues->where('name', $route)->first()->value)){
+  			return $user->permission->groupValues->where('name', $route)->first()->value;
+  		}else {
+  			return 1;
+  		}
+ 		
+  		
   	}
 }

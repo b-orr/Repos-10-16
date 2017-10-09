@@ -28,16 +28,30 @@ class Role
 				     session(['region' => @$user->regions->first()->name]);
 				     session(['region_id' => @$user->regions->first()->id]);
 				}
-    		
-    		 //$prm = new Permissions;
-    		 //dd($prm->doIHaveAccess());
-    		
-         foreach($roles as $role) {
-            if($user->role == $role){
-                return $next($request);
-            }
-       
+				
+				
+		    		
+    		$prm = new Permissions;
+    		if(!$prm->doIHaveAccess(Auth::user())){
+    			
+    			echo '<script>
+    			
+    			function confirmation() {
+    			    if (!confirm("This page is forbidden")) {
+    			        window.history.back();
+    			    }
+    			}
+    			
+    			confirmation(); 
+    			</script>';
+    			return redirect('/forbidden');
     		}
+    		
+	        foreach($roles as $role) {
+	        	if($user->role == $role){
+	                return $next($request);
+	            }
+	        }
     		
     		
        return redirect('/forbidden');
