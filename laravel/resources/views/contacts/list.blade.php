@@ -75,7 +75,7 @@
 				
 									</div>
 									<!-- end widget edit box -->
-				
+							
 									<!-- widget content -->
 									<div class="widget-body">
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
@@ -93,7 +93,7 @@
 													@foreach($persons AS $person)
 													
 														<tr>
-															<td>{{ $person->first_name }} {{ $person->last_name }} - {{ $person->company_association }}</td>
+															<td>{{ $person->first_name }} {{ $person->last_name }} - {{ $person->company->name }}</td>
 															<td>{{ $person->direct_line }}</td>
 															<td> </td>
 															<td>{{ $person->email }}</td>
@@ -532,10 +532,11 @@
 			<!-- END MAIN CONTENT -->
 
 		</div>
+
 		<!-- END MAIN PANEL -->
 		@include('includes._footer')
 		<!-- END PAGE FOOTER -->
-
+	
 		<script>
 			
 		$(document).ready(function() {
@@ -732,7 +733,7 @@
 
 		    	$.ajax({
 			    		type: "GET",
-            			url: "contacts/person/getLocationAjax",
+            			url: "contacts/persons/getLocationAjax",
             			data: {
             				companyID: id
             				//subcategory: sub
@@ -745,7 +746,7 @@
 				    		var htmlstr = "<option value='#'>Not selected</option>";
 			    				
 			    				for (var m = 0; m < data.locations.length; m++) {
-			    					htmlstr += "<option value='"+data.locations[m].location_name+"'>"+ data.locations[m].location_name +"</option>";
+			    					htmlstr += "<option value='"+data.locations[m].id +"'>"+ data.locations[m].location_name +"</option>";
 
 			    				}
 

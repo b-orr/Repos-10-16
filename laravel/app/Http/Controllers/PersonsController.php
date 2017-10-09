@@ -44,7 +44,7 @@ class PersonsController extends Controller
 
        
             list($ID,$Name) = explode('|', $request->company_association);
-            $request->request->add(['company_association' => $Name]);
+            $request->request->add(['company_association' => $ID]);
       
           
         $this->tenant->persons()->save(new Persons($request->all()));
@@ -57,6 +57,14 @@ class PersonsController extends Controller
     {
         $this->data['person']=$this->tenant->persons()->find($persons);
         
+        $this->data['locations'] = $this->tenant->companies->find($this->data['person']->company_association)->locations;
+
+        $this->data['companies'] = $this->tenant->companies;
+
+        $this->data['location'] = $this->tenant->companies->find($this->data['person']->company_association)->locations->find($this->data['person']->office_location);
+       
+        
+        
          if(!empty($this->data['person'])){
          	return view('contacts/persons/edit', $this->data);
          }else {
@@ -67,6 +75,10 @@ class PersonsController extends Controller
     
     public function update(Request $request, $persons)
     {
+
+        //list($ID,$Name) = explode('|', $request->company_association);
+        //$request->request->add(['company_association' => $Name]);
+
         $this->tenant->persons()->find($persons)->update($request->all());
         
         return redirect('/contacts');
