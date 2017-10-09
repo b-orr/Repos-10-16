@@ -335,60 +335,7 @@
 												<div class="tab-pane col-lg-11" id="tab-r3">
 													<div class="widget-body no-padding">
 												<br>
-													<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
-														<thead>			                
-															<tr>
-																<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Bid Name</th>
-																<th data-hide="phone,tablet"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i> Date</th>
-																<th data-hide="phone,tablet"><i class="fa fa-fw fa-map-marker txt-color-blue hidden-md hidden-sm hidden-xs"></i>Location</th>
-																<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Estimator</th>
-																<th>Scope</th>
-																<th data-hide="phone,tablet"><i class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i>Start Date</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td><a href="#">Test Bidding</a></td>
-																<td>25.5.2015</td>
-																<td>Denver Co</td>
-																<td>Jones D.</td>
-																<td>Package</td>
-																<td>1.1.2017</td>
-															</tr>
-															<tr>
-																<td><a href="#">Test Bidding</a></td>
-																<td>25.5.2015</td>
-																<td>Denver Co</td>
-																<td>Jones D.</td>
-																<td>Package</td>
-																<td>1.1.2017</td>
-															</tr>
-															<tr>
-																<td><a href="#">Test Bidding</a></td>
-																<td>25.5.2015</td>
-																<td>Denver Co</td>
-																<td>Jones D.</td>
-																<td>Package</td>
-																<td>1.1.2017</td>
-															</tr>
-															<tr>
-																<td><a href="#">Test Bidding</a></td>
-																<td>25.5.2015</td>
-																<td>Denver Co</td>
-																<td>Jones D.</td>
-																<td>Package</td>
-																<td>1.1.2017</td>
-															</tr>
-															<tr>
-																<td><a href="#">Test Bidding</a></td>
-																<td>25.5.2015</td>
-																<td>Denver Co</td>
-																<td>Jones D.</td>
-																<td>Package</td>
-																<td>1.1.2017</td>
-															</tr>
-														</tbody>
-													</table>
+													
 													</div>
 												</div>	
 											</div>

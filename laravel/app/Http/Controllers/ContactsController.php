@@ -36,11 +36,25 @@ class ContactsController extends Controller
     {
         $this->data['persons'] = $this->tenant->persons;
         $this->data['companies'] = $this->tenant->companies;
-        
-        //dd($this->data['locations']);
         return view('contacts/list', $this->data);
     }
 
+    public function update(Request $request)
+    {
+        $this->tenant->companies->find($request->company_id)->update($request->all());
+        foreach ($request->locations as $key => $l) {
+            $this->tenant->companies->find($request->company_id)->locations->find($l['id'])->update($l);
+        }
+        return redirect('/contacts');
+    }
+    public function getCompanyAjax()
+    {
+        $id = $_GET['companyID'];
+
+        $this->data['companyInfo'] = $this->tenant->companies->find($id);
+        $this->data['locationsInfo'] = $this->tenant->companies->find($id)->locations;
+        return response()->json($this->data); 
+    }
     public function getLocationAjax() {
         
         $Company_data = $_GET['companyID'];
