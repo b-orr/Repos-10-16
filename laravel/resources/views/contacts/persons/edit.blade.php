@@ -306,7 +306,7 @@
 		    				//$('#office_location_div').removeClass('hide');
 		    				$('#pick_company').empty();
 		    				$('#locations_dropdown').empty();
-		    				console.log(data);
+		    				//console.log(data);
 		    				var htmlstr_company;
 		    				for (var k = 0; k < data.companies.length; k++) {
 			    					htmlstr_company += "<option value='"+data.companies[k].id+"'>"+ data.companies[k].name +"</option>";
