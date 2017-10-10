@@ -99,4 +99,9 @@ class User extends Authenticatable
     public function notes() {
         return $this->hasMany('App\Notes', 'user_id');
   }
+  
+  public function userregions(){
+       return $this->hasMany('App\Userregion', 'user_id');
+      
+  }
 }
