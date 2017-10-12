@@ -9,7 +9,7 @@ class Projects extends Model
     protected $table = 'pj_projects';
     
     protected $fillable = [
-        'user_id', 'submited_user_id', 'rating', 'name', 'address', 'city', 'state', 'zip', 'structure_use', 'structure_type', 'status', 'bid_date', 'bid_time', 'bid_site_address', 'bid_username', 'bid_password', 'scope', 'start_date', 'est_date', 'duration_start', 'duration_duration', 'duration_finish', 'user_id', 'submited_user_id', 'architect', 'struct_eng', 'description', 'prevailing_wage', 'wrap_up', 'performance_bond', 'op_manager', 'estimator', 'owner'
+        'user_id', 'submited_user_id', 'rating', 'name', 'address', 'city', 'state', 'zip', 'structure_use', 'structure_type', 'status', 'bid_date', 'bid_time', 'bid_site_address', 'bid_username', 'bid_password', 'scope', 'start_date', 'est_date', 'duration_start', 'duration_duration', 'duration_finish', 'user_id', 'submited_user_id', 'architect', 'struct_eng', 'description', 'prevailing_wage', 'wrap_up', 'performance_bond', 'op_manager', 'estimator', 'owner','region_id'
         
     ];
 
