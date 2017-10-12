@@ -109,9 +109,12 @@
 																						
 																						
 																						@foreach ($regions as $region)
+                                                                                                                                                                                 @if($region->active == '1')
 																						    <li>
+                                                                                                                                                                                        <input type="checkbox" name="region[]"  value="{{ $region->id }}" />
 																						    	<input type="radio" name="region_id" id="cb{{ $region->id }}" value="{{ $region->id }}" required /><label for="cb{{ $region->id }}">{{ $region->name }}</label>
 																						    </li> 
+                                                                                                                                                                                    @endif
 																						@endforeach
 																						
 																						

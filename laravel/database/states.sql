@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `states`
 --
 
-CREATE TABLE `states` (
+CREATE TABLE IF NOT EXISTS `states` (
   `state` varchar(50) DEFAULT NULL,
   `abbrv` varchar(2) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
