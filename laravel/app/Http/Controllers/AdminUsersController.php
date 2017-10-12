@@ -101,6 +101,7 @@ class AdminUsersController extends Controller {
         $user = User::find($user);
         $userupdate = $user->update($request->all());
         $default_region = $request->region_id;
+        $user->userregions()->detach();
         $user->userregions()->delete();
         $regioncount = count($request['region']);
         if ($userupdate) {

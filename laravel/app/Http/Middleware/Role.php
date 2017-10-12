@@ -21,14 +21,30 @@ class Role
     {
         if (!Auth::check())
             return redirect('/');
-    
-        $user = User::findTenant(Auth::user());
+        $default_region=null;
+        $user= \Auth::user();
+        if(!session()->has('default_region')){
+            
+            
+
+            if($user->role==='tenant' || $user->role==='super'){
+                $default_region=$user->regions->first();
+            }else{
+                $default_region=$user->userregions()->where('is_default',1)->first();
+            }
+            
+            
+            $request->session()->put('region', $default_region->name);
+            $request->session()->put('region_id', $default_region->id);
+        }
+        
+        /*$user = User::findTenant(Auth::user());
     
 				if(!session()->has('region')){
 				     session(['region' => @$user->regions->first()->name]);
 				     session(['region_id' => @$user->regions->first()->id]);
 				}
-				
+	*/			
 				
 		    		
     		$prm = new Permissions;
