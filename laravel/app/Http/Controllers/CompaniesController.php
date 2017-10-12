@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\States;
 use App\Companies;
 use App\CompanyLocations;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class CompaniesController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request);
+        dd($request);
 
         $this->validate($request, [ 'name' => 'required']);
         
@@ -62,6 +63,11 @@ class CompaniesController extends Controller
     {
 
         $this->data['company']=$this->tenant->companies()->find($companies);
+
+        $this->data['locations'] = $this->data['company']->locations;
+        $this->data['states'] = States::get();
+
+        //dd($this->data['states']);
         
          if(!empty($this->data['company'])){
          	return view('contacts/companies/edit', $this->data);
@@ -74,8 +80,28 @@ class CompaniesController extends Controller
     public function update(Request $request, $companies)
     {
 
+       //dd($request->locations);
+
+        $this->tenant->companies->find($companies)->update($request->all());
+        foreach ($request->locations as $key => $l) {
+            $this->tenant->companies->find($companies)->locations->find($l['id'])->update($l);
+        }
         
-        $this->tenant->companies()->find($companies)->update($request->all());
+        if(isset($request->newlocations)){
+            foreach ($request->newlocations as $key => $nl) {
+                $locationData = new CompanyLocations();
+                $locationData->company_id = $companies;
+                $locationData->location_name = $nl['location_name'];
+                $locationData->phone = $nl['phone'];
+                $locationData->address = $nl['address'];
+                $locationData->city = $nl['city'];
+                $locationData->state = $nl['state'];
+                $locationData->zip = $nl['zip'];
+                $locationData->save();
+            }
+        }
+        
+        //$this->tenant->companies()->find($companies)->update($request->all());
         
         return redirect('/contacts');
     }

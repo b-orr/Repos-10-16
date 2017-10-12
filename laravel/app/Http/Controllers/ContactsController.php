@@ -44,6 +44,7 @@ class ContactsController extends Controller
 
     public function update(Request $request)
     {
+        
         $this->tenant->companies->find($request->company_id)->update($request->all());
         foreach ($request->locations as $key => $l) {
             $this->tenant->companies->find($request->company_id)->locations->find($l['id'])->update($l);

@@ -79,6 +79,12 @@ class PersonsController extends Controller
         //list($ID,$Name) = explode('|', $request->company_association);
         //$request->request->add(['company_association' => $Name]);
 
+        $this->validate($request, [ 'first_name' => 'required', 
+                                    'last_name' => 'required',
+                                    'company_association' => 'required',
+                                    'email' => 'required|email'
+                        ]);
+
         $this->tenant->persons()->find($persons)->update($request->all());
         
         return redirect('/contacts');
