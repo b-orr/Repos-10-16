@@ -101,7 +101,7 @@ class User extends Authenticatable
   }
   
   public function userregions(){
-       return $this->hasMany('App\Userregion', 'user_id');
+       return $this->belongsToMany('App\Regions','userregions','user_id','region_id');
       
   }
 }
