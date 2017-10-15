@@ -46,8 +46,21 @@ class ContactsController extends Controller
     {
         
         $this->tenant->companies->find($request->company_id)->update($request->all());
-        foreach ($request->locations as $key => $l) {
-            $this->tenant->companies->find($request->company_id)->locations->find($l['id'])->update($l);
+        
+        if(isset($request->locations)){
+            foreach ($request->locations as $key => $l) {
+                $locationData = CompanyLocations::find($l['id']);
+                // dd($request->locations);
+                $locationData->company_id = $request->company_id;
+                $locationData->location_name = $l['location_name'];
+                $locationData->phone = $l['phone'];
+                $locationData->address = $l['address'];
+                $locationData->city = $l['city'];
+                $locationData->state = $l['state'];
+                $locationData->zip = $l['zip'];
+                $locationData->areas = implode(", ", $l['areas']);
+                $locationData->save();
+            }
         }
         if(isset($request->newlocations)){
             foreach ($request->newlocations as $key => $nl) {
@@ -59,6 +72,7 @@ class ContactsController extends Controller
                 $locationData->city = $nl['city'];
                 $locationData->state = $nl['state'];
                 $locationData->zip = $nl['zip'];
+                $locationData->areas = implode(", ", $nl['areas']);
                 $locationData->save();
             }
         }
@@ -71,6 +85,7 @@ class ContactsController extends Controller
         $this->data['states'] = States::get();
         $this->data['companyInfo'] = $this->tenant->companies->find($id);
         $this->data['locationsInfo'] = $this->tenant->companies->find($id)->locations;
+        $this->data['regions'] = $this->tenant->regions;
         
         return response()->json($this->data); 
     }
@@ -162,6 +177,12 @@ class ContactsController extends Controller
         } 
         return response()->json($this->data);
    
+    }
+
+    public function getRegionsAjax()
+    {
+        $this->data['regions'] = $this->tenant->regions;
+        return response()->json($this->data);
     }
     
 }

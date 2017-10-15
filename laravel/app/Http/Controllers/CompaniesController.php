@@ -52,6 +52,7 @@ class CompaniesController extends Controller
                 $locationData->city = $l['city'];
                 $locationData->state = $l['state'];
                 $locationData->zip = $l['zip'];
+                $locationData->areas = implode(", ", $l['areas']);
                 $locationData->save();
             }
         }

@@ -159,6 +159,7 @@ Route::resource('contacts', 'ContactsController', [ 'as' => 'Contacts' ]);
 Route::get('/contacts/persons/{id}/getLocationAjaxEdit', 'ContactsController@getLocationAjaxEdit');
 Route::get('/contacts/persons/getLocationAjax', 'ContactsController@getLocationAjax');
 Route::get('/contacts/person/getCompanyInfoAjax', 'ContactsController@getCompanyAjax');
+Route::get('/contacts/company/getRegions', 'ContactsController@getRegionsAjax');
 Route::resource('contacts/persons', 'PersonsController', [ 'as' => 'Contacts - Persons' ]);
 Route::resource('contacts/companies', 'CompaniesController', [ 'as' => 'Contacts - Companies' ]);
 
