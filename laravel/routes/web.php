@@ -94,6 +94,7 @@ Route::resource('project', 'ProjectController', [ 'as' => 'Projects' ]);
 |--------------------------------------------------------------------------
 */
 
+Route::resource('estimate/archive', 'EstimatingArchiveController', [ 'as' => 'Estimating - Archive' ]);
 
 Route::resource('estimate', 'EstimateController', [ 'as' => 'Estimating' ]);
 
@@ -104,6 +105,7 @@ Route::resource('estimate/{project_id}/notes', 'NotesController', [ 'as' => 'Est
 Route::resource('estimate/{project_id}/mailing', 'NotesMailingController', [ 'as' => 'Estimating - Mailing' ]);
 
 Route::resource('estimate/{project_id}/client', 'AddedClientController', [ 'as' => 'Estimating - Client' ]);
+
 
 
 /*
