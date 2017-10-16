@@ -94,6 +94,9 @@ Route::resource('project', 'ProjectController', [ 'as' => 'Projects' ]);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/estimate/archive/getFromTypeAjax', 'EstimatingArchiveController@getFromTypeAjax');
+
+Route::resource('estimate/archive', 'EstimatingArchiveController', [ 'as' => 'Estimating - Archive' ]);
 
 Route::resource('estimate', 'EstimateController', [ 'as' => 'Estimating' ]);
 
@@ -104,6 +107,7 @@ Route::resource('estimate/{project_id}/notes', 'NotesController', [ 'as' => 'Est
 Route::resource('estimate/{project_id}/mailing', 'NotesMailingController', [ 'as' => 'Estimating - Mailing' ]);
 
 Route::resource('estimate/{project_id}/client', 'AddedClientController', [ 'as' => 'Estimating - Client' ]);
+
 
 
 /*
@@ -118,6 +122,10 @@ Route::resource('estimate/{project_id}/client', 'AddedClientController', [ 'as' 
 //Route::get('drawings/list', 'DrawingsController@List')->name('Drawings - List');
 
 Route::get('lambda/{id}/{filename}/{folder_id}/{project_id}/{file_id}/{page_nb}', 'DrawingsController@lambda');
+
+
+Route::get('makepdf/{s3_1}/{s3_2}/{s3_3}', 'DrawingsController@makepdf');
+
 
 Route::get('lambda_status/{project_id}/{folder_id}/{file_id}', 'DrawingsController@lambda_status');
 
