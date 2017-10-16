@@ -239,13 +239,13 @@ class DrawingsController extends Controller
 	    $proj = new Projects;
 	    
 	    $proj->find($project_id)->folders->find($folder_id)->drawings()->save(new Drawings([
-																																					'drw_upload_id'=>$file_id,
-																																					'drw_discipline_id'=>$page_nb,
-																																					'drawing_name'=>'', 
-																																					'description'=> $longestWord,
-																																					'image_thumb'=> "/split/file-" . $filename .'/' .$filename . $id . '_crop.png',
-																																					'image_org'=> "/split/file-" . $filename .'/' .$filename . $id . '.png']));
-																																					
+																		'drw_upload_id'=>$file_id,
+																		'drw_discipline_id'=>$page_nb,
+																		'drawing_name'=>'', 
+																		'description'=> $longestWord,
+																		'image_thumb'=> "/split/file-" . $filename .'/' .$filename . $id . '_crop.png',
+																		'image_org'=> "/split/file-" . $filename .'/' .$filename . $id . '.png']));
+																		
 	   $proj->find($project_id)->folders->find($folder_id)->uploads->find($file_id)->update(['processed'=>1]); 																																															
     }
 
@@ -266,10 +266,33 @@ class DrawingsController extends Controller
   		 $this->data['drawings'] =  $this->tenant->projects->find($id)->folders->find($folder_id)->drawings->find($drawing_id);
   		 $this->data['project'] =  $this->tenant->projects->find($id);
   		 
+  		 
+  		 
   		 return view('drawings.drawingView', $this->data);
   		
   	}
   	
+  	
+  	public function makepdf($s3_1, $s3_2, $s3_3) {
+  		
+  		$yourPngImage = imagecreatefrompng('http://s3.amazonaws.com/pronovosrubixcube/' . $s3_1 . '/' . $s3_2 . '/' . $s3_3 );
+  		$im = new Imagick();
+  		
+  		ob_start();
+  		imagepng($yourPngImage);
+  		$image_data = ob_get_contents();
+  		ob_end_clean();
+  		
+  		// Get image source data
+  		$im->readimageblob($image_data);
+  		
+  		$im->setImageFormat('pdf');
+  		
+  		header("Content-Type: application/pdf");
+  		echo $im;
+  		
+  		
+  	}
   	
   	
   	public function processFile($id, $folder_id, $file_id) {
