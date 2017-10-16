@@ -267,7 +267,7 @@
 																							<!-- end widget div-->
 																		<div class="modal-footer">
 																			 
-																			 <button type="button" class="btn btn-default" onclick="window.location='{{url('admin/users')}}'">
+																			 <button type="button" class="btn btn-default" onclick="window.location='{{url('contacts')}}'">
 																			 	Cancel
 																			 </button>
 																			<button type="submit" class="btn btn-primary">
