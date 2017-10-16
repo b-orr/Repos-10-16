@@ -90,7 +90,7 @@
                     <!-- widget content -->
                     <div class="widget-body no-padding">
                       <!-- main page content here -->
-                      <table class="table table-striped table-bordered table-hover dt_basic" width="100%">
+                      <table class="table table-striped table-bordered table-hover dt_basic" width="100%" id="archive_table">
                         <thead>
                           <th>Job #</th>
                           <th>Project Name</th>
@@ -133,7 +133,18 @@
                  <label class="btn btn-success pull-right btn-xs" for="collapseMenu" id="collapseName"></label>
               </div>
               <div class="menu-body padding-5">
-               
+                <br><br>
+                <div class="row col-lg-12" style="margin: 0px;">
+                  <h7>Status Type</h7>
+                </div>
+                <div class="row col-lg-12" style="margin: 0px;">
+                  <div class="form-group">
+                    <select class="form-control no-padding" id="statusType">
+                      <option>Award</option>
+                      <option>Archive</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -173,6 +184,79 @@
 					    "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
 					}
 				});
+
+        //ajax call start
+        $('#statusType').on('change', function(){
+          
+        
+          var statusType = $('#statusType').val();
+          //console.log(statusType)
+          
+          
+          $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                  }
+              });
+
+          var table = $("#archive_table tbody"); //#invoiceTable
+
+          $.ajax({
+              type: "GET",
+                  url: "archive/getFromTypeAjax",
+                  data: {
+                    statusType: statusType
+                    //subcategory: sub
+                  }
+              , 
+              success : function(data) {
+                
+                $('#archive_table').DataTable().destroy();
+                
+                table.empty();
+                console.log(data);
+                //var projects = data.projects;
+                for (var m = 0; m < data.length; m++) {
+
+                  
+                  //console.log(data[m].id);
+                  //console.log(data[m]);
+                  
+                  var j = data[m]
+
+                    var htmlstr  = '<tr>';
+                    htmlstr += '    <td>' + j.id + '</td>';
+                    htmlstr += '    <td><a href="' + j.id + '">' + j.name + '</a></td>';
+                    htmlstr += '    <td>' + j.address + '</td>';
+                    htmlstr += '    <td>' + j.city + '</td>';
+                    htmlstr += '    <td>' + j.state + '</td>';
+                    htmlstr += '    <td>' + j.zip + '</td>';
+                    htmlstr += '</tr>';
+
+                table.append(htmlstr);
+                }
+                $('#archive_table').dataTable({
+                  "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+                    "t"+
+                    "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+                  "autoWidth" : true,
+                      "oLanguage": {
+                      "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+                  }
+                });
+                //console.log(htmlstr);
+
+                    
+
+                    
+                    
+                
+                
+
+              }
+        });
+      });
+        //ajax call end
 
       })
 

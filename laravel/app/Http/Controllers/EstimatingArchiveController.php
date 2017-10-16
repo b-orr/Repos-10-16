@@ -20,7 +20,7 @@ class EstimatingArchiveController extends Controller
         $this->middleware(function ($request, $next) {
                 $this->data['tenant'] = $this->tenant= User::findTenant(Auth::user());
                 $this->data['user'] = $this->user= Auth::user();
-                $this->data['projects'] = $this->tenant->projects->where('status', '<>', 'Current')->where('status', '<>', 'Submitted')->where('sttus', '<>', 'Tracking');
+                $this->data['projects'] = $this->tenant->projects->where('status', '<>', 'Current')->where('status', '<>', 'Submitted')->where('status', '<>', 'Tracking')->where('status', '<>', 'Archive');
 
                 return $next($request);
         });
@@ -37,9 +37,9 @@ class EstimatingArchiveController extends Controller
      */
     public function index()
     {
-
         
-        return view('estimate\archive', $this->data);
+        
+        return view('estimate.archive', $this->data);
     }
 
     /**
@@ -106,5 +106,40 @@ class EstimatingArchiveController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getFromTypeAjax() {
+
+
+        $statusType = $_GET['statusType'];
+        
+        if(isset($statusType)) {
+            
+            if($statusType == 'Award') {
+                
+                $pro = $this->tenant->projects->where('status', '<>', 'Current')->where('status', '<>', 'Submitted')->where('status', '<>', 'Tracking')->where('status', '<>' ,'Archive');
+            
+            } else if($statusType == 'Archive') {
+
+                $pro = $this->tenant->projects->where('status', '<>', 'Current')->where('status', '<>', 'Submitted')->where('status', '<>', 'Tracking')->where('status', '<>' ,'Award');
+
+            }
+
+            $projects = array();
+            if (isset($pro)) {
+                
+                foreach ($pro as $key => $value) {
+                    
+                    array_push($projects, $value);
+                    
+                }
+
+            }
+
+        }
+
+        
+        return response()->json($projects); 
+    
     }
 }

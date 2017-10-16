@@ -94,6 +94,8 @@ Route::resource('project', 'ProjectController', [ 'as' => 'Projects' ]);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/estimate/archive/getFromTypeAjax', 'EstimatingArchiveController@getFromTypeAjax');
+
 Route::resource('estimate/archive', 'EstimatingArchiveController', [ 'as' => 'Estimating - Archive' ]);
 
 Route::resource('estimate', 'EstimateController', [ 'as' => 'Estimating' ]);
