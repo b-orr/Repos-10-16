@@ -123,6 +123,10 @@ Route::resource('estimate/{project_id}/client', 'AddedClientController', [ 'as' 
 
 Route::get('lambda/{id}/{filename}/{folder_id}/{project_id}/{file_id}/{page_nb}', 'DrawingsController@lambda');
 
+
+Route::get('makepdf/{s3_1}/{s3_2}/{s3_3}', 'DrawingsController@makepdf');
+
+
 Route::get('lambda_status/{project_id}/{folder_id}/{file_id}', 'DrawingsController@lambda_status');
 
 Route::post('project/{project_id}/folders/{folder_id}/saveFile', 'UploadsController@saveToDB');

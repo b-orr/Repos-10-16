@@ -29,7 +29,7 @@ class Signature
 
         // If the file should be private/public-read/public-write.
         // This is file specific, not bucket. More info: http://amzn.to/1SSOgwO
-        'acl' => 'private',
+        'acl' => 'public-read',
 
         // The file's name on s3, can be set with JS by changing the input[name="key"].
         // ${filename} will just mean the original filename of the file being uploaded.
